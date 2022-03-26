@@ -1,0 +1,31 @@
+* {
+    display: grid;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+}
+
+title {
+    display: none;
+}
+
+div {
+    justify-content: center;
+}
+
+.topLogo {
+    height: 30px;
+}
+
+.fullLogo {
+    height: 100px;
+}
+
+.appName {
+    width: 200px;
+}
+
+/* #welcome {
+    grid-template-rows: 1fr 1fr 1fr;
+} */
