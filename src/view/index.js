@@ -1,9 +1,11 @@
-import viewHome from './home.js';
-import viewLogin from './login.js';
+import Home from './home.js';
+import Login from './login.js';
+import Perfil from './perfil.js';
 
 const components = {
-  home: viewHome,
-  login: viewLogin,
+  home: Home,
+  login: Login,
+  perfil: Perfil,
 };
 
 export { components };
