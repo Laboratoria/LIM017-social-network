@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    font-family: Lato, "Helvetica Neue",;
+}
+
+img {
+    display:flex;
+    flex-direction:column;
+    justify-items: center;
+    align-items: center;
+}
+
+img:first-child {
+    width: 342px;
+    height: 256px;
+}
+
+img:nth-child(2) {
+    width: 350px;
+    height: 220px;
+}
