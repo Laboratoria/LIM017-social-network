@@ -3,6 +3,11 @@ import { onNavigate } from '../main.js';
 
 export const bienvenida = () => {
   const bienvenidaDiv = document.createElement('div');
+  const list = `
+<div class="img">
+<img src="DuckyPets.png" alt="">
+</div>`;
+  bienvenidaDiv.insertAdjacentHTML('beforeend', list);
   const buttonRegister = document.createElement('button');
   const buttonLogin = document.createElement('button');
 
