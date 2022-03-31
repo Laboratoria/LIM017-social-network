@@ -10,24 +10,39 @@ export const MainLogin = () => {
   mainLoginDiv.append(loginH2, loginMsg);
 
   const inputContainer = document.createElement('div');
+  const emailText = document.createElement('label');
+  emailText.textContent = 'Correo Electrónico:';
   const emailInput = document.createElement('input');
-  emailInput.placeholder = 'correo electrónico';
+  emailInput.placeholder = 'ejemplo@email.com';
+  inputContainer.append(emailText, emailInput);
+
+  const passwordText = document.createElement('label');
+  passwordText.textContent = 'Contraseña:';
   const passwordInput = document.createElement('input');
-  passwordInput.placeholder = 'contraseña';
+  passwordInput.placeholder = ' xxxxxx ';
+  inputContainer.append(passwordText, passwordInput);
+
   const forgotPassword = document.createElement('a');
   forgotPassword.textContent = '¿Olvidaste tu contraseña?';
   forgotPassword.href = '/ForgotPasword';
+
   const loginBtn = document.createElement('button');
   loginBtn.textContent = 'Iniciar sesión';
-  inputContainer.append(emailInput, passwordInput, loginBtn, forgotPassword);
+  inputContainer.append(loginBtn, forgotPassword);
+
   const otherBtnContainer = document.createElement('div');
+
   const googleBtn = document.createElement('button');
   googleBtn.textContent = 'Ingresar con Google';
+
   const fbButton = document.createElement('button');
   fbButton.textContent = 'Ingresar con Facebook';
+
   const registerLink = document.createElement('div');
+
   const noAccount = document.createElement('p');
   noAccount.textContent = '¿No tienes cuenta?';
+
   const noAccountRegister = document.createElement('a');
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
