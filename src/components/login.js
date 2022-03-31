@@ -28,20 +28,23 @@ export const login = () => {
   buttonEmailLogin.textContent = 'Iniciar Sesion con Email';
   buttonEmailLogin.setAttribute('id', 'btnEmailLogin');
 
+  buttonEmailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
+
   bienvenidaDiv.appendChild(buttonGmailLogin);
   bienvenidaDiv.appendChild(buttonFacebookLogin);
   bienvenidaDiv.appendChild(buttonEmailLogin);
-
-  const forgotPassword = document.createElement('p');
+  const forgotPassword = document.createElement('a');
   forgotPassword.textContent = '¿Olvidaste tu contraseña?';
+  forgotPassword.href = '/ForgotPasword';
   bienvenidaDiv.appendChild(forgotPassword);
 
   // No tienes cuenta
   const noAccount = document.createElement('p');
   noAccount.textContent = '¿No tienes cuenta?';
   bienvenidaDiv.appendChild(noAccount);
-  const noAccountRegister = document.createElement('p');
+  const noAccountRegister = document.createElement('a');
   noAccountRegister.textContent = 'Registrate';
+  noAccountRegister.href = '/Register';
   noAccountRegister.setAttribute('id', 'btnRegistrarse');
   bienvenidaDiv.appendChild(noAccountRegister);
 

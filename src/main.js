@@ -1,19 +1,18 @@
 /* eslint-disable import/no-cycle */
-import { bienvenida } from './components/bienvenida.js';
-import { register } from './components/register.js';
-import { login } from './components/login.js';
-
-import { forgotPassword } from './components/forgot.js';
-import { MainLogin } from './components/main-login.js';
+import { bienvenida } from './components/Bienvenida.js';
+import { register } from './components/Register.js';
+import { login } from './components/Login.js';
+import { ForgotPassword } from './components/ForgotPassword.js';
+import { MainLogin } from './components/MainLogin.js';
 
 const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': bienvenida,
-  '/register': register,
-  '/login': login,
-  '/forgot': forgotPassword,
-  '/main-login': MainLogin,
+  '/Register': register,
+  '/Login': login,
+  '/ForgotPasword': ForgotPassword,
+  '/MainLogin': MainLogin,
 
 };
 
@@ -26,7 +25,6 @@ export const onNavigate = (pathname) => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
-
   rootDiv.appendChild(routes[pathname]());
 };
 

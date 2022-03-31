@@ -16,6 +16,8 @@ export const MainLogin = () => {
   const passwordInput = document.createElement('input');
   passwordInput.placeholder = 'contraseña';
   const forgotPassword = document.createElement('a');
+  forgotPassword.textContent = '¿Olvidaste tu contraseña?';
+  forgotPassword.href = '/ForgotPasword';
   const loginBtn = document.createElement('button');
   loginBtn.textContent = 'Iniciar sesión';
   inputContainer.append(emailInput, passwordInput, loginBtn, forgotPassword);
@@ -24,8 +26,15 @@ export const MainLogin = () => {
   googleBtn.textContent = 'Ingresar con Google';
   const fbButton = document.createElement('button');
   fbButton.textContent = 'Ingresar con Facebook';
+  const registerLink = document.createElement('div');
+  const noAccount = document.createElement('p');
+  noAccount.textContent = '¿No tienes cuenta?';
+  const noAccountRegister = document.createElement('a');
+  noAccountRegister.textContent = 'Registrate';
+  noAccountRegister.href = '/Register';
+  registerLink.append(noAccount, noAccountRegister);
   otherBtnContainer.append(googleBtn, fbButton);
-  mainLoginDiv.append(inputContainer, otherBtnContainer);
+  mainLoginDiv.append(inputContainer, otherBtnContainer, registerLink);
 
   const buttonBienvenida = document.createElement('button');
   buttonBienvenida.textContent = 'Regresar al inicio';

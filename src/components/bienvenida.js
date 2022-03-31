@@ -21,8 +21,8 @@ export const bienvenida = () => {
   buttonRegister.textContent = 'Registrate';
   buttonLogin.textContent = 'Iniciar Sesion';
 
-  buttonRegister.addEventListener('click', () => onNavigate('/register'));
-  buttonLogin.addEventListener('click', () => onNavigate('/login'));
+  buttonRegister.addEventListener('click', () => onNavigate('/Register'));
+  buttonLogin.addEventListener('click', () => onNavigate('/Login'));
 
   bienvenidaDiv.appendChild(buttonRegister);
   bienvenidaDiv.appendChild(buttonLogin);
