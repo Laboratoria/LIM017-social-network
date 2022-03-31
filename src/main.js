@@ -2,6 +2,8 @@
 import { bienvenida } from './components/bienvenida.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
+// Jamm
+import { forgotPassword } from './components/forgot.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -9,6 +11,8 @@ const routes = {
   '/': bienvenida,
   '/register': register,
   '/login': login,
+  // Jamm
+  '/forgot': forgotPassword,
 };
 
 export const onNavigate = (pathname) => {
