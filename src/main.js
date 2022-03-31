@@ -2,6 +2,7 @@
 import { bienvenida } from './components/bienvenida.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
+import { MainLogin } from './components/main-login.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -9,6 +10,7 @@ const routes = {
   '/': bienvenida,
   '/register': register,
   '/login': login,
+  '/main-login': MainLogin,
 };
 
 export const onNavigate = (pathname) => {
