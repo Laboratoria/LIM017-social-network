@@ -1,6 +1,3 @@
-/* eslint-disable import/no-cycle */
-// import { onNavigate } from '../main.js';
-
 export const ForgotPassword = () => {
   const forgotDiv = document.createElement('div');
   const titleForgot = document.createElement('h2');
@@ -11,7 +8,6 @@ export const ForgotPassword = () => {
   inputForgotPassword.placeholder = 'correo electrónico';
   const buttonForgotPassword = document.createElement('button');
   buttonForgotPassword.textContent = 'Recuperar contraseña';
-  // buttonForgotPassword.addEventListener('click', () => onNavigate('/ForgotPassword'));
 
   forgotDiv.append(titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword);
   return forgotDiv;

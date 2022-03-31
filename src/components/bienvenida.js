@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 export const bienvenida = () => {
