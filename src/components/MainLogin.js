@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 // using Pascal Case for declaring components as a good convention
