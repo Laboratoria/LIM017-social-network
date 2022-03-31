@@ -8,7 +8,7 @@ export const register = () => {
   const buttonGmailRegister = document.createElement('button');
   buttonGmailRegister.setAttribute('id', 'btnGmailLogin');
   buttonGmailRegister.textContent = 'Registrarse con Gmail';
-
+  bienvenidaDiv.appendChild(buttonGmailRegister);
   const yesAccount = document.createElement('p');
   yesAccount.textContent = '¿Ya tienes cuenta?';
   bienvenidaDiv.appendChild(yesAccount);
