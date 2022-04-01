@@ -1,14 +1,14 @@
 /* eslint-disable import/no-cycle */
-import { bienvenida } from './Bienvenida.js';
-import { register } from './Register.js';
-import { login } from './Login.js';
+import { LandingView } from './LandingPage.js';
+import { SignUp } from './Register.js';
+import { Login } from './Login.js';
 import { ForgotPassword } from './ForgotPassword.js';
 import { MainLogin } from './MainLogin.js';
 
 const routes = {
-  '/': bienvenida,
-  '/Register': register,
-  '/Login': login,
+  '/': LandingView,
+  '/Register': SignUp,
+  '/Login': Login,
   '/ForgotPasword': ForgotPassword,
   '/MainLogin': MainLogin,
 
