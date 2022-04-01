@@ -1,30 +1,28 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
-export const bienvenida = () => {
-  const bienvenidaDiv = document.createElement('div');
+export const LandingView = () => {
+  const landingDiv = document.createElement('div');
   const imagenLogo = `
     <div class="img" id="logoDuckyPets">
       <img id="logo" src="imagenes/DuckyPets.png" alt="">
       <img id="imgBienvenida" src="imagenes/married-couple-with-dog.jpg" alt="">
     </div>`;
-  bienvenidaDiv.insertAdjacentHTML('beforeend', imagenLogo);
+  landingDiv.insertAdjacentHTML('beforeend', imagenLogo);
 
   // Botones de acceso
 
   const buttonRegister = document.createElement('button');
   buttonRegister.setAttribute('id', 'btnRegister');
+  buttonRegister.textContent = 'Registrate';
+  buttonRegister.addEventListener('click', () => onNavigate('/Register'));
 
   const buttonLogin = document.createElement('button');
   buttonLogin.setAttribute('id', 'btnLogin');
-
-  buttonRegister.textContent = 'Registrate';
   buttonLogin.textContent = 'Iniciar Sesion';
-
-  buttonRegister.addEventListener('click', () => onNavigate('/Register'));
   buttonLogin.addEventListener('click', () => onNavigate('/Login'));
 
-  bienvenidaDiv.appendChild(buttonRegister);
-  bienvenidaDiv.appendChild(buttonLogin);
+  landingDiv.append(buttonRegister, buttonLogin);
 
-  return bienvenidaDiv;
+  return landingDiv;
 };

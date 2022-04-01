@@ -1,4 +1,4 @@
-export const registerByEmail = () => {
+export const RegisterByEmail = () => {
   const bienvenidaDiv = document.createElement('div');
   bienvenidaDiv.textContent = 'Registrarse por correo';
 
