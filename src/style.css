@@ -3,19 +3,55 @@
     font-family: Lato, "Helvetica Neue",;
 }
 
-img {
-    display:flex;
-    flex-direction:column;
-    justify-items: center;
-    align-items: center;
+.landing-Div{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 150px 10px 250px 60px 60px;
+    gap: 1%;
 }
-
-img:first-child {
-    width: 342px;
-    height: 256px;
+#logo{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    width: 45%;
+    height: 100%;
+    padding-top: 40px;
+    margin: auto;
+    padding-left: 30px;
 }
+#imgBienvenida{
+    grid-column: 2/3;
+    grid-row: 2/4;
+    height: 100%;
+    width: 70%;
+    margin: auto;
+}
+#btnRegister{
+    grid-column: 2/3;
+    grid-row: 5;
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    border-radius: 12px;
+    font-size: 18px;
+    background: #B5e5ff;
+    border: none;
+    box-shadow: 4px 4px 8px #d9c3a7;
+}
+#btnLogin{
+    grid-column: 2/3;
+    grid-row: 4;
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    font-size: 18px;
+    border-radius: 12px;
+    background: #F7A12F;
+    border: none;
+    box-shadow: 4px 4px 8px #d9c3a7;
+}
+.button-fb{
 
-img:nth-child(2) {
-    width: 350px;
-    height: 220px;
+}
+.button-mail{
+    
 }

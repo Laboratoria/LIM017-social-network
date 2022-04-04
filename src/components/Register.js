@@ -11,6 +11,7 @@ export const SignUp = () => {
 
   // container botones registro
   const signUpButtons = document.createElement('div');
+  signUpButtons.setAttribute('class', 'BoxTypeLogin');
 
   // via gmail
   const gmailSignUp = document.createElement('button');
@@ -20,11 +21,13 @@ export const SignUp = () => {
   // via facebook
   const fbSignUp = document.createElement('button');
   fbSignUp.setAttribute('id', 'fb-signup');
+  fbSignUp.setAttribute('class', 'button-fb');
   fbSignUp.textContent = 'Registrarse con Facebook';
 
   // via correo
   const mailSignUp = document.createElement('button');
   mailSignUp.setAttribute('id', 'mail-signup');
+  mailSignUp.setAttribute('class', 'button-mail');
   mailSignUp.textContent = 'Registrarse con correo';
   mailSignUp.addEventListener('click', () => onNavigate('/MainLogin'));
 

@@ -13,6 +13,7 @@ export const Login = () => {
 
   // container botones ingreso
   const loginButtons = document.createElement('div');
+  loginButtons.setAttribute('class', 'BoxTypeLogin');
 
   // via gmail
   const gmailLogin = document.createElement('button');
@@ -44,11 +45,13 @@ export const Login = () => {
   // via facebook
   const fbLogin = document.createElement('button');
   fbLogin.setAttribute('id', 'fb-login');
+  fbLogin.setAttribute('class', 'button-fb');
   fbLogin.textContent = 'Ingresar con Facebook';
 
   // via correo
   const mailLogin = document.createElement('button');
   mailLogin.setAttribute('id', 'mail-login');
+  mailLogin.setAttribute('class', 'button-mail');
   mailLogin.textContent = 'Ingresar con correo';
   mailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
 
