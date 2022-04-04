@@ -4,4 +4,4 @@ coverage/
 node_modules/
 .yarn.lock
 package-lock.json
-/lib/index.js
+./Firebase/config.js

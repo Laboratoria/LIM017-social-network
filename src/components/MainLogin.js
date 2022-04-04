@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
+// login x correo
 // using Pascal Case for declaring components as a good convention
 export const MainLogin = () => {
   const mainLoginDiv = document.createElement('div');
