@@ -1,56 +1,54 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
+import { createElements } from '../util.js';
 
 // login x correo
 // using Pascal Case for declaring components as a good convention
 export const MainLogin = () => {
   const mainLoginDiv = document.createElement('div');
-  const loginH2 = document.createElement('h2');
-  loginH2.textContent = 'Login';
-  const loginMsg = document.createElement('p');
+  mainLoginDiv.id = 'main-div';
+  const [logo, mainImg] = createElements('img', 'img');
+  logo.src = 'imagenes/DuckyPets.png';
+  mainImg.src = 'imagenes/married-couple-with-dog.jpg';
+  const loginMsg = document.createElement('h3');
   loginMsg.textContent = 'Ingresa a tu cuenta';
-  mainLoginDiv.append(loginH2, loginMsg);
+  mainLoginDiv.append(logo, mainImg, loginMsg);
 
   const inputContainer = document.createElement('div');
-  const emailText = document.createElement('label');
+  const [emailText, emailInput] = createElements('label', 'input');
   emailText.textContent = 'Correo Electrónico:';
-  const emailInput = document.createElement('input');
   emailInput.placeholder = 'ejemplo@email.com';
   inputContainer.append(emailText, emailInput);
 
-  const passwordText = document.createElement('label');
+  const [passwordText, passwordInput] = createElements('label', 'input');
   passwordText.textContent = 'Contraseña:';
-  const passwordInput = document.createElement('input');
   passwordInput.placeholder = ' xxxxxx ';
   inputContainer.append(passwordText, passwordInput);
 
-  const forgotPassword = document.createElement('a');
-  forgotPassword.textContent = '¿Olvidaste tu contraseña?';
-  forgotPassword.href = '/ForgotPasword';
-
-  const loginBtn = document.createElement('button');
+  const [loginBtn, resetPassword] = createElements('button', 'a');
   loginBtn.textContent = 'Iniciar sesión';
-  inputContainer.append(loginBtn, forgotPassword);
+
+  resetPassword.textContent = '¿Olvidaste tu contraseña?';
+  resetPassword.href = '/ForgotPasword';
+
+  inputContainer.append(loginBtn, resetPassword);
 
   const otherBtnContainer = document.createElement('div');
 
-  const googleBtn = document.createElement('button');
+  const [googleBtn, fbButton] = createElements('button', 'button');
   googleBtn.textContent = 'Ingresar con Google';
-
-  const fbButton = document.createElement('button');
   fbButton.textContent = 'Ingresar con Facebook';
 
-  const registerLink = document.createElement('div');
+  const registerContainer = document.createElement('div');
 
-  const noAccount = document.createElement('p');
+  const [noAccount, noAccountRegister] = createElements('p', 'a');
   noAccount.textContent = '¿No tienes cuenta?';
 
-  const noAccountRegister = document.createElement('a');
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
-  registerLink.append(noAccount, noAccountRegister);
+  registerContainer.append(noAccount, noAccountRegister);
   otherBtnContainer.append(googleBtn, fbButton);
-  mainLoginDiv.append(inputContainer, otherBtnContainer, registerLink);
+  mainLoginDiv.append(inputContainer, otherBtnContainer, registerContainer);
 
   const buttonBienvenida = document.createElement('button');
   buttonBienvenida.textContent = 'Regresar al inicio';
