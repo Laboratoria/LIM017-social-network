@@ -1,5 +1,7 @@
 /* eslint-disable import/no-cycle */
+import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { onNavigate } from '../main.js';
+import { auth, provider } from '../Firebase/init.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
@@ -16,6 +18,28 @@ export const Login = () => {
   const gmailLogin = document.createElement('button');
   gmailLogin.setAttribute('id', 'gmail-login');
   gmailLogin.textContent = 'Ingresar con Gmail';
+  gmailLogin.addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log('Me loggie');
+
+        // const token = credential.accessToken;
+        // // The signed-in user info.
+        // const user = result.user;
+        // // ...
+      }); // catch((error) => {
+    //   // Handle Errors here.
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   // The email of the user's account used.
+    //   const email = error.email;
+    //   // The AuthCredential type that was used.
+    //   const credential = GoogleAuthProvider.credentialFromError(error);
+    //   // ...
+    // });
+  });
 
   // via facebook
   const fbLogin = document.createElement('button');
