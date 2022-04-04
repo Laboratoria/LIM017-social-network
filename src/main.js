@@ -1,5 +1,4 @@
 import { routes } from './components/Router.js';
-import  './lib/index.js';
 
 const rootDiv = document.getElementById('root');
 
