@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 
 import {
-getFirestore, collection, addDoc, getDocs,
+  getFirestore, collection, addDoc, getDocs,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';

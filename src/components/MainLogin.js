@@ -6,30 +6,28 @@ import { createElements } from '../util.js';
 // using Pascal Case for declaring components as a good convention
 export const MainLogin = () => {
   const mainLoginDiv = document.createElement('div');
-  mainLoginDiv.id = 'main-login-div';
-  const [logo, mainImg] = createElements('img', 'img');
+
+  mainLoginDiv.id = 'main-div';
+  const [imgContainer, logo, mainImg] = createElements('div', 'img', 'img');
+
   logo.src = 'imagenes/DuckyPets.png';
   logo.id = 'img-logo';
   mainImg.src = 'imagenes/married-couple-with-dog.jpg';
-  mainImg.id = 'img-main';
-  const mainLoginTitles = document.createElement('h2');
-  mainLoginTitles.setAttribute('class', 'h2-titles');
-  mainLoginTitles.setAttribute('id', 'h2-title-mainLogin');
-  mainLoginTitles.textContent = 'Login';
-  const loginMsg = document.createElement('h4');
-  loginMsg.textContent = 'Ingresa a tu cuenta';
-  mainLoginDiv.append(mainLoginTitles, logo, mainImg, loginMsg);
+
+  imgContainer.append(logo, mainImg);
+  mainLoginDiv.appendChild(imgContainer);
 
   const inputContainer = document.createElement('div');
-  inputContainer.id = 'div-input-container';
-  const [emailText, emailInput] = createElements('label', 'input');
+  const [loginMsg, emailText, emailInput] = createElements('h3', 'label', 'input');
+  loginMsg.textContent = 'Ingresa a tu cuenta';
+
   emailText.textContent = 'Correo Electrónico:';
   emailInput.placeholder = 'ejemplo@email.com';
-  inputContainer.append(emailText, emailInput);
+  inputContainer.append(loginMsg, emailText, emailInput);
 
   const [passwordText, passwordInput] = createElements('label', 'input');
   passwordText.textContent = 'Contraseña:';
-  passwordInput.placeholder = ' xxxxxx ';
+  passwordInput.placeholder = 'cont*******';
   inputContainer.append(passwordText, passwordInput);
 
   const [loginBtn, resetPassword] = createElements('button', 'a');
