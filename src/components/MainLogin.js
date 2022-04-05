@@ -7,22 +7,22 @@ import { createElements } from '../util.js';
 export const MainLogin = () => {
   const mainLoginDiv = document.createElement('div');
   mainLoginDiv.id = 'main-div';
-  const [logo, mainImg] = createElements('img', 'img');
+  const [imgContainer, logo, mainImg] = createElements('div', 'img', 'img');
   logo.src = 'imagenes/DuckyPets.png';
   mainImg.src = 'imagenes/married-couple-with-dog.jpg';
-  const loginMsg = document.createElement('h3');
-  loginMsg.textContent = 'Ingresa a tu cuenta';
-  mainLoginDiv.append(logo, mainImg, loginMsg);
+  imgContainer.append(logo, mainImg);
+  mainLoginDiv.appendChild(imgContainer);
 
   const inputContainer = document.createElement('div');
-  const [emailText, emailInput] = createElements('label', 'input');
+  const [loginMsg, emailText, emailInput] = createElements('h3', 'label', 'input');
+  loginMsg.textContent = 'Ingresa a tu cuenta';
   emailText.textContent = 'Correo Electrónico:';
   emailInput.placeholder = 'ejemplo@email.com';
-  inputContainer.append(emailText, emailInput);
+  inputContainer.append(loginMsg, emailText, emailInput);
 
   const [passwordText, passwordInput] = createElements('label', 'input');
   passwordText.textContent = 'Contraseña:';
-  passwordInput.placeholder = ' xxxxxx ';
+  passwordInput.placeholder = 'cont*******';
   inputContainer.append(passwordText, passwordInput);
 
   const [loginBtn, resetPassword] = createElements('button', 'a');

@@ -1,29 +1,26 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
+import { createElements } from '../util.js';
+
 // registro
 export const SignUp = () => {
-  const registerDiv = document.createElement('div');
-  const registerH2 = document.createElement('h2');
+  const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
   registerH2.textContent = 'Registrarse';
-  const logo = document.createElement('img');
   logo.src = 'imagenes/DuckyPets.png';
-  registerDiv.append(logo, registerH2);
+  mainImg.src = 'imagenes/married-couple-with-dog.jpg';
+  registerDiv.append(logo, mainImg, registerH2);
 
   // container botones registro
-  const signUpButtons = document.createElement('div');
-
+  const [signUpButtons, gmailSignUp, fbSignUp, mailSignUp] = createElements('div', 'button', 'button', 'button');
   // via gmail
-  const gmailSignUp = document.createElement('button');
   gmailSignUp.setAttribute('id', 'gmail-signup');
   gmailSignUp.textContent = 'Registrarse con Gmail';
 
   // via facebook
-  const fbSignUp = document.createElement('button');
   fbSignUp.setAttribute('id', 'fb-signup');
   fbSignUp.textContent = 'Registrarse con Facebook';
 
   // via correo
-  const mailSignUp = document.createElement('button');
   mailSignUp.setAttribute('id', 'mail-signup');
   mailSignUp.textContent = 'Registrarse con correo';
   mailSignUp.addEventListener('click', () => onNavigate('/MainLogin'));
@@ -33,9 +30,8 @@ export const SignUp = () => {
   registerDiv.append(signUpButtons);
 
   // cuenta existente
-  const yesAccount = document.createElement('p');
+  const [yesAccount, betterLogin] = createElements('p', 'a');
   yesAccount.textContent = '¿Ya tienes cuenta?';
-  const betterLogin = document.createElement('a');
   betterLogin.textContent = 'Ingresa';
   betterLogin.href = '/Login';
   registerDiv.append(yesAccount, betterLogin);

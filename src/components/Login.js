@@ -2,20 +2,20 @@
 import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { auth, provider } from '../Firebase/init.js';
+import { createElements } from '../util.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
-  const logo = document.createElement('img');
+  const [logo, mainImg, textLogin] = createElements('img', 'img', 'h2');
   logo.src = 'imagenes/DuckyPets.png';
-  const textLogin = document.createElement('h2');
+  mainImg.src = 'imagenes/married-couple-with-dog.jpg';
   textLogin.textContent = 'Iniciar Sesion';
-  loginDiv.append(logo, textLogin);
+  loginDiv.append(logo, mainImg, textLogin);
 
-  // container botones ingreso
-  const loginButtons = document.createElement('div');
+  // container botones ingreso, botones
+  const [loginButtons, gmailLogin, fbLogin, mailLogin] = createElements('div', 'button', 'button', 'button');
 
   // via gmail
-  const gmailLogin = document.createElement('button');
   gmailLogin.setAttribute('id', 'gmail-login');
   gmailLogin.textContent = 'Ingresar con Gmail';
   gmailLogin.addEventListener('click', () => {
@@ -42,12 +42,10 @@ export const Login = () => {
   });
 
   // via facebook
-  const fbLogin = document.createElement('button');
   fbLogin.setAttribute('id', 'fb-login');
   fbLogin.textContent = 'Ingresar con Facebook';
 
   // via correo
-  const mailLogin = document.createElement('button');
   mailLogin.setAttribute('id', 'mail-login');
   mailLogin.textContent = 'Ingresar con correo';
   mailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
@@ -56,15 +54,14 @@ export const Login = () => {
   loginButtons.append(gmailLogin, fbLogin, mailLogin);
   loginDiv.appendChild(loginButtons);
 
-  const forgotPassword = document.createElement('a');
-  forgotPassword.textContent = '¿Olvidaste tu contraseña?';
-  forgotPassword.href = '/ForgotPasword';
-  loginDiv.appendChild(forgotPassword);
+  const resetPassword = document.createElement('a');
+  resetPassword.textContent = '¿Olvidaste tu contraseña?';
+  resetPassword.href = '/ForgotPasword';
+  loginDiv.appendChild(resetPassword);
 
   // No tienes cuenta
-  const noAccount = document.createElement('p');
+  const [noAccount, noAccountRegister] = createElements('p', 'a');
   noAccount.textContent = '¿No tienes cuenta?';
-  const noAccountRegister = document.createElement('a');
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   loginDiv.append(noAccount, noAccountRegister);

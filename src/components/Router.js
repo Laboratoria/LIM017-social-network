@@ -2,14 +2,14 @@
 import { LandingView } from './LandingPage.js';
 import { SignUp } from './Register.js';
 import { Login } from './Login.js';
-import { ForgotPassword } from './ForgotPassword.js';
+import { ResetPassword } from './ForgotPassword.js';
 import { MainLogin } from './MainLogin.js';
 
 const routes = {
   '/': LandingView,
   '/Register': SignUp,
   '/Login': Login,
-  '/ForgotPasword': ForgotPassword,
+  '/ForgotPasword': ResetPassword,
   '/MainLogin': MainLogin,
 
 };
