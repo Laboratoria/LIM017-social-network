@@ -1,3 +1,4 @@
+
 import { createElements } from '../util.js';
 
 export const ResetPassword = () => {
@@ -5,6 +6,7 @@ export const ResetPassword = () => {
   titleForgot.textContent = '¿Olvidaste tu contraseña?';
   textTitleForgot.textContent = 'Recupera tu contraseña con tu correo electrónico';
   inputForgotPassword.placeholder = 'correo electrónico';
+
   buttonForgotPassword.textContent = 'Recuperar contraseña';
 
   forgotDiv.append(titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword);

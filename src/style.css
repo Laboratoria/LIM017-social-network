@@ -2,20 +2,262 @@
     margin: 0;
     font-family: Lato, "Helvetica Neue",;
 }
-
-img {
-    display:flex;
-    flex-direction:column;
-    justify-items: center;
-    align-items: center;
+.landing-Div{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 150px 10px 250px 80px 80px;
+    gap: 1%;
 }
-
-img:first-child {
-    width: 342px;
-    height: 256px;
+.logo{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    width: 45%;
+    height: 100%;
+    padding-top: 40px;
+    margin: auto;
+    padding-left: 30px;
 }
-
-img:nth-child(2) {
-    width: 350px;
-    height: 220px;
+.imgBienvenida{
+    grid-column: 2/3;
+    grid-row: 2/4;
+    height: 100%;
+    width: 70%;
+    margin: auto;
 }
+#btnRegister, #btnLogin {
+    width: 70%;
+    height: 50px;
+    margin: auto;
+    border-radius: 12px;
+    font-size: 18px;
+    border: none;
+}
+#btnRegister{
+    grid-column: 1/4;
+    grid-row: 5;
+    background: #B5e5ff;
+    box-shadow: 4px 4px 8px #d9c3a7;
+}
+#btnLogin{
+    grid-column: 1/4;
+    grid-row: 4;
+    background: #F7A12F;
+    box-shadow: 4px 4px 8px #d9c3a7;
+}
+/* Landing.js y register.js, comparten la misma estructura*/
+/* Por ello a la mayoria les di estilo en base a sus clases */
+#login-div{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-rows: 150px 10px 250px 30px 3fr 40px 40px 40px 1fr;
+    gap: 20px;
+}
+h2{
+    grid-column: 2/3;
+    grid-row: 4;
+    font-size: 15px;
+    text-align: center;
+    margin: auto;
+    font-size: 25px;
+    font-weight: bolder;
+}
+/* Botones gmail, fb, correo */
+.BoxTypeLogin{
+    grid-column: 1/4;
+    grid-row: 5;
+    display: grid;
+    grid-template-rows: 80px 80px 80px;
+}
+.button-gmail, .button-fb, .button-mail {
+    width: 70%;
+    height: 80%;
+    font-size: 15px;
+    margin: auto;
+    border-radius: 15px;
+    border: none;
+}
+.button-gmail{
+    background: #ffdfb5;
+}
+.button-fb{
+    background: #B5e5ff;
+}
+.button-mail{
+    background: #d9c3a7;
+}
+#a-Login, #p-no-account, #a-no-account-register{
+    grid-column: 2/3;
+    margin: auto;
+    font-size: 15px;
+}
+#a-Login{
+    grid-row:6;
+}
+#p-no-account{
+    grid-row: 7;
+}
+#a-no-account-register{
+    grid-row: 8;
+}
+#button-LoginGoLanding{
+    grid-row: 9;
+}
+/* register.js */
+#div-register{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 150px 10px 250px 30px 3fr 40px 40px 1fr;
+    gap: 20px;
+}
+#p-yes-account, #a-betterLogin {
+    grid-column: 2/3;
+    margin: auto;
+}
+#p-yes-account{
+    grid-row: 6;
+}
+#a-betterLogin{
+    grid-row: 7;
+}
+#btn-goLanding{
+    grid-row: 8;
+}
+.button-goLanding{
+    grid-column: 2/3;
+    margin: auto;
+    border: none;
+    width: 70%;
+    height: 70%;
+    font-size: 15px;
+    border-radius: 8px;
+    background: #f7a12f;
+}
+/* Elemeto comun para div-forgot main-div div-register-By-Email */
+.h2-titles{
+    grid-column: 1/3;
+    grid-row: 1;
+    font-size: 30px;
+    color: #5b93b3;
+}
+/* ForgotPassword.js */
+#div-forgot{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+h3{
+    grid-column: 2/3;
+    grid-row: 2;
+}
+#input-password{
+    border: cadetblue;
+    grid-column: 1/4;
+    grid-row: 3;
+    width: 80%;
+    height: 80%;
+    background: beige;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+#button-password{
+    grid-column: 1/4;
+    grid-row: 4;
+    width: 80%;
+    height: 50px;
+    margin: auto;
+    font-size: 15px;
+    border-radius: 12px;
+    border: none;
+    background: beige;
+}
+/* MainLogin.js */
+#main-login-div{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 50px 150px 10px 250px 50px 1fr 1fr 1fr;
+    gap: 20px;
+}
+#h2-title-mainLogin{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    font-size: 50px;
+    color: #5b93b3;
+    margin-top: 20%;
+}
+#img-logo{
+    grid-column: 2/3;
+    grid-row: 2/4;
+    width: 45%;
+    height: 100%;
+    padding-top: 40px;
+    margin: auto;
+    padding-left: 30px;
+}
+#img-main{
+    grid-column: 2/3;
+    grid-row: 3/5;
+    height: 100%;
+    width: 70%;
+    margin: auto;
+}
+h4{
+    grid-column: 2/3;
+    grid-row: 5;
+    font-size: 20px;
+    margin: auto;
+}
+#div-input-container{
+    display: grid;
+    grid-column: 1/4;
+    grid-row: 6;
+    grid-template-rows: 20px 50px 20px 50px 50px 20px;
+    gap: 10px;
+}
+#div-input-container label{
+    font-size: 15px;
+    padding-left: 5%;
+}
+#div-input-container input{
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 8px;
+    border: inset;
+}
+#div-input-container button{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    border-radius: 10px;
+    border: none;
+    background: rgb(89, 89, 194);
+}
+#div-input-container a{
+    text-align: center;
+}
+#div-other-btn-container{
+    display: grid;
+    grid-column: 1/4;
+    grid-row: 7;
+}
+#button-go-Back{
+    width: 50%;
+    height: 70%;
+    margin: auto;
+    border-radius: 15px;
+    border: none;
+    background: chocolate;
+}
+#div-register-container{
+    grid-column: 2/3;
+    grid-row: 8;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* registeremail.js */
+/* #div-Register-By-Email{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+} */

@@ -6,6 +6,7 @@ import { createElements } from '../util.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
+
   const [logo, mainImg, textLogin] = createElements('img', 'img', 'h2');
   logo.src = 'imagenes/DuckyPets.png';
   mainImg.src = 'imagenes/married-couple-with-dog.jpg';
@@ -15,8 +16,10 @@ export const Login = () => {
   // container botones ingreso, botones
   const [loginButtons, gmailLogin, fbLogin, mailLogin] = createElements('div', 'button', 'button', 'button');
 
+
   // via gmail
   gmailLogin.setAttribute('id', 'gmail-login');
+  gmailLogin.setAttribute('class', 'button-gmail');
   gmailLogin.textContent = 'Ingresar con Gmail';
   gmailLogin.addEventListener('click', () => {
     signInWithPopup(auth, provider)
@@ -43,16 +46,19 @@ export const Login = () => {
 
   // via facebook
   fbLogin.setAttribute('id', 'fb-login');
+  fbLogin.setAttribute('class', 'button-fb');
   fbLogin.textContent = 'Ingresar con Facebook';
 
   // via correo
   mailLogin.setAttribute('id', 'mail-login');
+  mailLogin.setAttribute('class', 'button-mail');
   mailLogin.textContent = 'Ingresar con correo';
   mailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
 
   // add botones al container, container a div global
   loginButtons.append(gmailLogin, fbLogin, mailLogin);
   loginDiv.appendChild(loginButtons);
+
 
   const resetPassword = document.createElement('a');
   resetPassword.textContent = '¿Olvidaste tu contraseña?';
@@ -62,12 +68,15 @@ export const Login = () => {
   // No tienes cuenta
   const [noAccount, noAccountRegister] = createElements('p', 'a');
   noAccount.textContent = '¿No tienes cuenta?';
+
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   loginDiv.append(noAccount, noAccountRegister);
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
+  goLandingButton.setAttribute('id', 'button-LoginGoLanding');
+  goLandingButton.setAttribute('class', 'button-goLanding');
   goLandingButton.textContent = 'Regresar al inicio';
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));

@@ -4,6 +4,7 @@ import { createElements } from '../util.js';
 
 // registro
 export const SignUp = () => {
+
   const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
   registerH2.textContent = 'Registrarse';
   logo.src = 'imagenes/DuckyPets.png';
@@ -12,16 +13,20 @@ export const SignUp = () => {
 
   // container botones registro
   const [signUpButtons, gmailSignUp, fbSignUp, mailSignUp] = createElements('div', 'button', 'button', 'button');
+
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
+  gmailSignUp.setAttribute('class', 'button-gmail');
   gmailSignUp.textContent = 'Registrarse con Gmail';
 
   // via facebook
   fbSignUp.setAttribute('id', 'fb-signup');
+  fbSignUp.setAttribute('class', 'button-fb');
   fbSignUp.textContent = 'Registrarse con Facebook';
 
   // via correo
   mailSignUp.setAttribute('id', 'mail-signup');
+  mailSignUp.setAttribute('class', 'button-mail');
   mailSignUp.textContent = 'Registrarse con correo';
   mailSignUp.addEventListener('click', () => onNavigate('/MainLogin'));
 
@@ -30,8 +35,10 @@ export const SignUp = () => {
   registerDiv.append(signUpButtons);
 
   // cuenta existente
+
   const [yesAccount, betterLogin] = createElements('p', 'a');
   yesAccount.textContent = '¿Ya tienes cuenta?';
+
   betterLogin.textContent = 'Ingresa';
   betterLogin.href = '/Login';
   registerDiv.append(yesAccount, betterLogin);
@@ -39,6 +46,8 @@ export const SignUp = () => {
   // go back landing
   const goLandingButton = document.createElement('button');
   goLandingButton.textContent = 'Regresar al inicio';
+  goLandingButton.setAttribute('class', 'button-goLanding');
+  goLandingButton.setAttribute('id', 'btn-goLanding');
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);
