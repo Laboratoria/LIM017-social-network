@@ -8,7 +8,7 @@ export const SignUp = () => {
   const imgWelcomes = document.createElement('img');
   imgWelcomes.setAttribute('class', 'imgBienvenida');
   imgWelcomes.src = 'imagenes/married-couple-with-dog.jpg';
-  registerH2.textContent = 'Registrarse';
+  registerH2.textContent = 'Regístrate';
   const logo = document.createElement('img');
   logo.setAttribute('class', 'logo');
   logo.src = 'imagenes/DuckyPets.png';
@@ -43,10 +43,10 @@ export const SignUp = () => {
 
   // cuenta existente
   const yesAccount = document.createElement('p');
-  yesAccount.setAttribute('id', 'yes-account');
+  yesAccount.setAttribute('id', 'p-yes-account');
   yesAccount.textContent = '¿Ya tienes cuenta?';
   const betterLogin = document.createElement('a');
-  betterLogin.setAttribute('id', 'a-betterLogin')
+  betterLogin.setAttribute('id', 'a-betterLogin');
   betterLogin.textContent = 'Ingresa';
   betterLogin.href = '/Login';
   registerDiv.append(yesAccount, betterLogin);
@@ -55,7 +55,7 @@ export const SignUp = () => {
   const goLandingButton = document.createElement('button');
   goLandingButton.textContent = 'Regresar al inicio';
   goLandingButton.setAttribute('class', 'button-goLanding');
-  goLandingButton.setAttribute('id', 'btn-goLanding')
+  goLandingButton.setAttribute('id', 'btn-goLanding');
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);
