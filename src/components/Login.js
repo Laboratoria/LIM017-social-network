@@ -5,11 +5,16 @@ import { auth, provider } from '../Firebase/init.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
+  loginDiv.setAttribute('id', 'login-div');
   const logo = document.createElement('img');
+  logo.setAttribute('class', 'logo');
   logo.src = 'imagenes/DuckyPets.png';
+  const imgWelcome = document.createElement('img');
+  imgWelcome.setAttribute('class', 'imgBienvenida');
+  imgWelcome.src = 'imagenes/married-couple-with-dog.jpg';
   const textLogin = document.createElement('h2');
   textLogin.textContent = 'Iniciar Sesion';
-  loginDiv.append(logo, textLogin);
+  loginDiv.append(logo, imgWelcome, textLogin);
 
   // container botones ingreso
   const loginButtons = document.createElement('div');
@@ -18,6 +23,7 @@ export const Login = () => {
   // via gmail
   const gmailLogin = document.createElement('button');
   gmailLogin.setAttribute('id', 'gmail-login');
+  gmailLogin.setAttribute('class', 'button-gmail');
   gmailLogin.textContent = 'Ingresar con Gmail';
   gmailLogin.addEventListener('click', () => {
     signInWithPopup(auth, provider)
@@ -60,20 +66,25 @@ export const Login = () => {
   loginDiv.appendChild(loginButtons);
 
   const forgotPassword = document.createElement('a');
+  forgotPassword.setAttribute('id', 'a-Login');
   forgotPassword.textContent = '¿Olvidaste tu contraseña?';
   forgotPassword.href = '/ForgotPasword';
   loginDiv.appendChild(forgotPassword);
 
   // No tienes cuenta
   const noAccount = document.createElement('p');
+  noAccount.setAttribute('id', 'no-account');
   noAccount.textContent = '¿No tienes cuenta?';
   const noAccountRegister = document.createElement('a');
+  noAccountRegister.setAttribute('id', 'no-account-register');
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   loginDiv.append(noAccount, noAccountRegister);
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
+  goLandingButton.setAttribute('id', 'button-LoginGoLanding');
+  goLandingButton.setAttribute('class', 'button-goLanding');
   goLandingButton.textContent = 'Regresar al inicio';
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));

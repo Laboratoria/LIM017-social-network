@@ -5,8 +5,8 @@ export const LandingView = () => {
   const landingDiv = document.createElement('div');
   landingDiv.setAttribute('class', 'landing-Div');
   const imagenLogo = `
-      <img id="logo" src="imagenes/DuckyPets.png" alt="">
-      <img id="imgBienvenida" src="imagenes/married-couple-with-dog.jpg" alt="">
+      <img class="logo" src="imagenes/DuckyPets.png" alt="">
+      <img class="imgBienvenida" src="imagenes/married-couple-with-dog.jpg" alt="">
       `;
   landingDiv.insertAdjacentHTML('beforeend', imagenLogo);
 
