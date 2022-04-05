@@ -73,10 +73,10 @@ export const Login = () => {
 
   // No tienes cuenta
   const noAccount = document.createElement('p');
-  noAccount.setAttribute('id', 'no-account');
+  noAccount.setAttribute('id', 'p-no-account');
   noAccount.textContent = '¿No tienes cuenta?';
   const noAccountRegister = document.createElement('a');
-  noAccountRegister.setAttribute('id', 'no-account-register');
+  noAccountRegister.setAttribute('id', 'a-no-account-register');
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   loginDiv.append(noAccount, noAccountRegister);
