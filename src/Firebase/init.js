@@ -12,7 +12,7 @@ import { firebaseConfig } from './config.js';
 const app = initializeApp(firebaseConfig);
 
 // init services
-export const firestore = getFirestore(app); //esto es db
+export const firestore = getFirestore(app); // esto es db
 
 // proveedor Gmail auth
 

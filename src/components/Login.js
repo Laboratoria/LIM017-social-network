@@ -5,8 +5,6 @@ import { onNavigate } from '../main.js';
 import { auth, firestore, provider } from '../Firebase/init.js';
 import { createElements } from '../util.js';
 
-
-
 export const Login = () => {
   const loginDiv = document.createElement('div');
 
@@ -26,10 +24,7 @@ export const Login = () => {
   gmailLogin.addEventListener('click', () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        const docRef = doc(firestore, 'users', 'R7AVhvPeG2Oee195PSBC');
-        getDoc(docRef).then((result) => {
-          console.log(result);
-        });
+        console.log(result);
       });
   });
 
