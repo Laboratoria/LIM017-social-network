@@ -10,11 +10,15 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-title {
+/* title {
     display: none;
 }
 
 div {
+    justify-items: center;
+}
+
+.containerLogo{
     justify-items: center;
 }
 
@@ -63,7 +67,7 @@ button {
 
 #goToLoginBtn {
     padding-left: 10px;
-}
+} */
 
 /* #welcome {
     grid-template-rows: 1fr 1fr 1fr;
