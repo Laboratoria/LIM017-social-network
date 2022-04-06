@@ -1,7 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import { auth, provider } from '../Firebase/init.js';
+import { auth, firestore, provider } from '../Firebase/init.js';
 import { createElements } from '../util.js';
 
 export const Login = () => {
@@ -23,24 +24,8 @@ export const Login = () => {
   gmailLogin.addEventListener('click', () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        console.log('Me loggie');
-
-        // const token = credential.accessToken;
-        // // The signed-in user info.
-        // const user = result.user;
-        // // ...
-      }); // catch((error) => {
-    //   // Handle Errors here.
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // The email of the user's account used.
-    //   const email = error.email;
-    //   // The AuthCredential type that was used.
-    //   const credential = GoogleAuthProvider.credentialFromError(error);
-    //   // ...
-    // });
+        console.log(result);
+      });
   });
 
   // via correo

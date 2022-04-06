@@ -1,4 +1,7 @@
 /* eslint-disable import/no-cycle */
+import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { auth, firestore, provider } from '../Firebase/init.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 
@@ -17,6 +20,21 @@ export const SignUp = () => {
   gmailSignUp.setAttribute('id', 'gmail-signup');
   gmailSignUp.setAttribute('class', 'button-gmail');
   gmailSignUp.textContent = 'Registrarse con Gmail';
+
+
+  gmailSignUp.setAttribute('id', 'gmail-login');
+  gmailSignUp.setAttribute('class', 'button-gmail');
+  gmailSignUp.textContent = 'Ingresar con Gmail';
+  gmailSignUp.addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const docRef = doc(firestore, 'users', 'R7AVhvPeG2Oee195PSBC');
+        getDoc(docRef).then((result) => {
+          console.log(result);
+        });
+      });
+  });
+
 
   // via correo
   mailSignUp.setAttribute('id', 'mail-signup');
