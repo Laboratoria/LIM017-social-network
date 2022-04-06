@@ -8,32 +8,31 @@ export const MainLogin = () => {
   const mainLoginDiv = document.createElement('div');
 
   mainLoginDiv.id = 'main-login-div';
-  const [logo, mainImg] = createElements('img', 'img');
+  const [loginMsg, mainImg] = createElements('h2', 'img');
 
-  logo.src = 'imagenes/DuckyPets.png';
-  logo.id = 'img-logo';
-  logo.className = 'logo';
-  mainImg.src = 'imagenes/married-couple-with-dog.jpg';
+  loginMsg.textContent = 'Ingresa a tu cuenta';
+  loginMsg.id = 'msg-main-h2';
+  loginMsg.className = 'text-start-h2';
+  mainImg.src = 'imagenes/pajarito.jpg';
   mainImg.id = 'img-main';
-  mainImg.className = 'imgBienvenida';
-  mainLoginDiv.append(logo, mainImg);
+  mainImg.className = 'img-bienvenida';
+  mainLoginDiv.append(loginMsg, mainImg);
 
   const inputContainer = document.createElement('div');
   inputContainer.id = 'div-input-container';
-  const [loginMsg, emailText, emailInput] = createElements('h4', 'label', 'input');
-  loginMsg.textContent = 'Ingresa a tu cuenta';
+  const [emailText, emailInput] = createElements('label', 'input');
 
   emailText.textContent = 'Correo Electrónico:';
   emailText.id = 'label-text-email';
   emailInput.placeholder = 'ejemplo@email.com';
   emailInput.id = 'input-email';
-  inputContainer.append(loginMsg, emailText, emailInput);
+  inputContainer.append(emailText, emailInput);
 
   const [passwordText, passwordInput] = createElements('label', 'input');
   passwordText.textContent = 'Contraseña:';
   passwordText.id = 'label-password';
   passwordInput.placeholder = 'cont*******';
-  passwordInput.id = 'input-password-mainLogin';
+  passwordInput.id = 'input-password-h2';
   inputContainer.append(passwordText, passwordInput);
 
   const [loginBtn, resetPassword] = createElements('button', 'a');
@@ -46,11 +45,13 @@ export const MainLogin = () => {
 
   const otherBtnContainer = document.createElement('div');
   otherBtnContainer.id = 'div-other-btn-container';
-  otherBtnContainer.className = 'box-type-login';
+  otherBtnContainer.className = 'BoxTypeLogin';
 
-  const googleBtn = document.createElement('button');
+  const [googleBtn, fbButton] = createElements('button', 'button');
   googleBtn.textContent = 'Ingresar con Google';
-  googleBtn.class = 'button-gmail';
+  googleBtn.setAttribute('class', 'button-gmail');
+  fbButton.textContent = 'Ingresar con Facebook';
+  fbButton.setAttribute('class', 'button-fb');
 
   const registerContainer = document.createElement('div');
   registerContainer.id = 'div-register-container';
@@ -61,15 +62,15 @@ export const MainLogin = () => {
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   registerContainer.append(noAccount, noAccountRegister);
-  otherBtnContainer.appendChild(googleBtn);
+  otherBtnContainer.append(googleBtn, fbButton);
   mainLoginDiv.append(inputContainer, otherBtnContainer, registerContainer);
 
-  const goBackBtn = document.createElement('button');
-  goBackBtn.setAttribute('id', 'button-go-back');
-  goBackBtn.textContent = 'Regresar al inicio';
+  const buttonBienvenida = document.createElement('button');
+  buttonBienvenida.setAttribute('id', 'button-go-Back');
+  buttonBienvenida.textContent = 'Regresar al inicio';
 
-  goBackBtn.addEventListener('click', () => onNavigate('/'));
-  otherBtnContainer.appendChild(goBackBtn);
+  buttonBienvenida.addEventListener('click', () => onNavigate('/'));
+  otherBtnContainer.appendChild(buttonBienvenida);
 
   return mainLoginDiv;
 };

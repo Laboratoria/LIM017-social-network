@@ -4,10 +4,10 @@ import { createElements } from '../util.js';
 
 export const LandingView = () => {
   const landingDiv = document.createElement('div');
-  landingDiv.class = 'landing-div';
+  landingDiv.className = 'landing-div-global';
   const imgLogo = `
-      <img class="logo" src="imagenes/DuckyPets.png" alt="">
-      <img class="imgBienvenida" src="imagenes/married-couple-with-dog.jpg" alt="">
+      <img class="logo" src="imagenes/DuckyPets-achicado.png" alt="">
+      <img class="img-bienvenida" src="imagenes/instantanea-pink.png" alt="">
       `;
   landingDiv.insertAdjacentHTML('beforeend', imgLogo);
 

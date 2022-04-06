@@ -9,12 +9,13 @@ import { createElements } from '../util.js';
 export const SignUp = () => {
   const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
   registerH2.textContent = 'Registrarse';
-  logo.src = 'imagenes/DuckyPets.png';
+  registerH2.className = 'text-start-h2';
+  logo.src = 'imagenes/DuckyPets-achicado.png';
   logo.setAttribute('class', 'logo');
-  mainImg.src = 'imagenes/married-couple-with-dog.jpg';
-  mainImg.setAttribute('class', 'imgBienvenida');
+  mainImg.src = 'imagenes/marrons-pets.jpg';
+  mainImg.setAttribute('class', 'img-bienvenida');
   registerDiv.append(logo, mainImg, registerH2);
-  registerDiv.setAttribute('id', 'div-register');
+  registerDiv.setAttribute('id', 'register-div-global');
 
   // container botones registro
 
@@ -49,8 +50,7 @@ export const SignUp = () => {
   // add botones al container, container a div global
 
   signUpButtons.append(gmailSignUp, mailSignUp);
-  signUpButtons.setAttribute('id', 'div-signUpButtons');
-  signUpButtons.setAttribute('class', 'BoxTypeLogin');
+  signUpButtons.setAttribute('class', 'conteiner-buttons-logins');
 
   registerDiv.append(signUpButtons);
 
@@ -61,7 +61,7 @@ export const SignUp = () => {
   yesAccount.setAttribute('id', 'p-yes-account');
 
   betterLogin.textContent = 'Ingresa';
-  betterLogin.setAttribute('id', 'a-betterLogin');
+  betterLogin.setAttribute('id', 'a-better-login');
   betterLogin.href = '/Login';
   registerDiv.append(yesAccount, betterLogin);
 
