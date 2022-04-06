@@ -1,4 +1,7 @@
 /* eslint-disable import/no-cycle */
+import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { auth, firestore, provider } from '../Firebase/init.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 
@@ -14,27 +17,41 @@ export const SignUp = () => {
   registerDiv.setAttribute('id', 'div-register');
 
   // container botones registro
-  const [signUpButtons, gmailSignUp, fbSignUp, mailSignUp] = createElements('div', 'button', 'button', 'button');
+
+  const [signUpButtons, gmailSignUp, mailSignUp] = createElements('div', 'button', 'button');
+
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
   gmailSignUp.setAttribute('class', 'button-gmail');
   gmailSignUp.textContent = 'Registrarse con Gmail';
 
-  // via facebook
-  fbSignUp.setAttribute('id', 'fb-signup');
-  fbSignUp.setAttribute('class', 'button-fb');
-  fbSignUp.textContent = 'Registrarse con Facebook';
+
+  gmailSignUp.setAttribute('id', 'gmail-login');
+  gmailSignUp.setAttribute('class', 'button-gmail');
+  gmailSignUp.textContent = 'Ingresar con Gmail';
+  gmailSignUp.addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const docRef = doc(firestore, 'users', 'R7AVhvPeG2Oee195PSBC');
+        getDoc(docRef).then((result) => {
+          console.log(result);
+        });
+      });
+  });
+
 
   // via correo
   mailSignUp.setAttribute('id', 'mail-signup');
   mailSignUp.setAttribute('class', 'button-mail');
   mailSignUp.textContent = 'Registrarse con correo';
-  mailSignUp.addEventListener('click', () => onNavigate('/MainLogin'));
+  mailSignUp.addEventListener('click', () => onNavigate('/RegisterEmail'));
 
   // add botones al container, container a div global
-  signUpButtons.append(gmailSignUp, fbSignUp, mailSignUp);
+
+  signUpButtons.append(gmailSignUp, mailSignUp);
   signUpButtons.setAttribute('id', 'div-signUpButtons');
   signUpButtons.setAttribute('class', 'BoxTypeLogin');
+
   registerDiv.append(signUpButtons);
 
   // cuenta existente
@@ -51,8 +68,8 @@ export const SignUp = () => {
   // go back landing
   const goLandingButton = document.createElement('button');
   goLandingButton.textContent = 'Regresar al inicio';
-  goLandingButton.setAttribute('class', 'button-goLanding');
-  goLandingButton.setAttribute('id', 'btn-goLanding');
+  goLandingButton.setAttribute('class', 'button-go-landing');
+  goLandingButton.setAttribute('id', 'btn-go-landing');
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);

@@ -1,7 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import { auth, provider } from '../Firebase/init.js';
+import { auth, firestore, provider } from '../Firebase/init.js';
 import { createElements } from '../util.js';
 
 export const Login = () => {
@@ -14,8 +15,7 @@ export const Login = () => {
   loginDiv.append(logo, mainImg, textLogin);
 
   // container botones ingreso, botones
-  const [loginButtons, gmailLogin, fbLogin, mailLogin] = createElements('div', 'button', 'button', 'button');
-
+  const [loginButtons, gmailLogin, mailLogin] = createElements('div', 'button', 'button');
 
   // via gmail
   gmailLogin.setAttribute('id', 'gmail-login');
@@ -24,30 +24,9 @@ export const Login = () => {
   gmailLogin.addEventListener('click', () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        console.log('Me loggie');
-
-        // const token = credential.accessToken;
-        // // The signed-in user info.
-        // const user = result.user;
-        // // ...
-      }); // catch((error) => {
-    //   // Handle Errors here.
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // The email of the user's account used.
-    //   const email = error.email;
-    //   // The AuthCredential type that was used.
-    //   const credential = GoogleAuthProvider.credentialFromError(error);
-    //   // ...
-    // });
+        console.log(result);
+      });
   });
-
-  // via facebook
-  fbLogin.setAttribute('id', 'fb-login');
-  fbLogin.setAttribute('class', 'button-fb');
-  fbLogin.textContent = 'Ingresar con Facebook';
 
   // via correo
   mailLogin.setAttribute('id', 'mail-login');
@@ -56,9 +35,8 @@ export const Login = () => {
   mailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
 
   // add botones al container, container a div global
-  loginButtons.append(gmailLogin, fbLogin, mailLogin);
+  loginButtons.append(gmailLogin, mailLogin);
   loginDiv.appendChild(loginButtons);
-
 
   const resetPassword = document.createElement('a');
   resetPassword.textContent = '¿Olvidaste tu contraseña?';
@@ -75,8 +53,8 @@ export const Login = () => {
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
-  goLandingButton.setAttribute('id', 'button-LoginGoLanding');
-  goLandingButton.setAttribute('class', 'button-goLanding');
+  goLandingButton.setAttribute('id', 'go-landing-button');
+  goLandingButton.setAttribute('class', 'go-landing-button');
   goLandingButton.textContent = 'Regresar al inicio';
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
