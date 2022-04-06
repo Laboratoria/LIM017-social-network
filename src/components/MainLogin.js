@@ -40,13 +40,11 @@ export const MainLogin = () => {
 
   const otherBtnContainer = document.createElement('div');
   otherBtnContainer.id = 'div-other-btn-container';
-  otherBtnContainer.className = 'BoxTypeLogin';
+  otherBtnContainer.className = 'box-type-login';
 
-  const [googleBtn, fbButton] = createElements('button', 'button');
+  const googleBtn = document.createElement('button');
   googleBtn.textContent = 'Ingresar con Google';
-  googleBtn.setAttribute('class', 'button-gmail');
-  fbButton.textContent = 'Ingresar con Facebook';
-  fbButton.setAttribute('class', 'button-fb');
+  googleBtn.class = 'button-gmail';
 
   const registerContainer = document.createElement('div');
   registerContainer.id = 'div-register-container';
@@ -57,15 +55,15 @@ export const MainLogin = () => {
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   registerContainer.append(noAccount, noAccountRegister);
-  otherBtnContainer.append(googleBtn, fbButton);
+  otherBtnContainer.appendChild(googleBtn);
   mainLoginDiv.append(inputContainer, otherBtnContainer, registerContainer);
 
-  const buttonBienvenida = document.createElement('button');
-  buttonBienvenida.setAttribute('id', 'button-go-Back');
-  buttonBienvenida.textContent = 'Regresar al inicio';
+  const goBackBtn = document.createElement('button');
+  goBackBtn.setAttribute('id', 'button-go-back');
+  goBackBtn.textContent = 'Regresar al inicio';
 
-  buttonBienvenida.addEventListener('click', () => onNavigate('/'));
-  otherBtnContainer.appendChild(buttonBienvenida);
+  goBackBtn.addEventListener('click', () => onNavigate('/'));
+  otherBtnContainer.appendChild(goBackBtn);
 
   return mainLoginDiv;
 };

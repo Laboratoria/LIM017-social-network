@@ -4,7 +4,6 @@ import { createElements } from '../util.js';
 
 // registro
 export const SignUp = () => {
-
   const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
   registerH2.textContent = 'Registrarse';
   logo.src = 'imagenes/DuckyPets.png';
@@ -12,26 +11,21 @@ export const SignUp = () => {
   registerDiv.append(logo, mainImg, registerH2);
 
   // container botones registro
-  const [signUpButtons, gmailSignUp, fbSignUp, mailSignUp] = createElements('div', 'button', 'button', 'button');
+  const [signUpButtons, gmailSignUp, mailSignUp] = createElements('div', 'button', 'button');
 
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
   gmailSignUp.setAttribute('class', 'button-gmail');
   gmailSignUp.textContent = 'Registrarse con Gmail';
 
-  // via facebook
-  fbSignUp.setAttribute('id', 'fb-signup');
-  fbSignUp.setAttribute('class', 'button-fb');
-  fbSignUp.textContent = 'Registrarse con Facebook';
-
   // via correo
   mailSignUp.setAttribute('id', 'mail-signup');
   mailSignUp.setAttribute('class', 'button-mail');
   mailSignUp.textContent = 'Registrarse con correo';
-  mailSignUp.addEventListener('click', () => onNavigate('/MainLogin'));
+  mailSignUp.addEventListener('click', () => onNavigate('/RegisterEmail'));
 
   // add botones al container, container a div global
-  signUpButtons.append(gmailSignUp, fbSignUp, mailSignUp);
+  signUpButtons.append(gmailSignUp, mailSignUp);
   registerDiv.append(signUpButtons);
 
   // cuenta existente
@@ -46,8 +40,8 @@ export const SignUp = () => {
   // go back landing
   const goLandingButton = document.createElement('button');
   goLandingButton.textContent = 'Regresar al inicio';
-  goLandingButton.setAttribute('class', 'button-goLanding');
-  goLandingButton.setAttribute('id', 'btn-goLanding');
+  goLandingButton.setAttribute('class', 'button-go-landing');
+  goLandingButton.setAttribute('id', 'btn-go-landing');
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);

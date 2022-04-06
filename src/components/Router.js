@@ -4,6 +4,7 @@ import { SignUp } from './Register.js';
 import { Login } from './Login.js';
 import { ResetPassword } from './ForgotPassword.js';
 import { MainLogin } from './MainLogin.js';
+import { RegisterByEmail } from './RegisterEmail.js';
 
 const routes = {
   '/': LandingView,
@@ -11,6 +12,7 @@ const routes = {
   '/Login': Login,
   '/ForgotPasword': ResetPassword,
   '/MainLogin': MainLogin,
+  '/RegisterEmail': RegisterByEmail,
 
 };
 

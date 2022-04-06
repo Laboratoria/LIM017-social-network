@@ -14,8 +14,7 @@ export const Login = () => {
   loginDiv.append(logo, mainImg, textLogin);
 
   // container botones ingreso, botones
-  const [loginButtons, gmailLogin, fbLogin, mailLogin] = createElements('div', 'button', 'button', 'button');
-
+  const [loginButtons, gmailLogin, mailLogin] = createElements('div', 'button', 'button');
 
   // via gmail
   gmailLogin.setAttribute('id', 'gmail-login');
@@ -44,11 +43,6 @@ export const Login = () => {
     // });
   });
 
-  // via facebook
-  fbLogin.setAttribute('id', 'fb-login');
-  fbLogin.setAttribute('class', 'button-fb');
-  fbLogin.textContent = 'Ingresar con Facebook';
-
   // via correo
   mailLogin.setAttribute('id', 'mail-login');
   mailLogin.setAttribute('class', 'button-mail');
@@ -56,9 +50,8 @@ export const Login = () => {
   mailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
 
   // add botones al container, container a div global
-  loginButtons.append(gmailLogin, fbLogin, mailLogin);
+  loginButtons.append(gmailLogin, mailLogin);
   loginDiv.appendChild(loginButtons);
-
 
   const resetPassword = document.createElement('a');
   resetPassword.textContent = '¿Olvidaste tu contraseña?';
@@ -75,8 +68,8 @@ export const Login = () => {
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
-  goLandingButton.setAttribute('id', 'button-LoginGoLanding');
-  goLandingButton.setAttribute('class', 'button-goLanding');
+  goLandingButton.setAttribute('id', 'go-landing-button');
+  goLandingButton.setAttribute('class', 'go-landing-button');
   goLandingButton.textContent = 'Regresar al inicio';
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
