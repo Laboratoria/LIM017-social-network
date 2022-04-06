@@ -1,9 +1,11 @@
 import { onNavigate } from '../main.js';
 
 export const Welcome = () => {
+
   let WelcomeDiv = document.createElement("div");
   let buttonRegister = document.createElement("button");
   let buttonLogin = document.createElement("button");
+  buttonLogin.className = 'buttonLogin';
 
   buttonRegister.textContent ="Regístrate";
   buttonLogin.textContent ="Iniciar sesión";
