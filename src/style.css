@@ -1,0 +1,25 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  background-image: url(./img/bgMobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  display:flex;
+  justify-content: center;
+}
+
+.buttonLogin{
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  background-color: #FB727C;
+  border-radius: 25px;
+  border: none;
+  margin-top: 422px;
+  height: 40px;
+  width: 180px;
+  color: white;
+  font-size: 22px;
+
+}
