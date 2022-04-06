@@ -9,6 +9,7 @@
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 2fr 4fr 2fr 2fr 1fr;
     gap: 3.5%;
+    background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
 }
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
 .logo {
@@ -27,11 +28,11 @@
 }
 #btn-login{
     grid-row: 4;
-    background: #F7A12F;
+    background: #ffff;
 }
 #btn-register{
     grid-row: 5;
-    background: #B5e5ff;
+    background: #ffff;
 }
 #btn-login, #btn-register{
     grid-column: 1/4;
@@ -43,7 +44,7 @@
     color: #3f4747;
     margin: 0 auto;
     border-radius: 12px;
-    box-shadow: 4px 4px 8px #d9c3a7;
+    box-shadow: 4px 4px 8px #3f4747;
 }
 /*--------- Login.js ---------------*/
 .login-div-global {
