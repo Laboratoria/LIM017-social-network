@@ -9,9 +9,9 @@ export const Login = () => {
   const loginDiv = document.createElement('div');
   loginDiv.className = 'login-div-global';
   const [logo, mainImg, textLogin] = createElements('img', 'img', 'h2');
-  logo.src = 'imagenes/DuckyPets-achicado.png';
+  logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
   logo.className = 'logo';
-  mainImg.src = 'imagenes/imgLogin.webp';
+  mainImg.src = 'imagenes/imgLogin-con-transparencia.png';
   mainImg.className = 'img-bienvenida';
   textLogin.textContent = 'Iniciar Sesion';
   textLogin.className = 'text-start-h2';

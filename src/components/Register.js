@@ -10,9 +10,9 @@ export const SignUp = () => {
   const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
   registerH2.textContent = 'Registrarse';
   registerH2.className = 'text-start-h2';
-  logo.src = 'imagenes/DuckyPets-achicado.png';
+  logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
   logo.setAttribute('class', 'logo');
-  mainImg.src = 'imagenes/marrons-pets.jpg';
+  mainImg.src = 'imagenes/3-personas-con-mascotas.png';
   mainImg.setAttribute('class', 'img-bienvenida');
   registerDiv.append(logo, mainImg, registerH2);
   registerDiv.setAttribute('id', 'register-div-global');
