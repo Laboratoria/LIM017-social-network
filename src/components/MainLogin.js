@@ -7,27 +7,33 @@ import { createElements } from '../util.js';
 export const MainLogin = () => {
   const mainLoginDiv = document.createElement('div');
 
-  mainLoginDiv.id = 'main-div';
-  const [imgContainer, logo, mainImg] = createElements('div', 'img', 'img');
+  mainLoginDiv.id = 'main-login-div';
+  const [logo, mainImg] = createElements('img', 'img');
 
   logo.src = 'imagenes/DuckyPets.png';
   logo.id = 'img-logo';
+  logo.className = 'logo';
   mainImg.src = 'imagenes/married-couple-with-dog.jpg';
-
-  imgContainer.append(logo, mainImg);
-  mainLoginDiv.appendChild(imgContainer);
+  mainImg.id = 'img-main';
+  mainImg.className = 'imgBienvenida';
+  mainLoginDiv.append(logo, mainImg);
 
   const inputContainer = document.createElement('div');
-  const [loginMsg, emailText, emailInput] = createElements('h3', 'label', 'input');
+  inputContainer.id = 'div-input-container';
+  const [loginMsg, emailText, emailInput] = createElements('h4', 'label', 'input');
   loginMsg.textContent = 'Ingresa a tu cuenta';
 
   emailText.textContent = 'Correo Electrónico:';
+  emailText.id = 'label-text-email';
   emailInput.placeholder = 'ejemplo@email.com';
+  emailInput.id = 'input-email';
   inputContainer.append(loginMsg, emailText, emailInput);
 
   const [passwordText, passwordInput] = createElements('label', 'input');
   passwordText.textContent = 'Contraseña:';
+  passwordText.id = 'label-password';
   passwordInput.placeholder = 'cont*******';
+  passwordInput.id = 'input-password-mainLogin';
   inputContainer.append(passwordText, passwordInput);
 
   const [loginBtn, resetPassword] = createElements('button', 'a');

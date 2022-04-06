@@ -177,7 +177,7 @@ h3{
 #main-login-div{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 50px 150px 10px 250px 50px 1fr 1fr 1fr;
+    grid-template-rows: 150px 10px 250px 340px 1fr 50px;
     gap: 20px;
 }
 #h2-title-mainLogin{
@@ -187,44 +187,35 @@ h3{
     color: #5b93b3;
     margin-top: 20%;
 }
-#img-logo{
-    grid-column: 2/3;
-    grid-row: 2/4;
-    width: 45%;
-    height: 100%;
-    padding-top: 40px;
-    margin: auto;
-    padding-left: 30px;
-}
-#img-main{
-    grid-column: 2/3;
-    grid-row: 3/5;
-    height: 100%;
-    width: 70%;
-    margin: auto;
-}
 h4{
-    grid-column: 2/3;
-    grid-row: 5;
+    grid-column: 1/4;
+    grid-row: 1;
     font-size: 20px;
     margin: auto;
 }
 #div-input-container{
     display: grid;
     grid-column: 1/4;
-    grid-row: 6;
-    grid-template-rows: 20px 50px 20px 50px 50px 20px;
-    gap: 10px;
+    grid-row: 4;
+    /* gap: 10px; */
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px;
+    grid-auto-columns: 1fr 2fr 1fr;
 }
-#div-input-container label{
-    font-size: 15px;
-    padding-left: 5%;
+#label-text-email{
+    grid-column: 1/4;
+    grid-row: 2;
 }
-#div-input-container input{
-    width: 90%;
-    margin-left: 5%;
-    border-radius: 8px;
-    border: inset;
+#input-email{
+    grid-column: 1/4;
+    grid-row: 3;
+}
+#label-password{
+    grid-column: 1/4;
+    grid-row: 4;
+}
+#input-password-mainLogin{
+    grid-column: 1/4;
+    grid-row: 5;
 }
 #div-input-container button{
     width: 70%;
@@ -233,14 +224,18 @@ h4{
     border-radius: 10px;
     border: none;
     background: rgb(89, 89, 194);
+    grid-row: 6;
+    grid-column: 1/4;
 }
 #div-input-container a{
     text-align: center;
+    grid-row: 7;
+    grid-column: 2/3;
 }
 #div-other-btn-container{
     display: grid;
     grid-column: 1/4;
-    grid-row: 7;
+    grid-row: 5;
 }
 #button-go-Back{
     width: 50%;
@@ -252,7 +247,7 @@ h4{
 }
 #div-register-container{
     grid-column: 2/3;
-    grid-row: 8;
+    grid-row: 6;
     display: flex;
     justify-content: space-evenly;
 }
