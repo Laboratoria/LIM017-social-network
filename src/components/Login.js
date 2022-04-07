@@ -17,9 +17,24 @@ export const Login = () => {
   textLogin.className = 'text-start-h2';
   loginDiv.append(logo, mainImg, textLogin);
 
+  const [inputContainer, mailInput, passwordInput, loginButton, lineImg] = createElements('div', 'input', 'input', 'button', 'img');
+  inputContainer.className = 'div-input-container';
+  mailInput.id = 'mail-input';
+  mailInput.placeholder = 'Correo electrónico';
+  passwordInput.id = 'password-input';
+  passwordInput.placeholder = 'Contraseña';
+  loginButton.textContent = 'Iniciar sesion';
+  loginButton.id = 'login-btn';
+  loginButton.className = 'submit-buttons';
+  lineImg.className = 'line-img';
+  lineImg.src = '#';
+
+  inputContainer.append(mailInput, passwordInput, loginButton);
+  loginDiv.append(inputContainer, lineImg);
+
   // container botones ingreso, botones
-  const [loginButtons, gmailLogin, mailLogin] = createElements('div', 'button', 'button');
-  loginButtons.className = 'conteiner-buttons-logins';
+  const [loginButtons, gmailLogin] = createElements('div', 'button');
+  loginButtons.className = 'container-buttons-login';
   // via gmail
   gmailLogin.setAttribute('id', 'gmail-login');
   gmailLogin.setAttribute('class', 'button-gmail');
@@ -31,14 +46,9 @@ export const Login = () => {
       });
   });
 
-  // via correo
-  mailLogin.setAttribute('id', 'mail-login');
-  mailLogin.setAttribute('class', 'button-mail');
-  mailLogin.textContent = 'Ingresar con correo';
-  mailLogin.addEventListener('click', () => onNavigate('/MainLogin'));
-
   // add botones al container, container a div global
-  loginButtons.append(gmailLogin, mailLogin);
+  loginButtons.appendChild(gmailLogin);
+
   loginDiv.appendChild(loginButtons);
 
   const resetPassword = document.createElement('a');
