@@ -10,6 +10,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
+.hidde{
+    display: none;
+}
 /* title {
     display: none;
 }
