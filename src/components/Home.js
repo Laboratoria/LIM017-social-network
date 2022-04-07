@@ -1,4 +1,7 @@
 // eslint-disable-next-line padded-blocks
+// eslint-disable-next-line import/no-cycle
+/* import { onNavigate } from '../main.js'; */
+
 export const Home = () => {
   const containerLogo = `<figure class="containerLogo">
                                 <img src="Imagenes/Logotipo/Logo-icon.png" alt="Binge Worthy logo" class="topLogo">
@@ -13,7 +16,7 @@ export const Home = () => {
 
   const containerLogin = `<div id="goToLogin">
                               <p>Already have an account?</p>
-                              <a href="#" id="goToLoginBtn" class="pink">Log in</a>
+                              <a href="" id="goToLoginBtn" class="pink">Log in</a>
                               </div>`;
 
   const LogInDivs = containerLogo + createAccBtn + containerLogin;
