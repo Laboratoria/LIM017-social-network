@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { signInWithPopup, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { auth, firestore, provider } from '../Firebase/init.js';
 import { onNavigate } from '../main.js';
@@ -42,8 +42,8 @@ export const SignUp = () => {
 
   inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
   registerDiv.append(inputContainer, lineImg);
-  // container botones registro
 
+  // container botones registro
   const [signUpButtons, gmailSignUp] = createElements('div', 'button');
 
   // via gmail
@@ -55,13 +55,12 @@ export const SignUp = () => {
   gmailSignUp.setAttribute('class', 'button-gmail');
   gmailSignUp.textContent = 'Registrate con Gmail';
   gmailSignUp.addEventListener('click', () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const docRef = doc(firestore, 'users', 'R7AVhvPeG2Oee195PSBC');
-        getDoc(docRef).then((result) => {
-          console.log(result);
-        });
+    signInWithPopup(auth, provider).then((result) => {
+      const docRef = doc(firestore, 'users', 'R7AVhvPeG2Oee195PSBC');
+      getDoc(docRef).then((result) => {
+        console.log(result);
       });
+    });
   });
 
   // add botones al container, container a div global

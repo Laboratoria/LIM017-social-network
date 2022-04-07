@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { routes } from './components/Router.js';
 
 const rootDiv = document.getElementById('root');
