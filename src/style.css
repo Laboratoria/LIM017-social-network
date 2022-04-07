@@ -61,7 +61,7 @@
     margin: auto;
     color:#3f4747;
 }
-.conteiner-buttons-logins{
+.container-buttons-login{
     grid-column: 1/4;
     grid-row: 5;
     display:grid;
