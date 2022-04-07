@@ -16,7 +16,7 @@ export const routes = {
 // console.log(routes);
 
 const root = document.getElementById('root');
-root.innerHTML = routes[window.location.pathname];
+root.innerHTML = routes[window.location.pathname]();
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
