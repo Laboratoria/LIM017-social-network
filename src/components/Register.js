@@ -1,7 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { signInWithPopup, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-import { auth, firestore, provider } from '../Firebase/init.js';
+// import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { auth, provider } from '../Firebase/init.js';
+import { CreateAccount } from '../Firebase/controller/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 
@@ -41,7 +42,20 @@ export const SignUp = () => {
   lineImg.src = '#';
 
   inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
+  // Evento de registrar al usuario
+  /*  submitBtn.addEventListener('click', () => {
+    const password = document.getElementById('register-password').value;
+    const email = document.getElementById('register-email').value;
+    CreateAccount(email, password);
+  }); */
   registerDiv.append(inputContainer, lineImg);
+
+  // Evento de registrar al usuario
+/*  submitBtn.addEventListener('click', () => {
+    const password = document.getElementById('register-password').value;
+    const email = document.getElementById('register-email').value;
+    CreateAccount(email, password);
+  }); */
 
   // container botones registro
   const [signUpButtons, gmailSignUp] = createElements('div', 'button');
@@ -89,6 +103,13 @@ export const SignUp = () => {
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);
+
+  // Evento de registrar al usuario
+  submitBtn.addEventListener('click', () => {
+    const password = document.getElementById('register-password').value;
+    const email = document.getElementById('register-email').value;
+    CreateAccount(email, password);
+  });
 
   return registerDiv;
 };

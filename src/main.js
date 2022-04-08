@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { routes } from './components/Router.js';
+import { CreateAccount } from './Firebase/controller/auth.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -25,3 +26,11 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component());
+
+// Evento de registrar al usuario
+/*  submitBtn.addEventListener('click', () => {
+  const password = document.getElementById('register-password').value;
+  const email = document.getElementById('register-email').value;
+  CreateAccount(email, password);
+});
+ */

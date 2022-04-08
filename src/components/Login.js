@@ -2,7 +2,7 @@
 import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import { auth, firestore, provider } from '../Firebase/init.js';
+import { auth, provider } from '../Firebase/init.js';
 import { createElements } from '../util.js';
 
 export const Login = () => {

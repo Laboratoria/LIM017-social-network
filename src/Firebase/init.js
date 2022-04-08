@@ -1,19 +1,16 @@
+/* eslint-disable import/no-unresolved */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
-import {
+/* import {
   getFirestore, collection, addDoc, getDocs,
 
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-<<<<<<< HEAD
-
-=======
->>>>>>> a22e36c044e5ddec0d29360498c6679d46604b06
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'; */
 import { getAuth, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { firebaseConfig } from './config.js';
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // init services
-export const firestore = getFirestore(app); // esto es db
+// export const firestore = getFirestore(app); // esto es db
 
 // proveedor Gmail auth
 
