@@ -1,9 +1,11 @@
 /* eslint-disable import/no-cycle */
-import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-import { auth, firestore, provider } from '../Firebase/init.js';
+import { auth, firestore  } from '../Firebase/init.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
+import { CreateAccount, provider } from '../Firebase/controller/auth.js';
+
 
 // registro
 export const SignUp = () => {
@@ -90,6 +92,12 @@ export const SignUp = () => {
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);
+
+  submitBtn.addEventListener('click', () => {
+    const password = document.getElementById('register-password').value;
+    const email = document.getElementById('register-email').value;
+    CreateAccount(email, password);
+  });
 
   return registerDiv;
 };
