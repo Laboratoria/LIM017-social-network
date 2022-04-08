@@ -1,7 +1,17 @@
 body{
   margin: 0px;
   padding: 0px;
-  background-image: url(./img/bgMobile.jpg);
+  /*background-image: url(./img/bgMobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  display:flex;
+  justify-content: center;
+  background-attachment: fixed;*/
+}
+.mobile {
+  width: 390px;
+  height: auto;
   background-repeat: no-repeat;
   background-size: cover;
   align-items: center;
@@ -44,9 +54,17 @@ body{
   border-color: #471F54;
   height: 41px;
   width: 270px;
+  font-size: 18px;
   margin-top: -9px;
+  /*padding-left: 18px;*/
+  text-align: center;
 }
-
+.userInfo::placeholder{
+  color: #C5C5C5;
+  /*padding-left:12px;*/
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+}
 .googleIcon{
   height: 51px;
   width: 51px;
@@ -90,7 +108,7 @@ body{
 }
 
 .questionPassword{
-  margin-top: 742px;
+  margin-top: 577px;
   font-size: 16px;
   text-align:center;
   font-family: 'Inter', sans-serif;

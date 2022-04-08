@@ -4,18 +4,18 @@ export const Welcome = () => {
 
   let WelcomeDiv = document.createElement("section");
   WelcomeDiv.innerHTML = `<section>
-    <main class="container">
-    <img class="logotype" src="./img/LogoTellMe.svg">
-      <div>
+   <main class="container">
+     <img class="logotype" src="./img/LogoTellMe.svg">
+    <div>
         <br>
         <p id="welcomeApp" class="welcomeApp">¡Bienvenid@!</p>
-        <input placeholder="Email" type="email" id="email" class="userInfo"></input>
+          <input placeholder="Email" type="email" id="email" class="userInfo"></input>
         <br>
         <br>
-        <input placeholder="Password" id="password" class="userInfo" type="password"></input>
-        <button id="buttonLogin">Iniciar sesión</button>
-        <p class="ingresoGoogle">O bien ingresa con...</p>
-      </div>
+          <input placeholder="Password" id="password" class="userInfo" type="password"></input>
+         <button id="buttonLogin">Iniciar sesión</button>
+         <p class="ingresoGoogle">O bien ingresa con...</p>
+    </div>
         <div>
           <button id="googleBtn"><img class="googleIcon" src="./img/iconGoogle.svg"></button>
         </div>
@@ -36,14 +36,17 @@ export const Welcome = () => {
           </div>
     </section>`
 
+  let BackgroundMobile=document.createElement("main");
+  BackgroundMobile.innerHTML = `<main>
+      <img class="mobile" src="./img/bgMobile.jpg">
+    </main>`
 
-  /*let buttonRegister = document.createElement("button");
-  let buttonLogin = document.createElement("button");
-  buttonRegister.textContent ="Regístrate";
-  buttonRegister.addEventListener("click", () => onNavigate ('/register'));*/
 
+
+  WelcomeDiv.appendChild(BackgroundMobile);
   WelcomeDiv.appendChild(QuestionDiv);
   WelcomeDiv.appendChild(RegisterDiv);
+
   WelcomeDiv.classList.add("WelcomeDiv");
   WelcomeDiv.querySelector("#buttonLogin").addEventListener('click', () => onNavigate ('/login'));
   RegisterDiv.querySelector("#buttonRegister").addEventListener('click', () => onNavigate ('/register'));
