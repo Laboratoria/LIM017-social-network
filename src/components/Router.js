@@ -3,7 +3,7 @@ import { LandingView } from './LandingPage.js';
 import { SignUp } from './Register.js';
 import { Login } from './Login.js';
 import { ResetPassword } from './ForgotPassword.js';
-import { CreateAccount } from '../Firebase/controller/auth.js';
+import { CreateAccount } from '../Firebase/auth.js';
 
 const routes = {
   '/': LandingView,
