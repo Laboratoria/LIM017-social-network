@@ -1,13 +1,6 @@
 body{
   margin: 0px;
   padding: 0px;
-  /*background-image: url(./img/bgMobile.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  align-items: center;
-  display:flex;
-  justify-content: center;
-  background-attachment: fixed;*/
 }
 .mobile {
   width: 390px;
@@ -49,6 +42,7 @@ body{
   font-size: 27px;
   font-family: 'Inter', sans-serif;
 }
+
 .userInfo{
   border-radius: 100px;
   border-color: #471F54;
@@ -91,20 +85,6 @@ body{
 }
 .ingresoGoogle{
   margin-top: 32px;
-}
-
-#buttonRegister{
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-  height: 40px;
-  width: 180px;
-  color: #FDB508;
-  font-size: 16px;
-  text-align:center;
-  font-weight: bold;
-  margin-left: -45px;
-  /*margin-top: 700px;*/
 }
 
 .questionPassword{

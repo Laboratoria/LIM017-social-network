@@ -42,7 +42,6 @@ export const Welcome = () => {
     </main>`
 
 
-
   WelcomeDiv.appendChild(BackgroundMobile);
   WelcomeDiv.appendChild(QuestionDiv);
   WelcomeDiv.appendChild(RegisterDiv);
