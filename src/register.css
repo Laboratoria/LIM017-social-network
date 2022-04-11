@@ -1,0 +1,75 @@
+.containerBackground{
+  background-color: black;
+}
+.containerRegister{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 17px;
+    width: 327px;
+    height: 588px;
+    background-color: rgba(255, 255, 255, 100);
+    box-shadow: 0px 0px 18px -8px black;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    color: #8E8989;
+ }
+ .txtRegister{
+   margin-top: 107px;
+ }
+
+ .logotypeRegister{
+   width: 294px;
+   height: 142px;
+   left: 50%;
+   margin-left: 20px;
+   margin-top: 28px;
+ }
+ .registerApp{
+
+ }
+
+ #buttonRegister{
+   cursor: pointer;
+   background-color: inherit;
+   border: none;
+   height: 40px;
+   width: 180px;
+   color: #FDB508;
+   font-size: 16px;
+   text-align:center;
+   font-weight: bold;
+   margin-left: -45px;
+   /*margin-top: 700px;*/
+ }
+
+ .txtAccount{
+   text-align:left;
+   color: #FB727C;
+   padding-left: 31px;
+ }
+ #buttonAccount{
+   cursor: pointer;
+   background-color: #FB727C;
+   border-radius: 25px;
+   border: none;
+   height: 40px;
+   width: 180px;
+   color: white;
+   font-size: 22px;
+   text-align:center;
+   margin-top: 18px;
+ }
+
+ .infoRegister{
+   border-radius: 100px;
+   border-color: #471F54;
+   height: 41px;
+   width: 270px;
+   font-size: 18px;
+   margin-top: -9px;
+   /*padding-left: 18px;*/
+   text-align: center;
+ }
