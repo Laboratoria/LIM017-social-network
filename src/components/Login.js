@@ -1,8 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+/* import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'; */
 import { onNavigate } from '../main.js';
-import { auth, firestore } from '../Firebase/init.js';
+import { auth /* firestore */ } from '../Firebase/init.js';
 import { createElements } from '../util.js';
 import { provider } from '../Firebase/controller/auth.js';
 
