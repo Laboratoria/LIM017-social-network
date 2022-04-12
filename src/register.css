@@ -1,16 +1,16 @@
 .containerBackground{
-  background-color: black;
+  background-color: #FB727C;
   margin: 0px;
   padding: 0px;
 }
 .containerRegister{
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 17px;
     width: 327px;
-    height: 588px;
+    height: 498px;
     background-color: rgba(255, 255, 255, 100);
     box-shadow: 0px 0px 18px -8px black;
     text-align: center;
@@ -19,32 +19,22 @@
     color: #8E8989;
  }
  .txtRegister{
-   margin-top: 107px;
+   margin-top: 45px;
  }
 
  .logotypeRegister{
    width: 294px;
    height: 142px;
    left: 50%;
-   margin-left: 20px;
+   margin-left: 52px;
    margin-top: 28px;
  }
  .registerApp{
-
- }
-
- #buttonRegister{
-   cursor: pointer;
-   background-color: inherit;
-   border: none;
-   height: 40px;
-   width: 180px;
-   color: #FDB508;
-   font-size: 16px;
-   text-align:center;
-   font-weight: bold;
-   margin-left: -45px;
-   /*margin-top: 700px;*/
+   color: #8E8989;
+   font-size: 26px;
+   font-weight: 600;
+   font-family: 'Inter', sans-serif;
+   margin-top: 48px;
  }
 
  .txtAccount{
@@ -54,7 +44,7 @@
  }
  #buttonAccount{
    cursor: pointer;
-   background-color: #FB727C;
+   background-color: #8E8989;
    border-radius: 25px;
    border: none;
    height: 40px;
@@ -62,7 +52,7 @@
    color: white;
    font-size: 22px;
    text-align:center;
-   margin-top: 18px;
+   margin-top: 32px;
  }
 
  .infoRegister{
@@ -75,3 +65,10 @@
    /*padding-left: 18px;*/
    text-align: center;
  }
+.textConditions{
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  margin-top: 542px;
+  text-align: center;
+}

@@ -9,15 +9,10 @@ export const Register= () =>{
       <main class="containerRegister">
         <p id="registerApp" class="registerApp">Regístrate</p>
           <div class="txtRegister">
-            <br>
               <p class="txtAccount">Nickname</p>
               <input type="text" id="nickName" class="infoRegister"></input>
-                <br>
-                <br>
               <p class="txtAccount">Email</p>
               <input type="email" id="email" class="infoRegister"></input>
-                <br>
-                <br>
               <p class="txtAccount">Password</p>
               <input id="password" class="infoRegister" type="password"></input>
               <button id="buttonAccount">Crear cuenta</button>
@@ -55,6 +50,12 @@ export const Register= () =>{
     const loginPassword = document.getElementById("password").value;
     registerWithEmail(loginEmail,loginPassword)
   });
+
+  RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => {
+   let backgroundBody = document.getElementById("bodies")
+   backgroundBody.classList.remove("containerBackground")
+   backgroundBody.classList.add("bodyBackground")
+ });
 
   return RegisterSection;
 };

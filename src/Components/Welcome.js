@@ -50,6 +50,11 @@ export const Welcome = () => {
   WelcomeDiv.querySelector("#buttonLogin").addEventListener('click', () => onNavigate ('/login'));
   RegisterDiv.querySelector("#buttonRegister").addEventListener('click', () => onNavigate ('/register'));
 
+  RegisterDiv.querySelector("#buttonRegister").addEventListener('click', () => {
+   let backgroundBody = document.getElementById("bodies")
+   backgroundBody.classList.remove("bodyBackground")
+   backgroundBody.classList.add("containerBackground")
+  });
 
 
   return WelcomeDiv;

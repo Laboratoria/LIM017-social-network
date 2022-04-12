@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0px;
   padding: 0px;
 }
@@ -7,6 +7,7 @@ body{
   width: 390px;
   height: auto;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   align-items: center;
   display:flex;
@@ -83,6 +84,20 @@ body{
   font-size: 22px;
   text-align:center;
   margin-top: 18px;
+}
+
+#buttonRegister{
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  height: 40px;
+  width: 180px;
+  color: #FDB508;
+  font-size: 16px;
+  text-align:center;
+  font-weight: bold;
+  margin-left: -45px;
+  /*margin-top: 700px;*/
 }
 .ingresoGoogle{
   margin-top: 32px;
