@@ -1,0 +1,69 @@
+body{
+    min-height: 100vh;
+    margin:0;
+    background:linear-gradient(hsl(56, 100%, 60%), #0C6D5B);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+}
+
+.img-responsive{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+#inputPassaword , #inputName , #inputCorreo{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+    font-family:" EB Garamond";
+    font-size: 20px;
+    border-radius: 5px;
+    border-color: rgb(116, 124, 121);
+    
+
+}
+.titleRedSocial{
+    display: flex;
+    justify-content: center;
+    margin:auto;
+    color:#0C6D5B ;
+    text-align: center;
+    font-family:" EB Garamond";
+    font-size: 40px;
+    padding:10px;
+}
+#pText{
+    color: aliceblue;
+    font-size: 20px;
+}
+.buttonHome{
+    background-color:#e24d55 ;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    padding: 16px 32px;
+    text-align: center;
+    font-family:" EB Garamond";
+    font-size:20px;
+    margin: auto;
+}
+#buttonLogin , #buttonRegister{
+    background-color:#e24d55 ;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    padding: 16px 32px;
+    text-align: center;
+    font-family:" EB Garamond";
+    font-size:20px;
+    margin: auto;
+    margin: 10px;
+}
