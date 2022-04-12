@@ -15,6 +15,7 @@ export const SignUp = () => {
   registerH2.className = 'text-start-h2';
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
   logo.setAttribute('class', 'logo');
+  logo.setAttribute('id', 'logo-register');
   mainImg.src = 'imagenes/3-personas-con-mascotas.png';
   mainImg.setAttribute('class', 'img-bienvenida');
   registerDiv.append(logo, mainImg, registerH2);
@@ -55,7 +56,7 @@ export const SignUp = () => {
   });
 
   // container botones registro
-  const [signUpButtons, gmailSignUp] = createElements('div', 'button');
+  const [signUpButton, gmailSignUp] = createElements('div', 'button');
 
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
@@ -71,21 +72,24 @@ export const SignUp = () => {
 
   // add botones al container, container a div global
 
-  signUpButtons.appendChild(gmailSignUp);
-  signUpButtons.setAttribute('class', 'container-buttons-logins');
+  signUpButton.appendChild(gmailSignUp);
+  signUpButton.setAttribute('class', 'container-buttons-login');
 
-  registerDiv.appendChild(signUpButtons);
+  registerDiv.appendChild(signUpButton);
 
   // cuenta existente
 
-  const [yesAccount, betterLogin] = createElements('p', 'a');
+  const [container, yesAccount, betterLogin] = createElements('div', 'p', 'a');
   yesAccount.textContent = '¿Ya tienes cuenta?';
   yesAccount.setAttribute('id', 'p-yes-account');
+  yesAccount.setAttribute('class', 'yes-account');
 
   betterLogin.textContent = 'Ingresa';
   betterLogin.setAttribute('id', 'a-better-login');
+  betterLogin.setAttribute('class', 'better-login');
   betterLogin.href = '/Login';
-  registerDiv.append(yesAccount, betterLogin);
+  container.append(yesAccount, betterLogin);
+  registerDiv.appendChild(container);
 
   // go back landing
   const goLandingButton = document.createElement('button');
