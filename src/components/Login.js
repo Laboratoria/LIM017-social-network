@@ -1,10 +1,10 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-cycle */
-import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-/* import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'; */
+// import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+// import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import { auth /* firestore */ } from '../Firebase/init.js';
+import { createAccountByGoogle, LoginByEmailPassword } from '../Firebase/auth.js';
 import { createElements } from '../util.js';
-import { provider } from '../Firebase/controller/auth.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
@@ -32,6 +32,13 @@ export const Login = () => {
 
   inputContainer.append(mailInput, passwordInput, loginButton);
   loginDiv.append(inputContainer, lineImg);
+  // Intento de ingresar con correo y contraseña
+  loginButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('mail-input').value;
+    const password = document.getElementById('password-input').value;
+    LoginByEmailPassword(email, password);
+  });
 
   // container botones ingreso, botones
   const [loginButtons, gmailLogin] = createElements('div', 'button');
@@ -41,10 +48,7 @@ export const Login = () => {
   gmailLogin.setAttribute('class', 'button-gmail');
   gmailLogin.textContent = 'Ingresar con Gmail';
   gmailLogin.addEventListener('click', () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log(result);
-      });
+    createAccountByGoogle();
   });
 
   // add botones al container, container a div global
