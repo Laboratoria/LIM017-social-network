@@ -1,10 +1,13 @@
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable quotes */
 /* export const homeView = () => {
     // aqui tu codigo
     // eslint-disable-next-line no-console
     console.log('Hola mundo!');
   }; */
 
-  import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../main.js';
 
 export const Home = () => {
   const HomeDiv = document.createElement("div");
@@ -12,10 +15,10 @@ export const Home = () => {
   const buttonLogin = document.createElement("button");
 
 
-  buttonRegister.textContent= "Registrate";
-  buttonLogin.textContent= "Inicia sesiòn";
+  buttonRegister.textContent = "Registrate";
+  buttonLogin.textContent = "Inicia sesiòn";
 
-   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+  buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
 
@@ -24,6 +27,3 @@ export const Home = () => {
 
   return HomeDiv;
 };
-
-
-
