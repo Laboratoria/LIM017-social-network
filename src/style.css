@@ -9,8 +9,8 @@ body{
 /* --------LandingPage.js----------- */
 .landing-div-global {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 2fr 4fr 2fr 2fr 1fr;
+    grid-template-columns:1fr 3fr 1fr;
+    grid-template-rows: 2fr 1fr 4fr 1fr 2fr 1fr;
     gap: 3.5%;
 
 }
@@ -19,24 +19,15 @@ body{
     grid-column: 2/3;
     grid-row: 2;
     width: 100%;
-    height: 80%;
     margin: auto;
 }
 .img-bienvenida {
     grid-column: 2/3;
     grid-row: 3;
-    height: 100%;
     width: 100%;
     margin: auto;
 }
-#btn-login{
-    grid-row: 4;
-    background: #ffff;
-}
-#btn-register{
-    grid-row: 5;
-    background: #ffff;
-}
+
 #btn-login, #btn-register{
     grid-column: 1/4;
     width: 50%;
@@ -49,6 +40,16 @@ body{
     border-radius: 12px;
     box-shadow: 4px 4px 8px #3f4747;
 }
+#btn-register{
+    grid-row: 5;
+    background: #ffff;
+    height: 50px;
+}
+#btn-login{
+    grid-row: 4;
+    background: #ffff;
+}
+
 /*--------- Login.js ---------------*/
 .login-div-global {
     display: grid;
@@ -135,11 +136,15 @@ body{
 }
 /* -----------Register.js ------------*/
 #register-div-global{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 2fr 3fr 1fr 4fr 1fr 1fr 1.5fr 1fr;
-    gap: 3%;
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+}
+.form-input-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
 }
 #p-yes-account{
     grid-row: 6;
