@@ -37,7 +37,6 @@ export const createAccountByGoogle = () => {
 // Intento de crear cuenta con correo Email
 
 export const CreateAccount = (email, password) => {
-  debugger;
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in

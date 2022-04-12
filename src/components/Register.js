@@ -7,7 +7,6 @@ import {
 } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
-import { CreateAccount, provider } from '../Firebase/controller/auth.js';
 
 // registro
 export const SignUp = () => {
@@ -50,8 +49,8 @@ export const SignUp = () => {
   // Evento de registrar al usuario
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const password = inputContainer.querySelector('#register-password').value;
-    const email = inputContainer.querySelector('#register-email').value;
+    const password = document.getElementById('register-password').value;
+    const email = document.getElementById('register-email').value;
     CreateAccount(email, password);
   });
 
@@ -96,12 +95,6 @@ export const SignUp = () => {
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);
-
-  submitBtn.addEventListener('click', () => {
-    const password = document.getElementById('register-password').value;
-    const email = document.getElementById('register-email').value;
-    CreateAccount(email, password);
-  });
 
   return registerDiv;
 };

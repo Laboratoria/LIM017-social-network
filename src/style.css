@@ -1,14 +1,18 @@
 * {
     margin: 0;
-    font-family: Lato, "Helvetica Neue",;
+    font-family: Lato, "Helvetica Neue";
 }
+body{
+    background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+}
+
 /* --------LandingPage.js----------- */
 .landing-div-global {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 2fr 4fr 2fr 2fr 1fr;
     gap: 3.5%;
-    background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+
 }
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
 .logo {
@@ -260,4 +264,11 @@
 #div-register-container{
     grid-row: 5;
     display:flex;
+}
+
+@media screen and (max-width: 390px) {
+    #header-image {
+        background-size: cover;
+        background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+    }
 }

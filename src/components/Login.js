@@ -5,7 +5,6 @@
 import { onNavigate } from '../main.js';
 import { createAccountByGoogle, LoginByEmailPassword } from '../Firebase/auth.js';
 import { createElements } from '../util.js';
-import { provider } from '../Firebase/controller/auth.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
