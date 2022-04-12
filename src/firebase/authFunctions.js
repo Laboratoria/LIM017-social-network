@@ -8,11 +8,29 @@ createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
-    // ...
+    console.log(user)
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
+    console.log(errorMessage)
   });
-}
+};
+
+export const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      onNavigate('/login');
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(errorCode, errorMessage, email, credential);
+    });
+};

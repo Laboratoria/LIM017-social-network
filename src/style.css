@@ -2,6 +2,7 @@ body{
   margin: 0px;
   padding: 0px;
 }
+
 .mobile {
   width: 390px;
   height: auto;
@@ -11,7 +12,7 @@ body{
   display:flex;
   justify-content: center;
   background-attachment: fixed;
-}
+  }
 
 .container{
     position: absolute;

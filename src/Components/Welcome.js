@@ -51,5 +51,6 @@ export const Welcome = () => {
   RegisterDiv.querySelector("#buttonRegister").addEventListener('click', () => onNavigate ('/register'));
 
 
+
   return WelcomeDiv;
 };

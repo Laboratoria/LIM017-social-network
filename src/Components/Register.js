@@ -1,4 +1,6 @@
 import { onNavigate } from '../main.js';
+import { registerWithEmail } from '../firebase/authFunctions.js';
+import { signInWithGoogle } from '../firebase/authFunctions.js';
 
 export const Register= () =>{
 
@@ -23,12 +25,6 @@ export const Register= () =>{
     </main>
   </section>`
 
-  let ContainerBackground=document.createElement("section");
-  ContainerBackground.innerHTML =`<section>
-      <main class="containerBackground">
-      </main>
-  </section>`
-
   let LogotypeSection=document.createElement("section");
   LogotypeSection.innerHTML =`<section>
       <img class="logotypeRegister" src="./img/LogoTellMeBlanco.svg">
@@ -41,12 +37,24 @@ export const Register= () =>{
          </div>
   </section>`
 
+  let ContainerBackground=document.createElement("section");
+  ContainerBackground.innerHTML =`<section>
+      <main class="containerBackground">
+      </main>
+  </section>`
+
   RegisterSection.appendChild(ContainerBackground);
   RegisterSection.appendChild(LogotypeSection);
   RegisterSection.appendChild(ConditionsSection);
 
   RegisterSection.classList.add("RegisterSection");
   RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => onNavigate ('/'));
+
+  RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => {
+    const loginEmail = document.getElementById("email").value;
+    const loginPassword = document.getElementById("password").value;
+    registerWithEmail(loginEmail,loginPassword)
+  });
 
   return RegisterSection;
 };
