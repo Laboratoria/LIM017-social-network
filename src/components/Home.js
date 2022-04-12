@@ -1,29 +1,36 @@
-/* export const homeView = () => {
-    // aqui tu codigo
-    // eslint-disable-next-line no-console
-    console.log('Hola mundo!');
-  }; */
-
-  import { onNavigate } from '../main.js';
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../main.js';
 
 export const Home = () => {
-  const HomeDiv = document.createElement("div");
-  const buttonRegister = document.createElement("button");
-  const buttonLogin = document.createElement("button");
+  const HomeDiv = document.createElement('div');
+  HomeDiv.textContent = 'Bienvenido a';
+  const image = document.createElement('img');
+  const buttonRegister = document.createElement('button');
+  const buttonLogin = document.createElement('button');
+  const titleRedSocial = document.createElement('h1');
+  const pText = document.createElement('p');
 
+  titleRedSocial.className = 'titleRedSocial';
+  HomeDiv.className = 'homeDiv';
+  image.className = 'img-responsive';
+  image.src = 'img/cuy.png';
+  pText.id = 'pText';
 
-  buttonRegister.textContent= "Registrate";
-  buttonLogin.textContent= "Inicia sesiòn";
+  buttonRegister.id = 'buttonRegister';
+  buttonLogin.id = 'buttonLogin';
+  buttonRegister.textContent = 'Registrate';
+  buttonLogin.textContent = 'Usuario y contraseña';
+  titleRedSocial.innerText = 'Cuy Viajero';
+  pText.innerText = 'Inicia sesion';
 
-   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+  buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
-
-  HomeDiv.appendChild(buttonRegister);
+  HomeDiv.appendChild(titleRedSocial);
+  HomeDiv.appendChild(image);
+  HomeDiv.appendChild(pText);
   HomeDiv.appendChild(buttonLogin);
+  HomeDiv.appendChild(buttonRegister);
 
   return HomeDiv;
 };
-
-
-
