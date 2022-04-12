@@ -20,9 +20,9 @@ export const SignUp = () => {
   registerDiv.append(logo, mainImg, registerH2);
   registerDiv.setAttribute('id', 'register-div-global');
 
-  const [inputContainer, registerEmail, registerPassword, confirmPassword, submitBtn, lineImg] = createElements('div', 'input', 'input', 'input', 'button', 'img');
+  const [inputContainer, registerEmail, registerPassword, confirmPassword, submitBtn, lineImg] = createElements('form', 'input', 'input', 'input', 'button', 'img');
 
-  inputContainer.className = 'div-input-container';
+  inputContainer.className = 'form-input-container';
   registerEmail.setAttribute('id', 'register-email');
   registerEmail.setAttribute('class', 'inputs-register');
   registerEmail.setAttribute('type', 'email');
@@ -44,20 +44,15 @@ export const SignUp = () => {
   lineImg.src = '#';
 
   inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
-  // Evento de registrar al usuario
-  /*  submitBtn.addEventListener('click', () => {
-    const password = document.getElementById('register-password').value;
-    const email = document.getElementById('register-email').value;
-    CreateAccount(email, password);
-  }); */
   registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
-  /*  submitBtn.addEventListener('click', () => {
-    const password = document.getElementById('register-password').value;
-    const email = document.getElementById('register-email').value;
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const password = inputContainer.querySelector('#register-password').value;
+    const email = inputContainer.querySelector('#register-email').value;
     CreateAccount(email, password);
-  }); */
+  });
 
   // container botones registro
   const [signUpButtons, gmailSignUp] = createElements('div', 'button');
@@ -100,13 +95,6 @@ export const SignUp = () => {
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);
-
-  // Evento de registrar al usuario
-  submitBtn.addEventListener('click', () => {
-    const password = document.getElementById('register-password').value;
-    const email = document.getElementById('register-email').value;
-    CreateAccount(email, password);
-  });
 
   return registerDiv;
 };
