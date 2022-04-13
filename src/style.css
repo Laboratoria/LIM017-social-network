@@ -1,9 +1,9 @@
 body{
     min-height: 100vh;
     margin:0;
-    background:linear-gradient(hsl(56, 100%, 60%), #0C6D5B);
+    background:linear-gradient(hsl(56, 61%, 73%), #8be7c4a6);
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+   font-family: inherit;
     display: flex;
     justify-content: center;
 }
@@ -19,7 +19,7 @@ body{
     justify-content: center;
     margin: 10px;
     text-align: center;
-    font-family:" EB Garamond";
+    font-family: inherit;
     font-size: 20px;
     border-radius: 5px;
     border-color: rgb(116, 124, 121);
@@ -32,17 +32,18 @@ body{
     margin:auto;
     color:#0C6D5B ;
     text-align: center;
-    font-family:" EB Garamond";
+    font-family: inherit;
     font-size: 40px;
     padding:10px;
 }
 #pText{
-    color: aliceblue;
+    color: rgb(7, 7, 7);
     font-size: 20px;
 }
 .buttonHome{
-    background-color:#e24d55 ;
+    background-color:#1877f2 ;
     border-radius: 30px;
+    border: none;
     display: flex;
     justify-content: center;
     color: white;
@@ -54,9 +55,10 @@ body{
     margin: auto;
 }
 #buttonLogin , #buttonRegister , #usuarioBtn , #GetInto{
-    background-color:#e24d55 ;
+    background-color:#1877f2 ;
     border-radius: 30px;
     display: flex;
+    border: none;
     justify-content: center;
     color: white;
     cursor: pointer;
