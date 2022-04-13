@@ -12,7 +12,7 @@ body{
     grid-template-areas:'logo1'
                         'img1'
                         'btnreg'
-                        'btnlog'; x
+                        'btnlog';
     gap: 7%;
 
 }
