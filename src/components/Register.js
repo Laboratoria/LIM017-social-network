@@ -46,8 +46,7 @@ export const SignUp = () => {
   registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
-  submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+  submitBtn.addEventListener('click', () => {
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
     } else {
@@ -56,8 +55,7 @@ export const SignUp = () => {
   });
 
   // container botones registro
-  const [signUpButtons, gmailSignUp, divParagraphError] = createElements('div', 'button', 'div');
-
+  const [signUpButton, gmailSignUp] = createElements('div', 'button', 'div');
 
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
@@ -75,10 +73,7 @@ export const SignUp = () => {
 
   signUpButton.appendChild(gmailSignUp);
   signUpButton.setAttribute('class', 'container-buttons-login');
-
-
-  registerDiv.append(signUpButtons, divParagraphError);
-  divParagraphError.setAttribute('id', 'error');
+  registerDiv.appendChild(signUpButton);
 
   // cuenta existente
 

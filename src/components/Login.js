@@ -8,18 +8,18 @@ import { createElements } from '../util.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
-  loginDiv.className = 'login-div-global';
+  loginDiv.id = 'login-wrapper';
   const [logo, mainImg, textLogin] = createElements('img', 'img', 'h2');
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
-  logo.className = 'logo';
+  logo.id = 'login-logo';
   mainImg.src = 'imagenes/imgLogin-con-transparencia.png';
-  mainImg.className = 'img-bienvenida';
+  mainImg.id = 'login-img';
   textLogin.textContent = 'Iniciar Sesion';
-  textLogin.className = 'text-start-h2';
+  textLogin.id = 'login-h2';
   loginDiv.append(logo, mainImg, textLogin);
 
-  const [inputContainer, mailInput, passwordInput, loginButton, lineImg] = createElements('div', 'input', 'input', 'button', 'img');
-  inputContainer.className = 'div-input-container';
+  const [inputContainer, mailInput, passwordInput, loginButton] = createElements('div', 'input', 'input', 'button');
+  inputContainer.id = 'form-login';
   mailInput.id = 'mail-input';
   mailInput.placeholder = 'Correo electrónico';
   passwordInput.id = 'password-input';
@@ -27,25 +27,29 @@ export const Login = () => {
   loginButton.textContent = 'Iniciar sesion';
   loginButton.id = 'login-btn';
   loginButton.className = 'submit-buttons';
-  lineImg.className = 'line-img';
-  lineImg.src = '#';
-
   inputContainer.append(mailInput, passwordInput, loginButton);
-  loginDiv.append(inputContainer, lineImg);
+  loginDiv.appendChild(inputContainer);
+
   // Intento de ingresar con correo y contraseña
   loginButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = document.getElementById('mail-input').value;
-    const password = document.getElementById('password-input').value;
-    LoginByEmailPassword(email, password);
+    LoginByEmailPassword(mailInput.value, passwordInput.value);
   });
-
+  const [lineContainer, line1, orParagraph, line2] = createElements('div', 'div', 'p', 'div');
+  lineContainer.id = 'line-container';
+  line1.className = 'solid-line';
+  line1.id = 'line1';
+  orParagraph.id = 'line-p';
+  orParagraph.textContent = 'O';
+  line2.className = 'solid-line';
+  lineContainer.append(line1, orParagraph, line2);
+  loginDiv.appendChild(lineContainer);
   // container botones ingreso, botones
   const [loginButtons, gmailLogin, divErrorParagraph] = createElements('div', 'button', 'divErrorParagraph');
-  loginButtons.className = 'container-buttons-login';
+  loginButtons.id = 'login-btn-container';
   // via gmail
-  gmailLogin.setAttribute('id', 'gmail-login');
-  gmailLogin.setAttribute('class', 'button-gmail');
+  gmailLogin.id = 'gmail-login';
+  gmailLogin.className = 'button-gmail';
   gmailLogin.textContent = 'Ingresar con Gmail';
   gmailLogin.addEventListener('click', () => {
     createAccountByGoogle();
@@ -55,29 +59,25 @@ export const Login = () => {
   loginButtons.appendChild(gmailLogin);
 
   loginDiv.append(loginButtons, divErrorParagraph);
-  divErrorParagraph.setAttribute('id', 'errorLogin');
+  divErrorParagraph.id = 'error-login';
 
-  const resetPassword = document.createElement('a');
+  // No tienes cuenta
+  const [container2, resetPassword, noAccount, noAccountRegister] = createElements('div', 'a', 'p', 'a');
+  container2.id = 'container2';
   resetPassword.textContent = '¿Olvidaste tu contraseña?';
   resetPassword.href = '/ForgotPasword';
   resetPassword.id = 'a-reset-password';
-  loginDiv.appendChild(resetPassword);
-
-  // No tienes cuenta
-  const [noAccount, noAccountRegister] = createElements('p', 'a');
   noAccount.textContent = '¿No tienes cuenta?';
   noAccount.id = 'p-no-account';
-
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
-  noAccountRegister.id = 'a-noaccount-register';
-  loginDiv.append(noAccount, noAccountRegister);
-
+  noAccountRegister.id = 'no-acc-register';
+  container2.append(resetPassword, noAccount, noAccountRegister);
+  loginDiv.appendChild(container2);
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
-  goLandingButton.setAttribute('id', 'go-landing-button');
-  goLandingButton.setAttribute('class', 'button-go-landing');
-  goLandingButton.textContent = 'Regresar al inicio';
+  goLandingButton.id = 'go-landing-button';
+  goLandingButton.textContent = 'home';
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   loginDiv.appendChild(goLandingButton);
