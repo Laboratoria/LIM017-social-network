@@ -75,7 +75,7 @@ export const SignUp = () => {
 
   signUpButtons.appendChild(gmailSignUp);
   signUpButtons.setAttribute('class', 'container-buttons-login');
-
+  signUpButtons.setAttribute('id', 'buttons-login-container');
 
   registerDiv.append(signUpButtons, divParagraphError);
   divParagraphError.setAttribute('id', 'error');
@@ -92,6 +92,7 @@ export const SignUp = () => {
   betterLogin.setAttribute('class', 'better-login');
   betterLogin.href = '/Login';
   container.append(yesAccount, betterLogin);
+  container.setAttribute('id', 'content-text');
   registerDiv.appendChild(container);
 
   // go back landing
