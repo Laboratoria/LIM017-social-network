@@ -73,8 +73,8 @@ export const SignUp = () => {
 
   // add botones al container, container a div global
 
-  signUpButton.appendChild(gmailSignUp);
-  signUpButton.setAttribute('class', 'container-buttons-login');
+  signUpButtons.appendChild(gmailSignUp);
+  signUpButtons.setAttribute('class', 'container-buttons-login');
 
 
   registerDiv.append(signUpButtons, divParagraphError);
