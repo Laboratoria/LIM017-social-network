@@ -12,7 +12,7 @@ body{
     grid-template-areas:'logo1'
                         'img1'
                         'btnreg'
-                        'btnlog';
+                        'btnlog'; x
     gap: 7%;
 
 }
@@ -155,7 +155,6 @@ body{
 }
 #logo-register{
     grid-area: logo;
-    
 }
 .img-bienvenida2{
     grid-area: img-welcome;
@@ -165,13 +164,16 @@ body{
 .text-start-h2{
     grid-area: text-h2;
 }
-
+.input-register{
+    width: 300px;
+}
 .form-input-container{
     grid-area: form;
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 50%;
+    width: 70%;
+    padding: 10px;
 }
 .line-img{
     grid-area: line-img;
