@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 import { routes } from './components/Router.js';
-import { CreateAccount } from './Firebase/auth.js';
 
 const rootDiv = document.getElementById('root');
 
