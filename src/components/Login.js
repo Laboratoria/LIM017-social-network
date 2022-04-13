@@ -10,6 +10,7 @@ export const Login = () => {
   const inputPassaword = document.createElement('input');
   const titleRedSocial = document.createElement('h1');
   const image = document.createElement('img');
+  const buttonGetInto = document.createElement('button');
 
   inputName.id = 'inputName';
   titleRedSocial.className = 'titleRedSocial';
@@ -21,11 +22,14 @@ export const Login = () => {
   image.src = 'img/cuy.png';
   titleRedSocial.innerText = 'Cuy Viajero';
   buttonHome.textContent = 'Regresar al Home';
+  buttonGetInto.id = 'GetInto';
+  buttonGetInto.textContent = 'Iniciar Sesiòn';
 
   HomeDiv.appendChild(titleRedSocial);
   HomeDiv.appendChild(image);
   HomeDiv.appendChild(inputName);
   HomeDiv.appendChild(inputPassaword);
+  HomeDiv.appendChild(buttonGetInto);
   HomeDiv.appendChild(buttonHome);
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
