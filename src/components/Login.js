@@ -41,7 +41,7 @@ export const Login = () => {
   });
 
   // container botones ingreso, botones
-  const [loginButtons, gmailLogin] = createElements('div', 'button');
+  const [loginButtons, gmailLogin, divErrorParagraph] = createElements('div', 'button', 'divErrorParagraph');
   loginButtons.className = 'container-buttons-login';
   // via gmail
   gmailLogin.setAttribute('id', 'gmail-login');
@@ -54,7 +54,8 @@ export const Login = () => {
   // add botones al container, container a div global
   loginButtons.appendChild(gmailLogin);
 
-  loginDiv.appendChild(loginButtons);
+  loginDiv.append(loginButtons, divErrorParagraph);
+  divErrorParagraph.setAttribute('id', 'errorLogin');
 
   const resetPassword = document.createElement('a');
   resetPassword.textContent = '¿Olvidaste tu contraseña?';
