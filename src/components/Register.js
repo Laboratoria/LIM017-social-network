@@ -2,9 +2,7 @@
 /* eslint-disable import/no-cycle */
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc, firestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-import {
-  CreateAccount, createAccountByGoogle,
-} from '../Firebase/auth.js';
+import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 
@@ -48,16 +46,16 @@ export const SignUp = () => {
   registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
-  submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const password = document.getElementById('register-password').value;
-    const email = document.getElementById('register-email').value;
-    CreateAccount(email, password);
+  submitBtn.addEventListener('click', () => {
+    if (registerPassword.value === confirmPassword.value) {
+      CreateAccount(registerEmail.value, registerPassword.value);
+    } else {
+      alert('Las contrase;as no coinciden');
+    }
   });
 
   // container botones registro
-  const [signUpButtons, gmailSignUp, divParagraphError] = createElements('div', 'button', 'div');
-
+  const [signUpButton, gmailSignUp] = createElements('div', 'button', 'div');
 
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
@@ -73,12 +71,9 @@ export const SignUp = () => {
 
   // add botones al container, container a div global
 
-  signUpButtons.appendChild(gmailSignUp);
-  signUpButtons.setAttribute('class', 'container-buttons-login');
-
-
-  registerDiv.append(signUpButtons, divParagraphError);
-  divParagraphError.setAttribute('id', 'error');
+  signUpButton.appendChild(gmailSignUp);
+  signUpButton.setAttribute('class', 'container-buttons-login');
+  registerDiv.appendChild(signUpButton);
 
   // cuenta existente
 
