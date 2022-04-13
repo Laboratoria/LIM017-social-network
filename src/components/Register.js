@@ -71,6 +71,7 @@ export const SignUp = () => {
 
   // add botones al container, container a div global
 
+
   signUpButton.appendChild(gmailSignUp);
   signUpButton.setAttribute('class', 'container-buttons-login');
   registerDiv.appendChild(signUpButton);
@@ -87,6 +88,7 @@ export const SignUp = () => {
   betterLogin.setAttribute('class', 'better-login');
   betterLogin.href = '/Login';
   container.append(yesAccount, betterLogin);
+  container.setAttribute('id', 'content-text');
   registerDiv.appendChild(container);
 
   // go back landing
