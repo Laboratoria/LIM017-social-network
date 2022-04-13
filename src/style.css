@@ -151,6 +151,7 @@ body{
                         'yes-account yes-account yes-account'
                         'go-login go-login go-login'
                         'back-landing back-landing back-landing';
+    gap: 3%;
 }
 #logo-register{
     grid-area: logo;
@@ -158,6 +159,7 @@ body{
 }
 .img-bienvenida2{
     grid-area: img-welcome;
+    width: 100%;
 }
 
 .text-start-h2{
@@ -193,11 +195,11 @@ body{
 #p-yes-account, #a-better-login{
     font-size: large;
     font-weight: bold;
-    margin: 10px;
+    margin: 4px;
     }
 #btn-go-landing{
     grid-area: back-landing;
-    margin: 10px;
+    margin: 2px;
 }
 
 
