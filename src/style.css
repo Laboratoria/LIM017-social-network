@@ -1,63 +1,98 @@
 * {
     padding: 0;
-    margin: 0;
     /* box-sizing: border-box; */
     font-family: 'Comfortaa';
+    font-size: large;
+    font-weight: bold;
 }
+
 
 body {
     background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
-  
+    position: relative;
+    padding-bottom: 2em;
+    min-height: 90vh;
 }
 
+footer {
+    font-style: italic;
+    font-size: small;
+    text-align: center;
+    color: #6e6d6c;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    
+    }
+
 /* --------LandingPage.js----------- */
+
 .landing-div-global {
     display: grid;
-    grid-template-areas:'logo'
+    grid-template-areas:'.'
+                        'logo'
                         'img1'
-                        'btnreg'
-                        'btnlog';
-    gap: 3.5%;
+                        'cont-landing';
 }
 
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
+
 .logo {
   grid-area: logo;
+  display: flex;
+  margin: 10% auto;
   width: 70%;
-  margin: auto;
 }
 
 .img-bienvenida {
-
     grid-area: img1;
     width: 100%;
-    margin: auto;
+    margin: 10% auto;
 }
 
-#btn-login, #btn-register{
-    width: 50%;
-    height: 100%;
+.btn-container{
+    grid-area: cont-landing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btns-landing{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
     border: none;
-    font-size: large;
-    font-weight: bold;
-    color: #3f4747;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 4px 4px 8px #3f4747;
+    font-size: x-large;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 #btn-register{
-    grid-area: btnreg;
-    background: #ffff;
-    height: 50px;
+    height: 60px;
+    width: 60%;
+    margin: 10px auto;
 }
 #btn-login{
-    grid-area: btnlog;
-    background: #ffff;
-    height: 50px;
-} */
+    height: 60px;
+    width: 60%;
+    margin: 12px auto;
+}
+.btn-container button:first-child:hover{
+    background: rgba(247, 161, 47, 0.7);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transform: scale(1.3);
+    }
 
+.btn-container button:first-child:focus{
+        background: rgba(247, 161, 47, 0.7);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        transform: scale(1.3);
+        }
+
+.btn-container button:nth-child(2):hover{
+    background: rgba(91, 147, 179, 0.7);
+    box-shadow:  rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transform: scale(1.3);
+}
 /* --------- Login.js ---------------*/
-.login-div-global {
+/* .login-div-global {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 2fr 3fr 1fr 4fr 1fr 1fr 1fr 1.5fr 1fr;
@@ -65,7 +100,7 @@ body {
     background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
 }
 /* Login.js-Register.js---usan TextoH2 y Contenedor de login con email y gmail */
-.text-start-h2{
+/*.text-start-h2{
     grid-column: 2/3;
     grid-row: 4;
     margin: auto;
@@ -149,7 +184,7 @@ body {
   grid-row: 4;
   background: #ffff;
 }
-
+ */
 
 
 /* Boton de regreso al inicio para Login.js y Register.js */
