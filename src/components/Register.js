@@ -55,7 +55,7 @@ export const SignUp = () => {
   });
 
   // container botones registro
-  const [signUpButtons, gmailSignUp] = createElements('div', 'button');
+  const [signUpButtons, gmailSignUp, divParagraphError] = createElements('div', 'button', 'div');
 
   // via gmail
   gmailSignUp.setAttribute('id', 'gmail-signup');
@@ -74,8 +74,8 @@ export const SignUp = () => {
   signUpButtons.appendChild(gmailSignUp);
   signUpButtons.setAttribute('class', 'container-buttons-logins');
 
-  registerDiv.appendChild(signUpButtons);
-
+  registerDiv.append(signUpButtons, divParagraphError);
+  divParagraphError.setAttribute('id', 'error');
   // cuenta existente
 
   const [yesAccount, betterLogin] = createElements('p', 'a');
