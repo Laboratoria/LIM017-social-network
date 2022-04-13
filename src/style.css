@@ -1,27 +1,29 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Lato, "Helvetica Neue";
+    padding: 0;
+    margin: 0;
+    /* box-sizing: border-box; */
+    font-family: 'Comfortaa';
 }
 
 body {
-  background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+    background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+  
 }
 
 /* --------LandingPage.js----------- */
 .landing-div-global {
-  display: grid;
-  grid-template-columns:1fr 3fr 1fr;
-  grid-template-rows: 2fr 1fr 4fr 1fr 2fr 1fr;
-  gap: 3.5%;
+    display: grid;
+    grid-template-areas:'logo'
+                        'img1'
+                        'btnreg'
+                        'btnlog';
+    gap: 3.5%;
 }
 
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
 .logo {
-  grid-column: 2/3;
-  grid-row: 2;
-  width: 100%;
+  grid-area: logo;
+  width: 70%;
   margin: auto;
 }
 
@@ -52,9 +54,9 @@ body {
     grid-area: btnlog;
     background: #ffff;
     height: 50px;
-}
+} */
 
-/*--------- Login.js ---------------*/
+/* --------- Login.js ---------------*/
 .login-div-global {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -151,7 +153,7 @@ body {
 
 
 /* Boton de regreso al inicio para Login.js y Register.js */
-.button-go-landing {
+/* .button-go-landing {
   width: 70%;
   height: 100%;
   margin: 0 auto;
@@ -166,7 +168,7 @@ body {
 
 /* Login */
 
-#login-wrapper {
+/* #login-wrapper {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -251,8 +253,8 @@ body {
         'cont-text cont-text cont-text'
         'back-landing back-landing back-landing';
     gap: 3
-}
-
+}*/
+/* 
 #container2 {
   display: flex;
   flex-direction: column;
@@ -281,7 +283,7 @@ body {
 }
 
 /* -----------Register.js ------------*/
-
+/*
 #register-div-global {
   display: grid;
   grid-template-areas:'logo logo logo'
@@ -314,7 +316,7 @@ body {
     gap: 15px;
 
 }
-
+/*
 .text-start-h2 {
   grid-area: text-h2;
 }
@@ -355,7 +357,7 @@ body {
 
 /* ------ForgotPassword------------ */
 
-#div-forgot-password {
+/* #div-forgot-password {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 3fr 0.5fr 0.5fr 1fr 1fr 1fr;
@@ -378,22 +380,22 @@ body {
 #text-forgot-h4 {
   grid-column: 1/4;
   grid-row: 4;
-}
+} */
 
 /* estilos asociados a la clase del boton email */
-#input-forgot-password {
+/* #input-forgot-password {
   grid-column: 1/4;
   grid-row: 5;
-}
+} */
 
 /* estilo asociado al boton de regreso al landing */
-#button-forgot-password {
+/* #button-forgot-password {
   grid-column: 1/4;
   grid-row: 6;
-}
+} */
 
 /* -------RegisterEmail------- */
-#div-register-by-email {
+/* #div-register-by-email {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-row: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -444,11 +446,11 @@ body {
     grid-area: cont-text;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
+    align-items: center; */
+} */ */
 
 /* -------MainLogin------------- */
-#main-login-div{
+/* #main-login-div{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 0.4fr 2fr 6fr 3fr 2fr 1fr;
@@ -477,9 +479,9 @@ body {
 #div-register-container{
     grid-row: 5;
     display:flex;
-}
+} */
 /* ------------Paragraph Error------------- */
-.showParagraphError {
+/* .showParagraphError {
     width: 65%;
     color: red;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -496,12 +498,12 @@ body {
 
 }
 
-@media screen and (max-width: 390px) {
+/*@media screen and (max-width: 390px) {
   #header-image {
       background-size: cover;
       background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
   }
-}
+} */ */
 
 /*
 #login-wrapper {
@@ -583,5 +585,4 @@ body {
 
 #go-landing-button {
   grid-area: go-landing;
-}
-*/
+} */
