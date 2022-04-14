@@ -3,6 +3,17 @@ import { createElements } from '../util.js';
 export const ResetPassword = () => {
   const [forgotDiv, logo, imgPets, titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword] = createElements('div', 'img', 'img', 'h2', 'h4', 'input', 'button');
   forgotDiv.id = 'div-forgot-password';
+
+  // Boton de regresar a la bienvenida
+  const goLandingButton = document.createElement('button');
+  goLandingButton.id = 'go-landing-button';
+  goLandingButton.className = 'back-button';
+  // goLandingButton.src = 'imagenes/flecha-izquierda.png';
+  // goLandingButton.textContent = 'home';
+
+  goLandingButton.addEventListener('click', () => onNavigate('/'));
+  forgotDiv.appendChild(goLandingButton);
+
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
   logo.id = 'forgot-logo';
   imgPets.src = 'imagenes/instantanea-celeste-transparencia.png';

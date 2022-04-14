@@ -9,6 +9,19 @@ import { createElements } from '../util.js';
 export const Login = () => {
   const loginDiv = document.createElement('div');
   loginDiv.id = 'login-wrapper';
+
+  // Boton de regresar a la bienvenida
+  const goLandingButton = document.createElement('button');
+  goLandingButton.id = 'go-landing-button';
+  goLandingButton.className = 'back-button';
+  // goLandingButton.src = 'imagenes/flecha-izquierda.png';
+  // goLandingButton.textContent = 'home';
+
+  goLandingButton.addEventListener('click', () => onNavigate('/'));
+  loginDiv.appendChild(goLandingButton);
+
+  // logo and image
+
   const [logo, mainImg, textLogin] = createElements('img', 'img', 'h2');
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
   logo.id = 'login-logo';
@@ -89,13 +102,6 @@ export const Login = () => {
   containerTextLogin.append(resetPassword, noAccount, noAccountRegister);
   containerTextLogin.className = 'container-login';
   loginDiv.appendChild(containerTextLogin);
-  // Boton de regresar a la bienvenida
-  const goLandingButton = document.createElement('button');
-  goLandingButton.id = 'go-landing-button';
-  goLandingButton.textContent = 'home';
-
-  goLandingButton.addEventListener('click', () => onNavigate('/'));
-  loginDiv.appendChild(goLandingButton);
 
   return loginDiv;
 };

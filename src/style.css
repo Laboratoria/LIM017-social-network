@@ -34,18 +34,26 @@ footer {
                         'cont-landing';
 }
 
+#landing-logo{
+    grid-area: logo;
+    display: flex;
+    margin: 5% auto;
+    width: 70%;
+
+}
+
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
 
 .logo {
   grid-area: logo;
   display: flex;
-  margin: 7% auto;
+  margin: 0% auto;
   width: 70%;
 }
 
 .img-bienvenida {
     grid-area: img1;
-    width: 100%;
+    width: 90%;
     margin: 10% auto;
 }
 
@@ -93,25 +101,25 @@ footer {
 /* --------- Login.js ---------------*/
 .login-div-global {
     display: grid;
-    grid-template-areas: '.'
-                        'logo-login'
-                        'img-login'
-                        'h2login'
-                        'form-login'
-                        'login-btn'
+    grid-template-areas:'go-back . go-back'
+                        'logo-login logo-login logo-login'
+                        'img-login  img-login  img-login'
+                        'h2login    h2login    h2login'
+                        'form-login form-login form-login'
+                        'login-btn login-btn login-btn'
                         ;
     gap: 3%;
 }
 #login-logo{
     grid-area: logo-login;
     display: flex;
-    margin: 7% auto;
+    margin: 0% auto;
     width: 70%;
 }
 #login-img{
     grid-area: img-login;
     width: 90%;
-    margin: 5%;
+    margin: 0% 5%;
 }
 #login-h2{
     grid-area: h2login;
@@ -172,6 +180,18 @@ footer {
   padding-right: 4px;
 }
 
+#go-landing-button {
+    grid-area: go-back;
+    background:url(/imagenes/arrow-left-downsize.png) no-repeat;
+    background-size: cover;
+    border: none;
+    width:30px;
+    height:30px;
+    margin: 5px 0px 0px 5px;
+    opacity: 0.65;
+}
+
+
 /* Login.js-Register.js---usan TextoH2 y Contenedor de login con email y gmail */
 
 
@@ -204,7 +224,7 @@ footer {
     text-align: center;
     font-size: medium;
 }
-#go-landing-button{
+/* #go-landing-button{
     width: 30%;
     margin: auto;
     border-radius: 12px;
@@ -214,7 +234,7 @@ footer {
     color: #3f4747;
     height: 45px;
     margin-bottom: 10%;
-}
+} */
 
 
 /* --------- Register.js ---------------*/
@@ -222,7 +242,7 @@ footer {
 .img-register{
     grid-area: img-reg;
     width: 90%;
-    margin: 5%;
+    margin: 0% 5%;
 }
 .text-start-h2{
     display: flex;
@@ -370,19 +390,18 @@ footer {
     padding: 5px;
     border: none;
     /* border: solid 1px; */
-    box-shadow: 4px 4px 8px #d9c3a7;
+    /* box-shadow: 4px 4px 8px #d9c3a7;
     grid-area: err;
-    margin: auto;
+    margin: auto; */
 
 
-}
 
 /*@media screen and (max-width: 390px) {
   #header-image {
       background-size: cover;
       background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
   }
-} */ */
+} */
 
 /*
 #login-wrapper {

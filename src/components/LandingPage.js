@@ -6,10 +6,11 @@ export const LandingView = () => {
   const landingDiv = document.createElement('div');
   landingDiv.className = 'landing-div-global';
   const imgLogo = `
-      <img class="logo" src="imagenes/DuckyPets-con-transparencia-achicado.png" alt="">
+      <img id="landing-logo" src="imagenes/DuckyPets-con-transparencia-achicado.png" alt="">
       <img class="img-bienvenida" src="imagenes/instantanea-original-transparente.png" alt="">
       `;
   landingDiv.insertAdjacentHTML('beforeend', imgLogo);
+
 
   // Botones de acceso
   const [containerLandingBtn, buttonRegister, buttonLogin] = createElements('div', 'button', 'button');

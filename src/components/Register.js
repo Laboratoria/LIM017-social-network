@@ -9,6 +9,17 @@ import { createElements } from '../util.js';
 // registro
 export const SignUp = () => {
   const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
+
+  // Boton de regresar a la bienvenida
+  const goLandingButton = document.createElement('button');
+  goLandingButton.id = 'go-landing-button';
+  goLandingButton.className = 'back-button';
+  // goLandingButton.src = 'imagenes/flecha-izquierda.png';
+  // goLandingButton.textContent = 'home';
+
+  goLandingButton.addEventListener('click', () => onNavigate('/'));
+  registerDiv.appendChild(goLandingButton);
+
   registerH2.textContent = 'Registrarse';
   registerH2.className = 'text-start-h2';
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
@@ -19,7 +30,7 @@ export const SignUp = () => {
   registerDiv.append(logo, mainImg, registerH2);
   registerDiv.setAttribute('id', 'register-div-global');
 
-  const [inputContainer, registerEmail, registerPassword, confirmPassword, submitBtn, lineImg] = createElements('form', 'input', 'input', 'input', 'button', 'img');
+  const [inputContainer, registerEmail, registerPassword, confirmPassword, submitBtn] = createElements('form', 'input', 'input', 'input', 'button', 'img');
 
   inputContainer.className = 'form-input-container';
   registerEmail.setAttribute('id', 'register-email');
@@ -97,15 +108,15 @@ export const SignUp = () => {
   container.setAttribute('id', 'content-text');
   registerDiv.appendChild(container);
 
-  // go back landing
+  // // go back landing
 
-  const goLandingButton = document.createElement('button');
-  goLandingButton.textContent = 'Regresar al inicio';
-  goLandingButton.setAttribute('class', 'button-go-landing');
-  goLandingButton.setAttribute('id', 'btn-go-landing');
+  // const goLandingButton = document.createElement('button');
+  // goLandingButton.textContent = 'Regresar al inicio';
+  // goLandingButton.setAttribute('class', 'button-go-landing');
+  // goLandingButton.setAttribute('id', 'btn-go-landing');
 
-  goLandingButton.addEventListener('click', () => onNavigate('/'));
-  registerDiv.appendChild(goLandingButton);
+  // goLandingButton.addEventListener('click', () => onNavigate('/'));
+  // registerDiv.appendChild(goLandingButton);
 
   return registerDiv;
 };
