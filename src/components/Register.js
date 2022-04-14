@@ -12,6 +12,7 @@ export const Register = () => {
   const inputPassaword = document.createElement('input');
   const inputCorreo = document.createElement('input');
   const image = document.createElement('img');
+  const buttonUsuario = document.createElement('button');
 
   inputCorreo.placeholder = 'Ingrese correo electronico';
   inputName.placeholder = 'Ingrese nombre Completo';
@@ -25,6 +26,8 @@ export const Register = () => {
   buttonHome.textContent = 'Regresar al Home';
   titleRedSocial.className = 'titleRedSocial';
   titleRedSocial.innerText = 'Cuy Viajero';
+  buttonUsuario.id = 'usuarioBtn';
+  buttonUsuario.textContent = 'Crear usuario';
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
@@ -33,6 +36,7 @@ export const Register = () => {
   HomeDiv.appendChild(inputName);
   HomeDiv.appendChild(inputCorreo);
   HomeDiv.appendChild(inputPassaword);
+  HomeDiv.appendChild(buttonUsuario);
   HomeDiv.appendChild(buttonHome);
 
  return HomeDiv;
