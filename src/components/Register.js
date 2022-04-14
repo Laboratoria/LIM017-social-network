@@ -2,7 +2,7 @@
 /* eslint-disable import/no-cycle */
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc, firestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
+import { CreateAccount, createAccountByGoogle/* , sendEmailForVerification */ } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 
@@ -46,9 +46,11 @@ export const SignUp = () => {
   registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
-  submitBtn.addEventListener('click', () => {
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
+    /*  sendEmailForVerification(registerEmail.value); */
     } else {
       alert('Las contrase;as no coinciden');
     }
@@ -70,7 +72,6 @@ export const SignUp = () => {
   });
 
   // add botones al container, container a div global
-
 
   signUpButton.appendChild(gmailSignUp);
   signUpButton.setAttribute('class', 'container-buttons-login');
