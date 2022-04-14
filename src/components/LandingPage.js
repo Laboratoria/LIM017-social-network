@@ -11,7 +11,6 @@ export const LandingView = () => {
       `;
   landingDiv.insertAdjacentHTML('beforeend', imgLogo);
 
-
   // Botones de acceso
   const [containerLandingBtn, buttonRegister, buttonLogin] = createElements('div', 'button', 'button');
   buttonRegister.id = 'btn-register';

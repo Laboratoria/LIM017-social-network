@@ -220,7 +220,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px auto;
+    margin: 40px auto 70px;
     text-align: center;
     font-size: medium;
 }
@@ -238,6 +238,20 @@ footer {
 
 
 /* --------- Register.js ---------------*/
+
+#logo-register {
+    grid-area: logo;
+    display: flex;
+    margin: 0% auto;
+    width: 70%;
+}
+
+  /* #img-register {
+      grid-area: img1;
+      width: 90%;
+      margin: 10% auto;
+  } */
+
 
 .img-register{
     grid-area: img-reg;
@@ -310,7 +324,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px auto;
+    margin: 10px auto 70px;
     text-align: center;
     font-size: medium;
 }
@@ -334,7 +348,7 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     margin: 0px auto;
 }
@@ -342,14 +356,14 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 30px;
+    font-size: 18px;
     font-weight: bold;
 }
 #input-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px auto;
+    margin: 10px auto 70px;
     text-align: center;
     font-size: medium;
 }
@@ -364,13 +378,13 @@ footer {
 }
 
 #button-forgot-password{
-    width: 50%;
+    width: 70%;
     height: 50px;
     margin: 4% auto;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     border: none;
-    font-size: x-large;
+    font-size: 24px;
     font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -396,91 +410,75 @@ footer {
 
 
 
-/*@media screen and (max-width: 390px) {
-  #header-image {
-      background-size: cover;
-      background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
-  }
+/* -------Media Querys------ */
+
+/*--Landing --*/
+@media screen and (min-width: 768px){
+    .landing-div-global{
+        grid-template-areas:'.  logo-desktop'
+                            'img-welcome-desktop container-desktop'
+                            ' . .';
+    }
+    .img-bienvenida{
+        grid-area: img-welcome-desktop;
+        align-self: center;
+        display: flex;
+        width: 100%;
+        zoom: 1.5;
+    }
+
+    #landing-logo{
+        grid-area: logo-desktop;
+        display: flex;
+        flex-direction: column;
+        margin: 60px 0 50px 118px;
+    }
+
+    .btn-container{
+        grid-area: container-desktop;
+        zoom: 150%;
+    }
+}
+
+/* Login media Query */
+/* @media screen and (min-width: 768px){
+    .login-wrapper{
+        grid-template-areas:'. logo-log-desktop'
+                            ',  h2-log-desktop'
+                            'img-log-desktop  form-log-desktop'
+                            'img-log-desktop   linecontainer-log-desktop' 
+                            '. container-log-desktop'
+                            '.  containertext-desktop';
+    }
+    #login-logo{
+        grid-area: logo-log-desktop;
+        display: flex;
+    }
+    #login-img{
+        grid-area: img-log-desktop;
+        
+    }
+    #login-h2{
+        grid-area: h2-log-desktop;
+        ;
+    }
+    #form-login{
+        grid-area: form-log-desktop;
+        
+    }
+    #line-container{
+        grid-area: linecontainer-log-desktop;
+       
+    }
+    #login-btn-container{
+        grid-area: container-log-desktop;
+      
+    }
+    #container2{
+        grid-area: containertext-desktop;
+    
+    }
 } */
 
-/*
-#login-wrapper {
-  display: grid;
-  grid-template-areas:
-  'logo3'
-  'login-img'
-  'login-h2'
-  'input-container'
-  'mail-input'
-  'pass-input'
-  'login-button'
-  'line-img2'
-  'login-btns'
-  'google-login'
-  'div-error'
-  'reset-a'
-  'container2'
-  'no-account'
-  'no-acc-register'
-  'go-landing';
-}
 
-#login-logo {
-  grid-area: logo3;
-}
 
-#login-img {
-  grid-area: login-img;
-}
-
-#login-h2 {
-  grid-area: login-h2;
-}
-
-#form-login {
-  grid-area: input-container;
-}
-
-#mail-input {
-  grid-area: mail-input;
-}
-
-#password-input {
-  grid-area: pass-input;
-}
-
-#login-btn {
-  grid-area: login-button;
-}
-
-#login-btn-container {
-  grid-area: login-btns;
-}
-
-#gmail-login {
-  grid-area: google-login;
-}
-
-#error-login {
-  grid-area: div-error;
-}
-
-#a-reset-password {
-  grid-area: reset-a;
-}
-
-#container2 {
-  grid-area: container2;
-}
-
-#p-no-account {
-  grid-area: no-account;
-}
-
-#no-acc-register {
-  grid-area: no-acc-register;
-}
-
-#go-landing-button {
-  grid-area: go-landing;
-} */

@@ -9,6 +9,7 @@ import { createElements } from '../util.js';
 export const Login = () => {
   const loginDiv = document.createElement('div');
   loginDiv.id = 'login-wrapper';
+  loginDiv.setAttribute('class', 'login-wrapper');
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');

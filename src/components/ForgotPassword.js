@@ -1,4 +1,6 @@
+/* eslint-disable import/no-cycle */
 import { createElements } from '../util.js';
+import { onNavigate } from '../main.js';
 
 export const ResetPassword = () => {
   const [forgotDiv, logo, imgPets, titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword] = createElements('div', 'img', 'img', 'h2', 'h4', 'input', 'button');

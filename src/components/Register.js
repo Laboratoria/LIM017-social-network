@@ -27,6 +27,7 @@ export const SignUp = () => {
   logo.setAttribute('id', 'logo-register');
   mainImg.src = 'imagenes/3-personas-con-mascotas.png';
   mainImg.setAttribute('class', 'img-register');
+  mainImg.setAttribute('id', 'img-register');
   registerDiv.append(logo, mainImg, registerH2);
   registerDiv.setAttribute('id', 'register-div-global');
 
