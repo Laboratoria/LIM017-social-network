@@ -15,7 +15,7 @@ export const SignUp = () => {
   logo.setAttribute('class', 'logo');
   logo.setAttribute('id', 'logo-register');
   mainImg.src = 'imagenes/3-personas-con-mascotas.png';
-  mainImg.setAttribute('class', 'img-bienvenida2');
+  mainImg.setAttribute('class', 'img-register');
   registerDiv.append(logo, mainImg, registerH2);
   registerDiv.setAttribute('id', 'register-div-global');
 
@@ -25,34 +25,45 @@ export const SignUp = () => {
   registerEmail.setAttribute('id', 'register-email');
   registerEmail.setAttribute('class', 'inputs-register');
   registerEmail.setAttribute('type', 'email');
-  registerEmail.setAttribute('placeholder', 'Ingresa tu correo');
+  registerEmail.setAttribute('placeholder', '  Ingresa tu correo');
 
   registerPassword.setAttribute('id', 'register-password');
   registerPassword.setAttribute('class', 'inputs-register');
   registerPassword.setAttribute('type', 'password');
-  registerPassword.setAttribute('placeholder', 'Ingresa tu contraseña');
+  registerPassword.setAttribute('placeholder', '  Ingresa tu contraseña');
 
   confirmPassword.setAttribute('id', 'confirm-password');
   confirmPassword.setAttribute('class', 'inputs-register');
   confirmPassword.setAttribute('type', 'password');
-  confirmPassword.setAttribute('placeholder', 'Confirma tu contraseña');
+  confirmPassword.setAttribute('placeholder', '  Confirma tu contraseña');
   submitBtn.id = 'submit-btn';
   submitBtn.className = 'submit-buttons';
   submitBtn.textContent = 'Registrarse';
-  lineImg.className = 'line-img';
-  lineImg.src = '#';
-
-  inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
-  registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
   submitBtn.addEventListener('click', () => {
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
     } else {
-      alert('Las contrase;as no coinciden');
+      alert('Las contraseñas no coinciden');
     }
   });
+
+  // Linea y contenedor OR
+  const [lineContainer, line3, orParagraph, line4] = createElements('div', 'div', 'p', 'div');
+
+  lineContainer.id = 'line-container';
+  line3.className = 'solid-line';
+  line3.id = 'line1';
+
+  orParagraph.id = 'line-p';
+  orParagraph.textContent = 'O';
+
+  line4.className = 'solid-line';
+  lineContainer.append(line3, orParagraph, line4);
+
+  inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
+  registerDiv.append(inputContainer, lineContainer);
 
   // container botones registro
   const [signUpButton, gmailSignUp] = createElements('div', 'button', 'div');
@@ -61,22 +72,17 @@ export const SignUp = () => {
   gmailSignUp.setAttribute('id', 'gmail-signup');
   gmailSignUp.setAttribute('class', 'button-gmail');
   gmailSignUp.textContent = 'Registrarse con Gmail';
-
-  gmailSignUp.setAttribute('id', 'gmail-login');
-  gmailSignUp.setAttribute('class', 'button-gmail');
-  gmailSignUp.textContent = 'Registrate con Gmail';
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
   });
 
   // add botones al container, container a div global
 
-
   signUpButton.appendChild(gmailSignUp);
-  signUpButton.setAttribute('class', 'container-buttons-login');
+  signUpButton.setAttribute('class', 'container-button-signup');
   registerDiv.appendChild(signUpButton);
 
-  // cuenta existente
+  // Already have and account
 
   const [container, yesAccount, betterLogin] = createElements('div', 'p', 'a');
   yesAccount.textContent = '¿Ya tienes cuenta?';
@@ -92,6 +98,7 @@ export const SignUp = () => {
   registerDiv.appendChild(container);
 
   // go back landing
+
   const goLandingButton = document.createElement('button');
   goLandingButton.textContent = 'Regresar al inicio';
   goLandingButton.setAttribute('class', 'button-go-landing');
