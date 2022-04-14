@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { signInWithGoogle } from '../firebase/authFunctions.js';
 
 export const Welcome = () => {
 
@@ -19,21 +20,13 @@ export const Welcome = () => {
         <div>
           <button id="googleBtn"><img class="googleIcon" src="./img/iconGoogle.svg"></button>
         </div>
-    </main>
-    </section>`
-
-    let QuestionDiv=document.createElement("section");
-    QuestionDiv.innerHTML =`<section>
-           <div>
-             <p class="questionPassword">¿Olvidaste tu contraseña?</p>
-           </div>
-    </section>`
-
- let RegisterDiv=document.createElement("section");
- RegisterDiv.innerHTML =`<section>
           <div>
-            <p class="createLogin">¿No tienes una cuenta?<button id="buttonRegister"><u>Regístrate</u></button></p>
+            <p class="questionPassword">¿Olvidaste tu contraseña?</p>
           </div>
+            <div class="createLoginContent">
+              <p class="createLogin">¿No tienes una cuenta?<button id="buttonRegister"><u>Regístrate</u></button></p>
+            </div>
+    </main>
     </section>`
 
   let BackgroundMobile=document.createElement("main");
@@ -43,14 +36,18 @@ export const Welcome = () => {
 
 
   WelcomeDiv.appendChild(BackgroundMobile);
-  WelcomeDiv.appendChild(QuestionDiv);
-  WelcomeDiv.appendChild(RegisterDiv);
 
   WelcomeDiv.classList.add("WelcomeDiv");
   WelcomeDiv.querySelector("#buttonLogin").addEventListener('click', () => onNavigate ('/login'));
-  RegisterDiv.querySelector("#buttonRegister").addEventListener('click', () => onNavigate ('/register'));
+  WelcomeDiv.querySelector("#buttonRegister").addEventListener('click', () => onNavigate ('/register'));
 
-  RegisterDiv.querySelector("#buttonRegister").addEventListener('click', () => {
+  WelcomeDiv.querySelector("#googleBtn").addEventListener('click', () => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    signInWithGoogle(provider,auth)
+  });
+
+  WelcomeDiv.querySelector("#buttonRegister").addEventListener('click', () => {
    let backgroundBody = document.getElementById("bodies")
    backgroundBody.classList.remove("bodyBackground")
    backgroundBody.classList.add("containerBackground")

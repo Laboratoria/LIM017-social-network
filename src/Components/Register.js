@@ -1,6 +1,5 @@
 import { onNavigate } from '../main.js';
 import { registerWithEmail } from '../firebase/authFunctions.js';
-import { signInWithGoogle } from '../firebase/authFunctions.js';
 
 export const Register= () =>{
 
@@ -43,7 +42,7 @@ export const Register= () =>{
   RegisterSection.appendChild(ConditionsSection);
 
   RegisterSection.classList.add("RegisterSection");
-  RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => onNavigate ('/'));
+  //RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => onNavigate ('/'));
 
   RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => {
     const loginEmail = document.getElementById("email").value;
@@ -51,11 +50,15 @@ export const Register= () =>{
     registerWithEmail(loginEmail,loginPassword)
   });
 
+
   RegisterSection.querySelector("#buttonAccount").addEventListener('click', () => {
    let backgroundBody = document.getElementById("bodies")
    backgroundBody.classList.remove("containerBackground")
    backgroundBody.classList.add("bodyBackground")
  });
+
+
+
 
   return RegisterSection;
 };

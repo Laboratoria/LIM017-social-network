@@ -1,0 +1,17 @@
+@media (min-width:760px){
+  .bodyBackground{
+    background: url("./img/bgWelcome.jpg") no-repeat center fixed;
+    background-size: cover;
+  }
+  .mobile{
+    display: none;
+  }
+  .container{
+    width: 454px;
+    height: 703px;
+    left: 77%;
+  }
+  .questionPassword{
+    margin-top: 36px;
+  }
+}

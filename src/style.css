@@ -7,13 +7,16 @@ body {
   width: 390px;
   height: auto;
   background-repeat: no-repeat;
-  background-position: center;
+  /*background-position: center;
   background-size: cover;
   align-items: center;
   display:flex;
   justify-content: center;
-  background-attachment: fixed;
-  }
+  background-attachment: fixed;*/
+}
+.mobileExtended{
+  display: none;
+}
 
 .container{
     position: absolute;
@@ -30,7 +33,7 @@ body {
     font-family: 'Inter', sans-serif;
     color: #8E8989;
  }
- .logotype{
+  .logotype{
    width: 294px;
    height: 142px;
    align-items: center;
@@ -90,13 +93,13 @@ body {
   cursor: pointer;
   background-color: inherit;
   border: none;
-  height: 40px;
-  width: 180px;
+  /*height: 40px;
+  width: 180px;*/
   color: #FDB508;
   font-size: 16px;
-  text-align:center;
+  /*text-align:center;*/
   font-weight: bold;
-  margin-left: -45px;
+  /*margin-left: -45px;*/
   /*margin-top: 700px;*/
 }
 .ingresoGoogle{
@@ -104,17 +107,20 @@ body {
 }
 
 .questionPassword{
-  margin-top: 577px;
+  margin-top: 48px;
   font-size: 16px;
   text-align:center;
   font-family: 'Inter', sans-serif;
   color: #8E8989;
 }
 .createLogin{
-  margin-top: -7px;
+  /*margin-top: -7px;*/
   font-size: 16px;
   text-align:center;
   font-family: 'Inter', sans-serif;
-  margin-left: 43px;
+  /*margin-left: 43px;*/
   color: #8E8989;
+}
+.createLoginContent{
+  align-items: center;
 }

@@ -3,8 +3,9 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 
 const auth = getAuth();
 
-export const registerWithEmail = (email,password) => {
-createUserWithEmailAndPassword(auth, email, password)
+export const registerWithEmail = (loginEmail,loginPassword) => {
+  console.log(loginEmail,loginPassword)
+createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
