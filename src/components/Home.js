@@ -20,8 +20,8 @@ export const Home = () => {
   buttonLogin.id = 'buttonLogin';
   buttonRegister.textContent = 'Registrate';
   buttonLogin.textContent = 'Usuario y contraseña';
-  titleRedSocial.innerText = 'Cuy Viajero';
-  pText.innerText = 'Inicia sesion';
+  titleRedSocial.innerText = 'Cuy viajero';
+  pText.innerText = 'Inicia sesión';
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
