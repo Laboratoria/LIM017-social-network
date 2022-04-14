@@ -53,7 +53,8 @@ export const SignUp = () => {
   submitBtn.textContent = 'Registrarse';
 
   // Evento de registrar al usuario
-  submitBtn.addEventListener('click', () => {
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
     } else {
