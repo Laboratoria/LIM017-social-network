@@ -1,222 +1,173 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Lato, "Helvetica Neue";
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: 'Comfortaa';
+    font-size: large;
+    font-weight: bold;
 }
 
+
 body {
-  background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+    background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
+    position: relative;
+    padding-bottom: 2em;
+    min-height: 90vh;
+}
+
+footer {
+    font-style: italic;
+    font-size: small;
+    text-align: center;
+    color: #6e6d6c;
+    position:absolute;
+    bottom:0;
+    width:100%;
 }
 
 /* --------LandingPage.js----------- */
+
 .landing-div-global {
-  display: flex;
-  flex-direction:column;
-  gap: 3%;
+    display: grid;
+    grid-template-areas:'.'
+                        'logo'
+                        'img1'
+                        'cont-landing';
+}
+
+#landing-logo{
+    grid-area: logo;
+    display: flex;
+    margin: 5% auto;
+    width: 70%;
+
 }
 
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
+
 .logo {
-    margin: 30px auto;
-    width: 100%;
+  grid-area: logo;
+  display: flex;
+  margin: 0% auto;
+  width: 70%;
 }
 
 .img-bienvenida {
-
     grid-area: img1;
-    width: 100%;
-    margin: auto;
+    width: 90%;
+    margin: 10% auto;
 }
 
-#btn-login, #btn-register{
-    width: 50%;
-    height: 100%;
+.btn-container{
+    grid-area: cont-landing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btns-landing{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
     border: none;
-    font-size: large;
-    font-weight: bold;
-    color: #3f4747;
-    border-radius: 12px;
-    box-shadow: 4px 4px 8px #3f4747;
+    font-size: x-large;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 #btn-register{
-    grid-row: 5;
-    background: #ffff;
-    height: 50px;
-    margin: 30px auto;
+    height: 60px;
+    width: 60%;
+    margin: 10px auto;
 }
 #btn-login{
-    height: 50px;
-    margin: 30px auto;
+    height: 60px;
+    width: 60%;
+    margin: 12px auto;
 }
+.btn-container button:first-child:hover{
+    background: rgba(247, 161, 47, 0.7);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transform: scale(1.3);
+    }
 
-/*--------- Login.js ---------------*/
+.btn-container button:first-child:focus{
+        background: rgba(247, 161, 47, 0.7);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        transform: scale(1.3);
+        }
+
+.btn-container button:nth-child(2):hover{
+    background: rgba(91, 147, 179, 0.7);
+    box-shadow:  rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transform: scale(1.3);
+}
+/* --------- Login.js ---------------*/
 .login-div-global {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 2fr 3fr 1fr 4fr 1fr 1fr 1fr 1.5fr 1fr;
+    grid-template-areas:'go-back . go-back'
+                        'logo-login logo-login logo-login'
+                        'img-login  img-login  img-login'
+                        'h2login    h2login    h2login'
+                        'form-login form-login form-login'
+                        'login-btn login-btn login-btn'
+                        ;
     gap: 3%;
-    background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
 }
-/* Login.js-Register.js---usan TextoH2 y Contenedor de login con email y gmail */
-.text-start-h2{
-    grid-column: 2/3;
-    grid-row: 4;
-    margin: auto;
-    color:#3f4747;
-}
-.container-buttons-login{
-    grid-column: 1/4;
-    grid-row: 5;
-    display:grid;
-    grid-template-rows: 2fr 2fr;
-    gap: 25%;
-}
-.button-gmail{
+#login-logo{
+    grid-area: logo-login;
+    display: flex;
+    margin: 0% auto;
     width: 70%;
-    margin: 0 auto;
-    border-radius: 12px;
-    border: inset;
-    background: #ffff;
-    font-size: large;
-    font-weight: bold;
-    color: #3f4747;
-    box-shadow: 4px 4px 8px #d9c3a7;
-    height: 45px;
 }
-.button-mail{
-    width: 70%;
-    margin: 0 auto;
-    border-radius: 12px;
-    border: inset;
-    background: #ffff;
-    font-size: large;
-    font-weight: bold;
+#login-img{
+    grid-area: img-login;
+    width: 90%;
+    margin: 0% 5%;
+}
+#login-h2{
+    grid-area: h2login;
+    margin: 15px auto;
     color:#3f4747;
-    box-shadow: 4px 4px 8px #d9c3a7;
+    font-size: 30px;
+    text-align: center;
 }
-#a-reset-password{
-    color: #0C9EA7;
-    grid-row: 6;
+#form-login{
+    grid-area: form-login;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2px auto;
+}
+#form-login input{
+    width: 70%;
+    height: 40px;
+    margin: 4px auto;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#form-login input:focus{
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#login-btn{
+    grid-area: login-btn;
+    width: 70%;
+    height: 40px;
+    margin: 6px auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: none;
+    font-size: x-large;
     font-weight: bold;
-    grid-column: 1/4;
-    margin: auto;
-    font-size: large;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-#p-no-account{
-    grid-row: 7;
-    grid-column: 2/3;
-    margin: auto;
-    font-size: large;
-}
-#a-noaccount-register{
-    font-weight: bold;
-    grid-row: 8;
-    color:#F7A12F;
-    grid-column: 2/3;
-    margin: auto;
-    font-size: large;
-    margin: auto;
-
-}
-
-#btn-login, #btn-register {
-  grid-column: 1/4;
-  width: 50%;
-  height: 100%;
-  border: none;
-  font-size: large;
-  font-weight: bold;
-  color: #3f4747;
-  margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 4px 4px 8px #3f4747;
-}
-
-#btn-register {
-  grid-row: 5;
-  background: #ffff;
-  height: 50px;
-}
-
-#btn-login {
-  grid-row: 4;
-  background: #ffff;
-}
-
-
-
-/* Boton de regreso al inicio para Login.js y Register.js */
-.button-go-landing {
-  width: 70%;
-  height: 100%;
-  margin: 0 auto;
-  background: #f7a12f;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 4px 4px 8px #d9c3a7;
-  font-size: large;
-  font-weight: bold;
-  color: #3f4747;
-}
-
-/* Login */
-
-#login-wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 100vh;
-  align-items: center;
-  justify-items: center;
-  padding-top: 4em;
-}
-
-#login-logo {
-  width: 300px;
-  height: auto;
-}
-
-#login-img {
-  width: 310px;
-  height: auto;
-}
-
-#login-h2 {
-  padding-top: 10px;
-  font-size: 30px;
-}
-
-#form-login {
-  gap: 13px;
-  display: grid;
-  padding-top: 1.5em;
-  align-items: center;
-  justify-items: center;
-}
-
-#mail-input, #password-input {
-  width: 240px;
-  height: 33px;
-  border-radius: 5px;
-  font-size: 16px;
-  padding-right: -65px;
-  font-style: italic;
-  padding-left: 10px;
-}
-
-#login-btn {
-  width: 164px;
-  height: 39px;
-  border-radius: 14px;
-  font-size: 18px;
-}
+  /* Line container and separation */
 
 #line-container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   width: 70%;
   align-items: center;
+  margin: auto;
 }
 
 .solid-line {
@@ -229,251 +180,219 @@ body {
   padding-right: 4px;
 }
 
-#login-btn-container {
-  padding-top: 0.5em;
-}
-
-#register-div-global{
-    display: grid;
-    /* background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%); */
-    grid-template-areas:
-        'logo logo logo'
-        'img-welcome img-welcome img-welcome'
-        'text-h2 text-h2 text-h2'
-        'form form form'
-        'line-img line-img line-img'
-        'container-button container-button container-button'
-        'err err err'
-        'cont-text cont-text cont-text'
-        'back-landing back-landing back-landing';
-    gap: 3
-}
-
-#container2 {
-  display: flex;
-  flex-direction: column;
-}
-
-#a-reset-password {
-  color: #0C9EA7;
-  font-size: 18px;
-  padding-top: 19px;
-}
-
-#p-no-account {
-  padding-top: 54px;
-  font-size: 17px;
-}
-
-#no-acc-register {
-  font-size: 17px;
-  color: #F7A12F;
-  font-weight: bold;
-  padding-bottom: 10px;
-}
-
 #go-landing-button {
-  width: 89px;
+    grid-area: go-back;
+    background:url(/imagenes/arrow-left-downsize.png) no-repeat;
+    background-size: cover;
+    border: none;
+    width:30px;
+    height:30px;
+    margin: 5px 0px 0px 5px;
+    opacity: 0.65;
 }
 
-/* -----------Register.js ------------*/
 
-#register-div-global {
-  display: grid;
-  grid-template-areas:'logo logo logo'
-                      'img-welcome img-welcome img-welcome'
-                      'text-h2 text-h2 text-h2'
-                      'form form form'
-                      'line-img line-img line-img'
-                      'container-button container-button container-button'
-                      'yes-account yes-account yes-account'
-                      'go-login go-login go-login'
-                      'back-landing back-landing back-landing';
+/* Login.js-Register.js---usan TextoH2 y Contenedor de login con email y gmail */
+
+
+
+#login-btn-container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    align-items: center;
 }
+.button-gmail{
+    width: 70%;
+    margin: auto;
+    border-radius: 12px;
+    border: inset;
+    background: rgba(255, 255, 255, 0.5);
+    font-size: large;
+    font-weight: bold;
+    color: #3f4747;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    height: 45px;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.container-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px auto 70px;
+    text-align: center;
+    font-size: medium;
+}
+/* #go-landing-button{
+    width: 30%;
+    margin: auto;
+    border-radius: 12px;
+    background: #ffff;
+    font-size: large;
+    font-weight: bold;
+    color: #3f4747;
+    height: 45px;
+    margin-bottom: 10%;
+} */
+
+
+/* --------- Register.js ---------------*/
 
 #logo-register {
-  grid-area: logo;
+    grid-area: logo;
+    display: flex;
+    margin: 0% auto;
+    width: 70%;
+}
+
+  /* #img-register {
+      grid-area: img1;
+      width: 90%;
+      margin: 10% auto;
+  } */
+
+
+.img-register{
+    grid-area: img-reg;
+    width: 90%;
+    margin: 0% 5%;
+}
+.text-start-h2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .form-input-container{
-    grid-area: form;
-    display: grid;
-    grid-template-areas:
-        'em'
-        'pas'
-        'cpas'
-        'btn';
-    /* flex-direction: column; */
-    margin: auto;
-    /* justify-content: space-between; */
-    width: 75%;
-    gap: 15px;
-
-}
-
-.text-start-h2 {
-  grid-area: text-h2;
-}
-
-#buttons-login-container{
-    grid-area: container-button;
     display: flex;
-
-}
-.container-button-login {
-  grid-area: container-button;
-}
-
-#p-yes-account {
-  grid-area: yes-account;
-  color:#3f4747;
-  grid-column: 2/3;
-}
-
-
-#a-better-login {
-  grid-area: go-login;
-  color:#5b93b3;
-  margin: 10px;
-
-}
-
-#p-yes-account, #a-better-login {
-  font-size: large;
-  font-weight: bold;
-  margin: 10px;
-  }
-
-#btn-go-landing {
-  grid-area: back-landing;
-  margin: 10px;
-}
-
-/* ------ForgotPassword------------ */
-
-#div-forgot-password {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 3fr 0.5fr 0.5fr 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-#img-instantanea-password {
-  grid-column: 1/4;
-  grid-row: 2;
-  height: 90%;
-  width: 90%;
-  margin: auto;
-}
-
-#title-forgot-h2 {
-  grid-column: 1/4;
-  grid-row: 3;
-}
-
-#text-forgot-h4 {
-  grid-column: 1/4;
-  grid-row: 4;
-}
-
-/* estilos asociados a la clase del boton email */
-#input-forgot-password {
-  grid-column: 1/4;
-  grid-row: 5;
-}
-
-/* estilo asociado al boton de regreso al landing */
-#button-forgot-password {
-  grid-column: 1/4;
-  grid-row: 6;
-}
-
-/* -------RegisterEmail------- */
-#div-register-by-email {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-row: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-#h2-titles {
-  grid-column: 2/4;
-  grid-row: 1;
-}
-
-#img-register-email {
-  grid-row: 2;
-  width:80%;
-  height:80%;
-}
-#register-email{
-    grid-area: em;
-}
-#register-password{
-    grid-area: pas;
-}
-#confirm-password{
-   grid-area: cpas;
-}
-.inputs-register{
-    height: 40px;
-    border: none;
-    border-radius: 6px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto;
     text-align: center;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 2px 2px 4px #3f4747;
+    font-size: medium;
 }
-#submit-btn{
-    grid-area: btn;
+
+.form-input-container input{
+    width: 70%;
     height: 40px;
+    margin: 4px auto;
+    border-radius: 10px;
     border: none;
-    background: #d9c3a7;
-    border-radius: 6px;
-
+    font-size: large;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-#gmail-register-btn {
-  grid-column: 1/4;
-  grid-row: 7;
+#submit-btn{
+    grid-area: login-btn;
+    width: 50%;
+    height: 40px;
+    margin: 6px auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: none;
+    font-size: x-large;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#gmail-signup{
+    width: 70%;
+    margin: auto;
+    border-radius: 12px;
+    border: inset;
+    background: rgba(255, 255, 255, 0.5);
+    font-size: large;
+    font-weight: bold;
+    color: #3f4747;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    height: 45px;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.container-button-signup{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto;
 }
 
 #content-text{
-    grid-area: cont-text;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin: 10px auto 70px;
+    text-align: center;
+    font-size: medium;
+}
+/* --------Forgot Paswords --------*/
+
+#div-forgot-password{
+    grid-template-areas: logo-forgot;
+}
+#forgot-logo{
+    grid-area: logo-login;
+    display: flex;
+    margin: 7% auto 3% auto;
+    width: 70%;
+}
+#img-instantanea-password{
+    width: 90%;
+    margin: 5%;
 }
 
-/* -------MainLogin------------- */
-#main-login-div{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 0.4fr 2fr 6fr 3fr 2fr 1fr;
-}
-#msg-main-h2{
-    grid-column: 1/3;
-    grid-row: 1;
-    font-size: xx-large;
+#title-forgot-h2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
     font-weight: bold;
-    margin: 0 auto;
+    margin: 0px auto;
 }
-#img-main{
-    grid-column: 1/4;
-    grid-row: 2;
-    width: 80%;
-    height: 80%;
+#text-forgot-h4{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
 }
-#div-input-container{
-    grid-row: 3;
-    display: grid;
+#input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto 70px;
+    text-align: center;
+    font-size: medium;
 }
-#div-other-btn-container{
-    grid-row: 4;
-    display: grid;
+#input-container input{
+        width: 70%;
+        height: 57px;
+        margin: 4px auto;
+        border-radius: 10px;
+        border: none;
+        font-size: 22px;
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
 }
-#div-register-container{
-    grid-row: 5;
-    display:flex;
+
+#button-forgot-password{
+    width: 70%;
+    height: 50px;
+    margin: 4% auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+
+
+
+
+
 /* ------------Paragraph Error------------- */
 /* .showParagraphError {
     width: 65%;
@@ -484,17 +403,19 @@ body {
     text-align: center;
     padding: 5px;
     border: none;
-    box-shadow: 4px 4px 8px #d9c3a7;
+    /* border: solid 1px; */
+    /* box-shadow: 4px 4px 8px #d9c3a7;
     grid-area: err;
-    margin: auto;
-} */
+    margin: auto; */
 
-@media screen and (max-width: 390px) {
+
+
+/*@media screen and (max-width: 390px) {
   #header-image {
       background-size: cover;
       background: linear-gradient(90deg, #b5e5ff 0%, #ffdfb5 100%);
   }
-}
+} */
 
 /*
 #login-wrapper {
@@ -516,65 +437,24 @@ body {
   'no-account'
   'no-acc-register'
   'go-landing';
+}*/
+
+/* -------Media Querys------ */
+@media screen and (min-width: 768px){
+    .landing-div-global{
+        grid-template-areas:'img-welcome-desktop logo-desktop'
+                            'img-welcome-desktop container-desktop';
+    }
+    .img-bienvenida{
+        grid-area: img-welcome-desktop ;
+    }
+    #landing-logo{
+        grid-area: logo-desktop;
+        
+    }
+    .btn-container{
+        grid-area: container-desktop;
+        
+    }
 }
 
-#login-logo {
-  grid-area: logo3;
-}
-
-#login-img {
-  grid-area: login-img;
-}
-
-#login-h2 {
-  grid-area: login-h2;
-}
-
-#form-login {
-  grid-area: input-container;
-}
-
-#mail-input {
-  grid-area: mail-input;
-}
-
-#password-input {
-  grid-area: pass-input;
-}
-
-#login-btn {
-  grid-area: login-button;
-}
-
-#login-btn-container {
-  grid-area: login-btns;
-}
-
-#gmail-login {
-  grid-area: google-login;
-}
-
-#error-login {
-  grid-area: div-error;
-}
-
-#a-reset-password {
-  grid-area: reset-a;
-}
-
-#container2 {
-  grid-area: container2;
-}
-
-#p-no-account {
-  grid-area: no-account;
-}
-
-#no-acc-register {
-  grid-area: no-acc-register;
-}
-
-#go-landing-button {
-  grid-area: go-landing;
-}
-*/

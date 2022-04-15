@@ -1,10 +1,26 @@
+/* eslint-disable import/no-cycle */
 import { createElements } from '../util.js';
+import { onNavigate } from '../main.js';
 
 export const ResetPassword = () => {
-  const [forgotDiv, imgPets, titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword] = createElements('div', 'img', 'h2', 'h4', 'input', 'button');
+  const [forgotDiv, logo, imgPets, titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword] = createElements('div', 'img', 'img', 'h2', 'h4', 'input', 'button');
   forgotDiv.id = 'div-forgot-password';
+
+  // Boton de regresar a la bienvenida
+  const goLandingButton = document.createElement('button');
+  goLandingButton.id = 'go-landing-button';
+  goLandingButton.className = 'back-button';
+  // goLandingButton.src = 'imagenes/flecha-izquierda.png';
+  // goLandingButton.textContent = 'home';
+
+  goLandingButton.addEventListener('click', () => onNavigate('/'));
+  forgotDiv.appendChild(goLandingButton);
+
+  logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
+  logo.id = 'forgot-logo';
   imgPets.src = 'imagenes/instantanea-celeste-transparencia.png';
   imgPets.setAttribute('id', 'img-instantanea-password');
+  forgotDiv.append(logo, imgPets);
 
   titleForgot.textContent = '¿Olvidaste tu contraseña?';
   titleForgot.id = 'title-forgot-h2';
@@ -13,7 +29,9 @@ export const ResetPassword = () => {
   textTitleForgot.id = 'text-forgot-h4';
   textTitleForgot.className = 'text-start-h2';
 
-  inputForgotPassword.placeholder = 'correo electrónico';
+  const [inputContainer] = createElements('div');
+
+  inputForgotPassword.placeholder = '  Correo electrónico';
   inputForgotPassword.id = 'input-forgot-password';
   inputForgotPassword.className = 'button-mail';
 
@@ -21,7 +39,9 @@ export const ResetPassword = () => {
   buttonForgotPassword.id = 'button-forgot-password';
   buttonForgotPassword.className = 'button-go-landing';
 
-  forgotDiv.append(imgPets, titleForgot, textTitleForgot);
-  forgotDiv.append(inputForgotPassword, buttonForgotPassword);
+  forgotDiv.append(titleForgot, textTitleForgot);
+  inputContainer.append(inputForgotPassword, buttonForgotPassword);
+  inputContainer.id = 'input-container';
+  forgotDiv.append(inputContainer);
   return forgotDiv;
 };

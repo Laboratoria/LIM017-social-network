@@ -4,25 +4,12 @@
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { signInWithEmailAndPassword/* , sendSignInLinkToEmail */ } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { signInWithEmailAndPassword, sendSignInLinkToEmail } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 
 export const auth = getAuth(app);
 
-/* if (user !== null) {
-  // The user object has basic properties such as display name, email, etc.
-  const displayName = user.displayName;
-  const email = user.email;
-  const photoURL = user.photoURL;
-  const emailVerified = user.emailVerified;
-
-  // The user's ID, unique to the Firebase project. Do NOT use
-  // this value to authenticate with your backend server, if
-  // you have one. Use User.getToken() instead.
-  const uid = user.uid;
-} */
-
-// proveedor Gmail auth
+// ---------Creación de cuenta con Gmail auth--------------
 
 export const provider = new GoogleAuthProvider();
 
@@ -49,7 +36,7 @@ export const createAccountByGoogle = () => {
   });
 };
 
-// Intento de crear cuenta con correo Email
+// -------------Crear cuenta con correo Email--------------------
 
 export const CreateAccount = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
@@ -64,24 +51,25 @@ export const CreateAccount = (email, password) => {
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
+    /*  const paragraphError = document.querySelector('#error');
+
+      if (errorCode === 'auth/email-already-in-use') {
+        paragraphError.classList.add('showParagraphError');
+        paragraphError.innerText = 'Usuario ya registrado y en uso';
+      } else if (errorCode === 'auth/weak-password') {
+        paragraphError.classList.add('showParagraphError');
+        paragraphError.innerText = 'Contraseña inaválida. Debe contener al menos 6 caracteres';
+      } else if (errorCode === 'auth/invalid-email') {
+        paragraphError.classList.add('showParagraphError');
+        paragraphError.innerText = 'correo electrónico inválido';
+      } else if (errorCode === true) {
+        paragraphError.classList.add('showParagraphError');
+        paragraphError.innerText = errorMessage;
+      } */
     });
 };
 
-// Correo de autentificación de usuario, enviando correo de verificación al usuario
-
-/* export const sendEmailForVerification = () => {
-  sendSignInLinkToEmail(auth.currentUser).then((email) => {
-
-    console.log(email);
-    // ...
-  })
-    .catch((error) => {
-      console.log(error);
-    // ...
-    });
-}; */
-
-// Intento de ingresar con correo y contraseña...
+// ---------------Ingresar con correo y contraseña--------
 
 export const LoginByEmailPassword = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
@@ -96,5 +84,39 @@ export const LoginByEmailPassword = (email, password) => {
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
+      /* const paragraphErrorLogin = document.querySelector('#errorLogin');
+
+      if (errorCode === 'auth/user-not-found') {
+        paragraphErrorLogin.classList.add('showParagraphError');
+        paragraphErrorLogin.innerText = 'Usuario no registrado';
+      } else if (errorCode === 'auth/wrong-password') {
+        paragraphErrorLogin.classList.add('showParagraphError');
+        paragraphErrorLogin.innerText = 'Contraseña inválida.';
+      } else if (errorCode === 'auth/internal-error') {
+        paragraphErrorLogin.classList.add('showParagraphError');
+        paragraphErrorLogin.innerText = '';
+      } else if (errorCode === true) {
+        paragraphErrorLogin.classList.add('showParagraphError');
+        paragraphErrorLogin.innerText = errorMessage;
+      } */
     });
 };
+
+// ----------Send Email------------------------------------------------
+
+// https://ducky-pets-app.firebaseapp.com/__/auth/action?mode=action&oobCode=code
+
+/* export const sendEmail = () => {
+  sendSignInLinkToEmail(auth.currentUser)
+    .then((email) => {
+    // The link was successfully sent. Inform the user.
+    // Save the email locally so you don't need to ask the user for it again
+    // if they open the link on the same device.
+      console.log(email);
+    // ...
+    })
+    .catch((error) => {
+      console.log(error);
+    // ...
+    });
+}; */
