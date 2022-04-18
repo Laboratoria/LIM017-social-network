@@ -14,9 +14,9 @@ export const Register = () => {
   const image = document.createElement('img');
   const buttonUsuario = document.createElement('button');
 
-  inputCorreo.placeholder = 'Ingrese correo electronico';
-  inputName.placeholder = 'Ingrese nombre Completo';
-  inputPassaword.placeholder = 'Crea tu Contraseña';
+  inputCorreo.placeholder = 'Ingrese correo electrónico';
+  inputName.placeholder = 'Ingrese nombre completo';
+  inputPassaword.placeholder = 'Crea tu contraseña';
   inputCorreo.id = 'inputCorreo';
   inputName.id = 'inputName';
   inputPassaword.id = 'inputPassaword';
