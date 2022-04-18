@@ -21,6 +21,8 @@ export const Login = () => {
   goLandingButton.className = 'back-button';
   // goLandingButton.src = 'imagenes/flecha-izquierda.png';
   // goLandingButton.textContent = 'home';
+   // Boton de regresar a la bienvenida
+
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   loginDiv.appendChild(goLandingButton);
@@ -130,10 +132,7 @@ export const Login = () => {
   container2.append(resetPassword, noAccount, noAccountRegister);
   loginDiv.appendChild(container2);
 
-  // Boton de regresar a la bienvenida
-  const goLandingButton = document.createElement('button');
-  goLandingButton.id = 'go-landing-button';
-  goLandingButton.textContent = 'home';
+ 
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   loginDiv.appendChild(goLandingButton);

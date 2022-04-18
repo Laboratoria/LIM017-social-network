@@ -23,7 +23,7 @@ export const SignUp = () => {
   logo.className = 'logo';
   logo.id = 'logo-register';
   mainImg.src = 'imagenes/3-personas-con-mascotas.png';
-  mainImg.className = 'img-bienvenida2';
+  mainImg.className = 'img-register';
   registerDiv.append(logo, mainImg, registerH2);
 
   const [
@@ -59,8 +59,8 @@ export const SignUp = () => {
   submitBtn.id = 'submit-btn';
   submitBtn.className = 'submit-buttons';
   submitBtn.textContent = 'Registrarse';
-  lineImg.className = 'line-img';
-  lineImg.src = '#';
+  // lineImg.className = 'line-img';
+  // lineImg.src = '#';
 
   inputContainer.append(
     registerEmail,
@@ -68,7 +68,7 @@ export const SignUp = () => {
     confirmPassword,
     submitBtn,
   );
-  registerDiv.append(inputContainer, lineImg);
+  registerDiv.append(inputContainer);
 
   // Evento de registrar al usuario
   submitBtn.addEventListener('click', (e) => {
