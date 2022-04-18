@@ -3,12 +3,17 @@
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import { createAccountByGoogle, LoginByEmailPassword } from '../Firebase/auth.js';
+import {
+  createAccountByGoogle,
+  LoginByEmailPassword,
+} from '../Firebase/auth.js';
 import { createElements } from '../util.js';
+import { PasswordInput } from './PasswordInput.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
   loginDiv.id = 'login-wrapper';
+  loginDiv.setAttribute('class', 'login-wrapper');
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
@@ -16,6 +21,8 @@ export const Login = () => {
   goLandingButton.className = 'back-button';
   // goLandingButton.src = 'imagenes/flecha-izquierda.png';
   // goLandingButton.textContent = 'home';
+   // Boton de regresar a la bienvenida
+
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   loginDiv.appendChild(goLandingButton);
@@ -31,17 +38,28 @@ export const Login = () => {
   textLogin.id = 'login-h2';
   loginDiv.append(logo, mainImg, textLogin);
 
-  const [inputContainer, mailInput, passwordInput, loginButton] = createElements('div', 'input', 'input', 'button');
+  const [
+    inputContainer,
+    mailInput,
+    loginButton,
+  ] = createElements(
+    'div',
+    'input',
+    'button',
+  );
+
   inputContainer.id = 'form-login';
   mailInput.setAttribute('type', 'email');
   mailInput.id = 'mail-input';
-  mailInput.placeholder = '  Correo electrónico';
+  mailInput.placeholder = 'Correo electrónico';
+  mailInput.className = 'inputs-style';
 
-  passwordInput.setAttribute('type', 'password');
-  passwordInput.id = 'password-input';
-  passwordInput.placeholder = '  Contraseña';
+  const passwordInput = PasswordInput({
+    placeholder: 'Contraseña',
+    id: 'password-input',
+  });
 
-  loginButton.textContent = 'Iniciar sesión';
+  loginButton.textContent = 'Iniciar sesion';
   loginButton.id = 'login-btn';
   loginButton.className = 'submit-buttons';
 
@@ -55,9 +73,12 @@ export const Login = () => {
     LoginByEmailPassword(mailInput.value, passwordInput.value);
   });
 
-  // Linea y contenedor OR
-  const [lineContainer, line1, orParagraph, line2] = createElements('div', 'div', 'p', 'div');
-
+  const [
+    lineContainer,
+    line1,
+    orParagraph,
+    line2,
+  ] = createElements('div', 'div', 'p', 'div');
   lineContainer.id = 'line-container';
   line1.className = 'solid-line';
   line1.id = 'line1';
@@ -71,10 +92,14 @@ export const Login = () => {
   loginDiv.appendChild(lineContainer);
 
   // container botones ingreso, botones
-  const [loginButtons, gmailLogin, divErrorParagraph] = createElements('div', 'button', 'divErrorParagraph');
+  const [
+    loginButtons,
+    gmailLogin,
+    divErrorParagraph,
+  ] = createElements('div', 'button', 'divErrorParagraph');
   loginButtons.id = 'login-btn-container';
 
-  // via gmails
+  // via gmail
   gmailLogin.id = 'gmail-login';
   gmailLogin.className = 'button-gmail';
   gmailLogin.textContent = 'Ingresar con Gmail';
@@ -89,8 +114,13 @@ export const Login = () => {
   divErrorParagraph.id = 'error-login';
 
   // No tienes cuenta
-  const [containerTextLogin, resetPassword, noAccount, noAccountRegister] = createElements('div', 'a', 'p', 'a');
-  containerTextLogin.id = 'container2';
+  const [
+    container2,
+    resetPassword,
+    noAccount,
+    noAccountRegister,
+  ] = createElements('div', 'a', 'p', 'a');
+  container2.id = 'container2';
   resetPassword.textContent = '¿Olvidaste tu contraseña?';
   resetPassword.href = '/ForgotPasword';
   resetPassword.id = 'a-reset-password';
@@ -99,9 +129,13 @@ export const Login = () => {
   noAccountRegister.textContent = 'Registrate';
   noAccountRegister.href = '/Register';
   noAccountRegister.id = 'no-acc-register';
-  containerTextLogin.append(resetPassword, noAccount, noAccountRegister);
-  containerTextLogin.className = 'container-login';
-  loginDiv.appendChild(containerTextLogin);
+  container2.append(resetPassword, noAccount, noAccountRegister);
+  loginDiv.appendChild(container2);
+
+ 
+
+  goLandingButton.addEventListener('click', () => onNavigate('/'));
+  loginDiv.appendChild(goLandingButton);
 
   return loginDiv;
 };
