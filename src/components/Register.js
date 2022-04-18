@@ -43,7 +43,6 @@ export const SignUp = () => {
   registerEmail.type = 'email';
   registerEmail.placeholder = 'Ingresa tu correo';
 
-
   const registerPassword = PasswordInput({
     placeholder: 'Ingresa tu contraseña',
     id: 'register-password',
@@ -73,8 +72,10 @@ export const SignUp = () => {
   // Evento de registrar al usuario
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    if (registerPassword.value === confirmPassword.value) {
-      CreateAccount(registerEmail.value, registerPassword.value);
+    const passwordValue = document.querySelector('#register-password').value;
+    const confirmPasswordValue = document.querySelector('#confirm-password').value;
+    if (passwordValue === confirmPasswordValue) {
+      CreateAccount(registerEmail.value, passwordValue);
       store({ email: registerEmail.value }, 'users');
       // window.location.href = '/Feed';
     } else {

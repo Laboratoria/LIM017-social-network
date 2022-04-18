@@ -1,6 +1,6 @@
 import {
-  doc, getDoc,
-  getFirestore, collection, addDoc, getDocs,
+  /* doc, getDoc, */
+  getFirestore, collection, addDoc /* , getDocs */,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { app } from './init.js';
