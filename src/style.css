@@ -309,7 +309,7 @@ footer {
     color: #3f4747;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     height: 45px;
-    font-size: 22px;
+    font-size: 15px;
     margin-bottom: 5px;
 }
 
@@ -415,8 +415,9 @@ footer {
 /*--Landing --*/
 @media screen and (min-width: 768px){
     .landing-div-global{
-        grid-template-areas:'.  logo-desktop'
+        grid-template-areas:'img-welcome-desktop logo-desktop'
                             'img-welcome-desktop container-desktop'
+                            'img-welcome-desktop .'
                             ' . .';
     }
     .img-bienvenida{
@@ -425,6 +426,7 @@ footer {
         display: flex;
         width: 100%;
         zoom: 1.5;
+        margin-top: 20%;
     }
 
     #landing-logo{

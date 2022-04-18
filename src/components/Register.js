@@ -5,6 +5,7 @@
 import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
+import { store } from '../Firebase/firestore.js';
 
 // registro
 export const SignUp = () => {
@@ -57,6 +58,8 @@ export const SignUp = () => {
     e.preventDefault();
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
+      store({ email: registerEmail.value }, 'users');
+      //window.location.href = '/Feed';
     } else {
       alert('Las contraseñas no coinciden');
     }
@@ -87,6 +90,7 @@ export const SignUp = () => {
   gmailSignUp.textContent = 'Registrarse con Gmail';
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
+    window.location.href = '/Feed';
   });
 
   // add botones al container, container a div global
