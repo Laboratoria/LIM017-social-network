@@ -1,9 +1,14 @@
 /* eslint-disable import/no-duplicates */
 /* eslint-disable no-undef */
 import {
-  getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import
+{ signInWithEmailAndPassword }
+  from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 
 export const auth = getAuth(app);

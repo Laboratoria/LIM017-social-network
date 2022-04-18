@@ -3,7 +3,15 @@ import { createElements } from '../util.js';
 import { onNavigate } from '../main.js';
 
 export const ResetPassword = () => {
-  const [forgotDiv, logo, imgPets, titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword] = createElements('div', 'img', 'img', 'h2', 'h4', 'input', 'button');
+  const [
+    forgotDiv,
+    logo,
+    imgPets,
+    titleForgot,
+    textTitleForgot,
+    inputForgotPassword,
+    buttonForgotPassword,
+  ] = createElements('div', 'img', 'img', 'h2', 'h4', 'input', 'button');
   forgotDiv.id = 'div-forgot-password';
 
   // Boton de regresar a la bienvenida
@@ -19,8 +27,7 @@ export const ResetPassword = () => {
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
   logo.id = 'forgot-logo';
   imgPets.src = 'imagenes/instantanea-celeste-transparencia.png';
-  imgPets.setAttribute('id', 'img-instantanea-password');
-  forgotDiv.append(logo, imgPets);
+  imgPets.id = 'img-instantanea-password';
 
   titleForgot.textContent = '¿Olvidaste tu contraseña?';
   titleForgot.id = 'title-forgot-h2';
