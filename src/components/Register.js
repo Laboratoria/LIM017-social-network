@@ -6,6 +6,7 @@ import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 import { store } from '../Firebase/firestore.js';
+import { PasswordInput } from './PasswordInput.js';
 
 // registro
 export const SignUp = () => {
@@ -32,7 +33,15 @@ export const SignUp = () => {
   registerDiv.append(logo, mainImg, registerH2);
   registerDiv.setAttribute('id', 'register-div-global');
 
-  const [inputContainer, registerEmail, registerPassword, confirmPassword, submitBtn] = createElements('form', 'input', 'input', 'input', 'button', 'img');
+  const [
+    inputContainer,
+    registerEmail,
+    submitBtn,
+  ] = createElements(
+    'form',
+    'input',
+    'button',
+  );
 
   inputContainer.className = 'form-input-container';
   registerEmail.setAttribute('id', 'register-email');
@@ -40,15 +49,18 @@ export const SignUp = () => {
   registerEmail.setAttribute('type', 'email');
   registerEmail.setAttribute('placeholder', '  Ingresa tu correo');
 
-  registerPassword.setAttribute('id', 'register-password');
-  registerPassword.setAttribute('class', 'inputs-register');
-  registerPassword.setAttribute('type', 'password');
-  registerPassword.setAttribute('placeholder', '  Ingresa tu contraseña');
+  const registerPassword = PasswordInput({
+    placeholder: 'Ingresa tu contraseña',
+    id: 'register-password',
+  });
+  // registerPassword.className = 'inputs-register';
 
-  confirmPassword.setAttribute('id', 'confirm-password');
-  confirmPassword.setAttribute('class', 'inputs-register');
-  confirmPassword.setAttribute('type', 'password');
-  confirmPassword.setAttribute('placeholder', '  Confirma tu contraseña');
+  const confirmPassword = PasswordInput({
+    placeholder: 'Confirma tu contraseña',
+    id: 'confirm-password',
+  });
+  // confirmPassword.className = 'inputs-register';
+
   submitBtn.id = 'submit-btn';
   submitBtn.className = 'submit-buttons';
   submitBtn.textContent = 'Registrarse';
@@ -59,7 +71,7 @@ export const SignUp = () => {
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
       store({ email: registerEmail.value }, 'users');
-      //window.location.href = '/Feed';
+      // window.location.href = '/Feed';
     } else {
       alert('Las contraseñas no coinciden');
     }
