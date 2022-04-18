@@ -4,7 +4,7 @@
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { signInWithEmailAndPassword, sendSignInLinkToEmail } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { signInWithEmailAndPassword/* , sendSignInLinkToEmail */ } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 
 export const auth = getAuth(app);
@@ -47,10 +47,8 @@ export const CreateAccount = (email, password) => {
     // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode);
       const errorMessage = error.message;
-      console.log(errorMessage);
+      return errorMessage;
     /*  const paragraphError = document.querySelector('#error');
 
       if (errorCode === 'auth/email-already-in-use') {
