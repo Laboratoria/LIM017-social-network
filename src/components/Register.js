@@ -70,13 +70,32 @@ export const SignUp = () => {
   registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
-  submitBtn.addEventListener('click', () => {
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (registerPassword.value === confirmPassword.value) {
       CreateAccount(registerEmail.value, registerPassword.value);
+      store({ email: registerEmail.value }, 'users');
+      // window.location.href = '/Feed';
     } else {
-      alert('Las contrase;as no coinciden');
+      alert('Las contraseñas no coinciden');
     }
   });
+
+  // Linea y contenedor OR
+  const [lineContainer, line3, orParagraph, line4] = createElements('div', 'div', 'p', 'div');
+
+  lineContainer.id = 'line-container';
+  line3.className = 'solid-line';
+  line3.id = 'line1';
+
+  orParagraph.id = 'line-p';
+  orParagraph.textContent = 'O';
+
+  line4.className = 'solid-line';
+  lineContainer.append(line3, orParagraph, line4);
+
+  inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
+  registerDiv.append(inputContainer, lineContainer);
 
   // container botones registro
   const [signUpButton, gmailSignUp] = createElements('div', 'button', 'div');
@@ -91,15 +110,16 @@ export const SignUp = () => {
   gmailSignUp.textContent = 'Registrate con Gmail';
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
+    window.location.href = '/Feed';
   });
 
   // add botones al container, container a div global
 
   signUpButton.appendChild(gmailSignUp);
-  signUpButton.setAttribute('class', 'container-buttons-login');
+  signUpButton.setAttribute('class', 'container-button-signup');
   registerDiv.appendChild(signUpButton);
 
-  // cuenta existente
+  // Already have and account
 
   const [container, yesAccount, betterLogin] = createElements('div', 'p', 'a');
   container.id = 'content-text';
@@ -120,8 +140,13 @@ export const SignUp = () => {
   goLandingButton.className = 'button-go-landing';
   goLandingButton.id = 'btn-go-landing';
 
-  goLandingButton.addEventListener('click', () => onNavigate('/'));
-  registerDiv.appendChild(goLandingButton);
+  // const goLandingButton = document.createElement('button');
+  // goLandingButton.textContent = 'Regresar al inicio';
+  // goLandingButton.setAttribute('class', 'button-go-landing');
+  // goLandingButton.setAttribute('id', 'btn-go-landing');
+
+  // goLandingButton.addEventListener('click', () => onNavigate('/'));
+  // registerDiv.appendChild(goLandingButton);
 
   return registerDiv;
 };
