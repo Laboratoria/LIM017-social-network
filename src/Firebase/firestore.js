@@ -23,7 +23,7 @@ export const storeUsers = (user, email, name, picture) => {
 };
 
 export const store = (data, collectionName) => {
-    addDoc(collection(firestore, collectionName), data).then((test) => {
-      console.log(`registro creado. id : ${test.id}`);
-    });
-  };
+  addDoc(collection(firestore, collectionName), data).then((test) => {
+    console.log(`registro creado. id : ${test.id}`);
+  });
+};
