@@ -5,6 +5,8 @@
 import { onNavigate } from '../main.js';
 import { createAccountByGoogle, LoginByEmailPassword } from '../Firebase/auth.js';
 import { createElements } from '../util.js';
+import { PasswordInput } from './PasswordInput.js';
+
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
@@ -32,15 +34,25 @@ export const Login = () => {
   textLogin.id = 'login-h2';
   loginDiv.append(logo, mainImg, textLogin);
 
-  const [inputContainer, mailInput, passwordInput, loginButton] = createElements('div', 'input', 'input', 'button');
+  const [
+    inputContainer,
+    mailInput,
+    loginButton,
+  ] = createElements(
+    'div',
+    'input',
+    'button',
+  );
+
   inputContainer.id = 'form-login';
   mailInput.setAttribute('type', 'email');
   mailInput.id = 'mail-input';
   mailInput.placeholder = '  Correo electrónico';
 
-  passwordInput.setAttribute('type', 'password');
-  passwordInput.id = 'password-input';
-  passwordInput.placeholder = '  Contraseña';
+  const passwordInput = PasswordInput({
+    placeholder: 'Contraseña',
+    id: 'password-input',
+  });
 
   loginButton.textContent = 'Iniciar sesión';
   loginButton.id = 'login-btn';

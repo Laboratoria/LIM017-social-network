@@ -442,6 +442,8 @@ footer {
     }
 }
 
+
+
 /* Login media Query */
 /* @media screen and (min-width: 768px){
     .login-wrapper{
@@ -482,5 +484,42 @@ footer {
     }
 } */
 
-
+#mail-input {
+    width: 240px;
+    height: 33px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-right: -65px;
+    font-style: italic;
+    padding-left: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  }
+  
+  .password-container {
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    background: rgba(255, 255, 255, 0.6);
+    width: 240px;
+    height: 33px;
+    border-radius: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  }
+  
+  .password-container > input {
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    border: none;
+    font-style: italic;
+  }
+  
+  #show-password, #hide-password {
+    color: #a1a1a1;
+  }
+  
 
