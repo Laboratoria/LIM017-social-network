@@ -5,6 +5,7 @@
 import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
+import { store } from '../Firebase/firestore.js';
 import { PasswordInput } from './PasswordInput.js';
 
 // registro
@@ -29,7 +30,6 @@ export const SignUp = () => {
     inputContainer,
     registerEmail,
     submitBtn,
-    lineImg,
   ] = createElements(
     'form',
     'input',
@@ -42,6 +42,7 @@ export const SignUp = () => {
   registerEmail.className = 'inputs-register';
   registerEmail.type = 'email';
   registerEmail.placeholder = 'Ingresa tu correo';
+
 
   const registerPassword = PasswordInput({
     placeholder: 'Ingresa tu contraseña',
