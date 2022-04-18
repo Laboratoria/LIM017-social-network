@@ -5,44 +5,68 @@
 import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
+import { PasswordInput } from './PasswordInput.js';
 
 // registro
 export const SignUp = () => {
-  const [registerDiv, logo, mainImg, registerH2] = createElements('div', 'img', 'img', 'h2');
+  const [
+    registerDiv,
+    logo,
+    mainImg,
+    registerH2,
+  ] = createElements('div', 'img', 'img', 'h2');
+  registerDiv.id = 'register-div-global';
   registerH2.textContent = 'Registrarse';
   registerH2.className = 'text-start-h2';
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
-  logo.setAttribute('class', 'logo');
-  logo.setAttribute('id', 'logo-register');
+  logo.className = 'logo';
+  logo.id = 'logo-register';
   mainImg.src = 'imagenes/3-personas-con-mascotas.png';
-  mainImg.setAttribute('class', 'img-bienvenida2');
+  mainImg.className = 'img-bienvenida2';
   registerDiv.append(logo, mainImg, registerH2);
-  registerDiv.setAttribute('id', 'register-div-global');
 
-  const [inputContainer, registerEmail, registerPassword, confirmPassword, submitBtn, lineImg] = createElements('form', 'input', 'input', 'input', 'button', 'img');
+  const [
+    inputContainer,
+    registerEmail,
+    submitBtn,
+    lineImg,
+  ] = createElements(
+    'form',
+    'input',
+    'button',
+    'img',
+  );
 
   inputContainer.className = 'form-input-container';
-  registerEmail.setAttribute('id', 'register-email');
-  registerEmail.setAttribute('class', 'inputs-register');
-  registerEmail.setAttribute('type', 'email');
-  registerEmail.setAttribute('placeholder', 'Ingresa tu correo');
+  registerEmail.id = 'register-email';
+  registerEmail.className = 'inputs-register';
+  registerEmail.type = 'email';
+  registerEmail.placeholder = 'Ingresa tu correo';
 
-  registerPassword.setAttribute('id', 'register-password');
-  registerPassword.setAttribute('class', 'inputs-register');
-  registerPassword.setAttribute('type', 'password');
-  registerPassword.setAttribute('placeholder', 'Ingresa tu contraseña');
+  const registerPassword = PasswordInput({
+    placeholder: 'Ingresa tu contraseña',
+    id: 'register-password',
+  });
+  // registerPassword.className = 'inputs-register';
 
-  confirmPassword.setAttribute('id', 'confirm-password');
-  confirmPassword.setAttribute('class', 'inputs-register');
-  confirmPassword.setAttribute('type', 'password');
-  confirmPassword.setAttribute('placeholder', 'Confirma tu contraseña');
+  const confirmPassword = PasswordInput({
+    placeholder: 'Confirma tu contraseña',
+    id: 'confirm-password',
+  });
+  // confirmPassword.className = 'inputs-register';
+
   submitBtn.id = 'submit-btn';
   submitBtn.className = 'submit-buttons';
   submitBtn.textContent = 'Registrarse';
   lineImg.className = 'line-img';
   lineImg.src = '#';
 
-  inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
+  inputContainer.append(
+    registerEmail,
+    registerPassword,
+    confirmPassword,
+    submitBtn,
+  );
   registerDiv.append(inputContainer, lineImg);
 
   // Evento de registrar al usuario
@@ -58,19 +82,18 @@ export const SignUp = () => {
   const [signUpButton, gmailSignUp] = createElements('div', 'button', 'div');
 
   // via gmail
-  gmailSignUp.setAttribute('id', 'gmail-signup');
-  gmailSignUp.setAttribute('class', 'button-gmail');
+  gmailSignUp.id = 'gmail-signup';
+  gmailSignUp.className = 'button-gmail';
   gmailSignUp.textContent = 'Registrarse con Gmail';
 
-  gmailSignUp.setAttribute('id', 'gmail-login');
-  gmailSignUp.setAttribute('class', 'button-gmail');
+  gmailSignUp.id = 'gmail-login';
+  gmailSignUp.className = 'button-gmail';
   gmailSignUp.textContent = 'Registrate con Gmail';
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
   });
 
   // add botones al container, container a div global
-
 
   signUpButton.appendChild(gmailSignUp);
   signUpButton.setAttribute('class', 'container-buttons-login');
@@ -79,23 +102,23 @@ export const SignUp = () => {
   // cuenta existente
 
   const [container, yesAccount, betterLogin] = createElements('div', 'p', 'a');
+  container.id = 'content-text';
   yesAccount.textContent = '¿Ya tienes cuenta?';
-  yesAccount.setAttribute('id', 'p-yes-account');
-  yesAccount.setAttribute('class', 'yes-account');
+  yesAccount.id = 'p-yes-account';
+  yesAccount.className = 'yes-account';
 
   betterLogin.textContent = 'Ingresa';
-  betterLogin.setAttribute('id', 'a-better-login');
-  betterLogin.setAttribute('class', 'better-login');
+  betterLogin.id = 'a-better-login';
+  betterLogin.className = 'better-login';
   betterLogin.href = '/Login';
   container.append(yesAccount, betterLogin);
-  container.setAttribute('id', 'content-text');
   registerDiv.appendChild(container);
 
   // go back landing
   const goLandingButton = document.createElement('button');
   goLandingButton.textContent = 'Regresar al inicio';
-  goLandingButton.setAttribute('class', 'button-go-landing');
-  goLandingButton.setAttribute('id', 'btn-go-landing');
+  goLandingButton.className = 'button-go-landing';
+  goLandingButton.id = 'btn-go-landing';
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
   registerDiv.appendChild(goLandingButton);

@@ -1,10 +1,17 @@
 import { createElements } from '../util.js';
 
 export const ResetPassword = () => {
-  const [forgotDiv, imgPets, titleForgot, textTitleForgot, inputForgotPassword, buttonForgotPassword] = createElements('div', 'img', 'h2', 'h4', 'input', 'button');
+  const [
+    forgotDiv,
+    imgPets,
+    titleForgot,
+    textTitleForgot,
+    inputForgotPassword,
+    buttonForgotPassword,
+  ] = createElements('div', 'img', 'h2', 'h4', 'input', 'button');
   forgotDiv.id = 'div-forgot-password';
   imgPets.src = 'imagenes/instantanea-celeste-transparencia.png';
-  imgPets.setAttribute('id', 'img-instantanea-password');
+  imgPets.id = 'img-instantanea-password';
 
   titleForgot.textContent = '¿Olvidaste tu contraseña?';
   titleForgot.id = 'title-forgot-h2';
