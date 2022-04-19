@@ -21,7 +21,7 @@ export const Login = () => {
   goLandingButton.className = 'back-button';
   // goLandingButton.src = 'imagenes/flecha-izquierda.png';
   // goLandingButton.textContent = 'home';
-   // Boton de regresar a la bienvenida
+  // Boton de regresar a la bienvenida
 
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));

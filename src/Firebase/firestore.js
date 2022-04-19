@@ -1,7 +1,7 @@
 import {
   /* doc, getDoc, */
   getFirestore, collection, addDoc /* , getDocs */,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+} from './Firebase-util.js';
 
 import { app } from './init.js';
 
@@ -18,12 +18,12 @@ export const storeUsers = (user, email, name, picture) => {
     name,
     picture,
   }).then((test) => {
-    console.log(`usuario creado. id : ${test.id}`);
+    // console.log(`usuario creado. id : ${test.id}`);
   });
 };
 
 export const store = (data, collectionName) => {
   addDoc(collection(firestore, collectionName), data).then((test) => {
-    console.log(`registro creado. id : ${test.id}`);
+    // console.log(`registro creado. id : ${test.id}`);
   });
 };

@@ -1,11 +1,8 @@
-/* eslint-disable import/no-duplicates */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-undef */
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+  signInWithEmailAndPassword, /* , sendSignInLinkToEmail */
+} from './Firebase-util.js';
 
-import { signInWithEmailAndPassword/* , sendSignInLinkToEmail */ } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 
 export const auth = getAuth(app);
@@ -18,21 +15,21 @@ export const createAccountByGoogle = () => {
   signInWithPopup(auth, provider).then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-    console.log(token);
+    // console.log(token);
     const user = result.user;
-    console.log(user);
+    // console.log(user);
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
-    console.log(errorCode);
+    // console.log(errorCode);
     const errorMessage = error.message;
-    console.log(errorMessage);
+    // console.log(errorMessage);
     // The email of the user's account used.
     const email = error.email;
-    console.log(email);
+    // console.log(email);
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
-    console.log(credential);
+    // console.log(credential);
     // ...
   });
 };
@@ -44,7 +41,7 @@ export const CreateAccount = (email, password) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-      console.log(user.email);
+      // console.log(user.email);
     // ...
     })
     .catch((error) => {
@@ -75,14 +72,14 @@ export const LoginByEmailPassword = (email, password) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-      console.log(user);
+      // console.log(user);
     // ...
     })
     .catch((error) => {
       const errorCode = error.code;
-      console.log(errorCode);
+      // console.log(errorCode);
       const errorMessage = error.message;
-      console.log(errorMessage);
+      // console.log(errorMessage);
       /* const paragraphErrorLogin = document.querySelector('#errorLogin');
 
       if (errorCode === 'auth/user-not-found') {

@@ -1,7 +1,6 @@
-/* eslint-disable import/no-unresolved */
 import
 { initializeApp }
-  from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+  from './Firebase-util.js';
 
 import { firebaseConfig } from './config.js';
 
