@@ -1,7 +1,9 @@
+/* eslint-disable no-console */
 /* eslint-disable padded-blocks */
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
+import { registerWithEmail } from '../lib/application/authFirebase.js';
 
 export const Register = () => {
   const HomeDiv = document.createElement('div');
@@ -13,7 +15,9 @@ export const Register = () => {
   const inputCorreo = document.createElement('input');
   const image = document.createElement('img');
   const buttonUsuario = document.createElement('button');
+  const message = document.createElement('div'); // nuevo
 
+  message.innerHTML = 'Correo inválido'; // nuevo
   inputCorreo.placeholder = 'Ingrese correo electrónico';
   inputName.placeholder = 'Ingrese nombre completo';
   inputPassaword.placeholder = 'Crea tu contraseña';
@@ -36,8 +40,17 @@ export const Register = () => {
   HomeDiv.appendChild(inputName);
   HomeDiv.appendChild(inputCorreo);
   HomeDiv.appendChild(inputPassaword);
+  HomeDiv.appendChild(message); // nuevo
   HomeDiv.appendChild(buttonUsuario);
   HomeDiv.appendChild(buttonHome);
+
+  buttonUsuario.addEventListener('click', () => {
+    const passawordValue = document.getElementById('inputPassaword').value;
+    console.log(passawordValue);
+    const correoValue = document.getElementById('inputCorreo').value;
+    console.log(correoValue);
+    registerWithEmail(correoValue, passawordValue);
+  });
 
  return HomeDiv;
 
