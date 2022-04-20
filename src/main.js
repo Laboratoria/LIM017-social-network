@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-// eslint-disable-next-line import/no-cycle
+
 import { Home } from './components/Home.js';
 import { Register } from './components/Register.js';
 import { Login } from './components/Login.js';
@@ -10,7 +10,6 @@ const routes = {
   '/register': Register,
   '/login': Login,
 };
-
 /* const component = routes[window.location.pathname];
 rootDiv.appenChild(component()); */
 export const onNavigate = (pathname) => {
@@ -22,12 +21,9 @@ export const onNavigate = (pathname) => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
-
   rootDiv.appendChild(routes[pathname]());
 };
-
 const component = routes[window.location.pathname];
-
 window.onpopstate = () => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
@@ -35,5 +31,4 @@ window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
 };
 
-// eslint-disable-next-line eol-last
 rootDiv.appendChild(component());
