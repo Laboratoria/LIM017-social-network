@@ -3,8 +3,8 @@
 import { onNavigate } from '../main.js';
 
 export const Login = () => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenido al Login';
+  const loginDiv = document.createElement('div');
+  loginDiv.textContent = 'Bienvenido al Login';
   const buttonHome = document.createElement('button');
   const inputName = document.createElement('input');
   const inputPassaword = document.createElement('input');
@@ -25,16 +25,16 @@ export const Login = () => {
   buttonGetInto.id = 'GetInto';
   buttonGetInto.textContent = 'Iniciar sesión';
 
-  HomeDiv.appendChild(titleRedSocial);
-  HomeDiv.appendChild(image);
-  HomeDiv.appendChild(inputName);
-  HomeDiv.appendChild(inputPassaword);
-  HomeDiv.appendChild(buttonGetInto);
-  HomeDiv.appendChild(buttonHome);
+  loginDiv.appendChild(titleRedSocial);
+  loginDiv.appendChild(image);
+  loginDiv.appendChild(inputName);
+  loginDiv.appendChild(inputPassaword);
+  loginDiv.appendChild(buttonGetInto);
+  loginDiv.appendChild(buttonHome);
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   // eslint-disable-next-line padded-blocks
-  return HomeDiv;
+  return loginDiv;
 
 };
