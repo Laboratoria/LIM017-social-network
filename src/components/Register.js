@@ -58,7 +58,9 @@ export const SignUp = () => {
   registerEmail.id = 'register-email';
   registerEmail.className = 'inputs-style';
   registerEmail.type = 'email';
+
   registerEmail.placeholder = 'Correo electrónico';
+
 
   const registerPassword = PasswordInput({
     placeholder: 'Ingresa tu contraseña',
@@ -85,10 +87,12 @@ export const SignUp = () => {
   // Evento de registrar al usuario
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
+
     const password = registerPassword.querySelector('input');
     const password1 = confirmPassword.querySelector('input');
     if (password.value === password1.value) {
       CreateAccount(registerEmail.value, password.value);
+
       store({ email: registerEmail.value }, 'users');
       // window.location.href = '/Feed';
     } else {
