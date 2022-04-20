@@ -1,9 +1,8 @@
 * {
     padding: 0;
-    /* box-sizing: border-box; */
-    font-family: 'Comfortaa';
+    box-sizing: border-box;
+    font-family: 'lato';
     font-size: large;
-    font-weight: bold;
 }
 
 
@@ -12,6 +11,7 @@ body {
     position: relative;
     padding-bottom: 2em;
     min-height: 90vh;
+    padding-top: 4rem;
 }
 
 footer {
@@ -26,16 +26,12 @@ footer {
 
 /* --------LandingPage.js----------- */
 
-.landing-div-global {
-    display: grid;
-    grid-template-areas:'.'
-                        'logo'
-                        'img1'
-                        'cont-landing';
+#landing-div-global {
+  display: grid;
 }
 
 #landing-logo{
-    grid-area: logo;
+    /*grid-area: logo;*/
     display: flex;
     margin: 5% auto;
     width: 70%;
@@ -43,22 +39,34 @@ footer {
 }
 
 /* Las clases de logo e img-bienvenida seran usados en Landing, login y register */
+.back-button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.go-back-icon {
+  font-size: 38px;
+  color: rgb(80 135 139 / 35%);
+}
 
 .logo {
-  grid-area: logo;
+  /*grid-area: logo;*/
   display: flex;
   margin: 0% auto;
-  width: 70%;
+  width: 60%;
 }
 
 .img-bienvenida {
-    grid-area: img1;
+    /*grid-area: img1;*/
     width: 90%;
     margin: 10% auto;
 }
 
 .btn-container{
-    grid-area: cont-landing;
+    /*grid-area: cont-landing;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,18 +77,15 @@ footer {
     border-radius: 10px;
     border: none;
     font-size: x-large;
+    color: #225a7a;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-#btn-register{
+#btn-register, #btn-login{
     height: 60px;
     width: 60%;
     margin: 10px auto;
 }
-#btn-login{
-    height: 60px;
-    width: 60%;
-    margin: 12px auto;
-}
+
 .btn-container button:first-child:hover{
     background: rgba(247, 161, 47, 0.7);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -99,295 +104,190 @@ footer {
     transform: scale(1.3);
 }
 /* --------- Login.js ---------------*/
-.login-div-global {
-    display: grid;
-    grid-template-areas:'go-back . go-back'
-                        'logo-login logo-login logo-login'
-                        'img-login  img-login  img-login'
-                        'h2login    h2login    h2login'
-                        'form-login form-login form-login'
-                        'login-btn login-btn login-btn'
-                        ;
-    gap: 3%;
-}
-#login-logo{
-    grid-area: logo-login;
-    display: flex;
-    margin: 0% auto;
-    width: 70%;
-}
-#login-img{
-    grid-area: img-login;
-    width: 90%;
-    margin: 0% 5%;
-}
-#login-h2{
-    grid-area: h2login;
-    margin: 15px auto;
-    color:#3f4747;
-    font-size: 30px;
-    text-align: center;
-}
-#form-login{
-    grid-area: form-login;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 2px auto;
-}
-#form-login input{
-    width: 70%;
-    height: 40px;
-    margin: 4px auto;
-    border-radius: 10px;
-    border: none;
-    font-size: large;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-#form-login input:focus{
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-#login-btn{
-    grid-area: login-btn;
-    width: 70%;
-    height: 40px;
-    margin: 6px auto;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    border: none;
-    font-size: x-large;
-    font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-  /* Line container and separation */
 
-#line-container {
+#login-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+  justify-items: center;
+  padding-top: 4em;
+}
+
+#login-img {
+  width: 333px;
+  height: auto;
+}
+
+#register-h2, #login-h2, #recovery-h2 {
+  padding-top: 10px;
+  font-size: 30px;
+  color: #225a7a;
+}
+
+#form-register, #form-login, #form-reset {
+  display: grid;
+  gap: 13px;
+  align-items: center;
+  justify-items: center;
+}
+
+#register-email, #mail-input, #recovery-pass-input {
+  width: 287px;
+  height: 37px;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-style: italic;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+.password-container {
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  background: rgba(255, 255, 255, 0.6);
+  width: 287px;
+  height: 37px;
+  border-radius: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+.password-container > input {
+  background: transparent;
+  outline: none;
+  font-size: 18px;
+  border: none;
+  font-style: italic;
+}
+
+#eye-container {
+  padding-left: 2em;
+  padding-top: 0.1em;
+}
+
+#show-password, #hide-password {
+  color: #a1a1a1;
+}
+
+.submit-buttons {
+  width: 181px;
+  height: 48px;
+  border-radius: 16px;
+  font-size: 18px;
+  border: 1.5px solid #b5e5ff;
+  margin-top: 0.5em;
+  color: #225a7a;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px rgb(34 90 122 / 70%);
+}
+
+#line-container, #line-container1 {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   width: 70%;
   align-items: center;
-  margin: auto;
 }
 
 .solid-line {
   height: 1px;
-  background: #615F5F;
+  background: #D9C3A7;
 }
 
-#line-p {
+#line-p, #line-p1 {
   padding-left: 4px;
   padding-right: 4px;
+  color: #D9C3A7
 }
 
-#go-landing-button {
-    grid-area: go-back;
-    background:url(/imagenes/arrow-left-downsize.png) no-repeat;
-    background-size: cover;
-    border: none;
-    width:30px;
-    height:30px;
-    margin: 5px 0px 0px 5px;
-    opacity: 0.65;
+#register-btn-container, #login-btn-container {
+  padding-top: 0.5em;
+}
+
+#register-wrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  /*grid-template-areas:
+    'logo logo logo'
+    'img-welcome img-welcome img-welcome'
+    'text-h2 text-h2 text-h2'
+    'form form form'
+    'line-img line-img line-img'
+    'container-button container-button container-button'
+    'err err err'
+    'cont-text cont-text cont-text'
+    'back-landing back-landing back-landing';
+    gap: 3;*/
+}
+
+#password-recovery-div {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+#register-img {
+  width: 333px;
+  height: auto;
+  padding-top: 1em;
+}
+
+#reset-pass-img {
+  width: 300px;
+  padding-top: 2em;
+}
+
+#recovery-h4 {
+  font-size: 16px;
+  color: #F7A12F;
+}
+
+.button-gmail {
+  width: 300px;
+  height: 56px;
+  border-radius: 16px;
+  font-size: 20px;
+  color: #225a7a;
+  font-weight: bold;
+  border: 1.5px solid #b5e5ff;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgb(34 90 122 / 70%);
+}
+
+#container, #container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    justify-items: center;
+}
+
+#a-reset-password {
+  color: #0C9EA7;
+  font-size: 18px;
+  padding-top: 19px;
+}
+
+#p-no-account, #p-yes-account {
+  padding-top: 54px;
+  font-size: 17px;
+  color: #225a7a;
+}
+
+#better-login, #no-acc-register {
+  font-size: 17px;
+  color: #F7A12F;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 
-/* Login.js-Register.js---usan TextoH2 y Contenedor de login con email y gmail */
-
-
-
-#login-btn-container{
-    display: flex;
-    flex-direction: column;
-    margin: 10px auto;
-    align-items: center;
-}
-.button-gmail{
-    width: 70%;
-    margin: auto;
-    border-radius: 12px;
-    border: inset;
-    background: rgba(255, 255, 255, 0.5);
-    font-size: large;
-    font-weight: bold;
-    color: #3f4747;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    height: 45px;
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-.container-login{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 40px auto 70px;
-    text-align: center;
-    font-size: medium;
-}
-/* #go-landing-button{
-    width: 30%;
-    margin: auto;
-    border-radius: 12px;
-    background: #ffff;
-    font-size: large;
-    font-weight: bold;
-    color: #3f4747;
-    height: 45px;
-    margin-bottom: 10%;
-} */
-
-
-/* --------- Register.js ---------------*/
-
-#logo-register {
-    grid-area: logo;
-    display: flex;
-    margin: 0% auto;
-    width: 70%;
-}
-
-  /* #img-register {
-      grid-area: img1;
-      width: 90%;
-      margin: 10% auto;
-  } */
-
-
-.img-register{
-    grid-area: img-reg;
-    width: 90%;
-    margin: 0% 5%;
-}
-.text-start-h2{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.form-input-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px auto;
-    text-align: center;
-    font-size: medium;
-}
-
-.form-input-container input{
-    width: 70%;
-    height: 40px;
-    margin: 4px auto;
-    border-radius: 10px;
-    border: none;
-    font-size: large;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-#submit-btn{
-    grid-area: login-btn;
-    width: 50%;
-    height: 40px;
-    margin: 6px auto;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    border: none;
-    font-size: x-large;
-    font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-#gmail-signup{
-    width: 70%;
-    margin: auto;
-    border-radius: 12px;
-    border: inset;
-    background: rgba(255, 255, 255, 0.5);
-    font-size: large;
-    font-weight: bold;
-    color: #3f4747;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    height: 45px;
-    font-size: 15px;
-    margin-bottom: 5px;
-}
-
-.container-button-signup{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px auto;
-}
-
-#content-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px auto 70px;
-    text-align: center;
-    font-size: medium;
-}
-/* --------Forgot Paswords --------*/
-
-#div-forgot-password{
-    grid-template-areas: logo-forgot;
-}
-#forgot-logo{
-    grid-area: logo-login;
-    display: flex;
-    margin: 7% auto 3% auto;
-    width: 70%;
-}
-#img-instantanea-password{
-    width: 90%;
-    margin: 5%;
-}
-
-#title-forgot-h2{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0px auto;
-}
-#text-forgot-h4{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-}
-#input-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px auto 70px;
-    text-align: center;
-    font-size: medium;
-}
-#input-container input{
-        width: 70%;
-        height: 57px;
-        margin: 4px auto;
-        border-radius: 10px;
-        border: none;
-        font-size: 22px;
-        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-}
-
-#button-forgot-password{
-    width: 70%;
-    height: 50px;
-    margin: 4% auto;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    border: none;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
 
 
 
@@ -484,42 +384,4 @@ footer {
     }
 } */
 
-#mail-input {
-    width: 240px;
-    height: 33px;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-right: -65px;
-    font-style: italic;
-    padding-left: 10px;
-    border: none;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  }
-  
-  .password-container {
-    align-items: center;
-    justify-items: center;
-    display: flex;
-    background: rgba(255, 255, 255, 0.6);
-    width: 240px;
-    height: 33px;
-    border-radius: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  }
-  
-  .password-container > input {
-    background: transparent;
-    outline: none;
-    font-size: 16px;
-    border: none;
-    font-style: italic;
-  }
-  
-  #show-password, #hide-password {
-    color: #a1a1a1;
-  }
-  
 

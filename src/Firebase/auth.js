@@ -100,6 +100,7 @@ export const LoginByEmailPassword = (email, password) => {
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
+      /*
       const paragraphErrorLogin = document.querySelector('#errorLogin');
 
       if (errorCode === 'auth/user-not-found') {
@@ -115,5 +116,6 @@ export const LoginByEmailPassword = (email, password) => {
         paragraphErrorLogin.classList.add('showParagraphError');
         paragraphErrorLogin.innerText = errorMessage;
       }
+      */
     });
 };
