@@ -14,16 +14,16 @@ body{
     height: auto;
 }
 
-#inputPassaword , #inputName , #inputCorreo{
+#inputPassword , #inputName , #inputCorreo{
     display: flex;
     justify-content: center;
-    margin: 10px;
+    /* margin: 10px; */
     text-align: center;
     font-family: inherit;
     font-size: 20px;
     border-radius: 5px;
     border-color: rgb(116, 124, 121);
-    
+    margin-bottom: 5%;
 
 }
 .titleRedSocial{
@@ -54,7 +54,7 @@ body{
     font-size:20px;
     margin: auto;
 }
-#buttonLogin , #buttonRegister , #usuarioBtn , #GetInto{
+#buttonLogin , #buttonRegister , #usuarioBtn , #GetInto, #buttonUserRegister ,#buttonBackHome{
     background-color:#1877f2 ;
     border-radius: 30px;
     display: flex;
@@ -67,5 +67,8 @@ body{
     font-family:" EB Garamond";
     font-size:20px;
     margin: auto;
-    margin: 10px;
+   
+    width: 100%;
+    margin-bottom: 5%;
+    
 }

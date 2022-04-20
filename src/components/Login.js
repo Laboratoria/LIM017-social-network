@@ -7,16 +7,16 @@ export const Login = () => {
   HomeDiv.textContent = 'Bienvenido al Login';
   const buttonHome = document.createElement('button');
   const inputName = document.createElement('input');
-  const inputPassaword = document.createElement('input');
+  const inputPassword = document.createElement('input');
   const titleRedSocial = document.createElement('h1');
   const image = document.createElement('img');
   const buttonGetInto = document.createElement('button');
 
   inputName.id = 'inputName';
   titleRedSocial.className = 'titleRedSocial';
-  inputName.placeholder = 'Ingrese nombre completo';
-  inputPassaword.placeholder = 'Ingrese contraseña';
-  inputPassaword.id = 'inputPassaword';
+  inputName.placeholder = 'Nombre de usuario';
+  inputPassword.placeholder = 'Ingrese contraseña';
+  inputPassword.id = 'inputPassword';
   buttonHome.className = 'buttonHome';
   image.className = 'img-responsive';
   image.src = 'img/cuy.png';
@@ -28,7 +28,7 @@ export const Login = () => {
   HomeDiv.appendChild(titleRedSocial);
   HomeDiv.appendChild(image);
   HomeDiv.appendChild(inputName);
-  HomeDiv.appendChild(inputPassaword);
+  HomeDiv.appendChild(inputPassword);
   HomeDiv.appendChild(buttonGetInto);
   HomeDiv.appendChild(buttonHome);
 
