@@ -3,52 +3,69 @@ import { createElements } from '../util.js';
 import { onNavigate } from '../main.js';
 
 export const ResetPassword = () => {
-  const [
-    forgotDiv,
-    logo,
-    imgPets,
-    titleForgot,
-    textTitleForgot,
-    inputForgotPassword,
-    buttonForgotPassword,
-  ] = createElements('div', 'img', 'img', 'h2', 'h4', 'input', 'button');
-  forgotDiv.id = 'div-forgot-password';
+  const recoveryDiv = document.createElement('div');
+  recoveryDiv.id = 'password-recovery-div';
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
-  goLandingButton.id = 'go-landing-button';
+  goLandingButton.id = 'go-landing-button2';
   goLandingButton.className = 'back-button';
-  // goLandingButton.src = 'imagenes/flecha-izquierda.png';
-  // goLandingButton.textContent = 'home';
+  goLandingButton.innerHTML = `
+    <i class="fa-solid fa-circle-left go-back-icon"></i>
+  `;
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
-  forgotDiv.appendChild(goLandingButton);
 
-  logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
-  logo.id = 'forgot-logo';
-  imgPets.src = 'imagenes/instantanea-celeste-transparencia.png';
-  imgPets.id = 'img-instantanea-password';
+  recoveryDiv.appendChild(goLandingButton);
 
-  titleForgot.textContent = '¿Olvidaste tu contraseña?';
-  titleForgot.id = 'title-forgot-h2';
-  titleForgot.className = 'text-start-h2';
-  textTitleForgot.textContent = 'Recupera tu contraseña con tu correo electrónico';
-  textTitleForgot.id = 'text-forgot-h4';
-  textTitleForgot.className = 'text-start-h2';
+  const [
+    petsImg,
+    passRecoveryH2,
+    passRecoveryH4,
+  ] = createElements(
+    'img',
+    'h2',
+    'h4',
+  );
 
-  const [inputContainer] = createElements('div');
+  petsImg.src = 'imagenes/petsimg.jpg';
+  petsImg.id = 'reset-pass-img';
 
-  inputForgotPassword.placeholder = '  Correo electrónico';
-  inputForgotPassword.id = 'input-forgot-password';
-  inputForgotPassword.className = 'button-mail';
+  passRecoveryH2.textContent = '¿Olvidaste tu contraseña?';
+  passRecoveryH2.id = 'recovery-h2';
 
-  buttonForgotPassword.textContent = 'Recuperar contraseña';
-  buttonForgotPassword.id = 'button-forgot-password';
-  buttonForgotPassword.className = 'button-go-landing';
+  passRecoveryH4.textContent = 'Ingresa tu correo electrónico para recuperar tu contraseña';
+  passRecoveryH4.id = 'recovery-h4';
 
-  forgotDiv.append(titleForgot, textTitleForgot);
-  inputContainer.append(inputForgotPassword, buttonForgotPassword);
-  inputContainer.id = 'input-container';
-  forgotDiv.append(inputContainer);
-  return forgotDiv;
+  recoveryDiv.append(petsImg, passRecoveryH2, passRecoveryH4);
+
+  const [
+    inputContainer,
+    recoveryInput,
+    passwordRecoveryBtn,
+  ] = createElements(
+    'form',
+    'input',
+    'button',
+  );
+
+  inputContainer.id = 'form-reset';
+
+  recoveryInput.type = 'email';
+  recoveryInput.id = 'recovery-pass-input';
+  recoveryInput.className = 'inputs-style';
+  recoveryInput.placeholder = 'Correo electrónico';
+
+  passwordRecoveryBtn.textContent = 'Enviar';
+  passwordRecoveryBtn.id = 'reset-btn';
+  passwordRecoveryBtn.className = 'submit-buttons';
+
+  inputContainer.append(
+    recoveryInput,
+    passwordRecoveryBtn,
+  );
+
+  recoveryDiv.appendChild(inputContainer);
+
+  return recoveryDiv;
 };

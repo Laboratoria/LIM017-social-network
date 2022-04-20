@@ -10,20 +10,37 @@ import { PasswordInput } from './PasswordInput.js';
 
 // registro
 export const SignUp = () => {
+  const registerDiv = document.createElement('div');
+  registerDiv.id = 'register-wrapper';
+
+  // Boton de regresar a la bienvenida
+  const goLandingButton = document.createElement('button');
+  goLandingButton.id = 'go-landing-button1';
+  goLandingButton.className = 'back-button';
+  goLandingButton.innerHTML = `
+    <i class="fa-solid fa-circle-left go-back-icon"></i>
+  `;
+
+  goLandingButton.addEventListener('click', () => onNavigate('/'));
+
+  registerDiv.appendChild(goLandingButton);
+
   const [
-    registerDiv,
     logo,
     mainImg,
     registerH2,
-  ] = createElements('div', 'img', 'img', 'h2');
-  registerDiv.id = 'register-div-global';
-  registerH2.textContent = 'Registrarse';
-  registerH2.className = 'text-start-h2';
+  ] = createElements('img', 'img', 'h2');
+
   logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
+  logo.id = 'register-logo';
   logo.className = 'logo';
-  logo.id = 'logo-register';
+
   mainImg.src = 'imagenes/3-personas-con-mascotas.png';
-  mainImg.className = 'img-register';
+  mainImg.id = 'register-img';
+
+  registerH2.textContent = 'Registrarse';
+  registerH2.id = 'register-h2';
+
   registerDiv.append(logo, mainImg, registerH2);
 
   const [
@@ -34,32 +51,30 @@ export const SignUp = () => {
     'form',
     'input',
     'button',
-    'img',
   );
 
-  inputContainer.className = 'form-input-container';
+  inputContainer.id = 'form-register';
+
   registerEmail.id = 'register-email';
-  registerEmail.className = 'inputs-register';
+  registerEmail.className = 'inputs-style';
   registerEmail.type = 'email';
-  registerEmail.placeholder = 'Ingresa tu correo';
+
+  registerEmail.placeholder = 'Correo electrónico';
+
 
   const registerPassword = PasswordInput({
     placeholder: 'Ingresa tu contraseña',
     id: 'register-password',
   });
-  // registerPassword.className = 'inputs-register';
 
   const confirmPassword = PasswordInput({
     placeholder: 'Confirma tu contraseña',
     id: 'confirm-password',
   });
-  // confirmPassword.className = 'inputs-register';
 
+  submitBtn.textContent = 'Crear cuenta';
   submitBtn.id = 'submit-btn';
   submitBtn.className = 'submit-buttons';
-  submitBtn.textContent = 'Registrarse';
-  // lineImg.className = 'line-img';
-  // lineImg.src = '#';
 
   inputContainer.append(
     registerEmail,
@@ -67,15 +82,17 @@ export const SignUp = () => {
     confirmPassword,
     submitBtn,
   );
-  registerDiv.append(inputContainer);
+  registerDiv.appendChild(inputContainer);
 
   // Evento de registrar al usuario
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const passwordValue = document.querySelector('#register-password').value;
-    const confirmPasswordValue = document.querySelector('#confirm-password').value;
-    if (passwordValue === confirmPasswordValue) {
-      CreateAccount(registerEmail.value, passwordValue);
+
+    const password = registerPassword.querySelector('input');
+    const password1 = confirmPassword.querySelector('input');
+    if (password.value === password1.value) {
+      CreateAccount(registerEmail.value, password.value);
+
       store({ email: registerEmail.value }, 'users');
       // window.location.href = '/Feed';
     } else {
@@ -84,71 +101,66 @@ export const SignUp = () => {
   });
 
   // Linea y contenedor OR
-  const [lineContainer, line3, orParagraph, line4] = createElements('div', 'div', 'p', 'div');
+  const [
+    lineContainer,
+    line3,
+    orParagraph,
+    line4,
+  ] = createElements('div', 'div', 'p', 'div');
 
-  lineContainer.id = 'line-container';
+  lineContainer.id = 'line-container1';
+
   line3.className = 'solid-line';
-  line3.id = 'line1';
+  line3.id = 'line3';
 
-  orParagraph.id = 'line-p';
+  orParagraph.id = 'line-p1';
   orParagraph.textContent = 'O';
 
   line4.className = 'solid-line';
-  lineContainer.append(line3, orParagraph, line4);
 
-  inputContainer.append(registerEmail, registerPassword, confirmPassword, submitBtn);
-  registerDiv.append(inputContainer, lineContainer);
+  lineContainer.append(line3, orParagraph, line4);
+  registerDiv.appendChild(lineContainer);
 
   // container botones registro
-  const [signUpButton, gmailSignUp] = createElements('div', 'button', 'div');
+  const [
+    signUpButtons,
+    gmailSignUp,
+  ] = createElements('div', 'button');
+
+  signUpButtons.id = 'register-btn-container';
 
   // via gmail
   gmailSignUp.id = 'gmail-signup';
   gmailSignUp.className = 'button-gmail';
   gmailSignUp.textContent = 'Registrarse con Gmail';
 
-  gmailSignUp.id = 'gmail-login';
-  gmailSignUp.className = 'button-gmail';
-  gmailSignUp.textContent = 'Registrate con Gmail';
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
     window.location.href = '/Feed';
   });
 
   // add botones al container, container a div global
-
-  signUpButton.appendChild(gmailSignUp);
-  signUpButton.setAttribute('class', 'container-button-signup');
-  registerDiv.appendChild(signUpButton);
+  signUpButtons.appendChild(gmailSignUp);
+  registerDiv.appendChild(signUpButtons);
 
   // Already have and account
+  const [
+    container,
+    yesAccount,
+    betterLogin,
+  ] = createElements('div', 'p', 'a');
 
-  const [container, yesAccount, betterLogin] = createElements('div', 'p', 'a');
-  container.id = 'content-text';
+  container.id = 'container';
+
   yesAccount.textContent = '¿Ya tienes cuenta?';
   yesAccount.id = 'p-yes-account';
-  yesAccount.className = 'yes-account';
 
   betterLogin.textContent = 'Ingresa';
-  betterLogin.id = 'a-better-login';
-  betterLogin.className = 'better-login';
   betterLogin.href = '/Login';
+  betterLogin.id = 'better-login';
+
   container.append(yesAccount, betterLogin);
   registerDiv.appendChild(container);
-
-  // go back landing
-  const goLandingButton = document.createElement('button');
-  goLandingButton.textContent = 'Regresar al inicio';
-  goLandingButton.className = 'button-go-landing';
-  goLandingButton.id = 'btn-go-landing';
-
-  // const goLandingButton = document.createElement('button');
-  // goLandingButton.textContent = 'Regresar al inicio';
-  // goLandingButton.setAttribute('class', 'button-go-landing');
-  // goLandingButton.setAttribute('id', 'btn-go-landing');
-
-  // goLandingButton.addEventListener('click', () => onNavigate('/'));
-  // registerDiv.appendChild(goLandingButton);
 
   return registerDiv;
 };
