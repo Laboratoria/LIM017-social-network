@@ -3,7 +3,7 @@ import { onNavigate } from '../main.js';
 
 export const Home = () => {
   const homePage = `
-    <section class ='homeDiv'>
+    <section class ='homeSection'>
     <h1>Cuy viajero</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p>Inicia sesión</p>
@@ -14,9 +14,9 @@ export const Home = () => {
 
   const buttonRegister = document.createElement('button');
   const buttonLogin = document.createElement('button');
-
   buttonRegister.id = 'buttonRegister';
   buttonLogin.id = 'buttonLogin';
+  homeDiv.className = 'conatainerHome';
   buttonRegister.textContent = 'Registrate';
   buttonLogin.textContent = 'Usuario y contraseña';
 

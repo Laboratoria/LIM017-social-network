@@ -17,6 +17,7 @@ export const Login = () => {
   inputName.placeholder = 'Nombre de usuario';
   inputPassword.placeholder = 'Ingrese contraseña';
   inputPassword.id = 'inputPassword';
+  loginDiv.className = 'conatainerHome';
   buttonHome.className = 'buttonHome';
   image.className = 'img-responsive';
   image.src = 'img/cuyLog.png';

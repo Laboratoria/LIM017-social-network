@@ -1,20 +1,42 @@
 body{
     min-height: 100vh;
     margin:0;
-    background-image: url("/img/fond.png");
+    background-image: url("/img/fondoC800.png");
     /*background:linear-gradient(hsl(56, 61%, 73%), #8be7c4a6);*/
-    text-align: center;
+    /*text-align: center;*/
    font-family: inherit;
     display: flex;
     justify-content: center;
 }
 
 .img-responsive{
-    width: 100%;
-    max-width: 350px;
+    width: 450px;
     height: auto;
+    margin-top: 0;
 }
+.conatainerHome{
+    background-color: rgb(255, 255, 255);
+    /* background:linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
+    padding: 20px 20px;
+    margin-top: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px #666464;
+}
+label{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    margin-left: 13px;
+}
+.text-Register{
+    font-size: 30px;
+    color:#4C80CA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: center;
 
+
+}
 #inputPassword , #inputName , #inputCorreo{
     display: flex;
     justify-content: center;
@@ -23,26 +45,34 @@ body{
     font-family: inherit;
     font-size: 20px;
     border-radius: 5px;
-    border-color: rgb(116, 124, 121);
+    border-color: rgb(93, 94, 93);
     margin-bottom: 5%;
-
-}
-.titleRedSocial{
-    display: flex;
-    justify-content: center;
-    margin:auto;
-    color:#0C6D5B ;
+    width: 80%;
+    padding: 16px 32px;
     text-align: center;
-    font-family: inherit;
-    font-size: 40px;
-    padding:10px;
+    font-family:" EB Garamond";
+    font-size:20px;
+    margin: auto;
+    margin-bottom: 5%;
+    text-align: left;
+   
 }
+h1{
+    text-align: center; 
+    font-family: Comic Sans MS;
+    font-weight:bold; 
+    font-size: 50px; 
+    margin:5px;
+    color: #EBD758; 
+    text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, -2px 2px 0 #414D68, 2px 2px 0 #414D68, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 4px 4px #414D68, 5px 5px #414D68;
+} 
+
 #pText{
     color: rgb(7, 7, 7);
     font-size: 20px;
 }
 .buttonHome{
-    background-color:#1877f2 ;
+    background-color:#4C80CA ;
     border-radius: 30px;
     border: none;
     display: flex;
@@ -56,7 +86,7 @@ body{
     margin: auto;
 }
 #buttonLogin , #buttonRegister , #usuarioBtn , #GetInto, #buttonUserRegister ,#buttonBackHome{
-    background-color:#1877f2 ;
+    background-color:#4C80CA ;
     border-radius: 30px;
     display: flex;
     border: none;
