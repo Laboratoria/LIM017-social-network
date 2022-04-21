@@ -39,7 +39,7 @@ export const registerWithEmail = (email, password) => {
     });
 // eslint-disable-next-line semi
 }
-/* 
+/*
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
