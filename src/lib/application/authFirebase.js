@@ -8,7 +8,7 @@ export const auth = getAuth(app);
 
 export const sendEmailVerificationFirebase = () => {
   sendEmailVerification(auth.currentUser)
-.then(() => {
+  .then(() => {
     console.log('ya envie tu email de verification');
   
   }).catch((err) => {
