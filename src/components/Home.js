@@ -5,7 +5,7 @@ export const Home = () => {
   const homePage = `
     <section class ='homeDiv'>
     <h1>Cuy viajero</h1>
-    <img class='imgLogo' src='img/cuy.png'>
+    <img class='img-responsive' src='img/cuyLog.png'>
     <p>Inicia sesión</p>
     </section>
     `;

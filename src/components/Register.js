@@ -6,57 +6,48 @@ import { onNavigate } from '../main.js';
 import { registerWithEmail } from '../lib/application/authFirebase.js';
 
 export const Register = () => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenido al Registro';
-  const buttonHome = document.createElement('button');
-  const titleRedSocial = document.createElement('h1');
-  const inputPassaword = document.createElement('input');
-  const inputCorreo = document.createElement('input');
-  const image = document.createElement('img');
-  const buttonUsuario = document.createElement('button');
-  const message = document.createElement('div'); // nuevo
+  const registerPage = ` 
+  <section class ='homeDiv'>
+    <h1>Cuy viajero</h1>
+    <img class='img-responsive' src='img/cuyLog.png'>
+    <p>Inicia sesión</p>
+    <input type='text' id='inputName' placeholder ='Nombre de usuario'>
+    <input type='text' id='inputCorreo' placeholder ='Ingresar correo'>
+    <input type= 'password' id='inputPassword' placeholder ='Ingresar contraseña'> 
+    </section>
+  `;
 
-  message.innerHTML = 'Correo inválido'; // nuevo
-  inputCorreo.placeholder = 'Ingrese correo electrónico';
-  inputPassaword.placeholder = 'Crea tu contraseña';
-  inputCorreo.id = 'inputCorreo';
-  inputPassaword.id = 'inputPassaword';
-  buttonHome.className = 'buttonHome';
-  image.className = 'img-responsive';
-  image.src = 'img/cuy.png';
-  buttonHome.textContent = 'Regresar al Home';
-  titleRedSocial.className = 'titleRedSocial';
-  titleRedSocial.innerText = 'Cuy Viajero';
-  buttonUsuario.id = 'usuarioBtn';
-  buttonUsuario.textContent = 'Crear usuario';
+  const homeDiv = document.createElement('div');
+  homeDiv.innerHTML = registerPage;
+  const buttonRegisterUser = document.createElement('button');
+  const buttonBackHome = document.createElement('button');
 
-  buttonHome.addEventListener('click', () => onNavigate('/'));
-  buttonUsuario.addEventListener('click', () => {
-    const passawordValue = inputPassaword.value;
-    console.log(passawordValue);
-    const correoValue = inputCorreo.value;
-    console.log(correoValue);
-    // registerWithEmail(correoValue, passawordValue);
+  buttonRegisterUser.id = 'buttonUserRegister';
+  buttonRegisterUser.className = 'buttonHome';
+  buttonRegisterUser.textContent = 'Crear usuario';
 
-  });
+  buttonBackHome.id = 'buttonBackHome';
+  buttonBackHome.className = 'buttonHome';
+  buttonBackHome.textContent = 'Regresar a home';
 
-  HomeDiv.appendChild(titleRedSocial);
-  HomeDiv.appendChild(image);
-  HomeDiv.appendChild(inputCorreo);
-  HomeDiv.appendChild(inputPassaword);
-  HomeDiv.appendChild(message); // nuevo
-  HomeDiv.appendChild(buttonUsuario);
-  HomeDiv.appendChild(buttonHome);
+ /*  const message = document.createElement('div'); */ // nuevo
+ /*  message.innerHTML = 'Correo inválido'; */ // nuevo
 
-  buttonUsuario.addEventListener('click', () => {
-    const passawordValue = document.getElementById('inputPassaword').value;
+ buttonBackHome.addEventListener('click', () => onNavigate('/'));
+
+  /* HomeDiv.appendChild(message); */ // nuevo
+  homeDiv.appendChild(buttonRegisterUser);
+  homeDiv.appendChild(buttonBackHome);
+
+  buttonRegisterUser.addEventListener('click', () => {
+    const passawordValue = document.getElementById('inputPassword').value;
     console.log(passawordValue);
     const correoValue = document.getElementById('inputCorreo').value;
     console.log(correoValue);
     registerWithEmail(correoValue, passawordValue);
   });
 
- return HomeDiv;
+ return homeDiv;
 
 // eslint-disable-next-line eol-last
 };

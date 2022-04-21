@@ -1,7 +1,8 @@
 body{
     min-height: 100vh;
     margin:0;
-    background:linear-gradient(hsl(56, 61%, 73%), #8be7c4a6);
+    background-image: url("/img/fond.png");
+    /*background:linear-gradient(hsl(56, 61%, 73%), #8be7c4a6);*/
     text-align: center;
    font-family: inherit;
     display: flex;
@@ -14,16 +15,16 @@ body{
     height: auto;
 }
 
-#inputPassaword , #inputName , #inputCorreo{
+#inputPassword , #inputName , #inputCorreo{
     display: flex;
     justify-content: center;
-    margin: 10px;
+    /* margin: 10px; */
     text-align: center;
     font-family: inherit;
     font-size: 20px;
     border-radius: 5px;
     border-color: rgb(116, 124, 121);
-    
+    margin-bottom: 5%;
 
 }
 .titleRedSocial{
@@ -54,7 +55,7 @@ body{
     font-size:20px;
     margin: auto;
 }
-#buttonLogin , #buttonRegister , #usuarioBtn , #GetInto{
+#buttonLogin , #buttonRegister , #usuarioBtn , #GetInto, #buttonUserRegister ,#buttonBackHome{
     background-color:#1877f2 ;
     border-radius: 30px;
     display: flex;
@@ -67,5 +68,8 @@ body{
     font-family:" EB Garamond";
     font-size:20px;
     margin: auto;
-    margin: 10px;
+   
+    width: 100%;
+    margin-bottom: 5%;
+    
 }
