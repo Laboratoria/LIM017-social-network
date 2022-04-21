@@ -3,9 +3,8 @@
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import {
+import { LoginByEmailPassword,
   createAccountByGoogle,
-  LoginByEmailPassword,
 } from '../Firebase/auth.js';
 import { createElements } from '../util.js';
 import { PasswordInput } from './PasswordInput.js';
@@ -19,9 +18,11 @@ export const Login = () => {
   const goLandingButton = document.createElement('button');
   goLandingButton.id = 'go-landing-button';
   goLandingButton.className = 'back-button';
+
   goLandingButton.innerHTML = `
     <i class="fa-solid fa-circle-left go-back-icon"></i>
   `;
+
   goLandingButton.addEventListener('click', () => onNavigate('/'));
 
   loginDiv.appendChild(goLandingButton);

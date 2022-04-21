@@ -26,7 +26,8 @@ Ducky Pets
  - Encontrarse con gente de intereses similares.
  - Encontrar contenido específico de mascotas.
 ### 2. Historias de usuario
-Trabajamos el proyecto mediante las siguientes historias de usuario, haciendo uso de [Trello](https://trello.com/invite/b/n8GPm7qR/ecaeff9b3c34b8dbc2ed03404000b468/ducky-pets).
+
+Desarrollamos nuestras historias de usuario, haciendo uso de la herramienta [Trello](https://trello.com/invite/b/n8GPm7qR/ecaeff9b3c34b8dbc2ed03404000b468/ducky-pets), dividiendolas de la siguiente manera:
 #### HU01 - Usuario NO registrado-Login con gmail
 ![Historia de usuario 01](./src/imagenes/hu01.png)
 #### HU02 - Usuario NO registrado-Login con Email and Password

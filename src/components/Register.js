@@ -3,7 +3,7 @@
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc, firestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
-import { onNavigate } from '../main.js';
+// import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 import { store } from '../Firebase/firestore.js';
 import { PasswordInput } from './PasswordInput.js';
@@ -95,9 +95,9 @@ export const SignUp = () => {
 
       store({ email: registerEmail.value }, 'users');
       // window.location.href = '/Feed';
-    } else {
+    } /* else {
       alert('Las contraseñas no coinciden');
-    }
+    } */
   });
 
   // Linea y contenedor OR
