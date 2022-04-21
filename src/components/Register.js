@@ -9,11 +9,17 @@ export const Register = () => {
   const registerPage = ` 
   <section class ='homeDiv'>
     <h1>Cuy viajero</h1>
-    <img class='imgLogo' src='img/cuy.png'>
-    <p>Inicia sesión</p>
-    <input type='text' id='inputName' placeholder ='Nombre de usuario'>
-    <input type='text' id='inputCorreo' placeholder ='Ingresar correo'>
-    <input type= 'password' id='inputPassword' placeholder ='Ingresar contraseña'> 
+    <img class='img-responsive' src='img/cuyLog.png'>
+    <p class=text-Register>Registro</p>
+    <label for='nameUser'>Nombre de usuario
+    <input type='text' id='inputName' placeholder ='Nombre de usuario' name ='nameUser'>
+    </label>
+    <label for='nameEmail'>Email
+    <input type='text' id='inputCorreo' placeholder ='Ingresar correo' name ='nameEmail'>
+    </label>
+    <label for='namePassword'>Contraseña
+    <input type= 'password' id='inputPassword' placeholder ='Ingresar contraseña' name ='namePassword'> 
+    </label>
     </section>
   `;
 
@@ -24,6 +30,7 @@ export const Register = () => {
 
   buttonRegisterUser.id = 'buttonUserRegister';
   buttonRegisterUser.className = 'buttonHome';
+  homeDiv.className = 'conatainerHome';
   buttonRegisterUser.textContent = 'Crear usuario';
 
   buttonBackHome.id = 'buttonBackHome';
