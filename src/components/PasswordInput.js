@@ -1,14 +1,24 @@
 import { createElements } from '../util.js';
 
 export function PasswordInput(atts) {
-  const [inputContainer, passwordInput, eyeContainer] = createElements('div', 'input', 'div');
+  const [
+    inputContainer,
+    passwordInput,
+    eyeContainer,
+  ] = createElements('div', 'input', 'div');
+
+  inputContainer.className = 'password-container';
+
+  eyeContainer.id = 'eye-container';
+
   passwordInput.placeholder = atts.placeholder;
   passwordInput.id = atts.id;
   passwordInput.type = 'password';
-  inputContainer.className = 'password-container';
+
   const eyes = `
     <i class="fa-solid fa-eye" id="show-password"></i>
   `;
+
   inputContainer.append(passwordInput, eyeContainer);
   eyeContainer.insertAdjacentHTML('beforeend', eyes);
   eyeContainer.addEventListener('click', () => {

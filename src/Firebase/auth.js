@@ -79,8 +79,10 @@ export const LoginByEmailPassword = (email, password) => {
       const errorCode = error.code;
       // console.log(errorCode);
       const errorMessage = error.message;
+
       // console.log(errorMessage);
       /* const paragraphErrorLogin = document.querySelector('#errorLogin');
+
 
       if (errorCode === 'auth/user-not-found') {
         paragraphErrorLogin.classList.add('showParagraphError');
@@ -94,7 +96,10 @@ export const LoginByEmailPassword = (email, password) => {
       } else if (errorCode === true) {
         paragraphErrorLogin.classList.add('showParagraphError');
         paragraphErrorLogin.innerText = errorMessage;
-      } */
+
+      }
+      */
+
     });
 };
 
