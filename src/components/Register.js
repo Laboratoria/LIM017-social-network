@@ -163,7 +163,6 @@ export const SignUp = () => {
   container.append(yesAccount, betterLogin);
   registerDiv.appendChild(container);
 
-
   // Validacion de correo con regex
   registerEmail.addEventListener('blur', (event) => {
     const inputValue = event.target.value;
