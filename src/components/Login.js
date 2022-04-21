@@ -13,6 +13,7 @@ import { PasswordInput } from './PasswordInput.js';
 export const Login = () => {
   const loginDiv = document.createElement('div');
   loginDiv.id = 'login-wrapper';
+  loginDiv.className = 'view-wrappers';
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
@@ -33,11 +34,11 @@ export const Login = () => {
     textLogin,
   ] = createElements('img', 'img', 'h2');
 
-  logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
+  logo.src = 'imagenes/logo.png';
   logo.id = 'login-logo';
   logo.className = 'logo';
 
-  mainImg.src = 'imagenes/imgLogin-con-transparencia.png';
+  mainImg.src = 'imagenes/login-img.png';
   mainImg.id = 'login-img';
 
   textLogin.textContent = 'Ingresar';
