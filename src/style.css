@@ -75,6 +75,7 @@ footer {
     border-radius: 10px;
     border: none;
     font-size: x-large;
+    font-weight: bold;
     color: #225a7a;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -309,7 +310,6 @@ footer {
         align-self: center;
         display: flex;
         width: 100%;
-        zoom: 1.5;
         margin-top: 20%;
     }
 
@@ -318,11 +318,6 @@ footer {
         display: flex;
         flex-direction: column;
         margin: 60px 0 50px 118px;
-    }
-
-    .btn-container{
-
-        zoom: 150%;
     }
 }
 
