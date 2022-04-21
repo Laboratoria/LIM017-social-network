@@ -136,6 +136,7 @@ export const SignUp = () => {
 
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
+    //colocar un timeout
     window.location.href = '/Feed';
   });
 
