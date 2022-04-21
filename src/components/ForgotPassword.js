@@ -68,5 +68,15 @@ export const ResetPassword = () => {
 
   recoveryDiv.appendChild(inputContainer);
 
+  // Validacion de correo con regex
+  registerEmail.addEventListener('blur', (event) => {
+    const inputValue = event.target.value;
+
+    // Function that performs regex validation should go here
+    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
+      alert('Correo inválido - Verifica tu dirección de correo');
+    }
+  });
+
   return recoveryDiv;
 };

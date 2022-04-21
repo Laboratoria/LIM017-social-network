@@ -3,7 +3,7 @@
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc, firestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
-// import { onNavigate } from '../main.js';
+import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 import { store } from '../Firebase/firestore.js';
 import { PasswordInput } from './PasswordInput.js';
@@ -136,8 +136,8 @@ export const SignUp = () => {
 
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
-    //colocar un timeout
-    window.location.href = '/Feed';
+
+    setTimeout(2000, window.location.href = '/Feed');
   });
 
   // add botones al container, container a div global
@@ -162,6 +162,17 @@ export const SignUp = () => {
 
   container.append(yesAccount, betterLogin);
   registerDiv.appendChild(container);
+
+
+  // Validacion de correo con regex
+  registerEmail.addEventListener('blur', (event) => {
+    const inputValue = event.target.value;
+
+    // Function that performs regex validation should go here
+    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
+      alert('Correo inválido - Verifica tu dirección de correo');
+    }
+  });
 
   return registerDiv;
 };
