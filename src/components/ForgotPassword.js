@@ -69,7 +69,7 @@ export const ResetPassword = () => {
   recoveryDiv.appendChild(inputContainer);
 
   // Validacion de correo con regex
-  registerEmail.addEventListener('blur', (event) => {
+  recoveryInput.addEventListener('blur', (event) => {
     const inputValue = event.target.value;
 
     // Function that performs regex validation should go here

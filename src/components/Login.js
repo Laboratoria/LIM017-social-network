@@ -156,7 +156,7 @@ export const Login = () => {
   loginDiv.appendChild(container2);
 
   // Validacion de correo con regex
-  registerEmail.addEventListener('blur', (event) => {
+  mailInput.addEventListener('blur', (event) => {
     const inputValue = event.target.value;
 
     // Function that performs regex validation should go here

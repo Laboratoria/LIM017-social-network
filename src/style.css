@@ -362,5 +362,11 @@ footer {
     
     }
 } */
-
-
+.test{
+  border: 2px solid;
+  border-color: red;
+}
+#interaction{
+  border-color: blue;
+  border: 3px solid;
+}
