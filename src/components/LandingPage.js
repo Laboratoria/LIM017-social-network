@@ -7,8 +7,8 @@ export const LandingView = () => {
   landingDiv.id = 'landing-div-global';
 
   const imgLogo = `
-    <img id="landing-logo" src="imagenes/DuckyPets-con-transparencia-achicado.png" alt="">
-    <img class="img-bienvenida" src="imagenes/instantanea-original-transparente.png" alt="">
+    <img id="landing-logo" src="imagenes/logo.png" alt="">
+    <img class="img-bienvenida" src="imagenes/landing-img.png" alt="">
   `;
 
   landingDiv.insertAdjacentHTML('beforeend', imgLogo);

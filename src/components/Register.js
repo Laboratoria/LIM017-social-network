@@ -12,6 +12,7 @@ import { PasswordInput } from './PasswordInput.js';
 export const SignUp = () => {
   const registerDiv = document.createElement('div');
   registerDiv.id = 'register-wrapper';
+  registerDiv.className = 'view-wrappers';
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
@@ -31,11 +32,11 @@ export const SignUp = () => {
     registerH2,
   ] = createElements('img', 'img', 'h2');
 
-  logo.src = 'imagenes/DuckyPets-con-transparencia-achicado.png';
+  logo.src = 'imagenes/logo.png';
   logo.id = 'register-logo';
   logo.className = 'logo';
 
-  mainImg.src = 'imagenes/3-personas-con-mascotas.png';
+  mainImg.src = 'imagenes/register-img.png';
   mainImg.id = 'register-img';
 
   registerH2.textContent = 'Registrarse';
@@ -60,7 +61,6 @@ export const SignUp = () => {
   registerEmail.type = 'email';
 
   registerEmail.placeholder = 'Correo electrónico';
-
 
   const registerPassword = PasswordInput({
     placeholder: 'Ingresa tu contraseña',

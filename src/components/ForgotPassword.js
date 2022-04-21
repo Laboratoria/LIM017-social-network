@@ -4,7 +4,8 @@ import { onNavigate } from '../main.js';
 
 export const ResetPassword = () => {
   const recoveryDiv = document.createElement('div');
-  recoveryDiv.id = 'password-recovery-div';
+  recoveryDiv.id = 'recovery-wrapper';
+  recoveryDiv.className = 'view-wrappers';
 
   // Boton de regresar a la bienvenida
   const goLandingButton = document.createElement('button');
@@ -28,7 +29,7 @@ export const ResetPassword = () => {
     'h4',
   );
 
-  petsImg.src = 'imagenes/petsimg.jpg';
+  petsImg.src = 'imagenes/forgot-img.png';
   petsImg.id = 'reset-pass-img';
 
   passRecoveryH2.textContent = '¿Olvidaste tu contraseña?';
