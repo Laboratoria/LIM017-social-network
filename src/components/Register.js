@@ -1,9 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-cycle */
-// import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-// import { doc, getDoc, firestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { CreateAccount, createAccountByGoogle } from '../Firebase/auth.js';
-// import { onNavigate } from '../main.js';
+import { onNavigate } from '../main.js';
 import { createElements } from '../util.js';
 import { store } from '../Firebase/firestore.js';
 import { PasswordInput } from './PasswordInput.js';
@@ -26,11 +24,7 @@ export const SignUp = () => {
 
   registerDiv.appendChild(goLandingButton);
 
-  const [
-    logo,
-    mainImg,
-    registerH2,
-  ] = createElements('img', 'img', 'h2');
+  const [logo, mainImg, registerH2] = createElements('img', 'img', 'h2');
 
   logo.src = 'imagenes/logo.png';
   logo.id = 'register-logo';
@@ -44,11 +38,7 @@ export const SignUp = () => {
 
   registerDiv.append(logo, mainImg, registerH2);
 
-  const [
-    inputContainer,
-    registerEmail,
-    submitBtn,
-  ] = createElements(
+  const [inputContainer, registerEmail, submitBtn] = createElements(
     'form',
     'input',
     'button',
@@ -101,12 +91,12 @@ export const SignUp = () => {
   });
 
   // Linea y contenedor OR
-  const [
-    lineContainer,
-    line3,
-    orParagraph,
-    line4,
-  ] = createElements('div', 'div', 'p', 'div');
+  const [lineContainer, line3, orParagraph, line4] = createElements(
+    'div',
+    'div',
+    'p',
+    'div',
+  );
 
   lineContainer.id = 'line-container1';
 
@@ -122,10 +112,7 @@ export const SignUp = () => {
   registerDiv.appendChild(lineContainer);
 
   // container botones registro
-  const [
-    signUpButtons,
-    gmailSignUp,
-  ] = createElements('div', 'button');
+  const [signUpButtons, gmailSignUp] = createElements('div', 'button');
 
   signUpButtons.id = 'register-btn-container';
 
@@ -136,7 +123,7 @@ export const SignUp = () => {
 
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
-    //colocar un timeout
+    // colocar un timeout
     window.location.href = '/Feed';
   });
 
@@ -145,11 +132,7 @@ export const SignUp = () => {
   registerDiv.appendChild(signUpButtons);
 
   // Already have and account
-  const [
-    container,
-    yesAccount,
-    betterLogin,
-  ] = createElements('div', 'p', 'a');
+  const [container, yesAccount, betterLogin] = createElements('div', 'p', 'a');
 
   container.id = 'container';
 

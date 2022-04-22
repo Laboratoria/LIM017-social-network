@@ -3,7 +3,8 @@
 // import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 // import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { onNavigate } from '../main.js';
-import { LoginByEmailPassword,
+import {
+  LoginByEmailPassword,
   createAccountByGoogle,
 } from '../Firebase/auth.js';
 import { createElements } from '../util.js';
