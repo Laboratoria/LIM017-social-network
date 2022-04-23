@@ -14,8 +14,6 @@ export const register = () => {
             <h1>Sign up</h1>
             <label class="labels" for="fullName"> Name </label>
             <input class="input" id="name" type="text" placeholder=" "/>
-            <label class="labels" for="lastName"> Last Name </label>
-            <input class="input" id="lastName" type="text" placeholder=" "/>
             <label class="labels" for="emailSignUp"> Email </label>
             <input class="input" id="emailSignUp" type="email" placeholder=" "/>
             <label class="labels" for="passwordSignUp"> Password </label>

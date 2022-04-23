@@ -2,9 +2,10 @@
 import { home } from './views/home.js';
 import { register } from './views/register.js';
 import { login } from './views/login.js';
-// import { showRegister } from './controllers/registerDOM.js';
-// import { showLogin } from './controllers/loginDOM.js';
-// import { showHome } from './controllers/homeDOM.js';
+import { showRegister } from './controllers/registerDOM.js';
+import { showLogin } from './controllers/loginDOM.js';
+import { showHome } from './controllers/homeDOM.js';
+
 const rootDiv = document.getElementById('root');
 const routes = {
   '/': login,
