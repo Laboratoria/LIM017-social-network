@@ -1,25 +1,30 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/no-duplicates */
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 /* eslint-disable eol-last */
 // eslint-disable-next-line object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
+import { onNavigate } from '../../main.js';
 
 export const auth = getAuth(app);
-/* export const provider = new GoogleAuthProvider();
-export const signInWithRedirect(auth, provider);
-console.log(signInWithRedirect); */
+export const provider = new GoogleAuthProvider();
+/* export const signInWithRedirect(auth, provider); */
+/* console.log(signInWithRedirect); */
 
 export const sendEmailVerificationFirebase = () => {
   sendEmailVerification(auth.currentUser)
     .then(() => {
-      console.log('ya envie tu email de verification');
-    }).catch((err) => {
+      // eslint-disable-next-line no-alert
+      alert('Ya se envio tu correo de verificación');
+    })
+    .catch((err) => {
       console.log(err.message);
     });
-};
+  // eslint-disable-next-line semi
+}
 
 export const registerWithEmail = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
@@ -39,7 +44,7 @@ export const registerWithEmail = (email, password) => {
     });
 // eslint-disable-next-line semi
 }
-/*
+
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -48,6 +53,10 @@ export const signInWithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      console.log(user);
+      console.log('El usuario ingresó con Google exitosamente', user.uid, user.email, user.displayName);
+      onNavigate('/');
+
     // ...
     }).catch((error) => {
     // Handle Errors here.
@@ -61,23 +70,24 @@ export const signInWithGoogle = () => {
     });
 };
 
-export const getRedirect = () => {
- getRedirectResult(auth)
-.then((result) => {
-  // This gives you a Google Access Token. You can use it to access Google APIs.
-  const credential = GoogleAuthProvider.credentialFromResult(result);
-  const token = credential.accessToken;
+/* export const getRedirect = () => {
+  getRedirectResult(auth)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access Google APIs.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
 
-  // The signed-in user info.
-  const user = result.user;
-}).catch((error) => {
-  // Handle Errors here.
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  // The email of the user's account used.
-  const email = error.email;
-  // The AuthCredential type that was used.
-  const credential = GoogleAuthProvider.credentialFromError(error);
-  // ...
-});
-} */
+      // The signed-in user info.
+      const user = result.user;
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+};
+ */

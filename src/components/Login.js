@@ -3,8 +3,8 @@
 import { onNavigate } from '../main.js';
 
 export const Login = () => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenido al Login';
+  const loginDiv = document.createElement('div');
+  loginDiv.textContent = 'Bienvenido al Login';
   const buttonHome = document.createElement('button');
   const inputName = document.createElement('input');
   const inputPassword = document.createElement('input');
@@ -17,24 +17,25 @@ export const Login = () => {
   inputName.placeholder = 'Nombre de usuario';
   inputPassword.placeholder = 'Ingrese contraseña';
   inputPassword.id = 'inputPassword';
+  loginDiv.className = 'conatainerHome';
   buttonHome.className = 'buttonHome';
   image.className = 'img-responsive';
-  image.src = 'img/cuy.png';
-  titleRedSocial.innerText = 'Cuy viajero';
+  image.src = 'img/cuyLog.png';
+  titleRedSocial.innerText = 'CUY VIAJERO';
   buttonHome.textContent = 'Regresar al home';
   buttonGetInto.id = 'GetInto';
   buttonGetInto.textContent = 'Iniciar sesión';
 
-  HomeDiv.appendChild(titleRedSocial);
-  HomeDiv.appendChild(image);
-  HomeDiv.appendChild(inputName);
-  HomeDiv.appendChild(inputPassword);
-  HomeDiv.appendChild(buttonGetInto);
-  HomeDiv.appendChild(buttonHome);
+  loginDiv.appendChild(titleRedSocial);
+  loginDiv.appendChild(image);
+  loginDiv.appendChild(inputName);
+  loginDiv.appendChild(inputPassword);
+  loginDiv.appendChild(buttonGetInto);
+  loginDiv.appendChild(buttonHome);
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   // eslint-disable-next-line padded-blocks
-  return HomeDiv;
+  return loginDiv;
 
 };
