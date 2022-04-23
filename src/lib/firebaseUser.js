@@ -1,10 +1,20 @@
+/* eslint-disable import/no-unresolved */
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+  signOut,
+} from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './firebaseConfig.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, updateProfile, sendEmailVerification, signOut  } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 
 const auth = getAuth(app);
 
 // FUNCION DE REGISTRO CON EMAIL-----------------------------------------------
-export const registerFirebase = (email, password, name) => {
+export const registerFirebase = (email, password) => {
   const registerBeFit = createUserWithEmailAndPassword(auth, email, password);
   return registerBeFit;
 };

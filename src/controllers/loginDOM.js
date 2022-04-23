@@ -5,7 +5,7 @@ import { onNavigate } from '../main.js';
 export const showLogin = () => {
   const signUpHere = document.getElementById('signUpHere');
   const btnLogIn = document.getElementById('btnLogIn');
-  const messageLogIn = document.querySelector('.messageLogIn');
+  const messageLogIn = document.querySelector('.messageLogInError');
   // BOTON LOGIN
   btnLogIn.addEventListener('click', () => {
     const emailLogIn = document.querySelector('#emailLogIn').value;
@@ -26,9 +26,20 @@ export const showLogin = () => {
           console.log(userCredential);
         })
         .catch((error) => {
+          messageLogIn.innerHTML = '';
+          if (error.code === 'auth/invalid-email') {
+            messageLogIn.innerHTML = 'The provided value for the email user property is invalid. It must be a string email address.';
+          }
+          if (error.code === 'auth/wrong-password') {
+            messageLogIn.innerHTML = 'The provided value for the password user property is invalid. It must be a string with at least six characters.';
+          }
+          if (error.code === 'auth/user-not-found') {
+            messageLogIn.innerHTML = 'There is no existing user record corresponding to the provided identifier.';
+          }
           const errorCode = error.code;
+          console.log(errorCode);
           const errorMessage = error.message;
-          messageLogIn.innerHTML = errorMessage;
+          // messageLogIn.innerHTML = errorCode;
         });
     }
   });

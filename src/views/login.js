@@ -19,7 +19,7 @@ export const login = () => {
           <input class="input" type="text" placeholder="" readonly />
           <label class="labelOr">OR</label>
           <button class="btnGoogle" id="btnLogInGoogle"><span class="fa-brands fa-google"></span> Log In with Google</button>
-          <p class="messageLogIn"></p>
+          <p class="messageLogInError"></p>
           <p class="messageHaveAnAccount">Already have an account?</p>
           <button class="btnSign" id="signUpHere">Sign Up here.</button>
           <!-- <h3 id="login"></h3> -->
