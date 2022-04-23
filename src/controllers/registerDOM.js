@@ -33,11 +33,21 @@ export const showRegister = () => {
           console.log(user);
         })
         .catch((error) => {
+          messageSignUpError.innerHTML = '';
+          if (error.code === 'auth/invalid-email') {
+            messageSignUpError.innerHTML = 'The provided value for the email user property is invalid. It must be a string email address.';
+          }
+          if (error.code === 'auth/weak-password') {
+            messageSignUpError.innerHTML = 'The provided value for the password user property is invalid. It must be a string with at least six characters.';
+          }
+          if (error.code === 'auth/email-already-in-use') {
+            messageSignUpError.innerHTML = 'The provided email is already in use by an existing user. Each user must have a unique email.';
+          }
           const errorCode = error.code;
           console.log(errorCode);
           const errorMessage = error.message;
           console.log(errorMessage);
-          messageSignUpError.innerHTML = errorMessage;
+          // messageSignUpError.innerHTML = errorCode;
         });
     }
   });
