@@ -28,6 +28,15 @@ export const Register = () => {
   const buttonRegisterUser = document.createElement('button');
   const buttonBackHome = document.createElement('button');
 
+  const buttonGoogle = `
+  <section class = 'sectionGoogle'>
+  <button class="googleBtn"> Ingresar con
+  <img class='logoG' src='img/google.png'></button>
+  </section>
+  `;
+  const divG = document.createElement('div');
+  divG.innerHTML = buttonGoogle;
+
   buttonRegisterUser.id = 'buttonUserRegister';
   buttonRegisterUser.className = 'buttonHome';
   homeDiv.className = 'conatainerHome';
@@ -45,6 +54,7 @@ export const Register = () => {
   /* HomeDiv.appendChild(message); */ // nuevo
   homeDiv.appendChild(buttonRegisterUser);
   homeDiv.appendChild(buttonBackHome);
+  homeDiv.appendChild(divG);
 
   buttonRegisterUser.addEventListener('click', () => {
     const passawordValue = document.getElementById('inputPassword').value;
