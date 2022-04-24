@@ -21,7 +21,7 @@ export const Login = () => {
   buttonHome.className = 'buttonHome';
   image.className = 'img-responsive';
   image.src = 'img/cuyLog.png';
-  titleRedSocial.innerText = 'Cuy viajero';
+  titleRedSocial.innerText = 'CUY VIAJERO';
   buttonHome.textContent = 'Regresar al home';
   buttonGetInto.id = 'GetInto';
   buttonGetInto.textContent = 'Iniciar sesión';

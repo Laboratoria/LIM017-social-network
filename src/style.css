@@ -1,32 +1,57 @@
 body{
     min-height: 100vh;
-    margin:0;
+    /* margin:0; */
     background-image: url("/img/fondoC800.png");
     /*background:linear-gradient(hsl(56, 61%, 73%), #8be7c4a6);*/
     /*text-align: center;*/
-   font-family: inherit;
+    font-family: inherit;
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
+    margin-bottom: 60%;
+    /* width: 80%; */
+    height: 75%;
+}
+.homeDiv{
+    /* display: flex;
+    justify-content: center; */
+    width: 60%;
+    /* background: #fe3434; */
+    padding: 20px;
+    margin: auto;
+    margin-top: 5%;
+    /* border-radius: 4px; */
+    font-family: 'calibri';
+    color: #4C80CA;
 }
 
 .img-responsive{
-    width: 450px;
-    height: auto;
-    margin-top: 0;
+    width: 80%;
+   /*  height: auto; */
+    margin-top: 5px;
+    margin-bottom: 1px;
+    margin-left: 10%;
+   
 }
 .conatainerHome{
     background-color: rgb(255, 255, 255);
-    /* background:linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
-    padding: 20px 20px;
+    /* background: linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
+    /* padding: 20px 20px; */
     margin-top: 50px;
-    border-radius: 5px;
+    margin-bottom: 20%;
+    border-radius: 8px;
     box-shadow: 0px 0px 5px 1px #666464;
+    /* width: 80%; */
+    height: auto;
+    padding-bottom: 5%;
+    padding-top: 4%;
 }
 label{
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Roboto', sans-serif;
     text-align: left;
-    margin-left: 13px;
+    margin-left: 8%;
+   
 }
 .text-Register{
     font-size: 30px;
@@ -34,6 +59,8 @@ label{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-align: center;
+    margin-top: 2px;
+    margin-bottom: 8px;
 
 
 }
@@ -43,33 +70,36 @@ label{
     /* margin: 10px; */
     text-align: center;
     font-family: inherit;
-    font-size: 20px;
+    font-size: 12px;
     border-radius: 5px;
-    border-color: rgb(93, 94, 93);
-    margin-bottom: 5%;
+    border-color: rgb(139, 139, 139);
+    margin-bottom: 1%;
     width: 80%;
-    padding: 16px 32px;
+    /* padding: 8px 10px; */
     text-align: center;
     font-family:" EB Garamond";
-    font-size:20px;
+    font-size:18px;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     text-align: left;
+    color: #b9b6b6;
+   /* margin-left: 20%; */
    
 }
 h1{
     text-align: center; 
-    font-family: Comic Sans MS;
+    font-family:  Comic Sans MS;
     font-weight:bold; 
-    font-size: 50px; 
+    font-size: 30px; 
     margin:5px;
-    color: #EBD758; 
-    text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, -2px 2px 0 #414D68, 2px 2px 0 #414D68, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 4px 4px #414D68, 5px 5px #414D68;
+    color:  #487DBF ; 
+    /* text-shadow:  #70BF5A ; */
+    /* text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA; */
 } 
 
 #pText{
     color: rgb(7, 7, 7);
-    font-size: 20px;
+    font-size: 16px;
 }
 .buttonHome{
     background-color:#4C80CA ;
@@ -79,13 +109,15 @@ h1{
     justify-content: center;
     color: white;
     cursor: pointer;
-    padding: 16px 32px;
+    padding: 10px 10px; 
     text-align: center;
     font-family:" EB Garamond";
     font-size:20px;
     margin: auto;
+    margin-bottom: 20%;
+    width: 60%;
 }
-#buttonLogin , #buttonRegister , #usuarioBtn , #GetInto, #buttonUserRegister ,#buttonBackHome{
+#buttonLogin , #buttonRegister , #usuarioBtn , #GetInto, #buttonUserRegister {
     background-color:#4C80CA ;
     border-radius: 30px;
     display: flex;
@@ -96,10 +128,65 @@ h1{
     padding: 16px 32px;
     text-align: center;
     font-family:" EB Garamond";
-    font-size:20px;
+    font-size:16px;
     margin: auto;
    
-    width: 100%;
-    margin-bottom: 5%;
+    width: 60%;
+    margin-bottom: 3%;
+    size: 20PX;
+}
+#buttonBackHome{
+    background-image: url(img/atras2.png);
+    border-radius: 30px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    padding: 25px 32px;
+    text-align: center;
+    font-family:" EB Garamond";
+    font-size:16px;
+    margin: auto;
+   
+    width: 60%;
+    margin-bottom: 3%;
+    size: 20PX;
+    background-repeat: no-repeat;
+    background-position: center;
     
 }
+
+
+
+p{
+    align-content: center;
+}
+#buttonGoogle{
+border-radius: 30px;
+display: flex;
+border: none;
+justify-content: center;
+color: white;
+background: rgb(212, 77, 77);
+cursor: pointer;
+padding: 16px 32px;
+text-align: center;
+font-family:" EB Garamond";
+font-size:16px;
+margin: auto;
+width: 60%;
+margin-bottom: 3%;
+}
+/* .img-networks sign-google{
+    width: 10%;
+   height: 10%;
+} */
+
+.img-sign-google{
+    background: red;
+    /* height: 10%; */
+    width: 5%;
+
+}
+

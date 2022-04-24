@@ -3,12 +3,12 @@
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { registerWithEmail } from '../lib/application/authFirebase.js';
+import { registerWithEmail, signInWithGoogle } from '../lib/application/authFirebase.js';
 
 export const Register = () => {
   const registerPage = ` 
   <section class ='homeDiv'>
-    <h1>Cuy viajero</h1>
+    <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Registro</p>
     <label for='nameUser'>Nombre de usuario
@@ -20,6 +20,7 @@ export const Register = () => {
     <label for='namePassword'>Contraseña
     <input type= 'password' id='inputPassword' placeholder ='Ingresar contraseña' name ='namePassword'> 
     </label>
+    
     </section>
   `;
 
@@ -27,15 +28,18 @@ export const Register = () => {
   homeDiv.innerHTML = registerPage;
   const buttonRegisterUser = document.createElement('button');
   const buttonBackHome = document.createElement('button');
+  const buttonGoogle = document.createElement('button');
 
   buttonRegisterUser.id = 'buttonUserRegister';
   buttonRegisterUser.className = 'buttonHome';
   homeDiv.className = 'conatainerHome';
   buttonRegisterUser.textContent = 'Crear usuario';
+  buttonGoogle.id = 'buttonGoogle';
 
   buttonBackHome.id = 'buttonBackHome';
   buttonBackHome.className = 'buttonHome';
-  buttonBackHome.textContent = 'Regresar a home';
+  buttonBackHome.textContent = '';
+  buttonGoogle.textContent = 'Ingresar con Google 🇬';
 
  /*  const message = document.createElement('div'); */ // nuevo
  /*  message.innerHTML = 'Correo inválido'; */ // nuevo
@@ -44,7 +48,9 @@ export const Register = () => {
 
   /* HomeDiv.appendChild(message); */ // nuevo
   homeDiv.appendChild(buttonRegisterUser);
+  homeDiv.appendChild(buttonGoogle);
   homeDiv.appendChild(buttonBackHome);
+  
 
   buttonRegisterUser.addEventListener('click', () => {
     const passawordValue = document.getElementById('inputPassword').value;
@@ -54,7 +60,11 @@ export const Register = () => {
     registerWithEmail(correoValue, passawordValue);
   });
 
- return homeDiv;
+  buttonGoogle.addEventListener('click', () => {
+    signInWithGoogle();
+  });
+
+  return homeDiv;
 
 // eslint-disable-next-line eol-last
 };
