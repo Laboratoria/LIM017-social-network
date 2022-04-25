@@ -1,4 +1,4 @@
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../lib/application/controller.js';
 
 export const Home = () => {
   const pruebaHome = `

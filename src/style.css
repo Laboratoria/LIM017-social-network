@@ -64,7 +64,7 @@ label{
 
 
 }
-#inputPassword , #inputName , #inputCorreo{
+#inputPassword , #inputName , #inputEmail{
     display: flex;
     justify-content: center;
     /* margin: 10px; */

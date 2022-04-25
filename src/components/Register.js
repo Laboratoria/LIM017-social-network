@@ -2,7 +2,7 @@
 /* eslint-disable padded-blocks */
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../lib/application/controller.js';
 import { registerWithEmail, signInWithGoogle } from '../lib/application/authFirebase.js';
 
 export const Register = () => {
@@ -15,7 +15,7 @@ export const Register = () => {
     <input type='text' id='inputName' placeholder ='Nombre de usuario' name ='nameUser'>
     </label>
     <label for='nameEmail'>Email
-    <input type='text' id='inputCorreo' placeholder ='Ingresar correo' name ='nameEmail'>
+    <input type='text' id='inputEmail' placeholder ='Ingresar correo' name ='nameEmail'>
     </label>
     <label for='namePassword'>Contraseña
     <input type= 'password' id='inputPassword' placeholder ='Ingresar contraseña' name ='namePassword'> 
@@ -55,7 +55,7 @@ export const Register = () => {
   buttonRegisterUser.addEventListener('click', () => {
     const passawordValue = document.getElementById('inputPassword').value;
     console.log(passawordValue);
-    const correoValue = document.getElementById('inputCorreo').value;
+    const correoValue = document.getElementById('inputEmail').value;
     console.log(correoValue);
     registerWithEmail(correoValue, passawordValue);
   });
