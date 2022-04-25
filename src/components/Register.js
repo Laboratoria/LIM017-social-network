@@ -123,8 +123,8 @@ export const SignUp = () => {
 
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
-    // colocar un timeout
-    window.location.href = '/Feed';
+
+    setTimeout(2000, window.location.href = '/Feed');
   });
 
   // add botones al container, container a div global
@@ -145,6 +145,16 @@ export const SignUp = () => {
 
   container.append(yesAccount, betterLogin);
   registerDiv.appendChild(container);
+
+  // Validacion de correo con regex
+  registerEmail.addEventListener('blur', (event) => {
+    const inputValue = event.target.value;
+
+    // Function that performs regex validation should go here
+    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
+      alert('Correo inválido - Verifica tu dirección de correo');
+    }
+  });
 
   return registerDiv;
 };

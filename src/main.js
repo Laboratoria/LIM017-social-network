@@ -25,11 +25,3 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component());
-
-// Evento de registrar al usuario
-/*  submitBtn.addEventListener('click', () => {
-  const password = document.getElementById('register-password').value;
-  const email = document.getElementById('register-email').value;
-  CreateAccount(email, password);
-});
- */
