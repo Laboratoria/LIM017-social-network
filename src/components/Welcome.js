@@ -2,51 +2,29 @@
 import { onNavigate } from '../main.js';
 
 export const Welcome = () => {
-  const homePage = `
-    <section class ='homeSection'>
-    <h1>Cuy viajero</h1>
-    <img class='img-responsive' src='img/cuyLog.png'>
-    <p>Inicia sesión</p>
+  const welcome = `
+    <section class ='conatainerHome'>
+      <h1>Cuy viajero</h1>
+      <p>Tu red social de viajes favorita!</p>
+      <img class='img-responsive' src='img/cuyLog.png'>
+      <p>Inicia sesión para continuar</p>
+      <div>
+        <button id='buttonRegister'> Registrate</button>
+        <button id='buttonLogin'> Usuario y contraseña </button>
+      </div>
     </section>
     `;
-  const homeDiv = document.createElement('div');
-  homeDiv.innerHTML = homePage;
+  const welcomePage = document.createElement('div');
+  welcomePage.setAttribute('class', 'sectionDiv');
+  welcomePage.innerHTML = welcome;
 
-  const buttonRegister = document.createElement('button');
-  const buttonLogin = document.createElement('button');
-  buttonRegister.id = 'buttonRegister';
-  buttonLogin.id = 'buttonLogin';
-  homeDiv.className = 'conatainerHome';
-  buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Usuario y contraseña';
-
-  buttonRegister.addEventListener('click', () => onNavigate('/register'));
-  buttonLogin.addEventListener('click', () => onNavigate('/login'));
-
-  homeDiv.appendChild(buttonLogin);
-  homeDiv.appendChild(buttonRegister);
-
-  return homeDiv;
+  welcomePage
+    .querySelector('#buttonRegister')
+    .addEventListener('click', () => onNavigate('/register'));
+  welcomePage
+    .querySelector('#buttonLogin')
+    .addEventListener('click', () => onNavigate('/login'));
+ 
+  return welcomePage;
 // eslint-disable-next-line eol-last
 };
-
-/* export const Home = () => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenido a';
-  const image = document.createElement('img');
-  const buttonRegister = document.createElement('button');
-  const buttonLogin = document.createElement('button');
-
-  buttonRegister.id = 'buttonRegister';
-  buttonLogin.id = 'buttonLogin';
-  buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Usuario y contraseña';
-
-  buttonRegister.addEventListener('click', () => onNavigate('/register'));
-  buttonLogin.addEventListener('click', () => onNavigate('/login'));
-
-  homeDiv.appendChild(buttonLogin);
-  homeDiv.appendChild(buttonRegister);
-
-  return HomeDiv;
-}; */

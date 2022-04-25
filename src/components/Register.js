@@ -50,7 +50,6 @@ export const Register = () => {
   homeDiv.appendChild(buttonRegisterUser);
   homeDiv.appendChild(buttonGoogle);
   homeDiv.appendChild(buttonBackHome);
-  
 
   buttonRegisterUser.addEventListener('click', () => {
     const passawordValue = document.getElementById('inputPassword').value;
