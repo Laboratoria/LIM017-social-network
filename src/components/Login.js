@@ -2,9 +2,12 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../lib/application/controller.js';
 import { signInWithGoogle } from '../lib/application/authFirebase.js';
+
+
 export const Login = () => {
   const loginPage = `
-  <section class ='homeDiv'>
+  <section class='text-container'>
+
     <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Login</p>
@@ -19,18 +22,20 @@ export const Login = () => {
     <button id='buttonBackHome' class='buttonHome'
     </section>
   `;
-  const homeDiv = document.createElement('div');
-  homeDiv.innerHTML = loginPage;
-  homeDiv.className = 'conatainerHome';
-  homeDiv.querySelector('#GetInto').addEventListener('click', () => {
-    const emailValue = homeDiv.querySelector('#inputEmail').value;
+ main
+  const viewLoginPage = document.createElement('div');
+  viewLoginPage.innerHTML = loginPage;
+  viewLoginPage.className = 'viewContainer';
+  viewLoginPage.querySelector('#GetInto').addEventListener('click', () => {
+    const emailValue = viewLoginPage.querySelector('#inputEmail').value;
     console.log(emailValue);
-    const passwordValue = homeDiv.querySelector('#inputPassword').value;
+    const passwordValue = viewLoginPage.querySelector('#inputPassword').value;
     console.log(passwordValue);
   });
-  homeDiv.querySelector('#buttonGoogle').addEventListener('click', () => {
+  viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
     signInWithGoogle();
   });
-  homeDiv.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
-  return homeDiv;
+  viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
+  return viewLoginPage;
+
 };
