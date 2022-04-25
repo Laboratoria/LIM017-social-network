@@ -32,10 +32,12 @@ export const Register = () => {
   viewRegiterPage.innerHTML = registerPage;
   viewRegiterPage.className = 'viewContainer';
 
+
   viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', () => {
     const emailValue = viewRegiterPage.querySelector('#inputEmail').value;
     console.log(emailValue);
     const passawordValue = viewRegiterPage.querySelector('#inputPassword').value;
+
     console.log(passawordValue);
     registerWithEmail(emailValue, passawordValue);
     onNavigate('/login');

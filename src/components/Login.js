@@ -3,9 +3,11 @@
 import { onNavigate } from '../lib/application/controller.js';
 import { signInWithGoogle } from '../lib/application/authFirebase.js';
 
+
 export const Login = () => {
   const loginPage = `
   <section class='text-container'>
+
     <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Login</p>
@@ -20,6 +22,7 @@ export const Login = () => {
     <button id='buttonBackHome' class='buttonHome'
     </section>
   `;
+ main
   const viewLoginPage = document.createElement('div');
   viewLoginPage.innerHTML = loginPage;
   viewLoginPage.className = 'viewContainer';
@@ -34,4 +37,5 @@ export const Login = () => {
   });
   viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
   return viewLoginPage;
+
 };
