@@ -18,7 +18,6 @@ describe('Obtener datos', () => {
 describe('ObtenerDatos', () => {
   it('debería ser una función', () => {
     const dbTest = {};
-
     const result = storeUsers(dbTest);
     console.log(collection.mock);
     expect(collection.mock.calls[0]).toEqual([dbTest, 'users']);
