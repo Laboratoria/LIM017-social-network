@@ -7,7 +7,7 @@
 // eslint-disable-next-line object-curly-newline
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
-import { onNavigate } from '../../main.js';
+import { onNavigate } from './controller.js';
 
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
