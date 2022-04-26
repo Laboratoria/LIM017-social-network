@@ -18,7 +18,7 @@ export const createAccountByGoogle = () => {
       const token = credential.accessToken;
       console.log(token);
       const user = result.user;
-      console.log(user);
+      sessionStorage.setItem('username', user.reloadUserInfo.displayName);
       window.location.href = '/Feed';
     }).catch((error) => {
     // Handle Errors here.
