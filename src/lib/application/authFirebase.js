@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable eol-last */
 // eslint-disable-next-line object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 import { onNavigate } from './controller.js';
 
@@ -26,13 +26,13 @@ export const sendEmailVerificationFirebase = () => {
   // eslint-disable-next-line semi
 }
 
-export const registerWithEmail = (email, password) => {
+export const registerWithEmail = (email, password) => (
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
       sendEmailVerificationFirebase();
-    // ...
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -41,10 +41,23 @@ export const registerWithEmail = (email, password) => {
       console.log(errorMessage);
       return errorMessage;
     // ..
-    });
+    })
 // eslint-disable-next-line semi
-}
-
+)
+export const loginUser = (email, password) => (
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // Signed in
+      const user = userCredential.user;
+      return user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      return errorCode;
+    })
+// eslint-disable-next-line semi
+)
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
