@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-// import { Home } from '../../components/Home.js';
+import { Home } from '../../components/Home.js';
 import { Login } from '../../components/Login.js';
 import { Profile } from '../../components/Profile.js';
 import { Publications } from '../../components/Publications.js';
@@ -14,7 +14,7 @@ export const routes = {
   '/login': Login,
   '/publications': Publications,
   '/profile': Profile,
-//   '/Home': Home,
+  '/Home': Home,
 };
 /* const component = routes[window.location.pathname];
 rootDiv.appenChild(component()); */
