@@ -4,7 +4,9 @@ import { onNavigate } from '../lib/application/controller.js';
 
 export const Welcome = () => {
   const welcome = `
+
     <section class ='viewContainer'>
+
       <h1>Cuy viajero</h1>
       <p>Tu red social de viajes favorita!</p>
       <img class='img-responsive' src='img/cuyLog.png'>
@@ -15,6 +17,7 @@ export const Welcome = () => {
       </div>
     </section>
     `;
+
   const viewWelcomePage = document.createElement('div');
   viewWelcomePage.setAttribute('class', 'sectionDiv');
   viewWelcomePage.innerHTML = welcome;

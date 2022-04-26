@@ -6,6 +6,7 @@ import { signInWithGoogle, loginUser } from '../lib/application/authFirebase.js'
 export const Login = () => {
   const loginPage = `
   <section class='text-container'>
+
     <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Login</p>
