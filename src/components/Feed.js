@@ -12,6 +12,35 @@ export const Feed = () => {
 
   feedDivWrapper.appendChild(logoFeed);
 
+  // Boton para publicar un nuevo postDiv
+
+  const btnNewPost = document.createElement('button');
+  btnNewPost.textContent = 'Crear nueva publicación';
+
+  feedDivWrapper.appendChild(btnNewPost);
+
+  // boton con addeventlistener
+  // formulario para crear una nueva publicacion
+  const newPostForm = document.createElement('form');
+  newPostForm.classList.add('hide');
+  const newPostTitle = document.createElement('input');
+  newPostTitle.placeholder = 'coloca el titulo de tu publicación';
+  const newPostBody = document.createElement('textarea');
+  newPostBody.placeholder = 'escribe tu publicación';
+  const btnPublish = document.createElement('button');
+  btnPublish.textContent = 'Publicar';
+
+  newPostForm.append(newPostTitle, newPostBody, btnPublish);
+
+  feedDivWrapper.appendChild(newPostForm);
+
+  // funcion para el boton
+  btnNewPost.addEventListener('click', () => {
+    newPostForm.classList.remove('hide');
+  });
+
+  
+
   const [
     postDiv,
     userInfoDiv,
@@ -57,7 +86,7 @@ export const Feed = () => {
   userImg.src = 'imagenes/goose-pf.jpg';
 
   userName.id = 'user-name';
-  userName.textContent = 'Pepita Perez';
+  userName.textContent = sessionStorage.getItem('username');
 
   likeDiv.id = 'like-container';
   likeDiv.className = 'test';
