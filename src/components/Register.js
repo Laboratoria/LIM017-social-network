@@ -81,9 +81,9 @@ export const SignUp = () => {
     const password = registerPassword.querySelector('input');
     const password1 = confirmPassword.querySelector('input');
     if (password.value === password1.value) {
+      store({ email: registerEmail.value }, 'users');
       CreateAccount(registerEmail.value, password.value);
 
-      store({ email: registerEmail.value }, 'users');
       // window.location.href = '/Feed';
     } /* else {
       alert('Las contraseñas no coinciden');
@@ -123,8 +123,6 @@ export const SignUp = () => {
 
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
-
-    setTimeout(2000, window.location.href = '/Feed');
   });
 
   // add botones al container, container a div global

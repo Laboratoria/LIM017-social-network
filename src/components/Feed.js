@@ -1,5 +1,4 @@
 import { createElements } from '../util.js';
-import { store } from '../Firebase/firestore.js';
 
 export const Feed = () => {
   const feedDivWrapper = document.createElement('div');
@@ -21,7 +20,7 @@ export const Feed = () => {
     textPost,
     likeDiv,
     favDiv,
-  ] = createElements('div', 'div', 'input', 'div', 'div');
+  ] = createElements('div', 'div', 'button', 'div', 'div');
 
   postDiv.id = 'post-container';
   postDiv.className = 'test';

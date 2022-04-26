@@ -1,9 +1,9 @@
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, /* , sendSignInLinkToEmail */
+  signInWithEmailAndPassword, addDoc, collection, /* , sendSignInLinkToEmail */
 } from './Firebase-util.js';
 
-import { app } from './init.js';
+import { app, firestore } from './init.js';
 
 export const auth = getAuth(app);
 
@@ -12,35 +12,44 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
 export const createAccountByGoogle = () => {
-  signInWithPopup(auth, provider).then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // console.log(token);
-    const user = result.user;
-    // console.log(user);
-  }).catch((error) => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      console.log(token);
+      const user = result.user;
+      console.log(user);
+      window.location.href = '/Feed';
+    }).catch((error) => {
     // Handle Errors here.
-    const errorCode = error.code;
-    // console.log(errorCode);
-    const errorMessage = error.message;
-    // console.log(errorMessage);
-    // The email of the user's account used.
-    const email = error.email;
-    // console.log(email);
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // console.log(credential);
+      const errorCode = error.code;
+      console.log(errorCode);
+      const errorMessage = error.message;
+
+      // The email of the user's account used.
+      const email = error.email;
+      console.log(email);
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(credential);
     // ...
-  });
+    });
 };
 
 // -------------Crear cuenta con correo Email--------------------
 
 export const CreateAccount = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
+    // .then(() => {
+    //   addDoc(collection(firestore, 'users'), {
+    //     email,
+    //   }).then(window.location.href = '/Feed');
+    //   console.log('registrado exitosamente');
+    // })
     .then((userCredential) => {
     // Signed in
-      const user = userCredential.user;
+
+      // window.location.href = '/Feed';
       // console.log(user.email);
     // ...
     })
@@ -83,7 +92,6 @@ export const LoginByEmailPassword = (email, password) => {
       // console.log(errorMessage);
       /* const paragraphErrorLogin = document.querySelector('#errorLogin');
 
-
       if (errorCode === 'auth/user-not-found') {
         paragraphErrorLogin.classList.add('showParagraphError');
         paragraphErrorLogin.innerText = 'Usuario no registrado';
@@ -99,7 +107,6 @@ export const LoginByEmailPassword = (email, password) => {
 
       }
       */
-
     });
 };
 
