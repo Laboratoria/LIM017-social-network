@@ -18,7 +18,7 @@ export const SignUp = () => {
   goLandingButton.className = 'back-button';
   goLandingButton.innerHTML = `
     <i class="fa-solid fa-circle-left go-back-icon"></i>
-  `;
+    `;
 
   goLandingButton.addEventListener('click', () => onNavigate('/'));
 
@@ -51,6 +51,16 @@ export const SignUp = () => {
   registerEmail.type = 'email';
 
   registerEmail.placeholder = 'Correo electrónico';
+
+  // Validacion de correo con regex
+  registerEmail.addEventListener('blur', (event) => {
+    const inputValue = event.target.value;
+
+    // Function that performs regex validation should go here
+    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
+      alert('Correo inválido - Verifica tu dirección de correo');
+    }
+  });
 
   const registerPassword = PasswordInput({
     placeholder: 'Ingresa tu contraseña',
@@ -85,9 +95,9 @@ export const SignUp = () => {
       CreateAccount(registerEmail.value, password.value);
 
       // window.location.href = '/Feed';
-    } /* else {
+    } else {
       alert('Las contraseñas no coinciden');
-    } */
+    }
   });
 
   // Linea y contenedor OR
@@ -123,6 +133,9 @@ export const SignUp = () => {
 
   gmailSignUp.addEventListener('click', () => {
     createAccountByGoogle();
+
+    // setTimeout(2000, window.location.href = '/Feed');
+
   });
 
   // add botones al container, container a div global
@@ -143,16 +156,6 @@ export const SignUp = () => {
 
   container.append(yesAccount, betterLogin);
   registerDiv.appendChild(container);
-
-  // Validacion de correo con regex
-  registerEmail.addEventListener('blur', (event) => {
-    const inputValue = event.target.value;
-
-    // Function that performs regex validation should go here
-    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
-      alert('Correo inválido - Verifica tu dirección de correo');
-    }
-  });
 
   return registerDiv;
 };
