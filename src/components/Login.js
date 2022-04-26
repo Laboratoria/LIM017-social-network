@@ -66,6 +66,16 @@ export const Login = () => {
   mailInput.type = 'email';
   mailInput.placeholder = 'Correo electrónico';
 
+  // Validacion de correo con regex
+  mailInput.addEventListener('blur', (event) => {
+    const inputValue = event.target.value;
+
+    // Function that performs regex validation should go here
+    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
+      alert('Correo inválido - Verifica tu dirección de correo');
+    }
+  });
+
   const passwordInput = PasswordInput({
     placeholder: 'Contraseña',
     id: 'password-input',
@@ -154,16 +164,6 @@ export const Login = () => {
 
   container2.append(resetPassword, noAccount, noAccountRegister);
   loginDiv.appendChild(container2);
-
-  // Validacion de correo con regex
-  mailInput.addEventListener('blur', (event) => {
-    const inputValue = event.target.value;
-
-    // Function that performs regex validation should go here
-    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
-      alert('Correo inválido - Verifica tu dirección de correo');
-    }
-  });
 
   return loginDiv;
 };

@@ -83,7 +83,6 @@ export const LoginByEmailPassword = (email, password) => {
       // console.log(errorMessage);
       /* const paragraphErrorLogin = document.querySelector('#errorLogin');
 
-
       if (errorCode === 'auth/user-not-found') {
         paragraphErrorLogin.classList.add('showParagraphError');
         paragraphErrorLogin.innerText = 'Usuario no registrado';
