@@ -1,6 +1,10 @@
 import { createElements } from '../util.js';
+import { store } from '../Firebase/firestore.js';
 
 export const Feed = () => {
+  const userId = sessionStorage.getItem('uid');
+
+  // getPost(userId).then(() => {
   const feedDivWrapper = document.createElement('div');
   feedDivWrapper.id = 'feedWrapper';
   feedDivWrapper.className = 'feed-wrapper';
@@ -28,7 +32,13 @@ export const Feed = () => {
   const newPostBody = document.createElement('textarea');
   newPostBody.placeholder = 'escribe tu publicación';
   const btnPublish = document.createElement('button');
+  btnPublish.setAttribute('type', 'submit');
   btnPublish.textContent = 'Publicar';
+
+  newPostForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    store({ title: newPostTitle.value, body: newPostBody.value, userId }, 'publicaciones');
+  });
 
   newPostForm.append(newPostTitle, newPostBody, btnPublish);
 
@@ -38,8 +48,6 @@ export const Feed = () => {
   btnNewPost.addEventListener('click', () => {
     newPostForm.classList.remove('hide');
   });
-
-  
 
   const [
     postDiv,
@@ -117,6 +125,6 @@ export const Feed = () => {
     textPost,
     interactionDiv,
   );
-
+  // });
   return feedDivWrapper;
 };
