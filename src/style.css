@@ -299,7 +299,7 @@ footer {
 
 /*--Landing --*/
 @media screen and (min-width: 768px){
-    .landing-div-global{
+    #landing-div-global{
         grid-template-areas:'img-welcome-desktop logo-desktop'
                             'img-welcome-desktop container-desktop'
                             'img-welcome-desktop .'
@@ -322,46 +322,6 @@ footer {
 }
 
 
-
-/* Login media Query */
-/* @media screen and (min-width: 768px){
-    .login-wrapper{
-        grid-template-areas:'. logo-log-desktop'
-                            ',  h2-log-desktop'
-                            'img-log-desktop  form-log-desktop'
-                            'img-log-desktop   linecontainer-log-desktop' 
-                            '. container-log-desktop'
-                            '.  containertext-desktop';
-    }
-    #login-logo{
-        grid-area: logo-log-desktop;
-        display: flex;
-    }
-    #login-img{
-        grid-area: img-log-desktop;
-        
-    }
-    #login-h2{
-        grid-area: h2-log-desktop;
-        ;
-    }
-    #form-login{
-        grid-area: form-log-desktop;
-        
-    }
-    #line-container{
-        grid-area: linecontainer-log-desktop;
-       
-    }
-    #login-btn-container{
-        grid-area: container-log-desktop;
-      
-    }
-    #container2{
-        grid-area: containertext-desktop;
-    
-    }
-} */
 .test{
   border: 2px solid;
   border-color: red;
