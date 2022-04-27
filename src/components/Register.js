@@ -7,19 +7,19 @@ import { registerWithEmail, signInWithGoogle } from '../lib/application/authFire
 
 export const Register = () => {
   const registerPage = ` 
-  <section>
+  <section class='text-container'>
     <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Registro</p>
     <label for='nameUser'>Nombre de usuario
-    <input type='text' id='inputName' placeholder ='Nombre de usuario' name ='nameUser'>
+    <input type='text' id='createName' placeholder ='Nombre de usuario' name ='nameUser'>
     </label>
     <div class='messageUserError'><p id='messageUserError'></p></div>
     <label for='inputEmail'>Email
-    <input type='text' id='inputEmail' placeholder ='Ingresar correo' name ='nameEmail'>
+    <input type='text' id='createtEmail' placeholder ='Ingresar correo' name ='nameEmail'>
     </label>
     <label for='namePassword'>Contraseña
-    <input type= 'password' id='inputPassword' placeholder ='Ingresar contraseña' name ='namePassword'>
+    <input type= 'password' id='createPassword' placeholder ='Ingresar contraseña' name ='namePassword'>
     <p id='mesagge'>
     </label>
     <button id='buttonUserRegister' class='buttonHome' > Crear Ususario
@@ -32,12 +32,11 @@ export const Register = () => {
   viewRegiterPage.innerHTML = registerPage;
   viewRegiterPage.className = 'viewContainer';
 
-  viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', () => {
-    const emailValue = viewRegiterPage.querySelector('#inputEmail').value;
+  viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', (e) => {
+    const emailValue = viewRegiterPage.querySelector('#createEmail');
     console.log(emailValue);
-    const passawordValue = viewRegiterPage.querySelector('#inputPassword').value;
-
-    console.log(passawordValue);
+    const passwordValue = viewRegiterPage.querySelector('#createPassword');
+    console.log(passwordValue);
     registerWithEmail(emailValue, passawordValue);
     onNavigate('/login');
   });

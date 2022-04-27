@@ -32,7 +32,7 @@ export const registerWithEmail = (email, password) => {
       const user = userCredential.user;
       console.log(user);
       sendEmailVerificationFirebase();
-    // ...
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
