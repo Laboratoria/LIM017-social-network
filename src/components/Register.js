@@ -6,7 +6,7 @@ import { onNavigate } from '../lib/application/controller.js';
 import { registerWithEmail, signInWithGoogle } from '../lib/application/authFirebase.js';
 
 export const Register = () => {
-  const registerPage = ` 
+  const registerPage = `
   <section class='text-container'>
     <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
@@ -32,12 +32,12 @@ export const Register = () => {
   viewRegiterPage.innerHTML = registerPage;
   viewRegiterPage.className = 'viewContainer';
 
-  viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', (e) => {
+  viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', () => {
     const emailValue = viewRegiterPage.querySelector('#createEmail');
     console.log(emailValue);
     const passwordValue = viewRegiterPage.querySelector('#createPassword');
     console.log(passwordValue);
-    registerWithEmail(emailValue, passawordValue);
+    registerWithEmail(emailValue, passwordValue);
     onNavigate('/login');
   });
 
