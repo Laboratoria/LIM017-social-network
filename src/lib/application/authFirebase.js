@@ -49,11 +49,14 @@ export const loginUser = (email, password) => (
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
+      console.log(user);
       return user;
     })
     .catch((error) => {
       const errorCode = error.code;
+      console.log(errorCode);
       const errorMessage = error.message;
+      console.log(errorMessage);
       return errorCode;
     })
 // eslint-disable-next-line semi

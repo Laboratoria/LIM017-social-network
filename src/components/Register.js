@@ -53,7 +53,6 @@ export const Register = () => {
     }).catch((error) => console.log(error));
 
   });
-
   viewRegiterPage.querySelector('#buttonGoogle').addEventListener('click', () => {
     signInWithGoogle();
   });
