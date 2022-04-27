@@ -32,4 +32,3 @@ export const Welcome = () => {
   return viewWelcomePage;
 // eslint-disable-next-line eol-last
 };
-
