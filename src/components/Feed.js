@@ -11,18 +11,94 @@ export const Feed = () => {
 
   <img id="feed-logo" class="logo" src="imagenes/logo.png">
 
-  <div id="createNewPost>
+  <div id="createNewPost">
     <p> Hola ${sessionStorage.getItem('username')} </p>
-    <button id="btnNewPost"> Crear Nueva Publicación </button>
+    <button id="btnNewPost" class="btn-new"> Crear Nueva Publicación </button>
   </div>
 
   <form id = "formNewPost" class = "hide">
-    <input type = "text" id = "newPostTitle"  placeholder = "coloca el título de tu publicación">
-    <input type = "textarea" id = "newPostBody" placeholder = "Escribe tu publicacion">
+    <input type = "text" id ="newPostTitle" class = "newPostTitle" placeholder = "coloca el título de tu publicación" value= "">
+
+    <input type = "text" id ="newPostBody" class="newPostBody" placeholder = "Escribe tu publicacion" value="">
+
     <button type = "submit" id = "publishBtn" value="Publish"> Publicar </button>
   </form>
+
+
+  <section id='postContainer' class= "postContainer">
+    <div id='userInfoDiv'></div>
+    <p id='user-name'></p>
+    <div id='postTitle'></div>
+    <div id='postBody'></div>
+    <div id='like-container'></div>
+  </section>
   `;
+
+  feedWrapper.innerHTML += templateFeed;
+
+  const postNew = feedWrapper.querySelector('.btn-new');
+
+  const formNewPost = feedWrapper.querySelector('#formNewPost');
+  postNew.addEventListener('click', () => {
+    formNewPost.classList.remove('hide');
+  });
+
+  const newPostTitle = feedWrapper.querySelector('#newPostTitle');
+  const newPostBody = feedWrapper.querySelector('#newPostBody');
+
+  // event to submit new post
+  formNewPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    store({ title: newPostTitle.value, body: newPostBody.value, userId }, 'publicaciones');
+    formNewPost.classList.add('hide');
+  });
+
+  return feedWrapper;
 };
+//   // contenedor de posts
+
+//   window.addEventListener('DOMContentLoaded', () => {
+//     onGetPostInRealTime((querySnapShot) => { //
+//       // variable con string vacio para que cada que se recorra añadamos info al contenedor
+//       let html = '';
+
+//       querySnapShot.forEach((doc) => {
+//         html +=`
+//   <section class = 'containerCards'>
+//     <div id = 'editPost'>
+//     <div class = "titleOfPost"></div>
+//     <div class = "dateOfData"></div>
+//   </section>
+
+//   <button id = "editPostButton" value =""> ... </button>
+//   <button id = "edit"> Editar </button>
+//   <button class ="delete" data-id = "${doc.id}"> Borrar </button>
+//   </div>
+//   <div class = 'containersOfData'> ${doc.data().post}</div>
+//     </section>
+//     `;
+//   });
+
+//   const btnDelete = postCreatedByUser.querySelectorAll('.delete');
+//   btnDelete.forEach((btn) => {
+//     btn.addEventListener('click', ({ target: { dataset } }) => {
+//       deletePost(dataset.id);
+//     });
+//   }
+//   );
+
+//   return feedWrapper;
+// });
+
+//   <div id="postContainer">
+//     <p> ${userId} </p>
+//     <p> <
+
+//   </div>
+//   `;
+// };
+
+//   btnNewPost.textContent = 'Crear nueva publicación';
 
 //   // getPost(userId).then(() => {
 //   const feedDivWrapper = document.createElement('div');

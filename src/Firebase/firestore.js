@@ -1,11 +1,18 @@
 import {
-  /* doc, getDoc, */
-  getFirestore, collection, addDoc, // getDocs,
+  getAuth,
+  addDoc,
+  getFirestore,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  onSnapshot,
 } from './Firebase-util.js';
 
 import { app } from './init.js';
 
 // init services
+const auth = getAuth(app);
 export const firestore = getFirestore(app); // esto es db
 
 // usuarios
@@ -25,14 +32,7 @@ export const store = (data, collectionName) => {
   });
 };
 
-// export const getPost = (uid) => {
-//   const postUser = collection(firestore, 'publicaciones');
-//   const q = query(postUser, where('uid', '==', uid));
-//   return getDocs(q);
-// };
-
-// const querySnapshot = await getDocs(q);
-// querySnapshot.forEach((doc) => {
-//   // doc.data() is never undefined for query doc snapshots
-//   console.log(doc.id, " => ", doc.data());
-// });
+export const addPost = (post, title) => addDoc(collection(firestore, 'Publicaciones'), { post, title });
+export const onGetPostInRealTime = (callback) => onSnapshot(collection(firestore, 'Publicaciones'), callback);
+export const deletePost = (id) => deleteDoc(doc(firestore, 'Publicaciones', id));
+export const getPost = (id) => getDoc(doc(firestore, 'Publicaciones', id));
