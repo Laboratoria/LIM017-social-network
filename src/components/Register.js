@@ -16,11 +16,12 @@ export const Register = () => {
     </label>
     <div class='messageUserError'><p id='messageUserError'></p></div>
     <label for='inputEmail'>Email
-    <input type='text' id='createtEmail' placeholder ='Ingresar correo' name ='nameEmail'>
+    <input type='text' id='createEmail' placeholder ='Ingresar correo' name ='nameEmail'>
     </label>
     <label for='namePassword'>Contraseña
     <input type= 'password' id='createPassword' placeholder ='Ingresar contraseña' name ='namePassword'>
-    <p id='mesagge'>
+    <p id='messageEmail'></p>
+    <p id='messagePassword'></p>
     </label>
     <button id='buttonUserRegister' class='buttonHome' > Crear Ususario
     <button id='buttonGoogle' >Ingresar con Google 🇬
@@ -32,15 +33,26 @@ export const Register = () => {
   viewRegiterPage.innerHTML = registerPage;
   viewRegiterPage.className = 'viewContainer';
 
-  viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', () => {
+  viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', (e) => {
     const emailValue = viewRegiterPage.querySelector('#createEmail');
     console.log(emailValue);
     const passwordValue = viewRegiterPage.querySelector('#createPassword');
     console.log(passwordValue);
-    registerWithEmail(emailValue, passwordValue);
-    onNavigate('/login');
-  });
+    const messageEmail = viewRegiterPage.querySelector('#messageEmail');
+    const messagePassword = viewRegiterPage.querySelector('#messagePassword');
+    // eslint-disable-next-line no-constant-condition
+    if (emailValue.value === '') {
+      messageEmail.innerHTML = 'campo email vacio';
+    } if (passwordValue.value === '') {
+      messagePassword.innerHTML = 'campo Password vacio vacio';
+    }
+    e.preventDefault();
+    registerWithEmail(emailValue.value, passwordValue.value)
+    .then(() => {
+      onNavigate('/login');
+    }).catch((error) => console.log(error));
 
+  });
   viewRegiterPage.querySelector('#buttonGoogle').addEventListener('click', () => {
     signInWithGoogle();
   });
