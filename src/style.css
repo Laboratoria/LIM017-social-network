@@ -272,10 +272,127 @@ footer {
   padding-bottom: 10px;
 }
 
+/* EDITAR FEED */
+#feedWrapper{
+  display: grid;
+  grid-template-areas:
+      "img img img"
+      "div form form"
+      "plus form form"
+      " plus form form"
+      "p-cont p-cont p-cont"
+      "div-in div-in div-in"
+      "post post post"
+      "test1 test1 test1";
+}
+#feed-logo{
+  grid-area: img;
+    width: 30%;
+    margin: 1% 5% 5% 32%;
+}
+#text-btn-addpost{
+  grid-area: div;
+  color: #225a7a;
+  font-family: 'comfortaa';
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+}
+#btn-new-post{
+  grid-area: plus;
+  margin: 5px auto;
+}
+.add-plus-icon{
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 40px;
+}
+.view {
+  grid-area: form;
+  display: grid;
+  height: 200px;
+  grid-template-areas:
+      "input"
+      "text"
+      "btn-push";
+  gap: 15px;
+}
+.view input{
+  width: 80%;
+  grid-area: input;
+  height: 100%;
+}
+.view textarea{
+  width: 90%;
+  grid-area: text;
+  height: 100%;
+}
+.view button{
+  margin: 0 10% 15px auto;
+  width: 30%;
+  grid-area: btn-push;
+  height: 90%;
+}
+.inputs-style{
+  border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-style: italic;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+#post-container{
+  grid-area: p-cont;
+  height: 30px;
+  border: none;
+}
+#user-info-container{
+  grid-area: div-in;
+  border-color: lightseagreen;
+  width: 90%;
+  grid-row-gap: 10px;
+  margin: auto;
+  display: grid;
+  grid-template-areas:
+      "img-user name ."
+      ". fecha ."
+      ". hora .";
+}
+#user-info-container img{
+  border-radius: 50%;
+  grid-area: img-user;
+  width: 35%;
+  height: 80%;
+}
+#user-info-container h4{
+  font-size: medium;
+    grid-area: name;
+}
+#post-text{
+  grid-area: post;
+    width: 90%;
+    height: 120px;
+    margin: auto;
+}
+#interaction{
+  width: 90%;
+    margin: auto;
+    grid-area: test1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#interaction button{
+  width: 50px;
+}
 
-
-
-
+.test{
+  border: 2px solid;
+  border-color: lightseagreen;
+}
+#interaction{
+  border-color: lightseagreen;
+}
 
 
 /* ------------Paragraph Error------------- */
@@ -321,8 +438,8 @@ footer {
     }
 }
 
-
-.test{
+/* Copiado en la linea 388-solo para demo */
+/* .test{
   border: 2px solid;
   border-color: red;
 }
@@ -330,7 +447,7 @@ footer {
   border-color: blue;
   border: 3px solid;
 }
-
+ */
 .hide{
   display: none;
 }

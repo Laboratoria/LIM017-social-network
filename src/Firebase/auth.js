@@ -41,6 +41,7 @@ export const createAccountByGoogle = () => {
 
 export const CreateAccount = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
+
     // .then(() => {
     //   addDoc(collection(firestore, 'users'), {
     //     email,

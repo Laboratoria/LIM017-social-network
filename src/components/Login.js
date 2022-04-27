@@ -98,6 +98,7 @@ export const Login = () => {
     e.preventDefault();
     const password = passwordInput.querySelector('input');
     LoginByEmailPassword(mailInput.value, password.value);
+    onNavigate('/Feed');
   });
 
   const [
