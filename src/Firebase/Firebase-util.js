@@ -5,19 +5,36 @@ import
 
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, /* , sendSignInLinkToEmail */
+  signInWithEmailAndPassword, signOut,
+  sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import {
-  /* doc, getDoc, */
-  getFirestore, collection, addDoc /* , getDocs */,
+  getFirestore,
+  addDoc,
+  deleteDoc,
+  doc,
+  collection,
+  getDoc,
+  getDocs,
+  onSnapshot,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 export { initializeApp };
 
 export {
   getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword, signOut,
+  sendEmailVerification,
 };
 
-export { getFirestore, collection, addDoc };
+export {
+  getFirestore,
+  addDoc,
+  deleteDoc,
+  doc,
+  collection,
+  getDoc,
+  getDocs,
+  onSnapshot,
+};
