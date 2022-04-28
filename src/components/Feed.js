@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { createElements } from '../util.js';
-import { store, onGetPostInRealTime } from '../Firebase/firestore.js';
+import { store, onGetPostInRealTime, deletePost } from '../Firebase/firestore.js';
+import { deleteDoc } from '../Firebase/Firebase-util.js';
+/* import { doc } from '../Firebase/Firebase-util.js'; */
 
 export const Feed = () => {
   const userId = sessionStorage.getItem('uid');
@@ -48,12 +50,13 @@ export const Feed = () => {
   });
 
   // Funcion para traer posts al feed
-  const templateFeedPost = (title, body) => `
+  const templateFeedPost = (title, body, id) => `
  <section id='postContainer' class= "postContainer">
     <div id='userInfoDiv'></div>
     <p id='user-name'></p>
     <div id='postTitle'>${title}</div>
     <div id='postBody'>${body}</div>
+    <button id="btn-deleted" class="btn-deleted-class" data-id="${id}">Delete</button>
     <div id='interaction'>
       <div id='like-container'></div>
     </div>
@@ -63,8 +66,15 @@ export const Feed = () => {
   onGetPostInRealTime((querySnapShot) => {
     const feedPostWrapper = feedWrapper.querySelector('#feedPost1');
     querySnapShot.forEach((doc) => {
-      const testPostMuro = templateFeedPost(doc.data().title, doc.data().body);
+      const testPostMuro = templateFeedPost(doc.data().title, doc.data().body, doc.id);
       feedPostWrapper.innerHTML += testPostMuro;
+    });
+
+    const btnsDeletePost = feedWrapper.querySelectorAll('.btn-deleted-class');
+    btnsDeletePost.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        deleteDoc(event.target.dataset.id);
+      });
     });
   });
 
