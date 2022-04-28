@@ -66,8 +66,14 @@ label{
 
 }
 #messageEmail, #messagePassword{
-    font-size: 30px;
+    font-size: 18px;
     color:#f30000;
+    font-family: inherit;
+}
+#messageVerificado{
+    font-size: 18px;
+    color: #74ca4c;
+    font-family: inherit;
 }
 #createName, #createEmail , #createPassword, #loginEmail, #loginPassword{
     display: flex;
