@@ -23,6 +23,7 @@ export const Feed = () => {
 
     <button type = "submit" id = "publishBtn" value="Publish"> Publicar </button>
   </form>
+  
   <div id='feedPost1'></div>
 
   `;
@@ -59,8 +60,6 @@ export const Feed = () => {
   </section>
  `;
 
-
-
   onGetPostInRealTime((querySnapShot) => {
     const feedPostWrapper = feedWrapper.querySelector('#feedPost1');
     querySnapShot.forEach((doc) => {
@@ -71,45 +70,3 @@ export const Feed = () => {
 
   return feedWrapper;
 };
-//   // contenedor de posts
-
-//   window.addEventListener('DOMContentLoaded', () => {
-//     onGetPostInRealTime((querySnapShot) => { //
-//       // variable con string vacio para que cada que se recorra añadamos info al contenedor
-//       let html = '';
-
-//       querySnapShot.forEach((doc) => {
-//         html +=`
-//   <section class = 'containerCards'>
-//     <div id = 'editPost'>
-//     <div class = "titleOfPost"></div>
-//     <div class = "dateOfData"></div>
-//   </section>
-
-//   <button id = "editPostButton" value =""> ... </button>
-//   <button id = "edit"> Editar </button>
-//   <button class ="delete" data-id = "${doc.id}"> Borrar </button>
-//   </div>
-//   <div class = 'containersOfData'> ${doc.data().post}</div>
-//     </section>
-//     `;
-//   });
-
-//   const btnDelete = postCreatedByUser.querySelectorAll('.delete');
-//   btnDelete.forEach((btn) => {
-//     btn.addEventListener('click', ({ target: { dataset } }) => {
-//       deletePost(dataset.id);
-//     });
-//   }
-//   );
-
-//   return feedWrapper;
-// });
-
-//   <div id="postContainer">
-//     <p> ${userId} </p>
-//     <p> <
-
-//   </div>
-//   `;
-// };
