@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable eol-last */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../lib/application/controller.js';
@@ -19,7 +20,7 @@ export const Login = () => {
     </label>
     <button id='getInto'> Iniciar sesión
     <button id='buttonGoogle'> Ingresar con Google G
-    <button id='buttonBackHome' class='buttonHome'
+    <button id='buttonBackHome' class='buttonHome'>
     </section>
   `;
   const viewLoginPage = document.createElement('div');
@@ -43,7 +44,10 @@ export const Login = () => {
     loginUser(emailValue.value, passwordValue.value)
       .then(() => {
         onNavigate('/Home');
-      }).catch((error) => console.log(error));
+      }).catch(() => {
+        alert('Campos invalidos');
+        onNavigate('/login');
+      });
   });
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {

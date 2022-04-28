@@ -12,7 +12,7 @@ export const Register = () => {
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Registro</p>
     <label for='nameUser'>Nombre de usuario
-    <input type='text' id='createName' placeholder ='Nombre de usuario' name ='nameUser'>
+    <input type='text' id='createName' placeholder ='Ingresar nombre de usuario' name ='nameUser'>
     </label>
     <div class='messageUserError'><p id='messageUserError'></p></div>
     <label for='inputEmail'>Email
