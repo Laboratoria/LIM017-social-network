@@ -32,7 +32,7 @@ export const store = (data, collectionName) => {
   });
 };
 
-export const addPost = (post, title) => addDoc(collection(firestore, 'Publicaciones'), { post, title });
-export const onGetPostInRealTime = (callback) => onSnapshot(collection(firestore, 'Publicaciones'), callback);
-export const deletePost = (id) => deleteDoc(doc(firestore, 'Publicaciones', id));
-export const getPost = (id) => getDoc(doc(firestore, 'Publicaciones', id));
+export const addPost = (post, title) => addDoc(collection(firestore, 'publicaciones'), { post, title });
+export const onGetPostInRealTime = (callback) => onSnapshot(collection(firestore, 'publicaciones'), callback);
+export const deletePost = (id) => deleteDoc(doc(firestore, 'publicaciones', id));
+export const getPost = (id) => getDoc(doc(firestore, 'publicaciones', id));
