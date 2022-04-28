@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable eol-last */
 // eslint-disable-next-line object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 import { onNavigate } from './controller.js';
 
@@ -28,20 +28,20 @@ export const sendEmailVerificationFirebase = () => {
 
 export const registerWithEmail = (email, password) => (
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+  /* .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
       sendEmailVerificationFirebase();
       return user;
-    })
-    .catch((error) => {
+    }) */
+/*  .catch((error) => {
       const errorCode = error.code;
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
       return errorMessage;
     // ..
-    })
+    }) */
 // eslint-disable-next-line semi
 )
 export const loginUser = (email, password) => (
@@ -49,15 +49,20 @@ export const loginUser = (email, password) => (
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
+      console.log(user);
       return user;
     })
     .catch((error) => {
       const errorCode = error.code;
+      console.log(errorCode);
       const errorMessage = error.message;
+      console.log(errorMessage);
       return errorCode;
     })
 // eslint-disable-next-line semi
 )
+export const signOff = () => signOut(auth);
+
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -89,7 +94,6 @@ export const signInWithGoogle = () => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-
       // The signed-in user info.
       const user = result.user;
     }).catch((error) => {
