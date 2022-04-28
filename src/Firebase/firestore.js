@@ -7,6 +7,7 @@ import {
   doc,
   getDoc,
   onSnapshot,
+  updateDoc,
 } from './Firebase-util.js';
 import { app } from './init.js';
 // init services
@@ -30,3 +31,5 @@ export const addPost = (post, title) => addDoc(collection(firestore, 'publicacio
 export const onGetPostInRealTime = (callback) => onSnapshot(collection(firestore, 'publicaciones'), callback);
 export const deletePost = (id) => deleteDoc(doc(firestore, 'publicaciones', id));
 export const getPost = (id) => getDoc(doc(firestore, 'publicaciones', id));
+export const getSinglePost = (id) => getDoc(doc(firestore, 'publicaciones', id));
+export const updatePost = (id, newField) => updateDoc(doc(firestore, 'publicaciones', id), newField);
