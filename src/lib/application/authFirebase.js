@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable eol-last */
 // eslint-disable-next-line object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 import { onNavigate } from './controller.js';
 
@@ -58,6 +58,7 @@ export const loginUser = (email, password) => (
     })
 // eslint-disable-next-line semi
 )
+export const signOff = () => signOut(auth);
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {

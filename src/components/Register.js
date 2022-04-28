@@ -42,9 +42,9 @@ export const Register = () => {
     const messagePassword = viewRegiterPage.querySelector('#messagePassword');
     // eslint-disable-next-line no-constant-condition
     if (emailValue.value === '') {
-      messageEmail.innerHTML = 'campo email vacio';
+      messageEmail.innerText = 'campo email vacio';
     } if (passwordValue.value === '') {
-      messagePassword.innerHTML = 'campo Password vacio vacio';
+      messagePassword.innerText = 'campo Password vacio vacio';
     }
     e.preventDefault();
     registerWithEmail(emailValue.value, passwordValue.value)
