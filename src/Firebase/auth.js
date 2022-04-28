@@ -1,6 +1,11 @@
 import {
-  getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, addDoc, collection, /* , sendSignInLinkToEmail */
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  signOut,
 } from './Firebase-util.js';
 
 import { app, firestore } from './init.js';
@@ -10,6 +15,7 @@ export const auth = getAuth(app);
 // ---------Creación de cuenta con Gmail auth--------------
 
 export const provider = new GoogleAuthProvider();
+auth.languageCode = 'es';
 
 export const createAccountByGoogle = () => {
   signInWithPopup(auth, provider)
@@ -113,20 +119,17 @@ export const LoginByEmailPassword = (email, password) => {
 };
 
 // ----------Send Email------------------------------------------------
+export const sendEmailVerification1 = () => sendEmailVerification(auth.currentUser);
 
-// https://ducky-pets-app.firebaseapp.com/__/auth/action?mode=action&oobCode=code
-
-/* export const sendEmail = () => {
-  sendSignInLinkToEmail(auth.currentUser)
-    .then((email) => {
-    // The link was successfully sent. Inform the user.
-    // Save the email locally so you don't need to ask the user for it again
-    // if they open the link on the same device.
-      console.log(email);
-    // ...
-    })
-    .catch((error) => {
-      console.log(error);
-    // ...
-    });
-}; */
+export const logOut = () => {
+  signOut(auth).then(() => {
+    // console.log('cerraste sesión');
+    // Sign-out successful.
+  }).catch((error) => {
+    // const callAlertParagraph = document.querySelector('#error');
+    if (error === true) {
+      // callAlertParagraph.textContent = 'Error al cerrar sesión';
+    }
+    // An error happened.
+  });
+};
