@@ -19,7 +19,7 @@ export const Login = () => {
     </label>
     <button id='getInto'> Iniciar sesión
     <button id='buttonGoogle'> Ingresar con Google G
-    <button id='buttonBackHome' class='buttonHome'
+    <button id='buttonBackHome' class='buttonHome'>
     </section>
   `;
   const viewLoginPage = document.createElement('div');
