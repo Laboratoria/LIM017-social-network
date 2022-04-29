@@ -3,7 +3,7 @@
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../lib/application/controller.js';
-import { registerWithEmail, signInWithGoogle, sendEmailVerificationFirebase } from '../lib/application/authFirebase.js';
+import { registerWithEmail, signInWithGoogle, sendEmailVerificationFirebase, modiedPerfil } from '../lib/application/authFirebase.js';
 
 export const Register = () => {
   const registerPage = `
@@ -12,7 +12,7 @@ export const Register = () => {
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Registro</p>
     <label for='nameUser'>Nombre de usuario
-    <input type='text' id='createName' placeholder ='Nombre de usuario' name ='nameUser'>
+    <input type='text' id='createName' placeholder ='Ingresar nombre de usuario' name ='nameUser'>
     </label>
     <label for='inputEmail'>Email
     <input type='text' id='createEmail' placeholder ='Ingresar correo' name ='nameEmail'>
@@ -35,6 +35,8 @@ export const Register = () => {
 
   viewRegiterPage.querySelector('#buttonUserRegister').addEventListener('click', (e) => {
     e.preventDefault();
+    const nameValue = viewRegiterPage.querySelector('#createName');
+    console.log(nameValue);
     const emailValue = viewRegiterPage.querySelector('#createEmail');
     console.log(emailValue);
     const passwordValue = viewRegiterPage.querySelector('#createPassword');
@@ -47,12 +49,14 @@ export const Register = () => {
     // eslint-disable-next-line consistent-return
     .then((userCredential) => {
       const user = userCredential.user;
+      console.log(user);
       return user;
     })
     .then((user) => {
       console.log({ user });
         messageVerificado.innerHTML = 'Usuario creado correctamente';
         console.log(user);
+        modiedPerfil(nameValue.value);
         sendEmailVerificationFirebase();
         setTimeout(() => {
           onNavigate('/login');
@@ -69,7 +73,8 @@ export const Register = () => {
   });
 });
   viewRegiterPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle();
+    signInWithGoogle().then(() => { onNavigate('/Home'); });
+
   });
   viewRegiterPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
 
