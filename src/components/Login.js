@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable eol-last */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../lib/application/controller.js';
@@ -41,13 +42,21 @@ export const Login = () => {
     }
     e.preventDefault();
     loginUser(emailValue.value, passwordValue.value)
-      .then(() => {
-        onNavigate('/Home');
-      }).catch((error) => console.log(error));
+      .then((user) => {
+        if (user.emailVerified === true) {
+          onNavigate('/Home');
+        } else {
+          alert('Por favor verifica tu bandeja');
+          onNavigate('/login');
+        }
+      }).catch(() => {
+        alert('Campos invalidos');
+        onNavigate('/login');
+      });
   });
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle();
+    signInWithGoogle().then(() => { onNavigate('/Home'); });
   });
   viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
   return viewLoginPage;

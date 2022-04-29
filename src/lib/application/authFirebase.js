@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable eol-last */
 // eslint-disable-next-line object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut, updateProfile} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './init.js';
 import { onNavigate } from './controller.js';
 
@@ -50,6 +50,8 @@ export const loginUser = (email, password) => (
     // Signed in
       const user = userCredential.user;
       console.log(user);
+      console.log(user.emailVerified);
+      
       return user;
     })
     .catch((error) => {
@@ -63,48 +65,20 @@ export const loginUser = (email, password) => (
 )
 export const signOff = () => signOut(auth);
 
-export const signInWithGoogle = () => {
+export const signInWithGoogle = () => (
   signInWithPopup(auth, provider)
-    .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      console.log(user);
-      console.log('El usuario ingresó con Google exitosamente', user.uid, user.email, user.displayName);
-      onNavigate('/');
+);
 
-    // ...
-    }).catch((error) => {
-    // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-    });
-};
 
-/* export const getRedirect = () => {
-  getRedirectResult(auth)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access Google APIs.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
-};
- */
+
+export const modiedPerfil = (name) => updateProfile(auth.currentUser, {
+  displayName: name,
+}).then(() => {
+  console.log('estamos cambiando nombre');
+  // Profile updated!
+  // ...
+}).catch((error) => {
+  console.log('este es un mensaje de error del nombre de perfil');
+  // An error occurred
+  // ...
+});
