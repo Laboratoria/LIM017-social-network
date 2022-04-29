@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { createElements } from '../util.js';
-import { store, onGetPostInRealTime, deletePost } from '../Firebase/firestore.js';
+import {
+  store, onGetPostInRealTime, deletePost, getSinglePost, updatePost,
+} from '../Firebase/firestore.js';
 
 export const Feed = () => {
   const userId = sessionStorage.getItem('uid');
@@ -20,44 +21,74 @@ export const Feed = () => {
   <div id='feedPost1'></div>
   `;
   feedWrapper.innerHTML += templateFeed;
-  const postNew = feedWrapper.querySelector('.btn-new');
+
   const formNewPost = feedWrapper.querySelector('#formNewPost');
+  const postNew = feedWrapper.querySelector('.btn-new');
+
   postNew.addEventListener('click', () => {
     formNewPost.classList.remove('hide');
   });
+
+  // Cuadros de texto rellenables
   const newPostTitle = feedWrapper.querySelector('#newPostTitle');
   const newPostBody = feedWrapper.querySelector('#newPostBody');
-  // event to submit new post
-  formNewPost.addEventListener('submit', (e) => {
-    e.preventDefault();
-    store({ title: newPostTitle.value, body: newPostBody.value, userId }, 'publicaciones');
-    formNewPost.classList.add('hide');
-  });
-  // Funcion para traer posts al feed
-  const templateFeedPost = (title, body, id) => `
- <section id='postContainer' class= "postContainer">
-    <div id='userInfoDiv'></div>
-    <p id='user-name'></p>
-    <div id='postTitle'>${title}</div>
-    <div id='postBody'>${body}</div>
-    <button id="btn-deleted" class="btn-deleted-class" data-id="${id}">Delete</button>
-    <div id='interaction'>
-      <div id='like-container'></div>
-    </div>
-  </section>
- `;
+  // variable que me indica el estado de edición
+  let editStatus = false;
+  let id = '';
+  const feedPostWrapper = feedWrapper.querySelector('#feedPost1');
   onGetPostInRealTime((querySnapShot) => {
-    const feedPostWrapper = feedWrapper.querySelector('#feedPost1');
+    let cleaner = '';
     querySnapShot.forEach((doc) => {
-      const testPostMuro = templateFeedPost(doc.data().title, doc.data().body, doc.id);
-      feedPostWrapper.innerHTML += testPostMuro;
+      const post = doc.data();
+      cleaner += `
+     <section id='postContainer' class= "postContainer">
+        <div id='userInfoDiv'></div>
+        <p id='user-name'></p>
+        <div id='postTitle'>${post.title}</div>
+        <div id='postBody'>${post.body}</div>
+        <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
+        <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>
+        <div id='interaction'>
+          <div id='like-container'></div>
+        </div>
+      </section>
+     `;
     });
-    const btnsDeletePost = feedWrapper.querySelectorAll('.btn-deleted-class');
+    feedPostWrapper.innerHTML = cleaner;
+    console.log(feedPostWrapper);
+    const btnsDeletePost = feedPostWrapper.querySelectorAll('.btn-deleted-class');
     btnsDeletePost.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         deletePost(event.target.dataset.id);
       });
     });
+    const btnsEdit = feedPostWrapper.querySelectorAll('.btn-edit-class');
+    btnsEdit.forEach((btnE) => {
+      btnE.addEventListener('click', async (e) => {
+        formNewPost.classList.remove('hide');
+        const doc = await getSinglePost(e.target.dataset.id);
+        const post = doc.data();
+        newPostTitle.value = post.title;
+        newPostBody.value = post.body;
+
+        editStatus = true;
+        id = doc.id;
+      });
+    });
+  });
+
+  // event to submit new post
+  formNewPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!editStatus) {
+      store({ title: newPostTitle.value, body: newPostBody.value, userId }, 'publicaciones');
+    } else {
+      updatePost(id, { title: newPostTitle.value, body: newPostBody.value, userId });
+      editStatus = false;
+    }
+
+    formNewPost.reset();
+    formNewPost.classList.add('hide');
   });
   return feedWrapper;
 };
