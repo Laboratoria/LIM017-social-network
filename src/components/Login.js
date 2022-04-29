@@ -42,8 +42,13 @@ export const Login = () => {
     }
     e.preventDefault();
     loginUser(emailValue.value, passwordValue.value)
-      .then(() => {
-        onNavigate('/Home');
+      .then((user) => {
+        if (user.emailVerified === true) {
+          onNavigate('/Home');
+        } else {
+          alert('Por favor verifica tu bandeja');
+          onNavigate('/login');
+        }
       }).catch(() => {
         alert('Campos invalidos');
         onNavigate('/login');
@@ -51,7 +56,7 @@ export const Login = () => {
   });
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle();
+    signInWithGoogle().then(() => { onNavigate('/Home'); });
   });
   viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
   return viewLoginPage;
