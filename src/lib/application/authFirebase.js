@@ -51,7 +51,6 @@ export const loginUser = (email, password) => (
       const user = userCredential.user;
       console.log(user);
       console.log(user.emailVerified);
-      
       return user;
     })
     .catch((error) => {
@@ -68,8 +67,6 @@ export const signOff = () => signOut(auth);
 export const signInWithGoogle = () => (
   signInWithPopup(auth, provider)
 );
-
-
 
 export const modiedPerfil = (name) => updateProfile(auth.currentUser, {
   displayName: name,
