@@ -3,7 +3,9 @@
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../lib/application/controller.js';
-import { registerWithEmail, signInWithGoogle, sendEmailVerificationFirebase, modiedPerfil } from '../lib/application/authFirebase.js';
+import {
+ registerWithEmail, signInWithGoogle, sendEmailVerificationFirebase, modiedPerfil,
+} from '../lib/application/authFirebase.js';
 
 export const Register = () => {
   const registerPage = `
@@ -11,6 +13,7 @@ export const Register = () => {
     <h1>CUY VIAJERO</h1>
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Registro</p>
+    <form>
     <label for='nameUser'>Nombre de usuario
     <input type='text' id='createName' placeholder ='Ingresar nombre de usuario' name ='nameUser'>
     </label>
@@ -21,6 +24,7 @@ export const Register = () => {
     <label for='namePassword'>Contraseña
     <input type= 'password' id='createPassword' placeholder ='Ingresar contraseña' name ='namePassword'>
     </label>
+    </form>
     <p id='messagePassword'></p>
     <p id='messageVerificado'></p>
     <button id='buttonUserRegister' class='buttonHome'> Crear Ususario
@@ -63,6 +67,8 @@ export const Register = () => {
           onNavigate('/login');
         }, 5000);
     }).catch((error) => {
+      console.log(error);
+      console.log(error.message);
     switch (error.message) {
       case 'Firebase: Error (auth/missing-email).': messageEmail.innerHTML = 'El correo es obligatorio'; break;
       case 'Firebase: Error (auth/invalid-email).': messageEmail.innerHTML = 'Digite un correo válido'; break;
@@ -74,7 +80,8 @@ export const Register = () => {
   });
 });
   viewRegiterPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle().then(() => { onNavigate('/Home'); });
+    signInWithGoogle()
+    .then(() => { onNavigate('/home'); });
 
   });
   viewRegiterPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));

@@ -14,7 +14,7 @@ export const routes = {
   '/login': Login,
   '/publications': Publications,
   '/profile': Profile,
-  '/Home': Home,
+  '/home': Home,
 };
 /* const component = routes[window.location.pathname];
 rootDiv.appenChild(component()); */
