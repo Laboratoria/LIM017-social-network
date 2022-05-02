@@ -6,18 +6,21 @@ import {
 export const Feed = () => {
   const userId = sessionStorage.getItem('uid');
   const feedWrapper = document.createElement('div');
+  feedWrapper.id = 'feedWrapper';
   const templateFeed = `
   <section id="feed" class= "contenedor-section">
-  <img id="feed-logo" class="logo" src="imagenes/logo.png">
+  <img id="feed-logo" class="logo-feed" src="imagenes/logo.png">
   <div id="createNewPost">
     <p> Hola ${sessionStorage.getItem('username')}</p>
     <button id="btnNewPost" class="btn-new"> Crear Nueva Publicación </button>
   </div>
-  <form id = "formNewPost" class = "hide">
-    <input type = "text" id ="newPostTitle" class = "newPostTitle" placeholder = "coloca el título de tu publicación" value= "">
-    <input type = "text" id ="newPostBody" class="newPostBody" placeholder = "Escribe tu publicacion" value="">
+  <div class= "formContainer">
+  <form id = "formNewPost" class = "hide formContainer">
+    <input type = "text" id ="newPostTitle" class = "newPostTitle" placeholder = "Coloca el título de tu publicación" value= "">
+    <input type = "text" id ="newPostBody" class="newPostBody" placeholder = "Escribe aquí tu publicación" value="">
     <button type = "submit" id = "publishBtn" value="Publish"> Publicar </button>
   </form>
+  </div>
   <div id='feedPost1'></div>
   `;
   feedWrapper.innerHTML += templateFeed;
@@ -42,13 +45,14 @@ export const Feed = () => {
       const post = doc.data();
       cleaner += `
      <section id='postContainer' class= "postContainer">
-        <div id='userInfoDiv'></div>
+        <div id='userInfoDiv'>
         <p id='user-name'></p>
+        </div>
         <div id='postTitle'>${post.title}</div>
         <div id='postBody'>${post.body}</div>
-        <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
-        <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>
-        <div id='interaction'>
+        <div id="interaction" class="postInteraction">
+          <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
+          <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>
           <div id='like-container'></div>
         </div>
       </section>
