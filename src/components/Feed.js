@@ -5,6 +5,12 @@ import {
 
 export const Feed = () => {
   const userId = sessionStorage.getItem('uid');
+  // Si no estás registrado
+  if (userId == null) {
+    alert('Registrate para ver el muro');
+    window.location.href = '/Login';
+  }
+
   const feedWrapper = document.createElement('div');
   feedWrapper.id = 'feedWrapper';
   const templateFeed = `
@@ -60,10 +66,14 @@ export const Feed = () => {
     });
     feedPostWrapper.innerHTML = cleaner;
     console.log(feedPostWrapper);
+    // Modal deleted
     const btnsDeletePost = feedPostWrapper.querySelectorAll('.btn-deleted-class');
     btnsDeletePost.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        deletePost(event.target.dataset.id);
+        const confirmDelete = confirm('¿Seguro que quieres borrar esta publicación?');
+        if (confirmDelete) {
+          deletePost(event.target.dataset.id);
+        }
       });
     });
     const btnsEdit = feedPostWrapper.querySelectorAll('.btn-edit-class');
@@ -84,8 +94,17 @@ export const Feed = () => {
   // event to submit new post
   formNewPost.addEventListener('submit', (e) => {
     e.preventDefault();
+    const title = newPostTitle.value.trim();
+    const body = newPostBody.value.trim();
+    if (title === '' || body === '') {
+      alert('Por favor completa todos los campos de tu publicación');
+      return;
+    }
+
     if (!editStatus) {
-      store({ title: newPostTitle.value, body: newPostBody.value, userId }, 'publicaciones');
+      store({
+        title: newPostTitle.value, body: newPostBody.value, userId, timestamp: Date.now(),
+      }, 'publicaciones');
     } else {
       updatePost(id, { title: newPostTitle.value, body: newPostBody.value, userId });
       editStatus = false;

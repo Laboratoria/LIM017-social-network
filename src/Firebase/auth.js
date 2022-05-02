@@ -89,7 +89,10 @@ export const LoginByEmailPassword = (email, password) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-      // console.log(user);
+      sessionStorage.setItem('uid', user.uid);
+      sessionStorage.setItem('username', user.email);
+      window.location.href = '/Feed';
+
     // ...
     })
     .catch((error) => {
