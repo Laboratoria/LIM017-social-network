@@ -5,10 +5,31 @@ import { signOff } from '../lib/application/authFirebase.js';
 
 export const Home = () => {
   const homePage = `
-      <h1>Este es el Home</h1>
-      <button id='singOutBttn'> Cerrar sesión`;
+      <header class="header">
+        <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
+        <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+          <li><a type="button" class='buttonNav' id='buttonNavStart'>Inicio</a></li>
+          <li><a type="button" class='buttonNav' id='buttonNavProfile'>Perfil</a></li>
+          <li><a type="button" class='buttonNav' id='singOutBttn'>Cerrar sesión</a></li>
+        </ul>
+       </header>
+       <body>
+       <h1>Este es el Home</h1>
+       </body>
+   `;
   const viewHomePage = document.createElement('div');
   viewHomePage.innerHTML = homePage;
+
+  viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
+    onNavigate('/home');
+  });
+  viewHomePage.querySelector('#buttonNavProfile').addEventListener('click', () => {
+    onNavigate('/profile');
+  });
+
   viewHomePage.querySelector('#singOutBttn').addEventListener('click', () => {
     signOff()
       .then(() => onNavigate('/'))

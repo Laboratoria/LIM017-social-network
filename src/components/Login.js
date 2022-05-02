@@ -44,7 +44,7 @@ export const Login = () => {
     loginUser(emailValue.value, passwordValue.value)
       .then((user) => {
         if (user.emailVerified === true) {
-          onNavigate('/Home');
+          onNavigate('/home');
         } else {
           alert('Por favor verifica tu bandeja');
           onNavigate('/login');
@@ -56,7 +56,7 @@ export const Login = () => {
   });
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle().then(() => { onNavigate('/Home'); });
+    signInWithGoogle().then(() => { onNavigate('/home'); });
   });
   viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
   return viewLoginPage;
