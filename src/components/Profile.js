@@ -1,11 +1,44 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../lib/application/controller.js';
+// eslint-disable-next-line import/no-cycle
+import { signOff } from '../lib/application/authFirebase.js';
 
 export const Profile = () => {
   const profilePage = `
-      <h1>Vista de profile</h1>`;
+  <header class="header">
+  <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
+  <div class='centerTitle'>
+  <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
+  </div>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a type="button" class='buttonNav' id='buttonNavStart'>Inicio</a></li>
+    <li><a type="button" class='buttonNav' id='buttonNavProfile'>Perfil</a></li>
+    <li><a type="button" class='buttonNav' id='singOutBttn'>Cerrar sesión</a></li>
+  </ul>
+ </header>
+ <body>
+ <div><img class='profileImg' src='img/perfil.png'></div>
+ </body>
+ `;
 
-  const homeDiv = document.createElement('div');
-  homeDiv.innerHTML = profilePage;
-  return homeDiv;
+  const viewProfilePage = document.createElement('div');
+  viewProfilePage.className = 'viewContainerHome';
+  viewProfilePage.innerHTML = profilePage;
+
+  viewProfilePage.querySelector('#buttonNavStart').addEventListener('click', () => {
+    onNavigate('/home');
+  });
+  viewProfilePage.querySelector('#buttonNavProfile').addEventListener('click', () => {
+    onNavigate('/profile');
+  });
+  viewProfilePage.querySelector('#singOutBttn').addEventListener('click', () => {
+    signOff()
+      .then(() => onNavigate('/'))
+      .catch((error) => {
+        console.log('No pudo cerrar sesión', error);
+      });
+  });
+  return viewProfilePage;
 };

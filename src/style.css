@@ -1,17 +1,20 @@
 body {
-    margin: 0;
+    /*margin: 0;*/
     font-family: Helvetica, sans-serif;
    /*  background-color: #9ae5fe; */
     min-height: 100vh;
     /* margin:0; */
-    background-image: url("/img/fondoC800.png");
+    background-attachment: fixed;
+    background-position:left;
+   
+    background-image: url("/img/cuzco.png");
     font-family: inherit;
     /* display: flex;
     justify-content: center; */
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;
     margin-bottom: 60%;
     /* width: 80%; */
-    height: 75%;
+    /*height: 75%;*/
 
   }
 .homeDiv , .welcomePage{
@@ -26,28 +29,89 @@ body {
     font-family: 'calibri';
     color: #4C80CA;
 }
-
+.button-space{
+    display: block;
+    justify-content: center; 
+}
+.welcomeText{
+    color: #4C80CA;
+    font-size: 18px;
+    color:#4C80CA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
 
 .img-responsive{
-    width: 80%;
-   /*  height: auto; */
+    max-width: 80%;
+   /* height: auto; */
     margin-top: 5px;
     margin-bottom: 1px;
     margin-left: 10%;
+    padding: 1px 1px;
    
 }
+#img-Logo-Cuy{
+    width: 30%;
+    /* height: auto; */
+     margin-top: 5px;
+     margin-bottom: 1px;
+     margin-left: 10%;
+     padding: 1px 1px;
+}
+.viewContainerWelcome{
+    background-color: rgb(255, 255, 255);
+    /* background: linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
+    display: flex;
+    justify-content:center;
+    margin-left: 10%;
+    margin-top: 50px;
+    padding-bottom: 5%;
+    padding-top: 4%;
+    margin-right: 10%;
+    /*
+    margin-top: 50px;
+    padding-bottom: 5%;
+    padding-top: 4%;
+    margin-right: 25%;
+     /*padding: 20px 20px; */
+    /*margin-top: 50px;
+    margin-bottom: 20%;
+    margin-left: 10%;
+    margin-right: 10%;*/
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px #666464;
+    min-width: 50%; 
+}
+/*@media (min-width: 768px){
+    .viewContainerWelcome{
+
+    }
+}*/
 .viewContainer{
     background-color: rgb(255, 255, 255);
     /* background: linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
-    /* padding: 20px 20px; */
+    display: flex;
+    justify-content:center;
+    margin-left: 16%;
     margin-top: 50px;
-    margin-bottom: 20%;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px 1px #666464;
-    /* width: 80%; */
-    height: auto;
     padding-bottom: 5%;
     padding-top: 4%;
+    margin-right: 10%;
+     /*padding: 20px 20px; */
+    /*margin-top: 50px;
+    margin-bottom: 20%;
+    margin-left: 10%;
+    margin-right: 10%;*/
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px #666464;
+    width: 70%; 
+
+    /*height: auto;
+    padding-bottom: 5%;
+    padding-top: 4%;*/
 }
 label{
     font-size: 15px;
@@ -171,9 +235,7 @@ h1{
 }
 
 .text-container{
-
     color:#4C80CA;
-
 }
 
 p{
