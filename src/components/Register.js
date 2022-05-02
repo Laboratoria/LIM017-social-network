@@ -3,7 +3,9 @@
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../lib/application/controller.js';
-import { registerWithEmail, signInWithGoogle, sendEmailVerificationFirebase, modiedPerfil } from '../lib/application/authFirebase.js';
+import {
+ registerWithEmail, signInWithGoogle, sendEmailVerificationFirebase, modiedPerfil,
+} from '../lib/application/authFirebase.js';
 
 export const Register = () => {
   const registerPage = `
