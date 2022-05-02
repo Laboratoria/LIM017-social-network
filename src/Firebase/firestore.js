@@ -27,7 +27,7 @@ export const store = (data, collectionName) => {
     console.log(`registro creado. id : ${test.id}`);
   });
 };
-export const addPost = (post, title) => addDoc(collection(firestore, 'publicaciones'), { post, title });
+
 export const onGetPostInRealTime = (callback) => onSnapshot(collection(firestore, 'publicaciones'), callback);
 export const deletePost = (id) => deleteDoc(doc(firestore, 'publicaciones', id));
 export const getPost = (id) => getDoc(doc(firestore, 'publicaciones', id));

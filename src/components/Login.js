@@ -97,8 +97,10 @@ export const Login = () => {
   loginButton.addEventListener('click', (e) => {
     e.preventDefault();
     const password = passwordInput.querySelector('input');
-    LoginByEmailPassword(mailInput.value, password.value);
-    onNavigate('/Feed');
+    const userId = LoginByEmailPassword(mailInput.value, password.value);
+    console.log(userId);
+    // sessionStorage.setItem('uid', userId.uid);
+    // onNavigate('/Feed');
   });
 
   const [
