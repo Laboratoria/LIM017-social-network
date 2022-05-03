@@ -6,8 +6,11 @@ import { signOff } from '../lib/application/authFirebase.js';
 export const Home = () => {
   const homePage = `
       <header class="header">
+      <div>
         <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
+        <div class='centerTitle'>
         <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
+        </div>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu">
@@ -17,10 +20,10 @@ export const Home = () => {
         </ul>
        </header>
        <body>
-       <h1>Este es el Home</h1>
        </body>
    `;
   const viewHomePage = document.createElement('div');
+  viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
 
   viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
