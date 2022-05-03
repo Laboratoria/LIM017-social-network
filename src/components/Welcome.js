@@ -4,9 +4,15 @@ import { onNavigate } from '../lib/application/controller.js';
 
 export const Welcome = () => {
   const welcome = `
-
+  <section id ='videoCuy'>
+  <video autoplay muted loop id='myVideo'>
+  <source src='src/img/cuycuy.mp4' type='video/mp4'>
+  </video>
+  
+  </section>
+    
     <section class ='viewContainer'>
-
+    
       <h1>Cuy viajero</h1>
       <p>Tu red social de viajes favorita!</p>
       <img class='img-responsive' src='img/cuyLog.png'>

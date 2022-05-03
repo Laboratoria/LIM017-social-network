@@ -4,7 +4,7 @@ body {
    /*  background-color: #9ae5fe; */
     min-height: 100vh;
     /* margin:0; */
-    background-image: url("/img/fondoC800.png");
+  /*   background-image: url("/img/fondoC800.png"); */
     font-family: inherit;
     /* display: flex;
     justify-content: center; */
@@ -210,4 +210,20 @@ margin-bottom: 3%;
 p{
     align-content: center;
     text-align:center;
+}
+
+#videoCuy{
+    display:block;
+    margin-left: -8px;
+    margin-right: -10px;
+}
+
+#myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  margin-right: -10px;
+  margin-left: -10px;
 }

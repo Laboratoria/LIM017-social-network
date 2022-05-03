@@ -5,7 +5,7 @@ import { signOff } from '../lib/application/authFirebase.js';
 
 export const Home = () => {
   const homePage = `
-      <header class="header">
+      <header class='header'>
         <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
         <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
