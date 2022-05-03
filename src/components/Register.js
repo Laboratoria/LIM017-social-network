@@ -15,20 +15,20 @@ export const Register = () => {
     <p class=text-Register>Registro</p>
     <form>
     <label for='nameUser'>Nombre de usuario
-    <input type='text' id='createName' placeholder ='Ingresar nombre de usuario' name ='nameUser'>
+    <input type='text' id='createName' placeholder ='Ejm: Luis Quispe' name ='nameUser'>
     </label>
     <label for='inputEmail'>Email
-    <input type='text' id='createEmail' placeholder ='Ingresar correo' name ='nameEmail'>
+    <input type='text' id='createEmail' placeholder ='LuisQuispe@example.com' name ='nameEmail'>
     </label>
     <p id='messageEmail'></p>
     <label for='namePassword'>Contraseña
-    <input type= 'password' id='createPassword' placeholder ='Ingresar contraseña' name ='namePassword'>
+    <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='namePassword'>
     </label>
     </form>
     <p id='messagePassword'></p>
     <p id='messageVerificado'></p>
     <button id='buttonUserRegister' class='buttonHome'> Crear Ususario
-    <button id='buttonGoogle' >Ingresar con Google 🇬
+    <button id='buttonGoogle'> Iniciar con <img class='logo-Google' src='img/google.png'> </button>
     <button id='buttonBackHome' class='buttonHome' >
     </section>
   `;

@@ -1,13 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    
+}
 body {
     /*margin: 0;*/
     font-family: Helvetica, sans-serif;
    /*  background-color: #9ae5fe; */
     min-height: 100vh;
     /* margin:0; */
-    background-attachment: fixed;
-    background-position:left;
+    background-color:rgb(255, 255, 255);
    
-    background-image: url("/img/cuzco.png");
+    /*background-image: url("/img/cuzco.png");*/
     font-family: inherit;
     /* display: flex;
     justify-content: center; */
@@ -29,6 +33,7 @@ body {
     font-family: 'calibri';
     color: #4C80CA;
 }
+
 .button-space{
     display: block;
     justify-content: center; 
@@ -61,16 +66,31 @@ body {
      margin-left: 10%;
      padding: 1px 1px;
 }
-.viewContainerWelcome{
-    background-color: rgb(255, 255, 255);
-    /* background: linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
-    display: flex;
-    justify-content:center;
+.logo-Google{
+    width: 10%;
     margin-left: 10%;
-    margin-top: 50px;
+    
+}
+
+.viewContainerWelcome{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
+    /*display: flex;*/
+    /*display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 10%;
+    margin-top: 20%;
     padding-bottom: 5%;
-    padding-top: 4%;
+    padding-top: 2%;
     margin-right: 10%;
+    width: 450px;
+    height: 700px;*/
+
     /*
     margin-top: 50px;
     padding-bottom: 5%;
@@ -81,9 +101,9 @@ body {
     margin-bottom: 20%;
     margin-left: 10%;
     margin-right: 10%;*/
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px 1px #666464;
-    min-width: 50%; 
+   /* border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px #666464;*/
+    /*min-width: 50%; */
 }
 /*@media (min-width: 768px){
     .viewContainerWelcome{
@@ -95,11 +115,9 @@ body {
     /* background: linear-gradient(hsl(0, 0%, 100%), #b9ebd8); */
     display: flex;
     justify-content:center;
-    margin-left: 16%;
-    margin-top: 50px;
-    padding-bottom: 5%;
-    padding-top: 4%;
-    margin-right: 10%;
+    margin: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
      /*padding: 20px 20px; */
     /*margin-top: 50px;
     margin-bottom: 20%;
@@ -107,7 +125,8 @@ body {
     margin-right: 10%;*/
     border-radius: 8px;
     box-shadow: 0px 0px 5px 1px #666464;
-    width: 70%; 
+    max-width: 500px;
+    max-width: 400px;
 
     /*height: auto;
     padding-bottom: 5%;
@@ -115,9 +134,9 @@ body {
 }
 label{
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;;
     text-align: left;
-    margin-left: 8%;
+    margin-left: 10%;
    
 }
 .text-Register{
@@ -146,20 +165,19 @@ label{
     justify-content: center;
     /* margin: 10px; */
     text-align: center;
-    font-family: inherit;
-    font-size: 12px;
     border-radius: 5px;
-    border-color: rgb(107, 105, 105);
+    border-color: rgba(107, 105, 105, 0.644);
     margin-bottom: 1%;
     width: 80%;
     /* padding: 8px 10px; */
     text-align: center;
-    font-family:" EB Garamond";
-    font-size:18px;
+    font-size: 18px;
+    margin-top: 0px;
+    font-family: sans-serif;
     margin: auto;
     margin-bottom: 3%;
     text-align: left;
-    color: #000000;
+    color: #b133335b;
    /* margin-left: 20%; */
    
 }
@@ -178,9 +196,72 @@ h1{
     color: rgb(7, 7, 7);
     font-size: 16px;
 }
+#buttonLogin , #buttonRegister {
+    background-color:#4C80CA ;
+    border-radius: 10px;
+    display: flex;
+    border: none;
+    justify-content:center;
+    color: white;
+    cursor: pointer;
+    padding: 14px 28px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size:16px;
+    margin: 5px;
+    width: 40%;
+    margin: 5px;
+    size: 20PX;
+}
+.link-span{
+    color:#106feb;
+}
+#register-link{
+    color: #030303;
+    margin:1px;
+}
+
+#buttomWelcome{
+    margin-top:1%;
+    display: flex;
+    border: none;
+    justify-content:center;
+    margin-left: 0px;
+}
+.text-container-{
+    color: white;
+}
+.conatinerWelcome{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+}
+#video-phone{
+    width: 380px;
+    margin-left :10px;
+
+}
+/*#buttonLogin , #buttonRegister , */#usuarioBtn , #getInto, #buttonUserRegister {
+    background-color:#4C80CA ;
+    border-radius: 10px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    padding: 16px 32px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size:16px;
+    margin: auto;
+    width: 75%;
+    margin-bottom: 3%;
+    size: 20PX;
+}
 .buttonHome{
     background-color:#4C80CA ;
-    border-radius: 30px;
+    border-radius: 50%;
     border: none;
     display: flex;
     justify-content: center;
@@ -191,30 +272,12 @@ h1{
     font-family:" EB Garamond";
     font-size:20px;
     margin: auto;
+    margin-top: 5px;
     margin-bottom: 20%;
-    width: 60%;
-}
-#buttonLogin , #buttonRegister , #usuarioBtn , #getInto, #buttonUserRegister {
-    background-color:#4C80CA ;
-    border-radius: 30px;
-    display: flex;
-    border: none;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    padding: 16px 32px;
-    text-align: center;
-    font-family:" EB Garamond";
-    font-size:16px;
-    margin: auto;
-   
-    width: 60%;
-    margin-bottom: 3%;
-    size: 20PX;
 }
 #buttonBackHome{
     background-image: url(img/atras2.png);
-    border-radius: 30px;
+    border-radius: 50%;
     display: flex;
     border: none;
     justify-content: center;
@@ -224,9 +287,6 @@ h1{
     text-align: center;
     font-family:" EB Garamond";
     font-size:16px;
-    margin: auto;
-   
-    width: 60%;
     margin-bottom: 3%;
     size: 20PX;
     background-repeat: no-repeat;
@@ -242,19 +302,20 @@ p{
     text-align: center;
 }
 #buttonGoogle{
-border-radius: 30px;
+border-radius: 10px;
 display: flex;
 border: none;
 justify-content: center;
-color: white;
-background: rgb(212, 77, 77);
+color: rgb(0, 0, 0);
+background: rgba(218, 213, 213, 0.521);
 cursor: pointer;
 padding: 16px 32px;
 text-align: center;
-font-family:" EB Garamond";
-font-size:16px;
+font-size: 1.1rem;
+margin-top: 0px;
+font-family: sans-serif;
 margin: auto;
-width: 60%;
+width: 75%;
 margin-bottom: 3%;
 }
 /* .img-networks sign-google{
@@ -273,3 +334,4 @@ p{
     align-content: center;
     text-align:center;
 }
+/*modificacion input register */

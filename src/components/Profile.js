@@ -18,9 +18,6 @@ export const Profile = () => {
     <li><a type="button" class='buttonNav' id='singOutBttn'>Cerrar sesión</a></li>
   </ul>
  </header>
- <body>
- <div><img class='profileImg' src='img/perfil.png'></div>
- </body>
  `;
 
   const viewProfilePage = document.createElement('div');
