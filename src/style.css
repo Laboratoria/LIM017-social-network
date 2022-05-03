@@ -88,19 +88,16 @@ width: 60%;
 .btn-container button:first-child:hover{
   background: rgba(247, 161, 47, 0.7);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  transform: scale(1.3);
   }
 
 .btn-container button:first-child:focus{
       background: rgba(247, 161, 47, 0.7);
       box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-      transform: scale(1.3);
       }
 
 .btn-container button:nth-child(2):hover{
   background: rgba(91, 147, 179, 0.7);
   box-shadow:  rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  transform: scale(1.3);
 }
 /* --------- Login.js ---------------*/
 #login-img {
@@ -201,17 +198,6 @@ padding-top: 0.5em;
 display: grid;
 align-items: center;
 justify-items: center;
-/*grid-template-areas:
-  'logo logo logo'
-  'img-welcome img-welcome img-welcome'
-  'text-h2 text-h2 text-h2'
-  'form form form'
-  'line-img line-img line-img'
-  'container-button container-button container-button'
-  'err err err'
-  'cont-text cont-text cont-text'
-  'back-landing back-landing back-landing';
-  gap: 3;*/
 }
 
 #recovery-wrapper {
@@ -285,8 +271,7 @@ padding-bottom: 10px;
   flex-direction: column;
   grid-area: logo;
   align-items: center;
-  width: 30%;
-  margin: 1% 5% 5% 32%;
+  width: 80%;
   }
 
 .contenedor-section{
@@ -327,7 +312,9 @@ padding-bottom: 10px;
   flex-direction: column;
   gap: 5px;
 }
-
+#publishBtn{
+  width: 100%;
+}
 #newPostTitle{
   font-weight: bold;
   height: 40px;
@@ -434,74 +421,26 @@ border: 3px solid #B6E5FF;
   }
 }
 
-
-
-/* EDITAR FEED */
-/* 
-#feed-logo{
-  grid-area: img;
-    width: 30%;
-    margin: 1% 5% 5% 32%;
+/* ---- Feed ------*/
+/* @media screen and (min-width: 768px){
+#feedWrapper{
+  grid-area: 'logo-desktop btnNew '
+            'logo-desktop formNew'
+            '. feedPost';
 }
-.inputs-style{
-  border-radius: 5px;
-    padding-left: 10px;
-    font-size: 18px;
-    font-style: italic;
-    border: none;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+#feedLogo{
+  width: 100%;
+  grid-area: logo-desktop;
 }
-#post-container{
-  grid-area: p-cont;
-  height: 30px;
-  border: none;
+#btnNewPost{
+  grid-area: btnNew;
 }
-#user-info-container{
-  grid-area: div-in;
-  border-color: lightseagreen;
-  width: 90%;
-  grid-row-gap: 10px;
-  margin: auto;
-  display: grid;
-  grid-template-areas:
-      "img-user name ."
-      ". fecha ."
-      ". hora .";
+#formNewPost{
+  grid-area: formNew;
 }
-#user-info-container img{
-  border-radius: 50%;
-  grid-area: img-user;
-  width: 35%;
-  height: 80%;
+#feedPostWrapper{
+  grid-area: feedPost;
 }
-#user-info-container h4{
-  font-size: medium;
-    grid-area: name;
-}
-#post-text{
-  grid-area: post;
-    width: 90%;
-    height: 120px;
-    margin: auto;
-}
-#interaction{
-  width: 90%;
-    margin: auto;
-    grid-area: test1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-#interaction button{
-  width: 50px;
-}
-
-.test{
-  border: 2px solid;
-  border-color: lightseagreen;
-}
-#interaction{
-  border-color: lightseagreen;
 } */
 
 .hide{
