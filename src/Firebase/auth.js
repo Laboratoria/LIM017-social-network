@@ -47,38 +47,15 @@ export const createAccountByGoogle = () => {
 
 export const CreateAccount = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
-
-    // .then(() => {
-    //   addDoc(collection(firestore, 'users'), {
-    //     email,
-    //   }).then(window.location.href = '/Feed');
-    //   console.log('registrado exitosamente');
-    // })
     .then((userCredential) => {
     // Signed in
 
       // window.location.href = '/Feed';
       // console.log(user.email);
-    // ...
     })
     .catch((error) => {
       const errorMessage = error.message;
       return errorMessage;
-    /*  const paragraphError = document.querySelector('#error');
-
-      if (errorCode === 'auth/email-already-in-use') {
-        paragraphError.classList.add('showParagraphError');
-        paragraphError.innerText = 'Usuario ya registrado y en uso';
-      } else if (errorCode === 'auth/weak-password') {
-        paragraphError.classList.add('showParagraphError');
-        paragraphError.innerText = 'Contraseña inaválida. Debe contener al menos 6 caracteres';
-      } else if (errorCode === 'auth/invalid-email') {
-        paragraphError.classList.add('showParagraphError');
-        paragraphError.innerText = 'correo electrónico inválido';
-      } else if (errorCode === true) {
-        paragraphError.classList.add('showParagraphError');
-        paragraphError.innerText = errorMessage;
-      } */
     });
 };
 

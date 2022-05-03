@@ -50,7 +50,7 @@ export const Feed = () => {
     querySnapShot.forEach((doc) => {
       const post = doc.data();
       cleaner += `
-     <section id='postContainer' class= "postContainer">
+    <section id='postContainer' class= "postContainer">
         <div id='userInfoDiv'>
         <p id='user-name'></p>
         </div>
@@ -62,10 +62,10 @@ export const Feed = () => {
           <div id='like-container'></div>
         </div>
       </section>
-     `;
+      `;
     });
     feedPostWrapper.innerHTML = cleaner;
-    console.log(feedPostWrapper);
+
     // Modal deleted
     const btnsDeletePost = feedPostWrapper.querySelectorAll('.btn-deleted-class');
     btnsDeletePost.forEach((btn) => {

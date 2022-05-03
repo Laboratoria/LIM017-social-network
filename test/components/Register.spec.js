@@ -1,13 +1,14 @@
-import { SignUp } from '../../src/components/Register.js';
+import { onNavigate } from '../../src/main.js';
+// import { routes } from '../../src/components/Router.js';
+// import { SignUp } from '../../src/components/Register.js';
 
 jest.mock('../../src/Firebase/Firebase-util.js');
 
-describe('Register', () => {
-  it('', () => {
-    document.body.innerHTML = '<div id=\'root\'><div id= \'register-wrapper\'></div></div>';
-    const result = SignUp();
-    const pass = result.querySelector('#register-password');
-    const passConf = result.querySelector('#confirm-password');
-    console.log('que hace pass', pass, passConf);
+describe('Función onNavigate', () => {
+  it('La función onNavigate debe cargar vista register', () => {
+    document.body.innerHTML = '<div id="root"></div>';
+    onNavigate('/Register');
+    const divRoot = document.querySelector('#gmail-signup');
+    expect(divRoot.textContent).toBe('Registrarse con Gmail');
   });
 });
