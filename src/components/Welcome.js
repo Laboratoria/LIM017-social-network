@@ -4,28 +4,25 @@ import { onNavigate } from '../lib/application/controller.js';
 
 export const Welcome = () => {
   const welcome = `
-  <section id ='videoCuy'>
-  <video autoplay muted loop id='myVideo'>
-  <source src='src/img/cuycuy.mp4' type='video/mp4'>
+
+  <section class='conatinerWelcome'>
+  <section class='text-container-'>
+  <div>
+  <video autoplay muted loop id='video-phone'>
+  <source src='img/cuy-video.mp4' type='video/mp4'>
   </video>
-  
-  </section>
-    
-    <section class ='viewContainer'>
-    
-      <h1>Cuy viajero</h1>
-      <p>Tu red social de viajes favorita!</p>
-      <img class='img-responsive' src='img/cuyLog.png'>
-      <p>Inicia sesión para continuar</p>
-      <div>
-        <button id='buttonRegister'> Registrate</button>
-        <button id='buttonLogin'> Usuario y contraseña </button>
-      </div>
+  </div>
+  <div id='buttomWelcome'>
+  <button id='buttonRegister'> Registrate</button>
+  <button id='buttonLogin'> Inicia sesión </button>
+  </div>
+    </section>
+
     </section>
     `;
 
   const viewWelcomePage = document.createElement('div');
-  viewWelcomePage.setAttribute('class', 'sectionDiv');
+  viewWelcomePage.className = 'viewContainerWelcome';
   viewWelcomePage.innerHTML = welcome;
 
   viewWelcomePage

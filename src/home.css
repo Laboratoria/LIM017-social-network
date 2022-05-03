@@ -2,17 +2,44 @@
 a {
   color: #ffffff;
 }
-
+header{
+   margin: 0%;
+  position: absolute;
+  padding: 0%;
+  background: linear-gradient(hsl(110, 90%, 72%), #277eff);
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  width: 100%;
+  height: 15%;
+}
+/*.header{
+  margin: 0%;
+  position: absolute;
+  padding: 0%;
+  background: linear-gradient(hsl(110, 90%, 72%), #277eff);
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  width: 100%;
+  height: 40%;
+  
+}*/
 .logo{
-max-height: 58px;
-
+  max-height: 150px;
+  margin: 0%;
   display:flex;
   justify-content:center;
   align-content:center;
   
 }
+.centerTitle{
+  display: flex;
+  justify-content: center;
+  /*margin-left: 0%;
+  margin-right: 20%;
+  text-align: center;
+  justify-content: center;*/
+}
 .titleCuyViajero{
-  display: block;
+  display: flex;
+  justify-content: center;
   float: left;
   height: auto;
   /* max-width:2em; */
@@ -20,19 +47,20 @@ max-height: 58px;
   font-size:280%;
   margin-top: 10px;
   text-decoration: none;
-  color: #277eff;
+  text-shadow:  #70BF5A ; 
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #1d1c1c, 0 -1px #454b4d, -1px 1px 0 #0c0d0e, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
 }
 
 
 /* header */
-.header {
-  background-color: #ffffff;
+/*.header {
+  background: linear-gradient(hsl(110, 90%, 72%), #277eff);
   box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-  position: fixed;
   width: 100%;
-  z-index: 3;
+  /*z-index: 3;
+
  
-}
+}*/
 .header ul {
   margin:0;
   padding: 0;
@@ -44,7 +72,11 @@ max-height: 58px;
   display: flex;
   align-items:center;
   padding: 10px 20px;
-  border-right: 1px solid #f4f4f4;
+  color: #000000;
+  font-size: 1.5rem;
+  margin-top: 0px;
+  font-family: sans-serif;
+  /*border-right: 1px solid #f4f4f4;*/
   text-decoration: none;
 
 }
@@ -56,7 +88,7 @@ max-height: 58px;
   display: block;
   float: left;
   font-size: 2em;
-  padding: 10px 20px;
+ /* padding: 10px 20px;*/
   text-decoration: none;
   color: #00a4e0;
 }
@@ -65,7 +97,7 @@ max-height: 58px;
   clear: both;
   max-height: 0;
   transition: max-height .2s ease-out;
-  background-color: #277eff;
+  background: linear-gradient(hsl(162, 42%, 61%), #277eff);;
 
 }
 /* menu icon */
@@ -143,6 +175,7 @@ max-height: 58px;
   .header .menu {
     clear: none;
     float: right;
+    justify-content: center;
     max-height: none;
   }
   .header .menu-icon {

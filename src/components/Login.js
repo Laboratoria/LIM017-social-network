@@ -19,7 +19,10 @@ export const Login = () => {
     <p id='messagePassword'></p>
     </label>
     <button id='getInto'> Iniciar sesión
-    <button id='buttonGoogle'> Ingresar con Google G
+    <button id='buttonGoogle'>Iniciar con <img class='logo-Google' src='img/google.png'> </button>
+    <div id='register-link'>
+    <p>¿No tienes cuenta? <a href='/register'><span class='link-span'><strong>Registrate</strong></span></a></p>
+    </div>
     <button id='buttonBackHome' class='buttonHome'>
     </section>
   `;
