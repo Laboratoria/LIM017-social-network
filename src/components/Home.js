@@ -5,8 +5,10 @@ import { signOff } from '../lib/application/authFirebase.js';
 
 export const Home = () => {
   const homePage = `
+
       <header class="header">
       <div>
+
         <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
         <div class='centerTitle'>
         <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
