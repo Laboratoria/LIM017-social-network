@@ -14,7 +14,7 @@ import { app } from './init.js';
 const auth = getAuth(app);
 export const firestore = getFirestore(app); // esto es db
 // usuarios
-// usuario nombre correo foto
+
 export const storeUsers = (email) => {
   addDoc(collection(firestore, 'users'), {
     email,
