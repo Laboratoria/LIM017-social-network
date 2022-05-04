@@ -18,13 +18,13 @@ export const Feed = () => {
   <img id="feed-logo" class="logo-feed" src="imagenes/logo.png">
   <div id="createNewPost">
     <p> Hola ${sessionStorage.getItem('username')}</p>
-    <button id="btnNewPost" class="btn-new"> Crear Nueva Publicación </button>
+    <button id="btnNewPost" class="submit-buttons"><p>Crear Nueva Publicación</p><i class="fa-solid fa-plus"></i></button>
   </div>
   <div class= "formContainer">
   <form id = "formNewPost" class = "hide formContainer">
     <input type = "text" id ="newPostTitle" class = "newPostTitle" placeholder = "Coloca el título de tu publicación" value= "">
     <input type = "text" id ="newPostBody" class="newPostBody" placeholder = "Escribe aquí tu publicación" value="">
-    <button type = "submit" id = "publishBtn" value="Publish"> Publicar </button>
+    <button type = "submit" id = "publishBtn" value="Publish" class="submit-buttons"> Publicar </button>
   </form>
   </div>
   <div id='feedPost1'></div>
@@ -32,7 +32,7 @@ export const Feed = () => {
   feedWrapper.innerHTML += templateFeed;
 
   const formNewPost = feedWrapper.querySelector('#formNewPost');
-  const postNew = feedWrapper.querySelector('.btn-new');
+  const postNew = feedWrapper.querySelector('.submit-buttons');
 
   postNew.addEventListener('click', () => {
     formNewPost.classList.remove('hide');
@@ -53,8 +53,8 @@ export const Feed = () => {
       // comprobar el usuario de la sesion con el que hizo el post con operador ternario
 
       const edit = (userId === post.userId) ? `
-      <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
-      <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>` : '';
+      <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Deleted<i class="fa-solid fa-trash-can fa-trash-class"></i></button>
+      <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit<i class="fa-solid fa-pen"></i></button>` : '';
 
       cleaner += `
 

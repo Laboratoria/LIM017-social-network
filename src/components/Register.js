@@ -94,7 +94,7 @@ export const SignUp = () => {
       store({ email: registerEmail.value }, 'users');
       CreateAccount(registerEmail.value, password.value);
 
-      // window.location.href = '/Feed';
+      window.location.href = '/Login';
     } else {
       alert('Las contraseñas no coinciden');
     }

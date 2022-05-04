@@ -271,7 +271,7 @@ padding-bottom: 10px;
   flex-direction: column;
   grid-area: logo;
   align-items: center;
-  width: 80%;
+  width: 40%;
   }
 
 .contenedor-section{
@@ -287,10 +287,18 @@ padding-bottom: 10px;
   flex-direction: column;
   align-items: center;
 }
-
-
-#btnNewPost{
-  padding: 10px;
+#createNewPost p{
+  color: darkcyan;
+  font-size: larger;
+  font-weight: bold;
+}
+ #btnNewPost{
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  width: 310px;
+  align-items: center;
+  /* padding: 10px;
   height: 50px;
   border: none;
   color: #225a7a;
@@ -299,12 +307,17 @@ padding-bottom: 10px;
   text-align: center;
   font-weight: bold;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
 }
-
+#btnNewPost p{
+  color: #225a7a;
+}
 #btnNewPost:hover{
   background-color: #FFF;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#btnNewPost i{
+  font-size: 40px;
 }
 
 .formContainer {
@@ -318,13 +331,28 @@ padding-bottom: 10px;
 #newPostTitle{
   font-weight: bold;
   height: 40px;
-  width: 320px;
-  font-size: large;
+  width: 350px;
+  text-align: center;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-style: italic;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 #newPostBody{
   height: 70px;
-  width: 320px;
+  width: 350px;
   font-weight: lighter;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  text-align: center;
+  font-style: italic;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 
@@ -363,20 +391,37 @@ border: 3px solid #B6E5FF;
 }
 
 .postInteraction{
-  display:flex;
+  display: grid;
   flex-direction: row;
   padding: 0 0 5px 5px;
+  grid-template: "dele edit corazon";
 }
 
 #btn-deleted{
-  width: 80px;
+  width: 90px;
   margin: 2px;
 }
+.btn-deleted-class{
+  border: none;
+  background: fixed;
+  grid-area: dele;
+  display: grid;
+  grid-template-areas: "del tacho";
+}
 #btn-edit{
-  width: 60px;
+  width: 70px;
   margin:2px
 }
-
+.btn-edit-class{
+  border: none;
+  background: fixed;
+  grid-area: edit;
+  display: grid;
+  grid-template-areas: "del pen";
+}
+.fa-trash-class{
+  grid-area: tacho;
+}
 
 /* ------------Paragraph Error------------- */
 /* .showParagraphError {
