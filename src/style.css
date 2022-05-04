@@ -260,12 +260,13 @@ padding-bottom: 10px;
 
 /* ---- Feed ---- */
 
-#FeedWrapper{
+#feed-wrapper {
   grid-template-areas:  'logo'
-                        'newPost'
+                        'new-post'
                         'form'
-                        'divPost';
+                        'div-post';
 }
+
 .logo-feed {
   display:flex;
   flex-direction: column;
@@ -274,27 +275,25 @@ padding-bottom: 10px;
   width: 80%;
   }
 
-.contenedor-section{
+.contenedor-section {
   display: flex;
   flex-direction: column;
   align-items:center;
   gap: 10px;
 }
 
-#createNewPost{
-  grid-area: newPost;
+#create-new-post {
+  grid-area: new-post;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
-#btnNewPost{
+#btn-new-post {
   padding: 10px;
   height: 50px;
   border: none;
   color: #225a7a;
-  font-family: 'comfortaa';
   font-size: 20px;
   text-align: center;
   font-weight: bold;
@@ -302,42 +301,44 @@ padding-bottom: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-#btnNewPost:hover{
+#btn-new-post:hover {
   background-color: #FFF;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.formContainer {
+.form-container {
   display:flex;
   flex-direction: column;
   gap: 5px;
 }
-#publishBtn{
+
+#publish-btn {
   width: 100%;
 }
-#newPostTitle{
+
+#new-post-title {
   font-weight: bold;
   height: 40px;
   width: 320px;
   font-size: large;
 }
-#newPostBody{
+#new-post-body {
   height: 70px;
   width: 320px;
   font-weight: lighter;
 }
 
-
-#feedPost1{
-  grid-area: divPost;
+#feed-post1 {
+  grid-area: div-post;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
 }
+
 /*Contenedores del post*/
 
-.postContainer{
+.post-container {
 display: flex;
 background: rgba(255, 255, 255, 0.2);
 border: 5px solid #5B94B2;
@@ -348,31 +349,32 @@ min-width: 340px;
 gap:15px;
 }
 
-#postTitle{
+#post-title {
   font-weight: bold;
   padding-left: 7px;
 }
-#postBody{
+
+#post-body {
 background: rgba(255, 255, 255, 0.7);
 min-height: 50px;
 text-align: justify;
 padding-top: 10px;
 padding-left: 10px;
 border: 3px solid #B6E5FF;
-
 }
 
-.postInteraction{
+.post-interaction {
   display:flex;
   flex-direction: row;
   padding: 0 0 5px 5px;
 }
 
-#btn-deleted{
+#btn-deleted {
   width: 80px;
   margin: 2px;
 }
-#btn-edit{
+
+#btn-edit {
   width: 60px;
   margin:2px
 }
@@ -399,13 +401,13 @@ border: 3px solid #B6E5FF;
 
 /*--Landing --*/
 @media screen and (min-width: 768px){
-  #landing-div-global{
+  #landing-div-global {
       grid-template-areas:'img-welcome-desktop logo-desktop'
                           'img-welcome-desktop container-desktop'
                           'img-welcome-desktop .'
                           ' . .';
   }
-  .img-bienvenida{
+  .img-bienvenida {
       grid-area: img-welcome-desktop;
       align-self: center;
       display: flex;
@@ -413,7 +415,7 @@ border: 3px solid #B6E5FF;
       margin-top: 20%;
   }
 
-  #landing-logo{
+  #landing-logo {
       grid-area: logo-desktop;
       display: flex;
       flex-direction: column;
@@ -443,6 +445,6 @@ border: 3px solid #B6E5FF;
 }
 } */
 
-.hide{
+.hide {
   display: none;
 }
