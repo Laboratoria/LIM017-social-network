@@ -39,7 +39,6 @@ export const Feed = () => {
   const formNewPost = feedWrapper.querySelector('#formNewPost');
   const postNew = feedWrapper.querySelector('.submit-buttons');
 
-
   postNew.addEventListener('click', () => {
     formNewPost.classList.remove('hide');
   });
@@ -50,7 +49,7 @@ export const Feed = () => {
   // variable que me indica el estado de edición
   let editStatus = false;
   let id = '';
-  const feedPostWrapper = feedWrapper.querySelector('#feed-post1');
+  const feedPostWrapper = feedWrapper.querySelector('#feedPost1');
   onGetPostInRealTime((querySnapShot) => {
     let cleaner = '';
     querySnapShot.forEach((doc) => {
@@ -59,9 +58,8 @@ export const Feed = () => {
       // comprobar el usuario de la sesion con el que hizo el post con operador ternario
 
       const edit = (userId === post.userId) ? `
-      <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Deleted<i class="fa-solid fa-trash-can fa-trash-class"></i></button>
-      <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit<i class="fa-solid fa-pen"></i></button>` : '';
-
+      <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Borrar<i class="fa-solid fa-trash-can fa-trash-class"></i></button>
+      <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Editar<i class="fa-solid fa-pen"></i></button>` : '';
 
       cleaner += `
 
@@ -78,6 +76,7 @@ export const Feed = () => {
       </section>
     `;
     });
+
     feedPostWrapper.innerHTML = cleaner;
 
     // Modal deleted
