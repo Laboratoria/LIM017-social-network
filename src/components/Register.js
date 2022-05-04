@@ -57,7 +57,7 @@ export const SignUp = () => {
     const inputValue = event.target.value;
 
     // Function that performs regex validation should go here
-    if (!inputValue.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)) {
+    if (!inputValue.match(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/g)) {
       alert('Correo inválido - Verifica tu dirección de correo');
     }
   });
@@ -135,7 +135,6 @@ export const SignUp = () => {
     createAccountByGoogle();
 
     // setTimeout(2000, window.location.href = '/Feed');
-
   });
 
   // add botones al container, container a div global

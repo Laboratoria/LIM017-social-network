@@ -1,6 +1,11 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 import {
-  store, onGetPostInRealTime, deletePost, getSinglePost, updatePost,
+  store,
+  onGetPostInRealTime,
+  deletePost,
+  getSinglePost,
+  updatePost,
 } from '../Firebase/firestore.js';
 
 export const Feed = () => {
@@ -12,7 +17,7 @@ export const Feed = () => {
   }
 
   const feedWrapper = document.createElement('div');
-  feedWrapper.id = 'feedWrapper';
+  feedWrapper.id = 'feed-wrapper';
   const templateFeed = `
   <section id="feed" class= "contenedor-section">
   <img id="feed-logo" class="logo-feed" src="imagenes/logo.png">
@@ -34,17 +39,18 @@ export const Feed = () => {
   const formNewPost = feedWrapper.querySelector('#formNewPost');
   const postNew = feedWrapper.querySelector('.submit-buttons');
 
+
   postNew.addEventListener('click', () => {
     formNewPost.classList.remove('hide');
   });
 
   // Cuadros de texto rellenables
-  const newPostTitle = feedWrapper.querySelector('#newPostTitle');
-  const newPostBody = feedWrapper.querySelector('#newPostBody');
+  const newPostTitle = feedWrapper.querySelector('#new-post-title');
+  const newPostBody = feedWrapper.querySelector('#new-post-body');
   // variable que me indica el estado de edición
   let editStatus = false;
   let id = '';
-  const feedPostWrapper = feedWrapper.querySelector('#feedPost1');
+  const feedPostWrapper = feedWrapper.querySelector('#feed-post1');
   onGetPostInRealTime((querySnapShot) => {
     let cleaner = '';
     querySnapShot.forEach((doc) => {
@@ -56,20 +62,21 @@ export const Feed = () => {
       <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Deleted<i class="fa-solid fa-trash-can fa-trash-class"></i></button>
       <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit<i class="fa-solid fa-pen"></i></button>` : '';
 
+
       cleaner += `
 
-      <section id='postContainer' class= "postContainer">
-        <div id='userInfoDiv'>
-        <p id='user-name'></p>
+      <section id='post-container' class= "post-container">
+        <div id='user-info-div'>
+          <p id='user-name'></p>
         </div>
-        <div id='postTitle'>${post.title}</div>
-        <div id='postBody'>${post.body}</div>
-        <div id="interaction" class="postInteraction">
+        <div id='post-title'>${post.title}</div>
+        <div id='post-body'>${post.body}</div>
+        <div id="interaction" class="postnteraction">
           ${edit}
           <div id='like-container'></div>
         </div>
       </section>
-      `;
+    `;
     });
     feedPostWrapper.innerHTML = cleaner;
 
@@ -77,6 +84,7 @@ export const Feed = () => {
     const btnsDeletePost = feedPostWrapper.querySelectorAll('.btn-deleted-class');
     btnsDeletePost.forEach((btn) => {
       btn.addEventListener('click', (event) => {
+        // eslint-disable-next-line no-restricted-globals
         const confirmDelete = confirm('¿Seguro que quieres borrar esta publicación?');
         if (confirmDelete) {
           deletePost(event.target.dataset.id);
