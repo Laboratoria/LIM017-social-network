@@ -20,25 +20,25 @@ export const Feed = () => {
   feedWrapper.id = 'feed-wrapper';
   const templateFeed = `
   <section id="feed" class= "contenedor-section">
-    <img id="feed-logo" class="logo-feed" src="imagenes/logo.png">
-    <div id="create-new-post">
-      <p> Hola ${sessionStorage.getItem('username')}</p>
-      <button id="btn-new-post" class="btn-new"> Crear Nueva Publicación </button>
-    </div>
-    <div class= "form-container">
-      <form id = "form-new-post" class = "hide form-container">
-        <input type = "text" id ="new-post-title" class = "new-post-title" placeholder = "Coloca el título de tu publicación" value= "">
-        <input type = "text" id ="new-post-body" class="new-post-body" placeholder = "Escribe aquí tu publicación" value="">
-        <button type = "submit" id = "publish-btn" value="Publish"> Publicar </button>
-      </form>
-    </div>
-    <div id='feed-post1'></div>
-  </section>
+  <img id="feed-logo" class="logo-feed" src="imagenes/logo.png">
+  <div id="createNewPost">
+    <p> Hola ${sessionStorage.getItem('username')}</p>
+    <button id="btnNewPost" class="submit-buttons"><p>Crear Nueva Publicación</p><i class="fa-solid fa-plus"></i></button>
+  </div>
+  <div class= "formContainer">
+  <form id = "formNewPost" class = "hide formContainer">
+    <input type = "text" id ="newPostTitle" class = "newPostTitle" placeholder = "Coloca el título de tu publicación" value= "">
+    <input type = "text" id ="newPostBody" class="newPostBody" placeholder = "Escribe aquí tu publicación" value="">
+    <button type = "submit" id = "publishBtn" value="Publish" class="submit-buttons"> Publicar </button>
+  </form>
+  </div>
+  <div id='feedPost1'></div>
   `;
   feedWrapper.innerHTML += templateFeed;
 
-  const formNewPost = feedWrapper.querySelector('#form-new-post');
-  const postNew = feedWrapper.querySelector('.btn-new');
+  const formNewPost = feedWrapper.querySelector('#formNewPost');
+  const postNew = feedWrapper.querySelector('.submit-buttons');
+
 
   postNew.addEventListener('click', () => {
     formNewPost.classList.remove('hide');
@@ -59,8 +59,9 @@ export const Feed = () => {
       // comprobar el usuario de la sesion con el que hizo el post con operador ternario
 
       const edit = (userId === post.userId) ? `
-        <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
-        <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>` : '';
+      <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Deleted<i class="fa-solid fa-trash-can fa-trash-class"></i></button>
+      <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit<i class="fa-solid fa-pen"></i></button>` : '';
+
 
       cleaner += `
 
