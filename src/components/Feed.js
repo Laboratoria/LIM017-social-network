@@ -49,16 +49,23 @@ export const Feed = () => {
     let cleaner = '';
     querySnapShot.forEach((doc) => {
       const post = doc.data();
+
+      // comprobar el usuario de la sesion con el que hizo el post con operador ternario
+
+      const edit = (userId === post.userId) ? `
+      <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
+      <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>` : '';
+
       cleaner += `
-    <section id='postContainer' class= "postContainer">
+
+      <section id='postContainer' class= "postContainer">
         <div id='userInfoDiv'>
         <p id='user-name'></p>
         </div>
         <div id='postTitle'>${post.title}</div>
         <div id='postBody'>${post.body}</div>
         <div id="interaction" class="postInteraction">
-          <button id="btn-deleted" class="btn-deleted-class" data-id="${doc.id}">Delete</button>
-          <button id="btn-edit" class="btn-edit-class" data-id="${doc.id}">Edit</button>
+          ${edit}
           <div id='like-container'></div>
         </div>
       </section>
