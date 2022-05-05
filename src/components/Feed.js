@@ -7,6 +7,7 @@ import {
   getSinglePost,
   updatePost,
 } from '../Firebase/firestore.js';
+import { firestore } from '../Firebase/init.js';
 
 export const Feed = () => {
   const userId = sessionStorage.getItem('uid');

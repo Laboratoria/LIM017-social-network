@@ -453,6 +453,7 @@ footer {
   grid-template-areas: "del tacho";
   background-color: rgba(247, 161, 47, 0.7);
   border-radius: 25%;
+  cursor: pointer;
 }
 #btn-edit {
   width: 100px;
@@ -466,6 +467,7 @@ footer {
   grid-template-areas: "del pen";
   background-color: #b6e5ff;
   border-radius: 25%;
+  cursor: pointer;
 }
 .fa-trash-class {
   grid-area: tacho;
