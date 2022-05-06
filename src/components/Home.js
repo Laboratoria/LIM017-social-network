@@ -2,11 +2,14 @@
 import { onNavigate } from '../lib/application/controller.js';
 // eslint-disable-next-line import/no-cycle
 import { signOff } from '../lib/application/authFirebase.js';
+import { postCollection } from '../lib/application/dataFirestore.js';
 
 export const Home = () => {
   const homePage = `
-      <header class="header">
+
+      <section class="header">
       <div>
+
         <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
         <div class='centerTitle'>
         <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
@@ -18,9 +21,21 @@ export const Home = () => {
           <li><a type="button" class='buttonNav' id='buttonNavProfile'>Perfil</a></li>
           <li><a type="button" class='buttonNav' id='singOutBttn'>Cerrar sesión</a></li>
         </ul>
-       </header>
-       <body>
-       </body>
+        </div>
+        
+       </section>
+       <section class='abc'>
+      <form class='form' target="_blank">
+        <p>Cuentanos tu experiencia viajando:</p>
+        <p><textarea cols="80"  
+        rows="10" class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
+        <input type="button" value="Publicar">
+        <input type="reset" value="Borrar todo">
+      </form>
+
+       </section>
+      
+       
    `;
   const viewHomePage = document.createElement('div');
   viewHomePage.className = 'viewContainerHome';
@@ -40,5 +55,8 @@ export const Home = () => {
         console.log('No pudo cerrar sesión', error);
       });
   });
+
+  postCollection();
+
   return viewHomePage;
 };
