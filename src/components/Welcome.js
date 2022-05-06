@@ -4,6 +4,7 @@ import { onNavigate } from '../lib/application/controller.js';
 
 export const Welcome = () => {
   const welcome = `
+
   <section class='conatinerWelcome'>
   <section class='text-container-'>
   <div>
@@ -16,6 +17,7 @@ export const Welcome = () => {
   <button id='buttonLogin'> Inicia sesión </button>
   </div>
     </section>
+
     </section>
     `;
 
