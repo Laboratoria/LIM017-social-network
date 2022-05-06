@@ -1,9 +1,30 @@
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+}
+  from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+
 import { firebaseConfig } from './config.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut, updateProfile } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { app } from './init.js';
 
-
+export {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+};
 export const app = initializeApp(firebaseConfig);
-export { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut, updateProfile };
+
+export { getFirestore, collection, addDoc };

@@ -5,7 +5,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable eol-last */
 // eslint-disable-next-line object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut, updateProfile } from './init.js';
+import { getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from './init.js';
 import { app } from './init.js';
 import { onNavigate } from './controller.js';
 

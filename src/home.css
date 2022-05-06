@@ -2,9 +2,9 @@
 a {
   color: #ffffff;
 }
-header{
+.header{
    margin: 0%;
-  position: absolute;
+/*   position: absolute; */
   padding: 0%;
   background: linear-gradient(hsl(110, 90%, 72%), #277eff);
   box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
@@ -21,6 +21,39 @@ header{
   height: 40%;
   
 }*/
+.abc{
+  /* margin-top: 30%; */
+  font-size: 20px;
+  color:rebeccapurple;
+}
+.form{
+  display: flex;
+/*   align-content:center ; */
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+}
+#comment-post{
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);;
+  border: 1px solid #2a7983;
+  width:30%;
+  padding: .5rem;
+  min-height: 3rem;
+ color: black;
+  font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 8px;
+   
+
+}
+.comment-post :empty::before {
+  position: absolute;
+  content: "Write here...";
+}
+
+
 .logo{
   max-height: 150px;
   margin: 0%;
