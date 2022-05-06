@@ -29,10 +29,10 @@ export const Home = () => {
         <p>Cuentanos tu experiencia viajando:</p>
         <p><textarea cols="80"  
         rows="10" class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
-        <input type="button" value="Publicar">
+        <input type="button" id='publish' value="Publicar">
         <input type="reset" value="Borrar todo">
       </form>
-
+        <div id='post-container'></div>
        </section>
       
        
@@ -41,22 +41,29 @@ export const Home = () => {
   viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
 
-  viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
-    onNavigate('/home');
-  });
-  viewHomePage.querySelector('#buttonNavProfile').addEventListener('click', () => {
-    onNavigate('/profile');
+  viewHomePage.querySelector('#publish').addEventListener('click', () => {
+    const prueba = viewHomePage.querySelector('#comment-post').value;
+    console.log(prueba);
+
+    viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
+      onNavigate('/home');
+    });
+    viewHomePage.querySelector('#buttonNavProfile').addEventListener('click', () => {
+      onNavigate('/profile');
+    });
+
+    viewHomePage.querySelector('#singOutBttn').addEventListener('click', () => {
+      signOff()
+        .then(() => onNavigate('/'))
+        .catch((error) => {
+          console.log('No pudo cerrar sesión', error);
+        });
+    });
+
+    postCollection();
+    prueba.reset(); 
   });
 
-  viewHomePage.querySelector('#singOutBttn').addEventListener('click', () => {
-    signOff()
-      .then(() => onNavigate('/'))
-      .catch((error) => {
-        console.log('No pudo cerrar sesión', error);
-      });
-  });
-
-  postCollection();
-
+  /* console.log(indexOf(textarea)); */
   return viewHomePage;
 };

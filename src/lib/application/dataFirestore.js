@@ -8,10 +8,10 @@ import {
 export const db = getFirestore(app); // agregado
 
 export const postCollection = async () => {
-  // collection(db, 'post');
+  
   try {
-    const docRef = await addDoc(collection(db, 'users'), {
-      first: 'Ada',
+    const docRef = await addDoc(collection(db, 'postColection'), {
+      first: 'Ana',
       last: 'Lovelace',
       born: 1815,
     });
