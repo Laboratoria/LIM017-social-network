@@ -9,8 +9,7 @@ export const Home = () => {
 
       <section class="header">
       <div>
-
-        <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" </div>
+        <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" ></div>
         <div class='centerTitle'>
         <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
         </div>
@@ -24,22 +23,33 @@ export const Home = () => {
         </div>
         
        </section>
+       <div id='cajita'>
        <section class='abc'>
       <form class='form' target="_blank">
         <p>Cuentanos tu experiencia viajando:</p>
         <p><textarea cols="80"
         rows="10" class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
-        <input type="button" value="Publicar">
-        <input type="reset" value="Borrar todo">
+        <input type="button" id='publish' value="Publicar">
+        <input type="reset" id='deleteCamp' value="Borrar todo">
       </form>
-
-       </section>
-      
-       
+      </div>
+      </section>
+      <div id='post-Publish'>
+      <div>aca va el post</div>
+      </div>
    `;
   const viewHomePage = document.createElement('div');
   viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
+
+  viewHomePage.querySelector('#publish').addEventListener('click', async () => {
+    const postContainer = viewHomePage.querySelector('#comment-post').value;
+    const postD = viewHomePage.querySelector('#post-Publish');
+    await postCollection(postContainer);
+    // agregarle currentUser para enlazar el user con el post
+    // enlistar los post
+    postD.innerHTML = postContainer;
+  });
 
   viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
     onNavigate('/home');
