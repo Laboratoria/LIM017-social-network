@@ -11,6 +11,15 @@ a {
   width: 100%;
   height: 15%;
 }
+#cajita{
+  border-radius: 5px;
+  border: 1px solid #2a832a;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+
+}
 /*.header{
   margin: 0%;
   position: absolute;
@@ -21,9 +30,14 @@ a {
   height: 40%;
   
 }*/
+#publish, #deleteCamp{
+  background-color:#ffffff ;
+  border-radius: 10px;
+  display: flex; 
+}
 .abc{
   /* margin-top: 30%; */
-  font-size: 20px;
+  font-size: 17px;
   color:rebeccapurple;
 }
 .form{
@@ -31,10 +45,10 @@ a {
 /*   align-content:center ; */
   align-items: center;
   flex-direction: column;
-  font-size: 30px;
+  font-size: 20px;
 }
 #comment-post{
-  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);;
+ /*  //background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);; */
   border: 1px solid #2a7983;
   width:80%;
   padding: .5rem;
@@ -42,16 +56,25 @@ a {
  color: black;
   font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    text-align: center;
     margin-top: 2px;
     margin-bottom: 8px;
    
 
 }
-.comment-post :empty::before {
+comment-post :empty::before {
   position: absolute;
   content: "Write here...";
 }
+#post-Publish{
+  border: 1px solid #2a7983;
+  width:80%;
+  height: 200px;
+  display: block;
+  justify-content: center;
+  margin: auto;
+  margin-top: 15px;
+}
+
 
 
 .logo{

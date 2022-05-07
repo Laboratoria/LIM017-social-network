@@ -15,7 +15,6 @@ import { getAuth,
   updateProfile,
 } from './init.js';
 import { app } from './init.js';
-import { onNavigate } from './controller.js';
 
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
