@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import {
   app,
   getFirestore,
@@ -5,6 +6,8 @@ import {
   addDoc,
   getDocs,
   serverTimestamp,
+  onSnapshot,
+  doc,
 } from './init.js'; // agregado
 
 export const db = getFirestore(app); // agregado
@@ -13,9 +16,10 @@ export const postCollection = async (postDescription) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       text: postDescription,
-      author: '',
+      author: localStorage.getItem('userEmail'),
       like: [],
-      date: serverTimestamp(),
+      date: new Date().toLocaleDateString('es'),
+
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -23,3 +27,10 @@ export const postCollection = async (postDescription) => {
   }
 };
 export const getPost = () => getDocs(collection(db, 'posts'));
+
+// export const onGetPosts = () => console.log('onGetPosts'); //Cuando se traigan nuevos posts
+
+/* export const onGetPosts = onSnapshot(doc(db, 'posts'), (doc) => {
+  console.log('Data actual: ', doc.data());
+}); */
+export const onGetPosts = (callback) => onSnapshot(collection(db, 'posts'), callback);

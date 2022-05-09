@@ -59,7 +59,13 @@ export const Login = () => {
   });
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle().then(() => { onNavigate('/home'); });
+    signInWithGoogle().then((userCredential) => {
+      console.log(userCredential); 
+      const user = userCredential.user;
+      localStorage.setItem('userEmail', user.email);
+      onNavigate('/home'); 
+
+    });
   });
   viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
   return viewLoginPage;
