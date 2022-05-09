@@ -1,6 +1,14 @@
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import {
+  getFirestore,
+  collection,
+  addDoc, getDocs,
+  serverTimestamp,
+  onSnapshot,
+  doc,
+  Timestamp,
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -24,7 +32,11 @@ export {
   signInWithPopup,
   signOut,
   updateProfile,
+  Timestamp,
 };
 export const app = initializeApp(firebaseConfig);
+export const getCurrentUser = getAuth().currentUser;
 
-export { getFirestore, collection, addDoc, getDocs, serverTimestamp };
+export {
+  getFirestore, collection, addDoc, getDocs, serverTimestamp, onSnapshot, doc,
+};

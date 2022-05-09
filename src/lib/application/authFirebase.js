@@ -58,6 +58,8 @@ export const loginUser = (email, password) => (
       const user = userCredential.user;
       console.log(user);
       console.log(user.emailVerified);
+      localStorage.setItem('userEmail', user.email);
+
       return user;
     })
     .catch((error) => {
