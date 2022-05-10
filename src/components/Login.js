@@ -41,9 +41,9 @@ export const Login = () => {
     const messageEmail = viewLoginPage.querySelector('#messageEmail');
     const messagePassword = viewLoginPage.querySelector('#messagePassword');
     if (emailValue.value === '') {
-      messageEmail.innerHTML = 'Campo email vacio';
+      messageEmail.innerHTML = 'Campo email vacio.';
     } if (passwordValue.value === '') {
-      messagePassword.innerHTML = 'Campo de contraseña vacio';
+      messagePassword.innerHTML = 'Campo de contraseña vacio.';
     }
     e.preventDefault();
     loginUser(emailValue.value, passwordValue.value) // --------nuevos cambios--------
