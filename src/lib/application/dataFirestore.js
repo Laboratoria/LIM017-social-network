@@ -5,6 +5,7 @@ import {
   addDoc,
   getDocs,
   serverTimestamp,
+  onSnapshot,
 } from './init.js'; // agregado
 
 export const db = getFirestore(app); // agregado
@@ -23,3 +24,4 @@ export const postCollection = async (postDescription) => {
   }
 };
 export const getPost = () => getDocs(collection(db, 'posts'));
+export const onGetPosts = (callback) => onSnapshot(collection(db, 'posts'), callback);
