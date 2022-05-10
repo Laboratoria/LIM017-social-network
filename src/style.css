@@ -152,7 +152,7 @@ label{
 
 
 }
-#messageEmail, #messagePassword{
+#messageEmail, #messagePassword, #errorCodeMessage{
     font-size: 18px;
     color:#f30000;
     font-family: inherit;

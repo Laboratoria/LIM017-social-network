@@ -61,7 +61,13 @@ export const Register = () => {
         messageVerificado.innerHTML = 'Usuario creado correctamente';
         console.log(user);
         modiedPerfil(nameValue.value);
-        sendEmailVerificationFirebase();
+        sendEmailVerificationFirebase().then(() => {
+      // eslint-disable-next-line no-alert
+      alert('Ya se envio tu correo de verificación');
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
         setTimeout(() => {
           onNavigate('/login');
         }, 5000);
@@ -71,7 +77,7 @@ export const Register = () => {
     switch (error.message) {
       case 'Firebase: Error (auth/missing-email).': messageEmail.innerHTML = 'El correo es obligatorio'; break;
       case 'Firebase: Error (auth/invalid-email).': messageEmail.innerHTML = 'Digite un correo válido'; break;
-      case 'Firebase: Error (auth/email-already-in-use).': messageEmail.innerHTML = 'Este correo ya esta registrado, intente de nuevo.'; break;
+      case 'Firebase: Error (auth/email-already-in-use).': messageEmail.innerHTML = 'El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'; break;
       case 'Firebase: Error (auth/internal-error).': messagePassword.innerHTML = 'La contraseña es obligatoria'; break;
       default: return error.message;
     }
