@@ -11,12 +11,13 @@ export const Login = () => {
     <img class='img-responsive' src='img/cuyLog.png'>
     <p class=text-Register>Login</p>
     <label for='nameEmail'>Email
-    <input type='text' id='loginEmail' placeholder ='Ingresar correo' name ='nameEmail'>
+    <input type='text' id='loginEmail' placeholder ='Ingresar correo' name ='nameEmail' required>
     </label>
     <label for='namePassword'>Contraseña
-    <input type= 'password' id='loginPassword' placeholder ='Ingresar contraseña' name ='namePassword'>
+    <input type= 'password' id='loginPassword' placeholder ='Ingresar contraseña' name ='namePassword' required>
     <p id='messageEmail'></p>
     <p id='messagePassword'></p>
+    <p id='errorCodeMessage'></p>
     </label>
     <button id='getInto'> Iniciar sesión
     <button id='buttonGoogle'>Iniciar con <img class='logo-Google' src='img/google.png'> </button>
@@ -35,28 +36,48 @@ export const Login = () => {
     console.log(emailValue);
     const passwordValue = viewLoginPage.querySelector('#loginPassword');
     console.log(passwordValue);
+    const errorCodeMessage = viewLoginPage.querySelector('#errorCodeMessage');
 
     const messageEmail = viewLoginPage.querySelector('#messageEmail');
     const messagePassword = viewLoginPage.querySelector('#messagePassword');
     if (emailValue.value === '') {
-      messageEmail.innerHTML = 'campo email vacio';
+      messageEmail.innerHTML = 'Campo email vacio.';
     } if (passwordValue.value === '') {
-      messagePassword.innerHTML = 'campo Password vacio';
+      messagePassword.innerHTML = 'Campo de contraseña vacio.';
     }
     e.preventDefault();
-    loginUser(emailValue.value, passwordValue.value)
-      .then((user) => {
+    loginUser(emailValue.value, passwordValue.value) // --------nuevos cambios--------
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        console.log(user.emailVerified);
         if (user.emailVerified === true) {
           onNavigate('/home');
         } else {
           alert('Por favor verifica tu bandeja');
           onNavigate('/login');
         }
-      }).catch(() => {
-        alert('Campos invalidos');
-        onNavigate('/login');
+        localStorage.setItem('userEmail', user.email);
+        return user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        switch (errorCode) {
+          case 'auth/user-not-found':
+            errorCodeMessage.innerHTML = 'No hay usuario registrado con ese correo., verifica e intente de nuevo.';
+            break;
+          case 'auth/invalid-email':
+            alert('El correo ingresado es inválido');
+            break;
+          case 'auth/wrong-password':
+            errorCodeMessage.innerHTML = 'La contraseña no es válida, verifica e intente de nuevo.';
+            break;
+          default: return errorCode;
+        }
+        return errorCode;
+        // onNavigate('/login');
       });
-  });
+  });// --------nuevos cambios--------
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
     signInWithGoogle().then((userCredential) => {

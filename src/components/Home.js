@@ -7,7 +7,7 @@ import { postCollection, onGetPosts } from '../lib/application/dataFirestore.js'
 export const Home = () => {
   const homePage = `
       <section class="header">
-         <div>
+        <div>
             <div><img class="logo" src="img/cuyMap.png" alt="" srcset="" ></div>
             <div class='centerTitle'>
             <a href="" class="titleCuyViajero"> <strong>Cuy Viajero</strong></a>
@@ -20,21 +20,20 @@ export const Home = () => {
                 <li><a type="button" class='buttonNav' id='singOutBttn'>Cerrar sesión</a></li>
               </ul>
           </div>
-        
-      </section> 
-       <div id='box-comment'>
+      </section>
+        <div id='box-comment'>
           <section class='abc'>
             <form class='form' target="_blank">
               <p>Cuentanos tu experiencia viajando:</p>
               <p><textarea  class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
               <input type="button" id='publish' value="Publicar">
               <input type="reset" id='deleteCamp' value="Borrar todo">
-            </form> 
+            </form>
           </section>
-       </div>
+      </div>
       <div id='post-Publish'>
       </div>
-   `;
+  `;
   const viewHomePage = document.createElement('div');
   viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
@@ -46,7 +45,7 @@ export const Home = () => {
 
       console.log(doc.data());
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
-      html += ` 
+      html += `
             <div>
             <p>${dataPost.text} </p>
             <p>${dataPost.author} </p>
