@@ -35,30 +35,42 @@ export const Home = () => {
       </div>
   `;
   const viewHomePage = document.createElement('div');
+
   viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
+
   const postContainer = viewHomePage.querySelector('#post-Publish'); // espacio para almacenar los post
   onGetPosts((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const dataPost = doc.data();
-
+      console.log(doc.id);
       console.log(doc.data());
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-            <div>
+            <div class='post-separacion'>
+            <p id='nameUserPost'>${dataPost.author} </p> 
+            <p id='nameUserPost'>${dataPost.date} </p> 
             <p>${dataPost.text} </p>
-            <p>${dataPost.author} </p>
+            <div>
+            <button class='btnDelete' $ ${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'} data-id='${doc.id}'>🗑 Delete</button>
+            <button class='btnEdit' $ ${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'} data-id='${doc.id}'>Editar</button>
+            </div> 
+            </div> 
             </div>
             `;
     });
     postContainer.innerHTML = html;
   });
 
+  // --------------BORRAR POST---------------
+
+  // postContainer.querySelector('.btnDelete').addEventListener('click', () => {
+  //   console.log('borrando');
+  // });
   /* ----------EVENTO PUBLICAR EL POST--------- */
   viewHomePage.querySelector('#publish').addEventListener('click', () => {
     const postBox = viewHomePage.querySelector('#comment-post').value; // Valor del post
-
     postCollection(postBox);
     postContainer.innerHTML = postBox;
     console.log(postBox);

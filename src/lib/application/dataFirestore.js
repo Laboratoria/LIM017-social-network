@@ -6,7 +6,8 @@ import {
   addDoc,
   getDocs,
   onSnapshot,
-  // doc,
+  deleteDoc,
+  doc,
 } from './init.js'; // agregado
 
 export const db = getFirestore(app); // agregado
@@ -26,6 +27,8 @@ export const postCollection = async (postDescription) => {
   }
 };
 export const getPost = () => getDocs(collection(db, 'posts'));
+
+export const deletePost = (id) => deleteDoc(doc(db, 'post', id));
 
 // export const onGetPosts = () => console.log('onGetPosts'); //Cuando se traigan nuevos posts
 
