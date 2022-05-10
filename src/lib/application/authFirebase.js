@@ -21,17 +21,15 @@ export const provider = new GoogleAuthProvider();
 /* export const signInWithRedirect(auth, provider); */
 /* console.log(signInWithRedirect); */
 
-export const sendEmailVerificationFirebase = () => {
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
+export const sendEmailVerificationFirebase = () => sendEmailVerification(auth.currentUser);
+/*  .then(() => {
       // eslint-disable-next-line no-alert
       alert('Ya se envio tu correo de verificación');
     })
     .catch((err) => {
       console.log(err.message);
-    });
-  // eslint-disable-next-line semi
-}
+    }); */
+// eslint-disable-next-line semi
 
 export const registerWithEmail = (email, password) => (
   createUserWithEmailAndPassword(auth, email, password)
@@ -51,26 +49,26 @@ export const registerWithEmail = (email, password) => (
     }) */
 // eslint-disable-next-line semi
 )
-export const loginUser = (email, password) => (
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+// ya esta modificado en login
+/* .then((userCredential) => {
     // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      console.log(user.emailVerified);
-      localStorage.setItem('userEmail', user.email);
+    const user = userCredential.user;
+    console.log(user);
+    console.log(user.emailVerified);
+    localStorage.setItem('userEmail', user.email);
 
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode);
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      return errorCode;
-    })
+    return user;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    console.log(errorCode);
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    return errorCode;
+  }); */
 // eslint-disable-next-line semi
-)
+
 export const signOff = () => signOut(auth);
 
 export const signInWithGoogle = () => (
