@@ -2,7 +2,7 @@
 import { onNavigate } from '../lib/application/controller.js';
 // eslint-disable-next-line import/no-cycle
 import { signOff } from '../lib/application/authFirebase.js';
-import { postCollection, getPost } from '../lib/application/dataFirestore.js';
+import { postCollection, onGetPosts } from '../lib/application/dataFirestore.js';
 
 export const Home = () => {
   const homePage = `
@@ -21,38 +21,52 @@ export const Home = () => {
               </ul>
           </div>
       </section>
-      <div id='cajita'>
+        <div id='box-comment'>
           <section class='abc'>
             <form class='form' target="_blank">
               <p>Cuentanos tu experiencia viajando:</p>
-              <p><textarea cols="80"
-              rows="10" class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
+              <p><textarea  class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
               <input type="button" id='publish' value="Publicar">
               <input type="reset" id='deleteCamp' value="Borrar todo">
             </form>
           </section>
       </div>
       <div id='post-Publish'>
-      <div>aca va el post</div>
       </div>
   `;
   const viewHomePage = document.createElement('div');
   viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
-  /* ----------EVENTO PUBLICAR EL POST--------- */
-  viewHomePage.querySelector('#publish').addEventListener('click', async () => {
-    const postContainer = viewHomePage.querySelector('#comment-post').value;
-    const postD = viewHomePage.querySelector('#post-Publish');
-    await postCollection(postContainer);
-    // agregarle currentUser para enlazar el user con el post
-    // enlistar los post
-    postD.innerHTML = postContainer;
-    const querySnapshot = await getPost();
+  const postContainer = viewHomePage.querySelector('#post-Publish'); // espacio para almacenar los post
+  onGetPosts((querySnapshot) => {
+    let html = '';
     querySnapshot.forEach((doc) => {
+      const dataPost = doc.data();
+
       console.log(doc.data());
+      // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
+      html += `
+            <div>
+            <p>${dataPost.text} </p>
+            <p>${dataPost.author} </p>
+            </div>
+            `;
     });
+    postContainer.innerHTML = html;
+  });
+
+  /* ----------EVENTO PUBLICAR EL POST--------- */
+  viewHomePage.querySelector('#publish').addEventListener('click', () => {
+    const postBox = viewHomePage.querySelector('#comment-post').value; // Valor del post
+
+    postCollection(postBox);
+    postContainer.innerHTML = postBox;
+    console.log(postBox);
+    /* const querySnapshot = await getPost(); */
+
     /* console.log(querySnapshot); */
   });
+
   /* --------BOTONES BARRA DE NAVEGACIÓN ---------*/
   viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
     onNavigate('/home');
