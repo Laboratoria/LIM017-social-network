@@ -2,7 +2,7 @@
 import { onNavigate } from '../lib/application/controller.js';
 // eslint-disable-next-line import/no-cycle
 import { signOff } from '../lib/application/authFirebase.js';
-import { postCollection, onGetPosts } from '../lib/application/dataFirestore.js';
+import { postCollection, onGetPosts , deletePost } from '../lib/application/dataFirestore.js';
 
 export const Home = () => {
   const homePage = `
@@ -49,25 +49,37 @@ export const Home = () => {
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
             <div class='post-separacion'>
-            <p id='nameUserPost'>${dataPost.author} </p> 
-            <p id='nameUserPost'>${dataPost.date} </p> 
+            <p id='nameUserPost'>${dataPost.author} </p>
+            <p id='nameUserPost'>${dataPost.date} </p>
             <p>${dataPost.text} </p>
             <div>
-            <button class='btnDelete' $ ${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'} data-id='${doc.id}'>🗑 Delete</button>
-            <button class='btnEdit' $ ${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'} data-id='${doc.id}'>Editar</button>
-            </div> 
-            </div> 
+            <button data-id="${doc.id}" class='btn-Delete'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}>Eliminar</button>
+            </div>
+            </div>
             </div>
             `;
     });
     postContainer.innerHTML = html;
+    const btnDelete = postContainer.querySelectorAll('.btn-Delete');
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', async ({ target: { dataset } }) => {
+        try {
+          confirm("seguro que quiere borrar?");
+          await deletePost(dataset.id);
+
+        } catch (error) {
+          console.log(error);
+        }
+      });
   });
+});
 
   // --------------BORRAR POST---------------
 
-  // postContainer.querySelector('.btnDelete').addEventListener('click', () => {
-  //   console.log('borrando');
-  // });
+  /* const btndeletHtml = html.querySelectorAll('.btnDelete');
+  btndeletHtml.addEventListener('click', () => {
+    console.log('borrando');
+  }); */
   /* ----------EVENTO PUBLICAR EL POST--------- */
   viewHomePage.querySelector('#publish').addEventListener('click', () => {
     const postBox = viewHomePage.querySelector('#comment-post').value; // Valor del post
