@@ -8,6 +8,8 @@ import {
     onSnapshot,
     deleteDoc,
     doc,
+    query,
+  orderBy,
   } from './init.js'; // agregado
   
   export const db = getFirestore(app); // agregado
@@ -35,4 +37,7 @@ import {
   /* export const onGetPosts = onSnapshot(doc(db, 'posts'), (doc) => {
     console.log('Data actual: ', doc.data());
   }); */
-  export const onGetPosts = (callback) => onSnapshot(collection(db, 'posts'), callback);
+  // export const onGetPosts = (callback) => onSnapshot(query(collection(db, 'posts'), orderBy('date', 'desc')), callback);
+
+  // const q = query(citiesRef, orderBy("name"), limit(3));
+  // export const onGetPostFb = (callback) => onSnapshot(query(collection(db, 'post'), orderBy('date', 'desc')), callback);

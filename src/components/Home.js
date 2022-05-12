@@ -64,9 +64,10 @@ export const Home = () => {
     btnDelete.forEach((btn) => {
       btn.addEventListener('click', async ({ target: { dataset } }) => {
         try {
-          confirm("seguro que quiere borrar?");
+        let confirmDelet =  confirm("Estás seguro que quieres borrar?");
+        if (confirmDelet == true) {
           await deletePost(dataset.id);
-
+        }
         } catch (error) {
           console.log(error);
         }
@@ -84,7 +85,7 @@ export const Home = () => {
   viewHomePage.querySelector('#publish').addEventListener('click', () => {
     const postBox = viewHomePage.querySelector('#comment-post').value; // Valor del post
     postCollection(postBox);
-    postContainer.innerHTML = postBox;
+    viewHomePage.querySelector('#comment-post').value= "";
     console.log(postBox);
     /* const querySnapshot = await getPost(); */
 
