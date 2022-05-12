@@ -75,14 +75,17 @@ export const signInWithGoogle = () => (
   signInWithPopup(auth, provider)
 );
 
-export const modiedPerfil = (name) => updateProfile(auth.currentUser, {
+export const modiedPerfil = (name, photoUser) => updateProfile(auth.currentUser, {
   displayName: name,
-}).then(() => {
-  console.log('estamos cambiando nombre');
-  // Profile updated!
-  // ...
-}).catch((error) => {
-  console.log('este es un mensaje de error del nombre de perfil');
+  photoURL: photoUser,
+})
+  .then(() => {
+    console.log('estamos cambiando nombre');
+    // Profile updated!
+    // ...
+    console.log(modiedPerfil);
+  }).catch((error) => {
+    console.log('este es un mensaje de error del nombre de perfil');
   // An error occurred
   // ...
-});
+  });

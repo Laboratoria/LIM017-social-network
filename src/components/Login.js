@@ -80,12 +80,20 @@ export const Login = () => {
   });// --------nuevos cambios--------
 
   viewLoginPage.querySelector('#buttonGoogle').addEventListener('click', () => {
-    signInWithGoogle().then((userCredential) => {
-      console.log(userCredential);
-      const user = userCredential.user;
-      localStorage.setItem('userEmail', user.email);
-      onNavigate('/home');
-    });
+    signInWithGoogle()
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        console.log(user.localStorage);
+        console.log(userCredential);
+        localStorage.setItem('userEmail', user.email);
+        onNavigate('/home');
+      });
+      /* .then((result) => {
+        const userGmail = user.photoURL;
+        user = result.user.uid;
+        document.getElementById('iconUser').setAttribute('src', userGmail.photoURL);
+      }); */
   });
   viewLoginPage.querySelector('#buttonBackHome').addEventListener('click', () => onNavigate('/'));
   return viewLoginPage;

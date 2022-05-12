@@ -3,6 +3,8 @@ import { onNavigate } from '../lib/application/controller.js';
 // eslint-disable-next-line import/no-cycle
 import { signOff } from '../lib/application/authFirebase.js';
 import { postCollection, onGetPosts } from '../lib/application/dataFirestore.js';
+import { getCurrentUser } from '../lib/application/init.js';
+/* import { getCurrentUser } from '../lib/application/init.js'; */
 
 export const Home = () => {
   const homePage = `
@@ -23,12 +25,18 @@ export const Home = () => {
       </section>
         <div id='box-comment'>
           <section class='abc'>
+            <div class="photoProfile">
+            <img id="iconUser"class="iconProfile" >          
+            </div>
             <form class='form' target="_blank">
+            
               <p>Cuentanos tu experiencia viajando:</p>
               <p><textarea  class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
               <input type="button" id='publish' value="Publicar">
               <input type="reset" id='deleteCamp' value="Borrar todo">
             </form>
+            <section id="showPost">
+            </section>
           </section>
       </div>
       <div id='post-Publish'>
@@ -42,30 +50,38 @@ export const Home = () => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const dataPost = doc.data();
-
       console.log(doc.data());
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-            <div>
-            <p>${dataPost.text} </p>
-            <p>${dataPost.author} </p>
-            </div>
+            <form class="postForm">
+                <div class="boxPerfil">
+                    <img class="perfil" src="${dataPost.photo}" alt="">
+                </div>
+                <div>
+                <p>${dataPost.date} </p>
+                <p>${dataPost.author} </p>
+                <p>${dataPost.nameUser} </p>
+                <p>${dataPost.text} </p>
+                </div>
+                <button>Delete</button>
+            </form>
             `;
     });
     postContainer.innerHTML = html;
   });
 
   /* ----------EVENTO PUBLICAR EL POST--------- */
-  viewHomePage.querySelector('#publish').addEventListener('click', () => {
+  const savePost = viewHomePage.querySelector('#publish')
+  savePost.addEventListener('click', (e) => {
+    e.preventDefault();
     const postBox = viewHomePage.querySelector('#comment-post').value; // Valor del post
-
     postCollection(postBox);
     postContainer.innerHTML = postBox;
     console.log(postBox);
-    /* const querySnapshot = await getPost(); */
-
-    /* console.log(querySnapshot); */
+    console.log(getCurrentUser);
+    savePost.reset();
   });
+  /* -------------ELIMINAR POST------------------- */
 
   /* --------BOTONES BARRA DE NAVEGACIÓN ---------*/
   viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {

@@ -239,3 +239,17 @@ comment-post :empty::before{
     display: none;
   }
 }
+
+.postForm{
+border: #2a7983;
+border: 8px;
+border-radius: 3px;
+background-color: #b7e0fb;
+margin-bottom: 5px;
+/* display: flex;
+align-items: center; */
+}
+/* .boxPerfil{
+display: flex;
+justify-content: center;
+} */

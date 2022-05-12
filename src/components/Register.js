@@ -61,6 +61,7 @@ export const Register = () => {
         messageVerificado.innerHTML = 'Usuario creado correctamente';
         console.log(user);
         modiedPerfil(nameValue.value);
+        console.log(modiedPerfil);
         sendEmailVerificationFirebase().then(() => {
       // eslint-disable-next-line no-alert
       alert('Ya se envio tu correo de verificación');
