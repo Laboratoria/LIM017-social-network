@@ -27,9 +27,9 @@ export const Register = () => {
     </form>
     <p id='messagePassword'></p>
     <p id='messageVerificado'></p>
-    <button id='buttonUserRegister' class='buttonHome'> Crear Ususario
+    <button id='buttonUserRegister' class='buttonHome'> Crear Ususario</button>
     <button id='buttonGoogle'> Iniciar con <img class='logo-Google' src='img/google.png'> </button>
-    <button id='buttonBackHome' class='buttonHome' >
+    <button id='buttonBackHome' class='buttonHome' ></button>
     </section>
   `;
 

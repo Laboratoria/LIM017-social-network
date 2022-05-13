@@ -8,8 +8,10 @@ import {
   onSnapshot,
   doc,
   Timestamp,
-  orderBy,
+  deleteDoc,
   query,
+  orderBy,
+  getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import {
   getAuth,
@@ -42,5 +44,5 @@ export const app = initializeApp(firebaseConfig);
 export const getCurrentUser = getAuth().currentUser;
 
 export {
-  getFirestore, collection, addDoc, getDocs, serverTimestamp, onSnapshot, doc,
+  getFirestore, collection, addDoc, getDocs, serverTimestamp, onSnapshot, doc, deleteDoc, getDoc,
 };

@@ -6,9 +6,11 @@ import {
   addDoc,
   getDocs,
   onSnapshot,
-  orderBy,
+  deleteDoc,
+  doc,
   query,
-  /* getCurrentUser, */
+  orderBy,
+  getDoc,
 } from './init.js'; // agregado
 
 export const db = getFirestore(app); // agregado
@@ -16,9 +18,6 @@ export const db = getFirestore(app); // agregado
 export const postCollection = async (postDescription) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
-      /* nameUser: getCurrentUser().displayName,
-      id: getCurrentUser().uid,
-      photo: getCurrentUser().photoURL, */
       text: postDescription,
       author: localStorage.getItem('userEmail'),
       like: [],
@@ -27,9 +26,20 @@ export const postCollection = async (postDescription) => {
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
-    console.error('Error adding document: ', e);
+    console.error('Error adding document: ');
   }
 };
-export const getPost = () => getDocs(collection(db, 'posts'));
+/* export const getPost = () => getDocs(collection(db, 'posts')); */
 
+export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
+
+export const getPostPublication = (id) => getDoc(doc(db, 'posts', id));
+
+// export const onGetPosts = () => console.log('onGetPosts'); //Cuando se traigan nuevos posts
+
+/* export const onGetPosts = onSnapshot(doc(db, 'posts'), (doc) => {
+    console.log('Data actual: ', doc.data());
+  }); */
 export const onGetPosts = (callback) => onSnapshot(query(collection(db, 'posts'), orderBy('date', 'desc')), callback);
+
+// const q = query(citiesRef, orderBy("name"), limit(3));

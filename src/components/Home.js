@@ -2,9 +2,9 @@
 import { onNavigate } from '../lib/application/controller.js';
 // eslint-disable-next-line import/no-cycle
 import { signOff } from '../lib/application/authFirebase.js';
-import { postCollection, onGetPosts } from '../lib/application/dataFirestore.js';
-import { getCurrentUser } from '../lib/application/init.js';
-/* import { getCurrentUser } from '../lib/application/init.js'; */
+import {
+  postCollection, onGetPosts, deletePost, getPostPublication,
+} from '../lib/application/dataFirestore.js';
 
 export const Home = () => {
   const homePage = `
@@ -28,7 +28,7 @@ export const Home = () => {
             <div class="photoProfile">
             <img id="iconUser"class="iconProfile" >          
             </div>
-            <form class='form' target="_blank">
+            <form id='form-post-publication' class='form' target="_blank">
             
               <p>Cuentanos tu experiencia viajando:</p>
               <p><textarea  class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
@@ -43,45 +43,72 @@ export const Home = () => {
       </div>
   `;
   const viewHomePage = document.createElement('div');
+
   viewHomePage.className = 'viewContainerHome';
   viewHomePage.innerHTML = homePage;
+
   const postContainer = viewHomePage.querySelector('#post-Publish'); // espacio para almacenar los post
+
   onGetPosts((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const dataPost = doc.data();
+      console.log(doc.id);
       console.log(doc.data());
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-            <form class="postForm">
-                <div class="boxPerfil">
-                    <img class="perfil" src="${dataPost.photo}" alt="">
-                </div>
-                <div>
-                <p>${dataPost.date} </p>
-                <p>${dataPost.author} </p>
-                <p>${dataPost.nameUser} </p>
-                <p>${dataPost.text} </p>
-                </div>
-                <button>Delete</button>
-            </form>
+            <div class='post-separacion'>
+            <p id='nameUserPost'>${dataPost.author} </p>
+            <p id='nameUserPost'>${dataPost.date} </p>
+            <p>${dataPost.text} </p>
+            <div>
+            <button data-id="${doc.id}" class='btn-Delete'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}>Eliminar</button>
+            <button data-id="${doc.id}" class='btn-edit'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}>Editar</button>
+            </div>
+            </div>
+            </div>
             `;
     });
     postContainer.innerHTML = html;
+/* ---------------------------------BOTON ELIMINAR POST ----------------------------------------- */
+    const btnDelete = postContainer.querySelectorAll('.btn-Delete'); // Lista de botones eliminar
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', async ({ target: { dataset } }) => {
+        try {
+          const confirmDelet = confirm('Estás seguro que quieres borrar?');
+          if (confirmDelet === true) {
+            await deletePost(dataset.id);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    });
+/* -----------------------------------------BOTON EDITAR----------------------------------------- */
+    const btnsEdit = postContainer.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const doc = await getPostPublication(e.target.dataset.id);
+        const dataOfPost = doc.data();
+        const postComment = viewHomePage.querySelector('#comment-post');
+        postComment.value = dataOfPost.text;
+        console.log(doc.data());
+        console.log(dataOfPost.text);
+      });
+    });
   });
 
   /* ----------EVENTO PUBLICAR EL POST--------- */
-  const savePost = viewHomePage.querySelector('#publish')
+  const savePost = viewHomePage.querySelector('#publish');
   savePost.addEventListener('click', (e) => {
     e.preventDefault();
     const postBox = viewHomePage.querySelector('#comment-post').value; // Valor del post
     postCollection(postBox);
-    postContainer.innerHTML = postBox;
+    viewHomePage.querySelector('#comment-post').value = '';
     console.log(postBox);
-    console.log(getCurrentUser);
-    savePost.reset();
+    /* savePost.reset(); */
   });
-  /* -------------ELIMINAR POST------------------- */
+
 
   /* --------BOTONES BARRA DE NAVEGACIÓN ---------*/
   viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
