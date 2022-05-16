@@ -70,7 +70,7 @@ export const Home = () => {
             `;
     });
     postContainer.innerHTML = html;
-/* ---------------------------------BOTON ELIMINAR POST ----------------------------------------- */
+    /* ---------------------------------BOTON ELIMINAR POST ----------------------------------------- */
     const btnDelete = postContainer.querySelectorAll('.btn-Delete'); // Lista de botones eliminar
     btnDelete.forEach((btn) => {
       btn.addEventListener('click', async ({ target: { dataset } }) => {
@@ -81,10 +81,11 @@ export const Home = () => {
           }
         } catch (error) {
           console.log(error);
+          console.log(error);
         }
       });
     });
-/* -----------------------------------------BOTON EDITAR----------------------------------------- */
+    /* -----------------------------------------BOTON EDITAR----------------------------------------- */
     const btnsEdit = postContainer.querySelectorAll('.btn-edit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
@@ -108,7 +109,6 @@ export const Home = () => {
     console.log(postBox);
     /* savePost.reset(); */
   });
-
 
   /* --------BOTONES BARRA DE NAVEGACIÓN ---------*/
   viewHomePage.querySelector('#buttonNavStart').addEventListener('click', () => {
