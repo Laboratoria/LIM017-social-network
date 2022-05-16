@@ -1,6 +1,10 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
-import {
+// eslint-disable-next-line import/no-unresolved
+export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+
+// import { firebaseConfig } from './config.js';
+
+export {
   getFirestore,
   collection,
   addDoc, getDocs,
@@ -13,19 +17,6 @@ import {
   orderBy,
   getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-  updateProfile,
-}
-  from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-
-import { firebaseConfig } from './config.js';
 
 export {
   getAuth,
@@ -36,13 +27,22 @@ export {
   signInWithPopup,
   signOut,
   updateProfile,
-  Timestamp,
-  orderBy,
-  query,
-};
-export const app = initializeApp(firebaseConfig);
-export const getCurrentUser = getAuth().currentUser;
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
-export {
-  getFirestore, collection, addDoc, getDocs, serverTimestamp, onSnapshot, doc, deleteDoc, getDoc,
-};
+// export {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   sendEmailVerification,
+//   GoogleAuthProvider,
+//   signInWithPopup,
+//   signOut,
+//   updateProfile,
+//   Timestamp,
+//   orderBy,
+//   query,
+// };
+
+// export {
+//   getFirestore, collection, addDoc, getDocs, serverTimestamp, onSnapshot, doc, deleteDoc, getDoc,
+// };

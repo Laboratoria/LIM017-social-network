@@ -1,10 +1,10 @@
 /* eslint-disable no-shadow */
 import {
-  app,
+  initializeApp,
+  getAuth,
   getFirestore,
   collection,
   addDoc,
-  getDocs,
   onSnapshot,
   deleteDoc,
   doc,
@@ -12,6 +12,11 @@ import {
   orderBy,
   getDoc,
 } from './init.js'; // agregado
+
+import { firebaseConfig } from './config.js';
+
+export const app = initializeApp(firebaseConfig);
+export const getCurrentUser = getAuth().currentUser;
 
 export const db = getFirestore(app); // agregado
 

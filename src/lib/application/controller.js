@@ -2,7 +2,6 @@
 import { Home } from '../../components/Home.js';
 import { Login } from '../../components/Login.js';
 import { Profile } from '../../components/Profile.js';
-import { Publications } from '../../components/Publications.js';
 import { Register } from '../../components/Register.js';
 import { Welcome } from '../../components/Welcome.js';
 
@@ -12,7 +11,6 @@ export const routes = {
   '/': Welcome,
   '/register': Register,
   '/login': Login,
-  '/publications': Publications,
   '/profile': Profile,
   '/home': Home,
 };
