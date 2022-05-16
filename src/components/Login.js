@@ -89,7 +89,7 @@ export const Login = () => {
         localStorage.setItem('userEmail', user.email);
         onNavigate('/home');
       });
-      /* .then((result) => {
+    /* .then((result) => {
         const userGmail = user.photoURL;
         user = result.user.uid;
         document.getElementById('iconUser').setAttribute('src', userGmail.photoURL);

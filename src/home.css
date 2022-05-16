@@ -13,11 +13,12 @@ a {
 }
 #box-comment{
   border-radius: 5px;
-  border: 1px solid #2a832a;
-  width: 80%;
+  border: 1px solid  #5878ca;;
+  box-shadow: 0 2px  #5878ca;
+  width:90%;
   margin: auto;
   margin-top: 10px;
-  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  /* background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); */
 }
 /*.header{
   margin: 0%;
@@ -29,34 +30,111 @@ a {
   height: 40%;
   
 }*/
-#publish, #deleteCamp{
-  background-color:#ffffff ;
-  border-radius: 10px;
-  display: flex; 
+.btn-Delete {
+  background: #92c7eb;
+  background-image: url('http://res.freestockphotos.biz/pictures/15/15107-illustration-of-a-red-close-button-pv.png');
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  width: 5px;
+  border-radius: 900px;
+  height: 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+}
+.btn-edit{
+  background: #92c7eb;
+  background-image: url('https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_960_720.png');
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  width: 5px;
+  border-radius: 900px;
+  height: 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+#btnModificacion{
+  margin-top: 0%;
+  margin-right: 0%;
+  display: flex;
+  justify-content: end;
+}
+#btn-coment{
+  display:flex;
+  justify-content: end;
+  margin-block-end: auto;
+}
+#deleteCamp{
+  display: inline-block;
+  padding: 5px 7px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #dd6d6d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+  margin: 10px;
+  margin-left: 5px;
+}
+#publish{
+  display: inline-block;
+  padding: 5px 7px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+  margin: 10px;
+}
+#reset-post{
+  display:flex;
+  justify-content:left;
+}
+#nameUserPost{
+  font-size: 17px;
+  text-align: left;
+  color: #5878ca;
 }
 .abc{
   /* margin-top: 30%; */
+  margin-top: 15px;
   font-size: 17px;
-  color:rebeccapurple;
+  color:rgb(0, 0, 0);
 }
 .form{
   display: flex;
 /*   align-content:center ; */
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   font-size: 20px;
 }
  #comment-post{
   height: 50px;
   border-radius: 8px;
-  border: solid 1px #C0BEBE;
+  border: solid 1px  #5878ca;
   font-size: 11px;
   padding-top: 8px;
   padding-left: 14px;
   color: #575353;
   outline-color: #575353;
+  box-shadow: 0 2px #999;
   background-color: white;
-  width: 206px;
+  width:85%;
   margin-bottom: 11px;
 
 }
@@ -69,31 +147,36 @@ comment-post :empty::before{
   content: "Write here...";
 }
 #post-Publish{
-  border: 1px solid #2a7983;
+  border: 1px solid #ffffff;
   width:98%;
   height: 90%;
   display: block;
   margin-left: 20px;
-  display:flex;
+  /* display:flex; */
   flex-direction: column;
   /* justify-content: center; */
-  margin: auto;
+  /* margin: auto; */
   margin-top: 15px;
 }
 .post-separacion{
-  border-color: #000000;
-  border-style: dashed;
-  border: 1px solid #2a7983;
-  width:80%;
-  height: 90%;
-  /* justify-content: center; */
-  margin-top:10px;
-  margin-left: 30px;
-
+  
+font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+color: #000000; 
+font-size: 18px; 
+font-weight: 400; 
+text-align: center; 
+background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+margin: 0 0 25px; 
+overflow: hidden; 
+padding: 20px; 
+border-radius: 35px 0px 35px 0px; 
+-moz-border-radius: 35px 0px 35px 0px; 
+-webkit-border-radius: 35px 0px 35px 0px; 
+border: 2px solid #5878ca;
 }
-#nameUserPost{
+/* #nameUserPost{
   justify-content: left;
-}
+} */
 
 .logo{
   max-height: 150px;
@@ -171,7 +254,7 @@ comment-post :empty::before{
   clear: both;
   max-height: 0;
   transition: max-height .2s ease-out;
-  background: linear-gradient(hsl(162, 42%, 61%), #277eff);;
+  background: linear-gradient(hsl(162, 42%, 61%), #277eff);
 
 }
 /* menu icon */
@@ -211,9 +294,9 @@ comment-post :empty::before{
 
 /* menu btn */
 
-.header .menu-btn {
+/* .header .menu-btn {
   display: none;
-}
+} */
 
 .header .menu-btn:checked ~ .menu {
   max-height: 240px;

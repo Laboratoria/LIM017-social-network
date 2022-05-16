@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable no-restricted-globals */
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../lib/application/controller.js';
 // eslint-disable-next-line import/no-cycle
@@ -31,9 +33,11 @@ export const Home = () => {
             <form id='form-post-publication' class='form' target="_blank">
             
               <p>Cuentanos tu experiencia viajando:</p>
-              <p><textarea  class="comment-post" id="comment-post" spellcheck="true" placeholder="Escribe aquí ..."></textarea></p>
+              <p><textarea  class="comment-post" id="comment-post" spellcheck="true" placeholder="Cuentanos ..."></textarea></p>
+              <div id='btn-coment'>
+              <input type="reset" id='deleteCamp' value="Borrar campo">
               <input type="button" id='publish' value="Publicar">
-              <input type="reset" id='deleteCamp' value="Borrar todo">
+              </div>
             </form>
             <section id="showPost">
             </section>
@@ -58,14 +62,13 @@ export const Home = () => {
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
             <div class='post-separacion'>
-            <p id='nameUserPost'>${dataPost.author} </p>
-            <p id='nameUserPost'>${dataPost.date} </p>
+            <div id='btnModificacion'>
+            <button data-id="${doc.id}" class='btn-Delete'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}></button>
+            <button data-id="${doc.id}" class='btn-edit'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}></button>
+            </div>
+            <p id='nameUserPost'>Usuario:  ${dataPost.author}</p>
+            <p id='nameDatePost'>Fecha: ${dataPost.date} </p>
             <p>${dataPost.text} </p>
-            <div>
-            <button data-id="${doc.id}" class='btn-Delete'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}>Eliminar</button>
-            <button data-id="${doc.id}" class='btn-edit'${dataPost.author === localStorage.getItem('userEmail') ? '' : 'disabled'}>Editar</button>
-            </div>
-            </div>
             </div>
             `;
     });
