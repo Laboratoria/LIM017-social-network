@@ -5,8 +5,8 @@ import { Home } from '../../src/components/Home.js';
 
 jest.mock('../../src/lib/application/init.js');
 
-describe('registerWithEmail', () => {
-  it('debería ser una función', () => {
+describe('boton cerrar sesion', () => {
+  it('debería cerrar sesion', () => {
     const viewHomePage = Home();
     viewHomePage.querySelector('#singOutBttn').dispatchEvent(new Event('click'));
     // expect(signOut).toHaveBeenCalledTimes(1);
