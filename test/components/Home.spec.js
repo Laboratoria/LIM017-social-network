@@ -4,8 +4,9 @@ import { Home } from '../../src/components/Home.js';
 // import { signOut } from '../../src/lib/application/init.js';
 
 jest.mock('../../src/lib/application/init.js');
+jest.mock('../../src/lib/application/dataFirestore.js');
 
-describe('registerWithEmail', () => {
+describe('cerrar sesion', () => {
   it('debería ser una función', () => {
     const viewHomePage = Home();
     viewHomePage.querySelector('#singOutBttn').dispatchEvent(new Event('click'));
