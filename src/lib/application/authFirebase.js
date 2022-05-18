@@ -14,7 +14,7 @@ import { getAuth,
   signOut,
   updateProfile,
 } from './init.js';
-import { app } from './init.js';
+import { app } from './dataFirestore.js';
 
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();

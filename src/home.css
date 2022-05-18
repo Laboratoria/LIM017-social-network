@@ -17,9 +17,30 @@ a {
   box-shadow: 0 2px  #5878ca;
   width:90%;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 10%;
   /* background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); */
 }
+.boxPerfil {
+  border-radius: 50%;
+  display: flex;
+  float: left;
+  width: 60%;
+  align-items: center;
+  /* align-content: center; */
+}
+.perfilPhoto{
+  width:15%;
+  height:15%;
+  border-radius:50%;
+margin-left: 0;
+display:flex ;
+}
+.infoDate {
+  display: flex;
+  justify-content: end;
+  color: #999;
+}
+
 /*.header{
   margin: 0%;
   position: absolute;
@@ -109,6 +130,10 @@ a {
   font-size: 17px;
   text-align: left;
   color: #5878ca;
+  /* margin: 5%; */
+}
+.nameUser{
+  margin: 5%;
 }
 .abc{
   /* margin-top: 30%; */
@@ -146,6 +171,16 @@ comment-post :empty::before{
   position: absolute;
   content: "Write here...";
 }
+
+.publicationPost{
+background-color: white;
+width: 100%;
+height:50%;
+padding: 3%;
+border-radius: 3px;
+font-size: 25px;
+}
+
 #post-Publish{
   border: 1px solid #ffffff;
   width:98%;
@@ -173,6 +208,9 @@ border-radius: 35px 0px 35px 0px;
 -moz-border-radius: 35px 0px 35px 0px; 
 -webkit-border-radius: 35px 0px 35px 0px; 
 border: 2px solid #5878ca;
+display: flex;
+align-content: center;
+flex-direction: column;
 }
 /* #nameUserPost{
   justify-content: left;
